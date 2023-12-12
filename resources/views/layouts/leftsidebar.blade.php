@@ -326,7 +326,20 @@
                 {{--  --}}
                 <li class="nav-main-heading">SETTINGS MANAGEMENT</li>
 
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                        <i class="nav-main-link-icon fa fa-bell"></i>
+                        <span class="nav-main-link-name">Announcements</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                        <i class="nav-main-link-icon fa fa-building"></i>
+                        <span class="nav-main-link-name">Company Details</span>
+                    </a>
+                </li>
 
+                
             </ul>
         </div>
         <!-- END Side Navigation -->
