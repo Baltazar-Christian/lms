@@ -39,6 +39,20 @@ Route::group(['middleware' => 'role:admin'], function () {
     //  Teachers routes
     Route::any('teachers', [AdminController::class, 'teachers'])->name('lms.teachers');
     Route::any('add-teacher', [AdminController::class, 'addTeacher'])->name('lms.add-teacher');
+    Route::any('save-teacher', [AdminController::class,'saveTeacher'])->name('lms.save-teacher');
+    Route::any('show-teacher/{id}', [AdminController::class,'showTeacher'])->name('lms.show-teacher');
+    Route::any('edit-teacher/{id}', [AdminController::class, 'editTeacher'])->name('lms.edit-teacher');
+    Route::any('update-teacher/{id}', [AdminController::class, 'updateTeacher'])->name('lms.update-teacher');
+    Route::any('delete-teacher/{id}', [AdminController::class, 'deleteTeacher'])->name('lms.delete-teacher');
+
+    //  Students routes
+    Route::any('students', [AdminController::class,'students'])->name('lms.students');
+    Route::any('add-student', [AdminController::class, 'addStudent'])->name('lms.add-student');
+    Route::any('save-student', [AdminController::class,'saveStudent'])->name('lms.save-student');
+    Route::any('show-student/{id}', [AdminController::class,'showStudent'])->name('lms.show-student');
+    Route::any('edit-student/{id}', [AdminController::class, 'editStudent'])->name('lms.edit-student');
+    Route::any('update-student/{id}', [AdminController::class, 'updateStudent'])->name('lms.update-student');
+    Route::any('delete-student/{id}', [AdminController::class, 'deleteStudent'])->name('lms.delete-student');
 
 });
 
