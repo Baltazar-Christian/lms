@@ -36,7 +36,7 @@ class UserManagementController extends Controller
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('lms.system-admins')->with('success', 'User created successfully');
     }
 
     public function show($id)
@@ -66,7 +66,7 @@ class UserManagementController extends Controller
             'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully');
+        return redirect()->route('lms.system-admins')->with('success', 'User updated successfully');
     }
 
     public function destroy($id)
@@ -74,6 +74,6 @@ class UserManagementController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully');
+        return redirect()->route('lms.system-admins')->with('success', 'User deleted successfully');
     }
 }
