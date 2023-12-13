@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserManagementController extends Controller
 {
@@ -31,6 +32,7 @@ class UserManagementController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'role'=>'administrator',
             'password' => bcrypt($request->input('password')),
         ]);
 
