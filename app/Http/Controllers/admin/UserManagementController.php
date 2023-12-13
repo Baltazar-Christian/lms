@@ -39,10 +39,11 @@ class UserManagementController extends Controller
         return redirect()->route('lms.system-admins')->with('success', 'User created successfully');
     }
 
-    public function show($id)
+    // For View System Administrator Details
+    public function showSystemAdmin($id)
     {
         $user = User::findOrFail($id);
-        return view('users.show', compact('user'));
+        return view('admin.system_admins.show', compact('user'));
     }
 
     public function edit($id)
