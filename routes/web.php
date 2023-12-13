@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\admin\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------

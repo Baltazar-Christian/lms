@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 
 class UserManagementController extends Controller
 {
+    // For All System Admins
     public function systemAdmins()
     {
         $users = User::all();
         return view('admin.system_admins.index', compact('users'));
     }
 
-    public function create()
+    // For Register System Admin
+    public function addSystemAdmin()
     {
-        return view('users.create');
+        return view('admin.system_admins.create');
     }
 
     public function store(Request $request)

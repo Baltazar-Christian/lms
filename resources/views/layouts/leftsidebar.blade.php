@@ -131,12 +131,12 @@
                     </a>
                     <ul class="nav-main-submenu">
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                            <a class="nav-main-link" href="{{ route('lms.add-system-admin') }}">
                                 <span class="nav-main-link-name">Register Admin</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                            <a class="nav-main-link" href="{{ route('lms.system-admins') }}">
                                 <span class="nav-main-link-name">Active Admins</span>
                             </a>
                         </li>
