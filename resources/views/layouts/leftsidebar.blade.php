@@ -212,32 +212,32 @@
                 <li class="nav-main-heading">ACADEMIC MANAGEMENT</li>
 
                 {{-- start of Institute Management --}}
-             <li class="nav-main-item">
-                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                    aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon fa fa-school"></i>
-                    <span class="nav-main-link-name">Institute Management</span>
-                </a>
-                <ul class="nav-main-submenu">
-              
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
-                                    <span class="nav-main-link-name"> Register Institute</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                    <span class="nav-main-link-name">Active Institute</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                    <span class="nav-main-link-name">InActive Institute</span>
-                                </a>
-                            </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
+                        aria-expanded="false" href="#">
+                        <i class="nav-main-link-icon fa fa-school"></i>
+                        <span class="nav-main-link-name">Institute Management</span>
+                    </a>
+                    <ul class="nav-main-submenu">
 
-                </ul>
-            </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                                <span class="nav-main-link-name"> Register Institute</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Active Institute</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">InActive Institute</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
                 {{-- ./ --}}
 
                 {{-- start of Modules Managements --}}
@@ -297,29 +297,29 @@
                         <span class="nav-main-link-name">Courses Management</span>
                     </a>
                     <ul class="nav-main-submenu">
-                  
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
-                                        <span class="nav-main-link-name"> Register Course</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Active Courses</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Pending Courses</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Blocked Courses</span>
-                                    </a>
-                                </li>
 
-                   
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                                <span class="nav-main-link-name"> Register Course</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Active Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Pending Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Blocked Courses</span>
+                            </a>
+                        </li>
+
+
 
                     </ul>
                 </li>
@@ -333,27 +333,27 @@
                         <span class="nav-main-link-name">Courses Management</span>
                     </a>
                     <ul class="nav-main-submenu">
-                  
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
-                                        <span class="nav-main-link-name"> Register Course</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Active Courses</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Pending Courses</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Blocked Courses</span>
-                                    </a>
-                                </li>                   
+
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                                <span class="nav-main-link-name"> Register Course</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Active Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Pending Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                <span class="nav-main-link-name">Blocked Courses</span>
+                            </a>
+                        </li>
 
                     </ul>
                 </li>
