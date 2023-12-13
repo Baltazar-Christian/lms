@@ -20,7 +20,7 @@ class UserManagementController extends Controller
         return view('admin.system_admins.create');
     }
 
-    public function store(Request $request)
+    public function saveSystemAdmin(Request $request)
     {
         $request->validate([
             'name' => 'required',
