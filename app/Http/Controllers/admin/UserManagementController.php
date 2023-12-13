@@ -46,13 +46,15 @@ class UserManagementController extends Controller
         return view('admin.system_admins.show', compact('user'));
     }
 
-    public function edit($id)
+    // For Edit System Admin
+    public function editSystemAdmin($id)
     {
         $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
+        return view('admin.system_admins.edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    // For Update System Admin
+    public function updateSystemAdmin(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
@@ -70,7 +72,8 @@ class UserManagementController extends Controller
         return redirect()->route('lms.system-admins')->with('success', 'User updated successfully');
     }
 
-    public function destroy($id)
+    // For Delete System Admin
+    public function deleteSystemAdmin($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
