@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class UserManagementController extends Controller
 {
-    public function index()
+    public function systemAdmins()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view('admin.system_admins.index', compact('users'));
     }
 
     public function create()

@@ -24,6 +24,18 @@ Route::get('/', function () {
 Route::group(['middleware' => 'role:admin'], function () {
     // Admin routes
     Route::any('admin-dashboard', [AdminController::class, 'dashboard'])->name('lms.admin-dashboard');
+
+
+    //  System Admins routes
+    Route::any('system-admins', [UserManagementController::class,'systemAdmins'])->name('lms.system-admins');
+    Route::any('add-system-admin', [UserManagementController::class, 'addSystemAdmin'])->name('lms.add-system-admin');
+    Route::any('edit-system-admin/{id}', [UserManagementController::class, 'editSystemAdmin'])->name('lms.edit-system-admin');
+    Route::any('delete-system-admin/{id}', [UserManagementController::class, 'deleteSystemAdmin'])->name('lms.delete-system-admin');
+
+    //  Teachers routes
+    Route::any('teachers', [AdminController::class, 'teachers'])->name('lms.teachers');
+    Route::any('add-teacher', [AdminController::class, 'addTeacher'])->name('lms.add-teacher');
+
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
