@@ -96,7 +96,7 @@
 
 <!-- Hero Section -->
 <div class="jumbotron text-center">
-    <h1 class="display-4">Welcome to Your LMS</h1>
+    <h1 class="display-4">Welcome to LMS</h1>
     <p class="lead">Learn, Grow, Succeed</p>
     <a class="btn btn-primary btn-lg" href="#features" role="button">Explore Features</a>
 </div>
