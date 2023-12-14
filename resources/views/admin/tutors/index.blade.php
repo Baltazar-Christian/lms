@@ -40,9 +40,9 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.show-system-admin', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.edit-system-admin', $user->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('lms.delete-system-admin', $user->id) }}" method="POST" style="display: inline-block;">
+                    <a href="{{ route('lms.show-tutor', $user->id) }}" class="btn btn-info">View</a>
+                    <a href="{{ route('lms.edit-tutor', $user->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('lms.delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
