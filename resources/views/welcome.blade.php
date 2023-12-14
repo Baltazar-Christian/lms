@@ -39,7 +39,7 @@
         }
 
         .cta-section {
-            background-color: #007bff;
+            background-color: #a7bbef;
             color: #ffffff;
             padding: 80px 0;
         }
