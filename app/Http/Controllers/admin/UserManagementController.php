@@ -135,7 +135,7 @@ class UserManagementController extends Controller
     public function editTutor($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.system_admins.edit', compact('user'));
+        return view('admin.tutors.edit', compact('user'));
     }
 
     // For Update System Admin
@@ -154,7 +154,7 @@ class UserManagementController extends Controller
             'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
-        return redirect()->route('lms.tutors')->with('success', 'User updated successfully');
+        return redirect()->route('lms.tutors')->with('success', 'Tutor was updated successfully');
     }
 
     // For Delete System Admin
@@ -163,7 +163,7 @@ class UserManagementController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('lms.tutors')->with('success', 'User deleted successfully');
+        return redirect()->route('lms.tutors')->with('success', 'Tutor was deleted successfully');
     }
 
 }
