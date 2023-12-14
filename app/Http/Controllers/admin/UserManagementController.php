@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class UserManagementController extends Controller
 {
+    // ========================================================================
+    // FOR STYSTEM ADMINS
+    // =======================================================================
+
+
     // For All System Admins
     public function systemAdmins()
     {
@@ -80,4 +85,85 @@ class UserManagementController extends Controller
 
         return redirect()->route('lms.system-admins')->with('success', 'User deleted successfully');
     }
+
+
+    // ========================================================================
+    // FOR TUTORS
+    // =======================================================================
+
+
+
+    // For All Tutors
+    public function tutors()
+    {
+        $users = User::all();
+        return view('admin.tutors.index', compact('users'));
+    }
+
+    // For Register System Admin
+    public function addTutor()
+    {
+        return view('admin.tutors.create');
+    }
+
+    public function saveTutor(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+        ]);
+
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'role'=>'administrator',
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        return redirect()->route('lms.tutors')->with('success', 'User created successfully');
+    }
+
+    // For View System Administrator Details
+    public function showTutor($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.system_admins.show', compact('user'));
+    }
+
+    // For Edit System Admin
+    public function editTutor($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.system_admins.edit', compact('user'));
+    }
+
+    // For Update System Admin
+    public function updateTutor(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|min:6',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
+        ]);
+
+        return redirect()->route('lms.tutors')->with('success', 'User updated successfully');
+    }
+
+    // For Delete System Admin
+    public function deleteTutor($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('lms.tutors')->with('success', 'User deleted successfully');
+    }
+
 }
