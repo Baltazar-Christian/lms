@@ -96,7 +96,7 @@ class UserManagementController extends Controller
     // For All Tutors
     public function tutors()
     {
-        $users = User::all();
+        $users = User::where('role','tutor')->get();
         return view('admin.tutors.index', compact('users'));
     }
 
@@ -117,18 +117,18 @@ class UserManagementController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'role'=>'administrator',
+            'role'=>'tutor',
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('lms.tutors')->with('success', 'User created successfully');
+        return redirect()->route('lms.tutors')->with('success', 'Tutor was registered successfully');
     }
 
     // For View System Administrator Details
     public function showTutor($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.system_admins.show', compact('user'));
+        return view('admin.tutors.show', compact('user'));
     }
 
     // For Edit System Admin
