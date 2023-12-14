@@ -100,7 +100,7 @@ class UserManagementController extends Controller
         return view('admin.tutors.index', compact('users'));
     }
 
-    // For Register System Admin
+    // For Register Tutor
     public function addTutor()
     {
         return view('admin.tutors.create');
