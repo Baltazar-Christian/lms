@@ -11,7 +11,7 @@
                     <h5>Tutors List</h5>
                 </div>
                 <div class="col-6">
-                    <a href="{{ route('lms.add-tutor') }}" class="btn btn-success float-end">Register Admin</a>
+                    <a href="{{ route('lms.add-tutor') }}" class="btn btn-success float-end">Register Tutor</a>
                 </div>
             </div>
         </div>
