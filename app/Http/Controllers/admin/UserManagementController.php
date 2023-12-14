@@ -167,13 +167,13 @@ class UserManagementController extends Controller
     }
 
     // ========================================================================
-    // FOR TUTOR
+    // FOR STUDENTS
     // =======================================================================
 
     // For All Students
     public function students()
     {
-        $users = User::where('role','tutor')->get();
+        $users = User::where('role','student')->get();
         return view('admin.students.index', compact('users'));
     }
 
@@ -195,11 +195,11 @@ class UserManagementController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'role'=>'tutor',
+            'role'=>'student',
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('lms.students')->with('success', 'Tutor was registered successfully');
+        return redirect()->route('lms.students')->with('success', 'Student was registered successfully');
     }
 
     // For View Student
