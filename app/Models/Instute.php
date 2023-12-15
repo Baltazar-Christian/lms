@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Module;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Instute extends Model
 {
@@ -19,6 +20,12 @@ class Instute extends Model
             'website',
             'code',
             'status',
-        // Add more fields as needed
     ];
+
+    public function modules()
+    {
+        return $this->belongsToMany(Module::class)
+            ->withPivot('status', 'created_by')
+            ->withTimestamps();
+    }
 }
