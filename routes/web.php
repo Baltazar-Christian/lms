@@ -54,6 +54,9 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::any('update-student/{id}', [UserManagementController::class, 'updateStudent'])->name('lms.update-student');
     Route::any('delete-student/{id}', [UserManagementController::class, 'deleteStudent'])->name('lms.delete-student');
 
+
+    // For Institutes
+
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
