@@ -14,6 +14,12 @@ class InstituteController extends Controller
         return view('admin.institutes.index', compact('institutes'));
     }
 
+    public function show($id)
+    {
+        $institute = Instute::findOrFail($id);
+        return view('admin.institutes.show', compact('institute'));
+    }
+
     public function create()
     {
         return view('admin.institutes.create');
@@ -28,11 +34,11 @@ class InstituteController extends Controller
             'contact_address' => 'nullable|string',
             'contact_phone' => 'nullable|string',
             'contact_email' => 'nullable|email',
-            'website' => 'nullable|url',
-            'code' => 'required|unique:institutes',
+
+            'code' => 'required|unique:instutes',
             'status' => 'required|in:active,blocked',
         ]);
-
+ //'website' => 'nullable|url',
         // Handle file upload
         if ($request->hasFile('logo')) {
             $logoPath = $request->file('logo')->store('logos', 'public');
