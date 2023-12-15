@@ -10,13 +10,13 @@ class InstituteController extends Controller
 {
     public function index()
     {
-        $institutes = Institute::all();
+        $institutes = Instute::all();
         return view('admin.institutes.index', compact('institutes'));
     }
 
     public function create()
     {
-        return view('institutes.create');
+        return view('admin.institutes.create');
     }
 
     public function store(Request $request)
