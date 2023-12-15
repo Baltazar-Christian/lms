@@ -35,6 +35,8 @@
                             <td>{{ $institute->code }}</td>
                             <td>{{ $institute->status }}</td>
                             <td>
+                                <a href="{{ route('institutes.show', $institute->id) }}" class="btn btn-sm btn-primary">Show</a>
+
                                 <a href="{{ route('institutes.edit', $institute->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <form action="{{ route('institutes.destroy', $institute->id) }}" method="POST" class="d-inline">
                                     @csrf

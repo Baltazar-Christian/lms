@@ -75,8 +75,8 @@ class InstituteController extends Controller
             'contact_address' => 'nullable|string',
             'contact_phone' => 'nullable|string',
             'contact_email' => 'nullable|email',
-            'website' => 'nullable|url',
-            'code' => 'required|unique:institutes,code,' . $id,
+            // 'website' => 'nullable|url',
+            'code' => 'required|unique:instutes,code,' . $id,
             'status' => 'required|in:active,blocked',
         ]);
 

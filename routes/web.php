@@ -68,6 +68,8 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::put('/institutes/{id}', [InstituteController::class, 'update'])->name('institutes.update');
         // Delete Institute
         Route::delete('/institutes/{id}', [InstituteController::class, 'destroy'])->name('institutes.destroy');
+        // For Show Institute Details
+        Route::get('/institutes/{id}', [InstituteController::class, 'show'])->name('institutes.show');
 
 });
 
