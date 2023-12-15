@@ -221,12 +221,12 @@
                     <ul class="nav-main-submenu">
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                            <a class="nav-main-link" href="{{ route('institutes.create') }}">
                                 <span class="nav-main-link-name"> Register Institute</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                            <a class="nav-main-link" href="{{ route('institutes.index') }}">
                                 <span class="nav-main-link-name">Active Institute</span>
                             </a>
                         </li>
