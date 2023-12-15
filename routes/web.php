@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\admin\CoursesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\ModuleController;
+use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\UserManagementController;
 
@@ -83,13 +84,13 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::any('delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.delete-module');
 
     //For Courses
-    Route::any('courses', [CoursesController::class,'index'])->name('lms.courses');
-    Route::any('add-course', [CoursesController::class, 'create'])->name('lms.add-course');
-    Route::any('save-course', [CoursesController::class,'store'])->name('lms.save-course');
-    Route::any('show-course/{id}', [CoursesController::class,'show'])->name('lms.show-course');
-    Route::any('edit-course/{id}', [CoursesController::class, 'edit'])->name('lms.edit-course');
-    Route::any('update-course/{id}', [CoursesController::class, 'update'])->name('lms.update-course');
-    Route::any('delete-course/{id}', [CoursesController::class, 'destroy'])->name('lms.delete-course');
+    Route::any('courses', [CourseController::class,'index'])->name('lms.courses');
+    Route::any('add-course', [CourseController::class, 'create'])->name('lms.add-course');
+    Route::any('save-course', [CourseController::class,'store'])->name('lms.save-course');
+    Route::any('show-course/{id}', [CourseController::class,'show'])->name('lms.show-course');
+    Route::any('edit-course/{id}', [CourseController::class, 'edit'])->name('lms.edit-course');
+    Route::any('update-course/{id}', [CourseController::class, 'update'])->name('lms.update-course');
+    Route::any('delete-course/{id}', [CourseController::class, 'destroy'])->name('lms.delete-course');
 
 
 
