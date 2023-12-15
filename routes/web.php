@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\admin\ModuleController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\UserManagementController;
 
@@ -58,18 +59,29 @@ Route::group(['middleware' => 'role:admin'], function () {
 
     // For Institutes
 
-        // Index Page - List of Institutes
-        Route::get('/institutes', [InstituteController::class, 'index'])->name('institutes.index');
-        // Create Institute Form
-        Route::get('/institutes/create', [InstituteController::class, 'create'])->name('institutes.create');
-        Route::post('/institutes', [InstituteController::class, 'store'])->name('institutes.store');
-        // Edit Institute Form
-        Route::get('/institutes/{id}/edit', [InstituteController::class, 'edit'])->name('institutes.edit');
-        Route::put('/institutes/{id}', [InstituteController::class, 'update'])->name('institutes.update');
-        // Delete Institute
-        Route::delete('/institutes/{id}', [InstituteController::class, 'destroy'])->name('institutes.destroy');
-        // For Show Institute Details
-        Route::get('/institutes/{id}', [InstituteController::class, 'show'])->name('institutes.show');
+    // Index Page - List of Institutes
+    Route::get('/institutes', [InstituteController::class, 'index'])->name('institutes.index');
+    // Create Institute Form
+    Route::get('/institutes/create', [InstituteController::class, 'create'])->name('institutes.create');
+    Route::post('/institutes', [InstituteController::class, 'store'])->name('institutes.store');
+    // Edit Institute Form
+    Route::get('/institutes/{id}/edit', [InstituteController::class, 'edit'])->name('institutes.edit');
+    Route::put('/institutes/{id}', [InstituteController::class, 'update'])->name('institutes.update');
+    // Delete Institute
+    Route::delete('/institutes/{id}', [InstituteController::class, 'destroy'])->name('institutes.destroy');
+    // For Show Institute Details
+    Route::get('/institutes/{id}', [InstituteController::class, 'show'])->name('institutes.show');
+
+    //For Modules 
+    Route::any('modules', [ModuleController::class,'index'])->name('lms.modules');
+    Route::any('add-module', [ModuleController::class, 'create'])->name('lms.add-module');
+    Route::any('save-module', [ModuleController::class,'store'])->name('lms.save-module');
+    Route::any('show-module/{id}', [ModuleController::class,'show'])->name('lms.show-module');
+    Route::any('edit-module/{id}', [ModuleController::class, 'edit'])->name('lms.edit-module');
+    Route::any('update-module/{id}', [ModuleController::class, 'updateStudent'])->name('lms.update-module');
+    Route::any('delete-module/{id}', [ModuleController::class, 'deleteStudent'])->name('lms.delete-student');
+
+
 
 });
 
