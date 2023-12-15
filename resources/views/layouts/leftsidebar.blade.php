@@ -249,41 +249,21 @@
                     </a>
                     <ul class="nav-main-submenu">
                         {{-- For Active Modules --}}
-                        <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                                aria-expanded="false" href="#">
-                                <i class="nav-main-link-icon fa fa-book"></i>
-                                <span class="nav-main-link-name">Active Modules</span>
-                            </a>
-                            <ul class="nav-main-submenu">
+                    
+                           
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                                    <a class="nav-main-link" href="{{ route('lms.modules') }}">
                                         <span class="nav-main-link-name"> Register Module</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                                    <a class="nav-main-link" href="">
                                         <span class="nav-main-link-name">Active Mudules</span>
                                     </a>
                                 </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                        <span class="nav-main-link-name">Blocked Admins</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
+                      
                         {{-- ./ --}}
 
-                        {{-- For InActive Modules --}}
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_store_home.html">
-                                <i class="nav-main-link-icon fa fa-book"></i>
-                                <span class="nav-main-link-name">InActive Modules</span>
-                            </a>
-                        </li>
-                        {{-- ./ --}}
 
                     </ul>
                 </li>
