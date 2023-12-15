@@ -10,15 +10,15 @@ class Instute extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'logo',
-        'description',
-        'contact_address',
-        'contact_phone',
-        'contact_email',
-        'website',
-        'code',
-        'status',
+            'name',
+            'logo',
+            'description',
+            'contact_address',
+            'contact_phone',
+            'contact_email',
+            'website',
+            'code',
+            'status',
         // Add more fields as needed
     ];
 }
