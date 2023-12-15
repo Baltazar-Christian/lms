@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
     <h1>Modules</h1>
 
-    <a href="{{ route('modules.create') }}" class="btn btn-primary">Create Module</a>
+    <a href="{{ route('lms.add-module') }}" class="btn btn-primary">Create Module</a>
 
     <table class="table mt-3">
         <thead>
@@ -23,8 +23,8 @@
                     <td>{{ $module->status }}</td>
                     <td>{{ $module->created_by }}</td>
                     <td>
-                        <a href="{{ route('modules.edit', $module->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('modules.destroy', $module->id) }}" method="post" style="display: inline-block">
+                        <a href="{{ route('lms.edit-module', $module->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('lms.delete-module', $module->id) }}" method="post" style="display: inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
