@@ -1,30 +1,47 @@
-<!-- resources/views/modules/edit.blade.php -->
-
-@extends('layouts.app')
+@php
+    $selectedInstitutes = $module->institutes->pluck('id')->toArray();
+@endphp
+@extends('layouts.master')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 @section('content')
-    <h1>Edit Module</h1>
+    <div class="container">
+        <h1 class="mb-4">Edit Module</h1>
 
-    <form action="{{ route('lms.update-module', $module->id) }}" method="post">
-        @csrf
-        @method('PUT')
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ route('lms.update-module', $module->id) }}" method="post">
+                    @csrf
+                    @method('PUT')
 
-        <div class="form-group">
-            <label for="name">Module Name</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{ $module->name }}" required>
+                    <div class="form-group">
+                        <label for="name">Module Name</label>
+                        <input type="text" name="name" id="name" class="form-control" value="{{ $module->name }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Institutes</label>
+                        <div>
+                            @foreach ($institutes as $institute)
+                                <div class="form-check">
+                                    <input type="checkbox" name="institutes[]" id="institute{{ $institute->id }}" value="{{ $institute->id }}" {{ in_array($institute->id, $selectedInstitutes) ? 'checked' : '' }}>
+                                    <label for="institute{{ $institute->id }}">{{ $institute->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary">Update Module</button>
+                </form>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label for="institutes">Select Institutes</label>
-            <select name="institutes[]" id="institutes" class="form-control" multiple required>
-                @foreach ($institutes as $institute)
-                    <option value="{{ $institute->id }}" {{ $module->institutes->contains($institute->id) ? 'selected' : '' }}>
-                        {{ $institute->name }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Update Module</button>
-    </form>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#institutes').selectpicker();
+        });
+    </script>
 @endsection

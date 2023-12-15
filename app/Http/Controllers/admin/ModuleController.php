@@ -39,12 +39,12 @@ class ModuleController extends Controller
         $module = Module::create($moduleData);
 
         // Attach institutes to the module
-        // $module->institutes()->attach($request->input('institutes'), [
-        //     'status' => 'active',
-        //     'created_by' => Auth::id(),
-        // ]);
+        $module->institutes()->attach($request->input('institutes'), [
+            'status' => 'active',
+            'created_by' => Auth::id(),
+        ]);
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module created successfully');
+        return redirect()->route('lms.modules')->with('success', 'Module created successfully');
     }
 
     public function edit($id)
@@ -52,6 +52,13 @@ class ModuleController extends Controller
         $module = Module::findOrFail($id);
         $institutes = Instute::all();
         return view('admin.modules.edit', compact('module', 'institutes'));
+    }
+
+    public function show($id)
+    {
+        $module = Module::findOrFail($id);
+        $institutes = Instute::all();
+        return view('admin.modules.show', compact('module', 'institutes'));
     }
 
     public function update(Request $request, $id)
@@ -77,7 +84,7 @@ class ModuleController extends Controller
             'created_by' => Auth::id(),
         ]);
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module updated successfully');
+        return redirect()->route('lms.modules')->with('success', 'Module updated successfully');
     }
 
     public function destroy($id)
