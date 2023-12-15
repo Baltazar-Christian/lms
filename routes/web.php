@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CoursesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
@@ -80,6 +81,15 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::any('edit-module/{id}', [ModuleController::class, 'edit'])->name('lms.edit-module');
     Route::any('update-module/{id}', [ModuleController::class, 'update'])->name('lms.update-module');
     Route::any('delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.delete-module');
+
+    //For Courses
+    Route::any('courses', [CoursesController::class,'index'])->name('lms.courses');
+    Route::any('add-course', [CoursesController::class, 'create'])->name('lms.add-course');
+    Route::any('save-course', [CoursesController::class,'store'])->name('lms.save-course');
+    Route::any('show-course/{id}', [CoursesController::class,'show'])->name('lms.show-course');
+    Route::any('edit-course/{id}', [CoursesController::class, 'edit'])->name('lms.edit-course');
+    Route::any('update-course/{id}', [CoursesController::class, 'update'])->name('lms.update-course');
+    Route::any('delete-course/{id}', [CoursesController::class, 'destroy'])->name('lms.delete-course');
 
 
 

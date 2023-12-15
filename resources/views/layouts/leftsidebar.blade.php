@@ -279,12 +279,12 @@
                     <ul class="nav-main-submenu">
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
                                 <span class="nav-main-link-name"> Register Course</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
                                 <span class="nav-main-link-name">Active Courses</span>
                             </a>
                         </li>
