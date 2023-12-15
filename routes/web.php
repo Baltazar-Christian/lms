@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\UserManagementController;
 
 /*
@@ -56,6 +57,17 @@ Route::group(['middleware' => 'role:admin'], function () {
 
 
     // For Institutes
+
+        // Index Page - List of Institutes
+        Route::get('/institutes', [InstituteController::class, 'index'])->name('institutes.index');
+        // Create Institute Form
+        Route::get('/institutes/create', [InstituteController::class, 'create'])->name('institutes.create');
+        Route::post('/institutes', [InstituteController::class, 'store'])->name('institutes.store');
+        // Edit Institute Form
+        Route::get('/institutes/{id}/edit', [InstituteController::class, 'edit'])->name('institutes.edit');
+        Route::put('/institutes/{id}', [InstituteController::class, 'update'])->name('institutes.update');
+        // Delete Institute
+        Route::delete('/institutes/{id}', [InstituteController::class, 'destroy'])->name('institutes.destroy');
 
 });
 
