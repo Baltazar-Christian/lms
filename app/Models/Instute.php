@@ -24,7 +24,7 @@ class Instute extends Model
 
     public function modules()
     {
-        return $this->belongsToMany(Module::class)
+        return $this->belongsToMany(Module::class, 'institute_module')
             ->withPivot('status', 'created_by')
             ->withTimestamps();
     }

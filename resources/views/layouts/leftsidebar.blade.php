@@ -249,19 +249,19 @@
                     </a>
                     <ul class="nav-main-submenu">
                         {{-- For Active Modules --}}
-                    
-                           
+
+
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.modules') }}">
+                                    <a class="nav-main-link" href="{{ route('lms.add-module') }}">
                                         <span class="nav-main-link-name"> Register Module</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.add-module') }}">
+                                    <a class="nav-main-link" href="{{ route('lms.modules') }}">
                                         <span class="nav-main-link-name">Active Mudules</span>
                                     </a>
                                 </li>
-                      
+
                         {{-- ./ --}}
 
 

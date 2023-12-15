@@ -28,7 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps();
 
-            $table->foreign('institute_id')->references('id')->on('institutes')->onDelete('cascade');
+            $table->foreign('institute_id')->references('id')->on('instutes')->onDelete('cascade');
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
         });

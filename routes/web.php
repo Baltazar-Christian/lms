@@ -72,14 +72,14 @@ Route::group(['middleware' => 'role:admin'], function () {
     // For Show Institute Details
     Route::get('/institutes/{id}', [InstituteController::class, 'show'])->name('institutes.show');
 
-    //For Modules 
+    //For Modules
     Route::any('modules', [ModuleController::class,'index'])->name('lms.modules');
     Route::any('add-module', [ModuleController::class, 'create'])->name('lms.add-module');
     Route::any('save-module', [ModuleController::class,'store'])->name('lms.save-module');
     Route::any('show-module/{id}', [ModuleController::class,'show'])->name('lms.show-module');
     Route::any('edit-module/{id}', [ModuleController::class, 'edit'])->name('lms.edit-module');
     Route::any('update-module/{id}', [ModuleController::class, 'update'])->name('lms.update-module');
-    Route::any('delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.delete-student');
+    Route::any('delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.delete-module');
 
 
 

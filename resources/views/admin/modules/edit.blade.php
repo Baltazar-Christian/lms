@@ -5,7 +5,7 @@
 @section('content')
     <h1>Edit Module</h1>
 
-    <form action="{{ route('modules.update', $module->id) }}" method="post">
+    <form action="{{ route('lms.update-module', $module->id) }}" method="post">
         @csrf
         @method('PUT')
 

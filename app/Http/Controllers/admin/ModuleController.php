@@ -39,10 +39,10 @@ class ModuleController extends Controller
         $module = Module::create($moduleData);
 
         // Attach institutes to the module
-        $module->institutes()->attach($request->input('institutes'), [
-            'status' => 'active',
-            'created_by' => Auth::id(),
-        ]);
+        // $module->institutes()->attach($request->input('institutes'), [
+        //     'status' => 'active',
+        //     'created_by' => Auth::id(),
+        // ]);
 
         return redirect()->route('admin.modules.index')->with('success', 'Module created successfully');
     }

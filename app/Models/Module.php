@@ -11,9 +11,10 @@ class Module extends Model
     use HasFactory;
     protected $fillable = ['name', 'status', 'created_by'];
 
+
     public function institutes()
     {
-        return $this->belongsToMany(Instute::class)
+        return $this->belongsToMany(Instute::class, 'institute_module')
             ->withPivot('status', 'created_by')
             ->withTimestamps();
     }
