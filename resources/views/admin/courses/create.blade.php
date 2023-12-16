@@ -35,6 +35,11 @@
             </div>
 
             <div class="form-group">
+                <label for="title">Slug</label>
+                <input type="text" name="slug" id="slug" class="form-control" required>
+            </div>
+
+            <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
             </div>

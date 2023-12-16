@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Course;
+use App\Models\Module;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -46,7 +47,7 @@ class CourseController extends Controller
 
         Course::create($request->all());
 
-        return redirect()->route('courses.index')->with('success', 'Course created successfully.');
+        return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
     }
 
     public function show(Course $course)
