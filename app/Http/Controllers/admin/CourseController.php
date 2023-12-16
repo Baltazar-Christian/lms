@@ -68,7 +68,6 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'slug' => 'required|string|unique:courses,slug,' . $course->id,
             'price' => 'required|numeric',
             'duration_in_minutes' => 'required|integer',
             'is_published' => 'boolean',

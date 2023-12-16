@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('duration_in_minutes');
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
+            $table->string('cover_image');
             $table->timestamps();
         });
     }
