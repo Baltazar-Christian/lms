@@ -10,15 +10,16 @@
             @csrf
 
             {{-- Include validation errors if any --}}
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+            @include('partials.errors')
+
+            <div class="form-group">
+                <label for="module_id">Select Module</label>
+                <select name="module_id" id="module_id" class="form-control" required>
+                    @foreach ($modules as $module)
+                        <option value="{{ $module->id }}">{{ $module->name }}</option>
                     @endforeach
-                </ul>
+                </select>
             </div>
-        @endif
 
             <div class="form-group">
                 <label for="title">Title</label>
