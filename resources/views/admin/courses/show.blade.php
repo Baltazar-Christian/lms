@@ -11,7 +11,6 @@
         @endif
         </div>
 
-        {{ $course->cover_image}}
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Description:</strong> {{ $course->description }}</p>
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Price:</strong> ${{ $course->price }}</p>
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Duration (minutes):</strong> {{ $course->duration_in_minutes }} minutes</p>
