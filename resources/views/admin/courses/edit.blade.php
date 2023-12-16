@@ -5,7 +5,7 @@
 @section('content')
     <h1>Edit Course</h1>
 
-    <form action="{{ route('courses.update', $course->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('lms.update-course', $course->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

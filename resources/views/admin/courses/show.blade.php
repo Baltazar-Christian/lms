@@ -14,9 +14,9 @@
         <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="Course Cover Image">
     @endif
 
-    <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-warning">Edit Course</a>
+    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning">Edit Course</a>
 
-    <form action="{{ route('courses.destroy', $course->id) }}" method="post" style="display: inline-block">
+    <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
