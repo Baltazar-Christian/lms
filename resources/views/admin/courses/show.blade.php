@@ -5,9 +5,12 @@
 
         <h1 style="color: #333; font-family: 'Arial', sans-serif; margin-bottom: 20px;">{{ $course->title }}</h1>
 
-        @if ($course->cover_image)
+        <div class="col-5 mx-auto">
+            @if ($course->cover_image)
             <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
         @endif
+        </div>
+
         {{ $course->cover_image}}
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Description:</strong> {{ $course->description }}</p>
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Price:</strong> ${{ $course->price }}</p>

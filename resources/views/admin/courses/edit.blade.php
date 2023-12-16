@@ -8,7 +8,7 @@
         <form action="{{ route('lms.update-course', $course->id) }}" method="post" enctype="multipart/form-data">
 
             @csrf
-            @method('PUT')
+            {{-- @method('PUT') --}}
 
             {{-- Include validation errors if any --}}
             @if ($errors->any())
@@ -56,10 +56,13 @@
 
             <div class="form-group">
                 <label for="cover_image" style="font-weight: bold;">Course Cover Image</label>
+                <br>
                 <input type="file" name="cover_image" id="cover_image" class="form-control-file">
             </div>
 
-            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update Course</button>
+            <br>
+
+            <button type="submit" class="btn btn-primary float-end" style="margin-top: 20px;">Update Course</button>
         </form>
     </div>
 @endsection

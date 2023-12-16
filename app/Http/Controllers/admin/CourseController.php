@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -38,10 +39,8 @@ class CourseController extends Controller
 
         // Handle cover image upload and storage
         if ($request->hasFile('cover_image')) {
-            $coverImage = $request->file('cover_image');
-            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
+            $imageName= $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
             $request->merge(['cover_image' => $imageName]);
         }
 
@@ -63,8 +62,9 @@ class CourseController extends Controller
         return view('admin.courses.edit', $data);
     }
 
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
+        // Validate the incoming request data
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -75,9 +75,12 @@ class CourseController extends Controller
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Find the course by its ID
+        $course = Course::findOrFail($id);
+
         // Handle cover image update
         if ($request->hasFile('cover_image')) {
-            // Delete the old cover image if exists
+            // Delete the old cover image if it exists
             if ($course->cover_image) {
                 Storage::disk('public')->delete('covers/' . $course->cover_image);
             }
@@ -87,11 +90,24 @@ class CourseController extends Controller
             $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
             $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
+            // Update the request data to include the new cover image name
             $request->merge(['cover_image' => $imageName]);
+
+            // dd( $request->merge(['cover_image' => $imageName]));
         }
 
-        $course->update($request->all());
+        // Update the course with the merged request data
+        $course->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'duration_in_minutes' => $request->input('duration_in_minutes'),
+            'is_published' => $request->input('is_published'),
+            'published_at' => $request->input('published_at'),
+            'cover_image' => $request->input('cover_image', $course->cover_image), // keep the existing value if not provided
+        ]);
 
+        // Redirect to the courses index with a success message
         return redirect()->route('lms.courses')->with('success', 'Course updated successfully.');
     }
 
