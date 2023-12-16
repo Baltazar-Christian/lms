@@ -18,7 +18,8 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('admin.courses.create');
+        $data['modules'] = Module::all();
+        return view('admin.courses.create',$data);
     }
 
     public function store(Request $request)
