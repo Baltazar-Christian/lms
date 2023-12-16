@@ -1,25 +1,27 @@
 @extends('layouts.master')
 
 @section('content')
-    <div style="max-width: 600px; margin: 0 auto;">
+    <div style=" margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+        <h1 style="color: #333; font-family: 'Arial', sans-serif; margin-bottom: 20px;">{{ $course->title }}</h1>
+
         @if ($course->cover_image)
-        <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="Course Cover Image" style="max-width: 100%; margin-bottom: 20px;">
-    @endif
-        <h1 style="color: #333; font-family: 'Arial', sans-serif;">{{ $course->title }}</h1>
+            <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+        @endif
+        {{ $course->cover_image }}
+        <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Description:</strong> {{ $course->description }}</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Price:</strong> ${{ $course->price }}</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Duration (minutes):</strong> {{ $course->duration_in_minutes }} minutes</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
 
-        <p><strong>Description:</strong> {{ $course->description }}</p>
-        <p><strong>Price:</strong> ${{ $course->price }}</p>
-        <p><strong>Duration (minutes):</strong> {{ $course->duration_in_minutes }} minutes</p>
-        <p><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
+        <div style="margin-top: 20px;">
+            <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning" style="margin-right: 10px;">Edit Course</a>
 
-    
-
-        <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning" style="display: block; margin-bottom: 10px;">Edit Course</a>
-
-        <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
-        </form>
+            <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
+            </form>
+        </div>
     </div>
 @endsection

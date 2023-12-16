@@ -49,14 +49,14 @@
                   <a class="block block-rounded block-link-shadow bg-primary" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
-                        <i class="fa fa-2x fa-arrow-alt-circle-up text-white-50"></i>
+                        <i class="fa fa-2x fa-users text-white-50"></i>
                       </div>
                       <dl class="ms-3 text-end mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
                           $18,632
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Earnings
+                          Students
                         </dd>
                       </dl>
                     </div>
@@ -66,14 +66,14 @@
                   <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
-                        <i class="far fa-2x fa-user text-white-50"></i>
+                        <i class="far fa-2x fa-user-tie text-white-50"></i>
                       </div>
                       <dl class="ms-3 text-end mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
                           4,962
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Earnings
+                          Tutors
                         </dd>
                       </dl>
                     </div>
@@ -87,11 +87,11 @@
                           1,258
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Sales
+                          Modules
                         </dd>
                       </dl>
                       <div>
-                        <i class="fa fa-2x fa-chart-line text-white-50"></i>
+                        <i class="fa fa-2x fa-clipboard text-white-50"></i>
                       </div>
                     </div>
                   </a>
@@ -104,11 +104,11 @@
                           250
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Projects
+                          Courses
                         </dd>
                       </dl>
                       <div>
-                        <i class="fa fa-2x fa-boxes text-white-50"></i>
+                        <i class="fa fa-2x fa-book text-white-50"></i>
                       </div>
                     </div>
                   </a>
