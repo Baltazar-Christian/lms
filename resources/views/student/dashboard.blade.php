@@ -36,7 +36,7 @@
 
   <body>
     <!-- Page Container -->
-    
+
     <div id="page-container" class="page-header-dark main-content-boxed">
 
       <!-- Header -->
@@ -46,9 +46,9 @@
           <!-- Left Section -->
           <div class="d-flex align-items-center">
             <!-- Logo -->
-            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="index.html"> 
+            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="index.html">
             <i class="fa fa-graduation-cap"></i>
-            LMS    
+            LMS
             </a>
             <!-- END Logo -->
 
@@ -189,12 +189,17 @@
                 </div>
                 <div role="separator" class="dropdown-divider m-0"></div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
-                    <span class="fs-sm fw-medium">Lock Account</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_signin.html">
-                    <span class="fs-sm fw-medium">Log Out</span>
-                  </a>
+                     {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> --}}
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                          <span class="fs-sm fw-medium">Log Out</span>
+                     </a>
+
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                         @csrf
+                     </form>
+                 {{-- </div> --}}
                 </div>
               </div>
             </div>
@@ -507,7 +512,7 @@
           </div>
           <!-- END Dashboard Charts -->
 
-       
+
         </div>
         <!-- END Page Content -->
       </main>

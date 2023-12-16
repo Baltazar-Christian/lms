@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
+use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -122,5 +123,80 @@ class CourseController extends Controller
 
         return redirect()->route('lms.courses')->with('success', 'Course deleted successfully.');
     }
+
+
+    // Add the following methods
+
+    public function createContent($courseId)
+    {
+        $course = Course::findOrFail($courseId);
+        return view('courses.create-content', compact('course'));
+    }
+
+    public function saveContent(Request $request, $courseId)
+    {
+        $this->validateContent($request);
+
+        $content = new CourseContent($request->all());
+        $content->course_id = $courseId;
+
+        // Handle file upload and storage here...
+        $content->file_path = $this->uploadFile($request, 'file_path', 'course_contents');
+
+        $content->save();
+
+        return redirect()->route('courses.show', $courseId)->with('success', 'Course content created successfully');
+    }
+
+    public function editContent($courseId, $contentId)
+    {
+        $course = Course::findOrFail($courseId);
+        $content = CourseContent::findOrFail($contentId);
+        return view('courses.edit-content', compact('course', 'content'));
+    }
+
+    public function updateContent(Request $request, $courseId, $contentId)
+    {
+        $this->validateContent($request);
+
+        $content = CourseContent::findOrFail($contentId);
+        $content->update($request->all());
+
+        // Handle file update if needed...
+        if ($request->hasFile('file_path')) {
+            // Delete the old file
+            Storage::delete('public/' . $content->file_path);
+
+            // Upload the new file
+            $content->file_path = $this->uploadFile($request, 'file_path', 'course_contents');
+            $content->save();
+        }
+
+        return redirect()->route('courses.show', $courseId)->with('success', 'Course content updated successfully');
+    }
+
+    // Additional methods...
+
+    private function uploadFile(Request $request, $field, $folder)
+    {
+        if ($request->hasFile($field) && $request->file($field)->isValid()) {
+            $file = $request->file($field);
+            $fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $filePath = $file->storeAs($folder, $fileName, 'public');
+            return $filePath;
+        }
+
+        return null;
+    }
+
+    private function validateContent(Request $request)
+    {
+        return $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'file_path' => 'required|mimes:pdf,doc,docx|max:2048',
+        ]);
+    }
+
 }
 
