@@ -50,14 +50,17 @@ class CourseController extends Controller
         return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
     }
 
-    public function show(Course $course)
+    public function show( $id)
     {
+        $course = Course::findOrFail($id);
         return view('admin.courses.show', compact('course'));
     }
 
-    public function edit(Course $course)
+    public function edit( $id)
     {
-        return view('admin.courses.edit', compact('course'));
+        $data['modules'] = Module::all();
+        $data['course'] = Course::findOrFail($id);
+        return view('admin.courses.edit', $data);
     }
 
     public function update(Request $request, Course $course)
