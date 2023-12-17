@@ -300,39 +300,7 @@
                 </li>
                 {{-- ./ --}}
 
-                {{-- start of Assignment --}}
-                <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
-                        <i class="nav-main-link-icon fa fa-book"></i>
-                        <span class="nav-main-link-name">Assignment Management</span>
-                    </a>
-                    <ul class="nav-main-submenu">
 
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
-                                <span class="nav-main-link-name"> Register Course</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                <span class="nav-main-link-name">Active Courses</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                <span class="nav-main-link-name">Pending Courses</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                <span class="nav-main-link-name">Blocked Courses</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                {{-- ./ --}}
 
                 <li class="nav-main-heading">SETTINGS MANAGEMENT</li>
 
