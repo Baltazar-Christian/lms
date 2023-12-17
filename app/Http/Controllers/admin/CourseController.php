@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -94,7 +96,6 @@ class CourseController extends Controller
             // Update the request data to include the new cover image name
             $request->merge(['cover_image' => $imageName]);
 
-            // dd( $request->merge(['cover_image' => $imageName]));
         }
 
         // Update the course with the merged request data
@@ -130,12 +131,13 @@ class CourseController extends Controller
     public function createContent($courseId)
     {
         $course = Course::findOrFail($courseId);
-        return view('courses.create-content', compact('course'));
+        return view('admin.courses.create-content', compact('course'));
     }
 
     public function saveContent(Request $request, $courseId)
     {
-        $this->validateContent($request);
+        // $this->validateContent($request);
+
 
         $content = new CourseContent($request->all());
         $content->course_id = $courseId;
@@ -145,14 +147,14 @@ class CourseController extends Controller
 
         $content->save();
 
-        return redirect()->route('courses.show', $courseId)->with('success', 'Course content created successfully');
+        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content created successfully');
     }
 
     public function editContent($courseId, $contentId)
     {
         $course = Course::findOrFail($courseId);
         $content = CourseContent::findOrFail($contentId);
-        return view('courses.edit-content', compact('course', 'content'));
+        return view('admin.courses.edit-content', compact('course', 'content'));
     }
 
     public function updateContent(Request $request, $courseId, $contentId)
@@ -172,7 +174,7 @@ class CourseController extends Controller
             $content->save();
         }
 
-        return redirect()->route('courses.show', $courseId)->with('success', 'Course content updated successfully');
+        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content updated successfully');
     }
 
     // Additional methods...
@@ -194,7 +196,7 @@ class CourseController extends Controller
         return $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'file_path' => 'required|mimes:pdf,doc,docx|max:2048',
+            'file_path' => 'required|mimes:jpg,png,pdf,doc,docx|max:2048',
         ]);
     }
 

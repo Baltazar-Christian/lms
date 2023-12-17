@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Module;
+use App\Models\CourseContent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
@@ -20,4 +22,15 @@ class Course extends Model
         'published_at',
         'cover_image'
     ];
+
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
+    public function contents()
+    {
+        return $this->hasMany(CourseContent::class);
+    }
 }

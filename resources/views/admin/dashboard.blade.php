@@ -66,7 +66,7 @@
                   <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
-                        <i class="far fa-2x fa-user-tie text-white-50"></i>
+                        <i class="fa fa-2x fa-user-tie text-white-50"></i>
                       </div>
                       <dl class="ms-3 text-end mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">

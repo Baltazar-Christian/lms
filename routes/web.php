@@ -92,7 +92,13 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::any('update-course/{id}', [CourseController::class, 'update'])->name('lms.update-course');
     Route::any('delete-course/{id}', [CourseController::class, 'destroy'])->name('lms.delete-course');
 
-
+    // For Course Content
+    Route::group(['prefix' => 'courses'], function () {
+        Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.courses.create-content');
+        Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.courses.save-content');
+        Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.courses.edit-content');
+        Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
+    });
 
 });
 

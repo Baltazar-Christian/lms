@@ -16,8 +16,22 @@
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Duration (minutes):</strong> {{ $course->duration_in_minutes }} minutes</p>
         <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 15px;"><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
 
+        <hr>
+                {{-- Display course contents --}}
+                <h2>Course Contents</h2>
+                @foreach ($course->contents as $content)
+                    <div>
+                        <h3>{{ $content->title }}</h3>
+                        <p>{{ $content->description }}</p>
+                        <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank">Download</a>
+                        <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}" class="btn btn-sm btn-warning">Edit</a>
+                    </div>
+                    <hr>
+                @endforeach
         <div style="margin-top: 20px;">
             <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning float-end" style="margin-right: 10px;">Edit Course</a>
+                    {{-- Add content button --}}
+            <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary"  style="margin-right: 10px;">Add Content</a>
 
             <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                 @csrf
