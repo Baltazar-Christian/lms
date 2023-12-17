@@ -16,4 +16,15 @@ class CourseContent extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
 }

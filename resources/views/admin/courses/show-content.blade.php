@@ -1,26 +1,27 @@
+<!-- Example content view with video support -->
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-5 mb-5 p-4" style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+    <h1>{{ $course->title }} - {{ $content->title }}</h1>
 
-        <h1 class="text-center text-dark">{{ $course->title }} - {{ $content->title }}</h1>
+    <p>{{ $content->description }}</p>
 
-        <p class="lead text-muted">{{ $content->description }}</p>
+    @if ($content->type === 'video')
+        <video controls>
+            <source src="{{ asset('storage/' . $content->file_path) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    @elseif ($content->type === 'pdf')
+        {{-- Include PDF viewer or link to download --}}
+    @elseif ($content->type === 'image')
+        <img src="{{ asset('storage/' . $content->file_path) }}" alt="{{ $content->title }}">
+    @endif
 
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank" class="btn btn-primary">View Content</a>
-        </div>
+    <!-- Add links or buttons for sub-sections -->
 
-        <hr>
+    <button id="viewContent" class="btn btn-primary">View Content</button>
 
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}" class="btn btn-warning me-2">Edit Content</a>
+    <!-- Add the delete button for the content itself -->
 
-            <form action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}" method="post" style="display: inline-block;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Content</button>
-            </form>
-        </div>
-    </div>
+    <!-- Rest of the modal and viewer script remains the same -->
 @endsection

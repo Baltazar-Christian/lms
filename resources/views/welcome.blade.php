@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your LMS - Learn, Grow, Succeed</title>
+    <title>LMS - Learn, Grow, Succeed</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add your custom styles here -->
     <style>
@@ -83,11 +83,11 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <li class="nav-item m-1">
+                    <a class="nav-link btn btn-info"  href="{{ route('login') }}">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                <li class="nav-item m-1">
+                    <a class="nav-link btn btn-danger  " href="{{ route('register') }}">Register</a>
                 </li>
             </ul>
         </div>
@@ -98,7 +98,7 @@
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to LMS</h1>
     <p class="lead">Learn, Grow, Succeed</p>
-    <a class="btn btn-primary btn-lg" href="#features" role="button">Explore Features</a>
+    {{-- <a class="btn btn-primary btn-lg" href="#features" role="button">Explore Features</a> --}}
 </div>
 
 <!-- Features Section -->

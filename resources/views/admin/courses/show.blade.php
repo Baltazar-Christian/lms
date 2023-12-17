@@ -4,12 +4,18 @@
     <div class="container mt-2 mb-5 p-4"
         style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
 
-        <h1 class="text-center text-dark">{{ $course->title }}</h1>
+        <h3 class="text-start text-dark">
+            <i class="fa fa-book"></i>
+            {{ $course->title }}
+        </h3>
+        <hr>
 
-        <div class="col-8 mx-auto mt-4">
+        <div class="col-5 mx-auto mt-4">
             @if ($course->cover_image)
                 <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image"
-                    class="img-fluid rounded shadow mb-4">
+
+                width="100%"
+                    class="img-fluid rounded mx-auto shadow mb-4">
             @endif
         </div>
 

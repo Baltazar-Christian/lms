@@ -211,6 +211,35 @@ class CourseController extends Controller
     return redirect()->back()->with('success', 'Course content deleted successfully.');
 }
 
+public function createSubSection(Request $request, $courseId, $parentId)
+{
+    // Validate the request
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'type' => 'required|in:pdf,image,video',
+        'file' => 'required|mimes:pdf,jpeg,png,mp4|max:2048', // Adjust the allowed file types and size
+        'duration' => 'nullable|integer',
+    ]);
+
+    // Upload the file
+    $file = $request->file('file');
+    $filePath = $file->store('course_contents');
+
+    // Create the sub-section
+    $subSection = CourseContent::create([
+        'course_id' => $courseId,
+        'parent_id' => $parentId,
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'type' => $request->input('type'),
+        'file_path' => $filePath,
+        'duration' => $request->input('duration'),
+    ]);
+
+    // Redirect to the course content page
+    return redirect()->route('lms.show-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
+}
     private function validateContent(Request $request)
     {
         return $request->validate([
