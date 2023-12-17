@@ -24,7 +24,7 @@ class CourseController extends Controller
     public function create()
     {
         $data['modules'] = Module::all();
-        return view('admin.courses.create',$data);
+        return view('admin.courses.create', $data);
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class CourseController extends Controller
         // Handle cover image upload and storage
         if ($request->hasFile('cover_image')) {
 
-            $imageName= $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
+            $imageName = $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
             $request->merge(['cover_image' => $imageName]);
         }
 
@@ -52,13 +52,13 @@ class CourseController extends Controller
         return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
     }
 
-    public function show( $id)
+    public function show($id)
     {
         $course = Course::findOrFail($id);
         return view('admin.courses.show', compact('course'));
     }
 
-    public function edit( $id)
+    public function edit($id)
     {
         $data['modules'] = Module::all();
         $data['course'] = Course::findOrFail($id);
@@ -95,7 +95,6 @@ class CourseController extends Controller
 
             // Update the request data to include the new cover image name
             $request->merge(['cover_image' => $imageName]);
-
         }
 
         // Update the course with the merged request data
@@ -191,6 +190,14 @@ class CourseController extends Controller
         return null;
     }
 
+    public function showCourseContent($courseId, $contentId)
+    {
+        $course = Course::findOrFail($courseId);
+        $content = CourseContent::findOrFail($contentId);
+
+        return view('admin.courses.show-content', compact('course', 'content'));
+    }
+
     private function validateContent(Request $request)
     {
         return $request->validate([
@@ -199,6 +206,4 @@ class CourseController extends Controller
             'file_path' => 'required|mimes:jpg,png,pdf,doc,docx|max:2048',
         ]);
     }
-
 }
-
