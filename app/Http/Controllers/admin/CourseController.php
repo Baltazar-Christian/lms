@@ -198,6 +198,19 @@ class CourseController extends Controller
         return view('admin.courses.show-content', compact('course', 'content'));
     }
 
+    public function deleteCourseContent($courseId, $contentId)
+{
+    $content = CourseContent::findOrFail($contentId);
+
+    // Delete the file from storage
+    Storage::delete($content->file_path);
+
+    // Delete the database record
+    $content->delete();
+
+    return redirect()->back()->with('success', 'Course content deleted successfully.');
+}
+
     private function validateContent(Request $request)
     {
         return $request->validate([

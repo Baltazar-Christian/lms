@@ -21,6 +21,8 @@
                 data-action="dark_mode_toggle">
                 <i class="far fa-moon"></i>
             </button>
+
+            
             <!-- END Dark Mode -->
 
             <!-- Options -->

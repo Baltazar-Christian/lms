@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container card mt-5 mb-5 p-4" style="border: 1px solid #ddd; border-radius: 8px;  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+    <div class="container mt-2 mb-5 p-4"
+        style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
 
         <h1 class="text-center text-dark">{{ $course->title }}</h1>
 
         <div class="col-8 mx-auto mt-4">
             @if ($course->cover_image)
-                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image" class="img-fluid rounded shadow mb-4">
+                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image"
+                    class="img-fluid rounded shadow mb-4">
             @endif
         </div>
 
@@ -24,14 +26,27 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h3 class="card-title">{{ $content->title }}</h3>
-                    <p class="card-text">{{ $content->description }}</p>
-                    <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank" class="btn btn-sm btn-secondary">Download</a>
-                    <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}" class="btn btn-sm btn-primary">View Content</a>
-                    <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                            class="btn btn-sm btn-primary ms-2">View </a>
+                        <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
+                            class="btn btn-sm btn-secondary  ms-2">Download</a>
+
+                        <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                            class="btn btn-sm btn-warning ms-2">Edit</a>
+                        <!-- Add the delete button -->
+                        <form
+                            action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                            method="post" style="display: inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @empty
-            <p>No contents available for this course.</p>
+            <p class="text-muted">No contents available for this course.</p>
         @endforelse
 
         <div class="mt-4 d-flex justify-content-end">
@@ -41,7 +56,8 @@
             <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete
+                    Course</button>
             </form>
         </div>
     </div>

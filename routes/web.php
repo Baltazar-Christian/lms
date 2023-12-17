@@ -100,6 +100,8 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
         Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])
         ->name('lms.show-course-content');
+        Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])
+    ->name('lms.delete-course-content');
     });
 
 
