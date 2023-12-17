@@ -22,7 +22,7 @@
                 <i class="far fa-moon"></i>
             </button>
 
-            
+
             <!-- END Dark Mode -->
 
             <!-- Options -->
@@ -287,21 +287,14 @@
                         </li>
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('lms.courses') }}">
-                                <span class="nav-main-link-name">Active Courses</span>
+                                <span class="nav-main-link-name">Published Courses</span>
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                <span class="nav-main-link-name">Pending Courses</span>
+                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
+                                <span class="nav-main-link-name">Draft Courses</span>
                             </a>
                         </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
-                                <span class="nav-main-link-name">Blocked Courses</span>
-                            </a>
-                        </li>
-
-
 
                     </ul>
                 </li>

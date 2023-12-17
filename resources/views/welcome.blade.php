@@ -13,7 +13,7 @@
         }
 
         .navbar {
-            background-color: #343a40;
+            background-color: #303341;
         }
 
         .navbar-dark .navbar-brand {
@@ -25,7 +25,7 @@
         }
 
         .jumbotron {
-            background-color: #343a40;
+            background-color: #303341;
             color: #ffffff;
             padding: 80px 0;
             margin-bottom: 0;
