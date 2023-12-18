@@ -249,6 +249,16 @@ public function storeSubsection(Request $request, $courseId, $parentId)
     // Redirect to the course content page
     return redirect()->route('lms.show-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
 }
+
+public function showSubsection($courseId, $subsectionId)
+{
+    // Retrieve course and sub-section content
+    $course = Course::findOrFail($courseId);
+    $subsection = CourseContent::findOrFail($subsectionId);
+
+    return view('admin.courses.show-subsection', compact('course', 'subsection'));
+}
+
     private function validateContent(Request $request)
     {
         return $request->validate([
