@@ -211,7 +211,16 @@ class CourseController extends Controller
     return redirect()->back()->with('success', 'Course content deleted successfully.');
 }
 
-public function createSubSection(Request $request, $courseId, $parentId)
+public function createSubsection($courseId, $parentId)
+{
+    // Retrieve course and parent content
+    $course = Course::findOrFail($courseId);
+    $parentContent = CourseContent::findOrFail($parentId);
+
+    return view('admin.courses.create-subsection', compact('course', 'parentContent'));
+}
+
+public function storeSubsection(Request $request, $courseId, $parentId)
 {
     // Validate the request
     $request->validate([

@@ -10,21 +10,25 @@ class CourseContent extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['course_id', 'title', 'description', 'file_path'];
+    protected $fillable = [
+        'course_id',
+        'title',
+        'description',
+        'type',
+        'file_path',
+        'duration',
+        'parent_id',
+    ];
 
+    // Relationship with Course
     public function course()
     {
         return $this->belongsTo(Course::class);
     }
 
-
-    public function parent()
+    // Relationship with Sub-contents (Child contents)
+    public function subContents()
     {
-        return $this->belongsTo(self::class, 'parent_id');
-    }
-
-    public function children()
-    {
-        return $this->hasMany(self::class, 'parent_id');
+        return $this->hasMany(CourseContent::class, 'parent_id');
     }
 }

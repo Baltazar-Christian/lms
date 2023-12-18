@@ -2,26 +2,28 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>{{ $course->title }} - {{ $content->title }}</h1>
+    <h1>Course Content</h1>
 
-    <p>{{ $content->description }}</p>
+    {{-- Display content details --}}
 
-    @if ($content->type === 'video')
-        <video controls>
-            <source src="{{ asset('storage/' . $content->file_path) }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    @elseif ($content->type === 'pdf')
-        {{-- Include PDF viewer or link to download --}}
-    @elseif ($content->type === 'image')
-        <img src="{{ asset('storage/' . $content->file_path) }}" alt="{{ $content->title }}">
-    @endif
+    <div class="mt-3">
+        <h2>Sub-Sections</h2>
 
-    <!-- Add links or buttons for sub-sections -->
+        <ul>
+            {{-- Loop through sub-sections --}}
+            @foreach ($content->subContents as $subContent)
+                <li>
+                    {{ $subContent->title }}
 
-    <button id="viewContent" class="btn btn-primary">View Content</button>
+                    {{-- Add a link to view/edit/delete sub-section --}}
+                    <a href="{{ route('lms.show-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">View</a>
+                    <a href="{{ route('lms.edit-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">Edit</a>
+                    <a href="{{ route('lms.delete-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">Delete</a>
+                </li>
+            @endforeach
+        </ul>
 
-    <!-- Add the delete button for the content itself -->
-
-    <!-- Rest of the modal and viewer script remains the same -->
+        {{-- Add button to create a new sub-section --}}
+        <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}" class="btn btn-primary">Create Sub-Section</a>
+    </div>
 @endsection
