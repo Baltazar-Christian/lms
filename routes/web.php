@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\ModuleController;
+use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\UserManagementController;
@@ -112,6 +114,25 @@ Route::group(['middleware' => 'role:admin'], function () {
 
         Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
     });
+
+
+    // For Quizzes
+    // Quiz Routes
+Route::get('/quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
+Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
+Route::post('/quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
+Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('lms.show-quiz');
+Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
+Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
+Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+
+// Quiz Question Routes
+Route::get('/quizzes/{quiz}/questions/create', [QuizQuestionController::class, 'create'])->name('lms.create-quiz-question');
+Route::post('/quizzes/{quiz}/questions', [QuizQuestionController::class, 'store'])->name('lms.store-quiz-question');
+
+// Quiz Answer Routes
+Route::get('/questions/{question}/answers/create', [QuizAnswerController::class, 'create'])->name('lms.create-quiz-answer');
+Route::post('/questions/{question}/answers', [QuizAnswerController::class, 'store'])->name('lms.store-quiz-answer');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
