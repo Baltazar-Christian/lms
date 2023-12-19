@@ -15,7 +15,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
+        $courses =Course::where('is_published',1)->get();
         return view('admin.courses.index', compact('courses'));
     }
 

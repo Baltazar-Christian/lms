@@ -4,10 +4,10 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1 class="mb-4">Courses</h1>
+        <h4 class="mb-4"> <i class="fa fa-book"></i> Published Courses</h4>
 
         <a href="{{ route('lms.add-course') }}" class="btn btn-primary float-end mb-3">Create Course</a>
-
+<hr>
         <div class="table-responsive col-12">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
