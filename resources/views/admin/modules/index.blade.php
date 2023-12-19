@@ -4,9 +4,9 @@
     <div class="container">
         <h1 class="mb-4">Modules</h1>
 
-        <a href="{{ route('lms.add-module') }}" class="btn btn-primary mb-3">Create Module</a>
+        <a href="{{ route('lms.add-module') }}" class="btn btn-primary float-end mb-3">Create Module</a>
 
-        <div class="card">
+        <div class="card col-12">
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>

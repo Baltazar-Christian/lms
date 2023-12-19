@@ -20,6 +20,11 @@ class CourseController extends Controller
     }
 
 
+    public function draft()
+    {
+        $courses = Course::where('is_published',0)->get();
+        return view('admin.courses.published', compact('courses'));
+    }
 
     public function create()
     {

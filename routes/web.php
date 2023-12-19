@@ -85,6 +85,7 @@ Route::group(['middleware' => 'role:admin'], function () {
 
     //For Courses
     Route::any('courses', [CourseController::class, 'index'])->name('lms.courses');
+    Route::any('draft-courses', [CourseController::class, 'draft'])->name('lms.draft-courses');
     Route::any('add-course', [CourseController::class, 'create'])->name('lms.add-course');
     Route::any('save-course', [CourseController::class, 'store'])->name('lms.save-course');
     Route::any('show-course/{id}', [CourseController::class, 'show'])->name('lms.show-course');

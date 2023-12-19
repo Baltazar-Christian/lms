@@ -291,7 +291,7 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
+                            <a class="nav-main-link" href="{{ route('lms.draft-courses') }}">
                                 <span class="nav-main-link-name">Draft Courses</span>
                             </a>
                         </li>
