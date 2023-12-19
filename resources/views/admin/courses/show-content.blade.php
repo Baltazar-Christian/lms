@@ -1,29 +1,35 @@
-<!-- Example content view with video support -->
 @extends('layouts.master')
 
 @section('content')
-    <h1>Course Content</h1>
+    <div class="container mt-5 mb-5 p-4 card rounded shadow">
 
-    {{-- Display content details --}}
+        <h1 class="text-center text-dark">{{ $course->title }} - Course Content</h1>
 
-    <div class="mt-3">
-        <h2>Sub-Sections</h2>
+        {{-- Display content details --}}
 
-        <ul>
-            {{-- Loop through sub-sections --}}
-            @foreach ($content->subContents as $subContent)
-                <li>
-                    {{ $subContent->title }}
+        <div class="mt-4">
+            <h2>Sub-Sections</h2>
 
-                    {{-- Add a link to view/edit/delete sub-section --}}
-                    <a href="{{ route('lms.show-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">View</a>
-                    <a href="{{ route('lms.edit-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">Edit</a>
-                    <a href="{{ route('lms.delete-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}">Delete</a>
-                </li>
-            @endforeach
-        </ul>
+            <ul class="list-group">
+                {{-- Loop through sub-sections --}}
+                @forelse ($subContents as $subContent)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{{ $subContent->title }}</span>
 
-        {{-- Add button to create a new sub-section --}}
-        <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}" class="btn btn-primary">Create Sub-Section</a>
+                        {{-- Add buttons to view/edit/delete sub-section --}}
+                        <div class="btn-group" role="group">
+                            <a href="{{ route('lms.show-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}" class="btn btn-primary">View</a>
+                            <a href="{{ route('lms.edit-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('lms.delete-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </li>
+                @empty
+                    <li class="list-group-item">No sub-sections available for this content.</li>
+                @endforelse
+            </ul>
+
+            {{-- Add button to create a new sub-section --}}
+            <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}" class="btn btn-primary float-end mt-3">Create Sub-Section</a>
+        </div>
     </div>
 @endsection

@@ -55,7 +55,8 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        return view('admin.courses.show', compact('course'));
+        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',NULL)->get();
+        return view('admin.courses.show', compact('course','contents'));
     }
 
     public function edit($id)
@@ -194,8 +195,9 @@ class CourseController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $content = CourseContent::findOrFail($contentId);
+        $subContents=CourseContent::where('parent_id',$content->id)->get();
 
-        return view('admin.courses.show-content', compact('course', 'content'));
+        return view('admin.courses.show-content', compact('course', 'content','subContents'));
     }
 
     public function deleteCourseContent($courseId, $contentId)

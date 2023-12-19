@@ -28,7 +28,8 @@
 
         {{-- Display course contents --}}
         <h2 class="mt-4 mb-3">Course Contents</h2>
-        @forelse ($course->contents as $content)
+        @forelse ($contents as $content)
+
             <div class="card mb-3">
                 <div class="card-body">
                     <h3 class="card-title">{{ $content->title }}</h3>
@@ -51,6 +52,8 @@
                     </div>
                 </div>
             </div>
+
+
         @empty
             <p class="text-muted">No contents available for this course.</p>
         @endforelse
