@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-5 mb-5 p-4 card rounded shadow">
+    <div class="container mt-3 mx-auto mb-5 p-4 card rounded shadow mx-1">
 
-        <h1 class="text-center text-dark">{{ $course->title }} - Course Content</h1>
+        <h4 class="text-start text-dark"> <div class="fa fa-book"></div> {{ $course->title }} - Course Content</h4>
 
+        <hr>
         {{-- Display content details --}}
 
         <div class="mt-4">
