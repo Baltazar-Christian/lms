@@ -102,6 +102,8 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.delete-course-content');
 
         Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.create-subsection');
+        Route::get('/{courseId}/content/{parentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.show-subsection');
+
 
         Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.create-subsection');
 

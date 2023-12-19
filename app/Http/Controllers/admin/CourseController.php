@@ -247,7 +247,7 @@ public function storeSubsection(Request $request, $courseId, $parentId)
     ]);
 
     // Redirect to the course content page
-    return redirect()->route('lms.show-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
+    return redirect()->route('lms.show-course-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
 }
 
 public function showSubsection($courseId, $subsectionId)
