@@ -61,6 +61,7 @@
         <div class="mt-4 d-flex justify-content-end">
             <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning me-2">Edit Course</a>
             <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add Content</a>
+            <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
 
             <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                 @csrf

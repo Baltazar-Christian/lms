@@ -52,7 +52,7 @@
                 @endforelse
             </ul>
             {{-- Add button to create a new sub-section --}}
-            <a href="{{ route('lms.create-quiz' ) }}" class="btn btn-primary float-end mt-3">Create Quiz</a>
+            {{-- <a href="{{ route('lms.create-quiz' ) }}" class="btn btn-primary float-end mt-3">Create Quiz</a> --}}
         </div>
     </div>
 @endsection
