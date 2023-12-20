@@ -124,6 +124,13 @@ Route::group(['middleware' => 'role:admin'], function () {
 
         Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'] )->name('lms.create-answer');
         Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'] )->name('lms.store-answer');
+// Show a single question's answers
+Route::get('/courses/{course}/quizzes/{quiz}/questions/{question}/answers', 'QuizController@showQuestionAnswers')->name('lms.show-question');
+
+// Show a single answer in detail
+Route::get('/courses/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', 'QuizController@showAnswerDetail')->name('lms.show-answer-detail');
+
+
     });
 
 

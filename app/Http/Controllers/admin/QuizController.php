@@ -7,6 +7,7 @@ use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
+use App\Models\QuizQuestion;
 
 class QuizController extends Controller
 {
@@ -46,8 +47,10 @@ class QuizController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
+        $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
+        // dd( $questions);
 
-        return view('admin.quizzes.show', compact('course', 'quiz'));
+        return view('admin.quizzes.show', compact('course', 'quiz','questions'));
     }
 
 
@@ -55,21 +58,26 @@ class QuizController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
-
         return view('admin.quizzes.create-question', compact('course', 'quiz'));
     }
 
     public function storeQuestion(Request $request, $courseId, $quizId)
     {
         $course = Course::findOrFail($courseId);
-        $quiz = Quiz::findOrFail($quizId);
 
+
+        $quiz = Quiz::findOrFail($quizId);
+        // dd($course);
         $request->validate([
             'text' => 'required|max:255',
         ]);
 
-        $question = $quiz->questions()->create($request->only('text'));
+        $quiz = new QuizQuestion([
+            'quiz_id' => $quiz->id,
+            'question' => $request->input('text'),
+        ]);
 
+        $quiz->save();
         return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
     }
 

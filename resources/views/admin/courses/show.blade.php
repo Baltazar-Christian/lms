@@ -13,9 +13,7 @@
         <div class="col-5 mx-auto mt-4">
             @if ($course->cover_image)
                 <img src="{{ asset('storage/covers/' . $course->cover_image) }}" alt="{{ $course->title }} Cover Image"
-
-                width="100%"
-                    class="img-fluid rounded mx-auto shadow mb-4">
+                    width="100%" class="img-fluid rounded mx-auto shadow mb-4">
             @endif
         </div>
 
@@ -53,9 +51,34 @@
                 </div>
             </div>
 
-
         @empty
             <p class="text-muted">No contents available for this course.</p>
+        @endforelse
+
+        {{-- For Quizzes --}}
+        <h2 class="mt-4 mb-3">Quizzes</h2>
+        @forelse ($quizzes as $quiz)
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{ $quiz->title }}</h3>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                            class="btn btn-sm btn-primary ms-2">View </a>
+                        {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                            class="btn btn-sm btn-warning ms-2">Edit</a> --}}
+                        <!-- Add the delete button -->
+                        {{-- <form
+                            action="{{ route('lms.delete-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                            method="post" style="display: inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
+                        </form> --}}
+                    </div>
+                </div>
+            </div>
+        @empty
+            <p class="text-muted">No quizzes available for this course.</p>
         @endforelse
 
         <div class="mt-4 d-flex justify-content-end">
@@ -66,8 +89,7 @@
             <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete
-                    Course</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
             </form>
         </div>
     </div>

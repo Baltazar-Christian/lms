@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
+use App\Models\Quiz;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -61,7 +62,9 @@ class CourseController extends Controller
     {
         $course = Course::findOrFail($id);
         $contents=CourseContent::where('course_id',$course->id)->where('parent_id',NULL)->get();
-        return view('admin.courses.show', compact('course','contents'));
+        $quizzes=Quiz::where('course_id',$course->id)->get();
+
+        return view('admin.courses.show', compact('course','contents','quizzes'));
     }
 
     public function edit($id)
