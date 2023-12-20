@@ -51,6 +51,55 @@ class QuizController extends Controller
     }
 
 
+    public function createQuestion($courseId, $quizId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+
+        return view('admin.quizzes.create-question', compact('course', 'quiz'));
+    }
+
+    public function storeQuestion(Request $request, $courseId, $quizId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+
+        $request->validate([
+            'text' => 'required|max:255',
+        ]);
+
+        $question = $quiz->questions()->create($request->only('text'));
+
+        return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
+    }
+
+
+    public function createAnswer($courseId, $quizId, $questionId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+        $question = Question::findOrFail($questionId);
+
+        return view('quizzes.create-answer', compact('course', 'quiz', 'question'));
+    }
+
+    public function storeAnswer(Request $request, $courseId, $quizId, $questionId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+        $question = Question::findOrFail($questionId);
+
+        $request->validate([
+            'text' => 'required|max:255',
+            'is_correct' => 'required|boolean',
+        ]);
+
+        $answer = $question->answers()->create($request->all());
+
+        return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Answer added successfully.');
+    }
+
+
 
     public function storeQuiz(Request $request, $courseContentId)
     {
