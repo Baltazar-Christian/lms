@@ -3,17 +3,54 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Quiz;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 
 class QuizController extends Controller
 {
+
+    public function create($courseId)
+    {
+        $course = Course::findOrFail($courseId); // Add this line to fetch the course
+        return view('admin.quizzes.create', compact('course'));
+    }
+
     public function createQuiz($courseContentId)
     {
         $courseContent = CourseContent::findOrFail($courseContentId);
         return view('admin.quizzes.create', compact('courseContent'));
     }
+
+    public function store(Request $request, Course $course)
+    {
+        $request->validate([
+            'title' => 'required|unique:quizzes|max:255',
+            // Add other validation rules as needed
+        ]);
+
+        $quiz = new Quiz([
+            'course_id' => $request->input('course_id'),
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+        ]);
+
+        $quiz->save();
+
+        return redirect()->route('lms.show-quiz', [$request->course_id, $quiz->id])->with('success', 'Quiz created successfully.');
+    }
+
+
+    public function show($courseId, $quizId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+
+        return view('admin.quizzes.show', compact('course', 'quiz'));
+    }
+
+
 
     public function storeQuiz(Request $request, $courseContentId)
     {
