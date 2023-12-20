@@ -119,7 +119,11 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
         Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');
         Route::get('/{courseId}/quizzes/{quizId}',[QuizController::class, 'show'])->name('lms.show-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}/create-question',[QuizController::class, 'createQuestion'])->name('lms.create-question');
+        Route::post('/{courseId}/quizzes/{quizId}/store-question',[QuizController::class, 'storeQuestion'] )->name('lms.store-question');
 
+        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'] )->name('lms.create-answer');
+        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'] )->name('lms.store-answer');
     });
 
 
@@ -134,13 +138,7 @@ Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.e
 Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
 Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
 
-// Quiz Question Routes
-Route::get('/quizzes/{quiz}/questions/create', [QuizQuestionController::class, 'create'])->name('lms.create-quiz-question');
-Route::post('/quizzes/{quiz}/questions', [QuizQuestionController::class, 'store'])->name('lms.store-quiz-question');
 
-// Quiz Answer Routes
-Route::get('/questions/{question}/answers/create', [QuizAnswerController::class, 'create'])->name('lms.create-quiz-answer');
-Route::post('/questions/{question}/answers', [QuizAnswerController::class, 'store'])->name('lms.store-quiz-answer');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
