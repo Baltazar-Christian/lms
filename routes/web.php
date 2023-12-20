@@ -113,13 +113,19 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.edit-subsection');
 
         Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
+
+        // For Courses  Quizes
+        Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
+        Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');
+
     });
 
 
     // For Quizzes
     // Quiz Routes
+
 Route::get('/quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
-Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
+// Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
 Route::post('/quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
 Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('lms.show-quiz');
 Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');

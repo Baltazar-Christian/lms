@@ -12,7 +12,7 @@ class QuizController extends Controller
     public function createQuiz($courseContentId)
     {
         $courseContent = CourseContent::findOrFail($courseContentId);
-        return view('quizzes.create', compact('courseContent'));
+        return view('admin.quizzes.create', compact('courseContent'));
     }
 
     public function storeQuiz(Request $request, $courseContentId)
