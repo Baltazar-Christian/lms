@@ -92,19 +92,19 @@ class QuizController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
-        $question = Question::findOrFail($questionId);
+        $question = QuizQuestion::findOrFail($questionId);
 
-        return view('quizzes.create-answer', compact('course', 'quiz', 'question'));
+        return view('admin.quizzes.create-answer', compact('course', 'quiz', 'question'));
     }
 
     public function storeAnswer(Request $request, $courseId, $quizId, $questionId)
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
-        $question = Question::findOrFail($questionId);
+        $question = QuizQuestion::findOrFail($questionId);
 
         $request->validate([
-            'text' => 'required|max:255',
+            'answer' => 'required|max:255',
             'is_correct' => 'required|boolean',
         ]);
 
