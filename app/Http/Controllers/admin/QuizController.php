@@ -42,6 +42,12 @@ class QuizController extends Controller
         return redirect()->route('lms.show-quiz', [$request->course_id, $quiz->id])->with('success', 'Quiz created successfully.');
     }
 
+    public function showQuestionAnswers(Course $course, Quiz $quiz, QuizQuestion $question)
+    {
+        $answers = $question->answers;
+
+        return view('admin.quizzes.show-question', compact('course', 'quiz', 'question', 'answers'));
+    }
 
     public function show($courseId, $quizId)
     {
