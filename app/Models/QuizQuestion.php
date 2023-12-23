@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Quiz;
+use App\Models\QuizAnswer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
