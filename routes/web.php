@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\AnnouncementController;
 use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
+use App\Http\Controllers\admin\AdminPasswordResetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -162,6 +163,10 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::get('/company_details/{id}/edit', [CompanyDetailController::class, 'edit'])->name('company_details.edit');
     Route::put('/company_details/{id}', [CompanyDetailController::class, 'update'])->name('company_details.update');
     Route::delete('/company_details/{id}', [CompanyDetailController::class, 'destroy'])->name('company_details.destroy');
+
+    //For Password Reset
+    Route::get('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'showResetForm'])->name('admin.password.reset');
+    Route::post('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'reset'])->name('admin.password.update');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {

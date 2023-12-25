@@ -243,4 +243,12 @@ class UserManagementController extends Controller
 
         return redirect()->route('lms.students')->with('success', 'Student was deleted successfully');
     }
+
+    // For All Users
+        // For All Students
+        public function user_password()
+        {
+            $users = User::get();
+            return view('admin.password.index', compact('users'));
+        }
 }
