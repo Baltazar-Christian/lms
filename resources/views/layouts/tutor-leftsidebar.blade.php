@@ -141,7 +141,7 @@
                         </li>
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                            <a class="nav-main-link" href="{{ route('lms.tutor-blocked-students') }}">
                                 <span class="nav-main-link-name">Blocked Students</span>
                             </a>
                         </li>
