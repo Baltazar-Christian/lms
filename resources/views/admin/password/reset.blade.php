@@ -1,9 +1,9 @@
 <!-- resources/views/admin/password/reset.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -13,7 +13,7 @@
                         <form method="POST" action="{{ route('admin.password.update', $user) }}">
                             @csrf
 
-                            <input type="hidden" name="token" value="{{ $token }}">
+
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
