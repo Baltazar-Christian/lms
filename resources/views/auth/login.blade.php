@@ -48,18 +48,18 @@
                 <!-- Sign In Block -->
                 <div class="block block-rounded mb-0">
                   <div class="block-header block-header-default">
-                    <h3 class="block-title">Sign In</h3>
+                    {{-- <h3 class="block-title">Sign In</h3> --}}
                     <div class="block-options">
-                      <a class="btn-block-option fs-sm" href="op_auth_reminder.html">Forgot Password?</a>
-                      <a class="btn-block-option" href="op_auth_signup.html" data-bs-toggle="tooltip" data-bs-placement="left" title="New Account">
+                      {{-- <a class="btn-block-option fs-sm" href="op_auth_reminder.html">Forgot Password?</a> --}}
+                      {{-- <a class="btn-block-option" href="op_auth_signup.html" data-bs-toggle="tooltip" data-bs-placement="left" title="New Account">
                         <i class="fa fa-user-plus"></i>
-                      </a>
+                      </a> --}}
                     </div>
                   </div>
                   <div class="block-content">
                     <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
                       <h1 class="h2 mb-1 text-center">
-                        <i class="nav-main-link-icon fa fa-graduation-cap"></i>
+                        <i class="nav-main-link-icon fa fa-graduation-cap text-warning"></i>
                         LMS</h1>
                       <p class="fw-medium text-muted text-center ">
                         Welcome, please login.
@@ -84,10 +84,15 @@
                           </div>
                         </div>
                         <div class="row mb-4">
-                          <div class="col-md-6 col-xl-5">
+                          <div class="col-md-6 col-xl-6">
                             <button type="submit" class="btn w-100 btn-alt-primary">
                               <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Sign In
                             </button>
+                          </div>
+                          <div class="col-md-6 col-xl-6">
+                            <a href="{{ route('register') }}" class="btn w-100 btn-alt-info">
+                             Register
+                            </a>
                           </div>
                         </div>
                       </form>
