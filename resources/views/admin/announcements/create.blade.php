@@ -8,7 +8,15 @@
             @csrf
 
             {{-- Include validation errors if any --}}
-            {{-- @include('partials.errors') --}}
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
