@@ -182,6 +182,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('tutor-save-student', [TutorStudentController::class, 'saveStudent'])->name('lms.tutor-save-student');
     Route::any('tutor-show-student/{id}', [TutorStudentController::class, 'showStudent'])->name('lms.tutor-show-student');
     Route::any('tutor-edit-student/{id}', [TutorStudentController::class, 'editStudent'])->name('lms.tutor-edit-student');
+    Route::any('tutor-block-student/{id}', [TutorStudentController::class, 'blockStudent'])->name('lms.tutor-block-student');
     Route::any('tutor-update-student/{id}', [TutorStudentController::class, 'updateStudent'])->name('lms.tutor-update-student');
     Route::any('tutor-delete-student/{id}', [TutorStudentController::class, 'deleteStudent'])->name('lms.tutor-delete-student');
 });

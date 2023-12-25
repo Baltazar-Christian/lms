@@ -41,7 +41,7 @@
                 <td>{{ $user->email }}</td>
                 <td>
                     <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.tutor-edit-student', $user->id) }}" class="btn btn-danger">Block</a>
+                    <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-danger">Block</a>
                     {{-- <form action="{{ route('lms.tutor-delete-student', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')

@@ -51,9 +51,19 @@ class TutorStudentController extends Controller
         public function editStudent($id)
         {
             $user = User::findOrFail($id);
+
             return view('tutor.students.edit', compact('user'));
         }
 
+        // For Block Student
+        public function blockStudent($id)
+        {
+            $user = User::findOrFail($id);
+            $user->status=1;
+            $user->update();
+
+            return back()->with('success','Student Was Blocked Successfully!');
+        }
         // For Update Student
         public function updateStudent(Request $request, $id)
         {
