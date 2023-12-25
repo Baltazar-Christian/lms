@@ -12,13 +12,13 @@ class TutorStudentController extends Controller
         // For All Students
         public function students()
         {
-            $users = User::where('role','student')->where('institute_id',Auth::user()->id)->get();
+            $users = User::where('role','student')->where('institute_id',Auth::user()->institute_id)->where('status',0)->get();
             return view('tutor.students.index', compact('users'));
         }
         // For Blocked Student
         public function blocked_students()
         {
-            $users = User::where('role','student')->where('institute_id',Auth::user()->id)->get();
+            $users = User::where('role','student')->where('institute_id',Auth::user()->institute_id)->where('status',1)->get();
             return view('tutor.students.blocked', compact('users'));
         }
 
@@ -71,6 +71,17 @@ class TutorStudentController extends Controller
 
             return back()->with('success','Student Was Blocked Successfully!');
         }
+
+        // For Activate Student
+        public function activateStudent($id)
+        {
+            $user = User::findOrFail($id);
+            $user->status=0;
+            $user->update();
+
+            return back()->with('success','Student Was Activated Successfully!');
+        }
+
         // For Update Student
         public function updateStudent(Request $request, $id)
         {
