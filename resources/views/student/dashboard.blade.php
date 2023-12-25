@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
+    <title>LMS - Learn, Grow, Succeed</title>
 
     <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -47,7 +47,7 @@
           <div class="d-flex align-items-center">
             <!-- Logo -->
             <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="index.html">
-            <i class="fa fa-graduation-cap"></i>
+            <i class="fa fa-graduation-cap text-warning"></i>
             LMS
             </a>
             <!-- END Logo -->
