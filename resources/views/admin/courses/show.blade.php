@@ -68,7 +68,7 @@
                             class="btn btn-sm btn-warning ms-2">Edit</a> --}}
                         <!-- Add the delete button -->
                         {{-- <form
-                            action="{{ route('lms.delete-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                            action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
                             method="post" style="display: inline-block">
                             @csrf
                             @method('DELETE')

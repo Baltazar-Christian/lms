@@ -59,6 +59,14 @@ class QuizController extends Controller
         return view('admin.quizzes.show', compact('course', 'quiz','questions'));
     }
 
+    public function destroy($quizId)
+    {
+        $quiz = Quiz::findOrFail($quizId);
+        $quiz->delete();
+
+        return back();
+    }
+
 
     public function createQuestion($courseId, $quizId)
     {

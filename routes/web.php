@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ModuleController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
+use App\Http\Controllers\admin\AnnouncementController;
 use App\Http\Controllers\admin\UserManagementController;
 
 /*
@@ -118,34 +119,35 @@ Route::group(['middleware' => 'role:admin'], function () {
         // For Courses  Quizes
         Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
         Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}',[QuizController::class, 'show'])->name('lms.show-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}/create-question',[QuizController::class, 'createQuestion'])->name('lms.create-question');
-        Route::post('/{courseId}/quizzes/{quizId}/store-question',[QuizController::class, 'storeQuestion'] )->name('lms.store-question');
+        Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.show-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.create-question');
+        Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.store-question');
 
-        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'] )->name('lms.create-answer');
-        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'] )->name('lms.store-answer');
-// Show a single question's answers
-Route::get('/courses/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.show-question');
+        Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
 
-// Show a single answer in detail
-Route::get('/courses/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.show-answer');
+        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.create-answer');
+        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.store-answer');
+        // Show a single question's answers
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.show-question');
 
-
+        // Show a single answer in detail
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.show-answer');
     });
 
 
-    // For Quizzes
-    // Quiz Routes
-
-Route::get('/quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
-// Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
-Route::post('/quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
-// Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('lms.show-quiz');
-Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
-Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
-Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+    Route::get('/quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
+    // Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
+    Route::post('/quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
+    // Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('lms.show-quiz');
+    Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
+    Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
+    Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
 
 
+    // For Announcements
+    Route::get('/announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
+Route::get('/announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
+Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
