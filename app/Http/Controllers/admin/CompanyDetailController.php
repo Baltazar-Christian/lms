@@ -12,12 +12,12 @@ class CompanyDetailController extends Controller
     {
         $companyDetails = CompanyDetail::all();
 
-        return view('company_details.index', compact('companyDetails'));
+        return view('admin.company_details.index', compact('companyDetails'));
     }
 
     public function create()
     {
-        return view('company_details.create');
+        return view('admin.company_details.create');
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class CompanyDetailController extends Controller
             'contact_address' => 'nullable|string|max:255',
             'contact_phone' => 'nullable|string|max:20',
             'contact_email' => 'nullable|email|max:255',
-            'website' => 'nullable|url|max:255',
+            // 'website' => 'nullable|url|max:255',
         ]);
 
         $logoPath = null;
@@ -54,7 +54,7 @@ class CompanyDetailController extends Controller
     {
         $companyDetail = CompanyDetail::find($id);
 
-        return view('company_details.edit', compact('companyDetail'));
+        return view('admin.company_details.edit', compact('companyDetail'));
     }
 
     public function update(Request $request, $id)
@@ -66,13 +66,14 @@ class CompanyDetailController extends Controller
             'contact_address' => 'nullable|string|max:255',
             'contact_phone' => 'nullable|string|max:20',
             'contact_email' => 'nullable|email|max:255',
-            'website' => 'nullable|url|max:255',
+            // 'website' => 'nullable|url|max:255',
         ]);
 
         $companyDetail = CompanyDetail::find($id);
 
         if ($request->hasFile('logo')) {
             // Delete existing logo
+
             if ($companyDetail->logo) {
                 Storage::disk('public')->delete($companyDetail->logo);
             }
