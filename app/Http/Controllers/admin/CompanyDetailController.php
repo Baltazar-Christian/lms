@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Models\CompanyDetail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyDetailController extends Controller
 {
