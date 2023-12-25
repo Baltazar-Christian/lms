@@ -36,6 +36,6 @@ class AdminPasswordResetController extends Controller
 
         // You can add additional logic or checks here if needed
 
-        return redirect()->route('admin.dashboard')->with('status', 'Password reset successfully');
+        return redirect()->route('admin.password.index')->with('success', 'Password reset successfully');
     }
 }
