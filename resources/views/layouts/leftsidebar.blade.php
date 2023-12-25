@@ -313,7 +313,7 @@
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                    <a class="nav-main-link" href="{{ route('company_details.index') }}">
                         <i class="nav-main-link-icon fa fa-building"></i>
                         <span class="nav-main-link-name">Company Details</span>
                     </a>

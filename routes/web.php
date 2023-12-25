@@ -12,6 +12,7 @@ use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\AnnouncementController;
+use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
 
 /*
