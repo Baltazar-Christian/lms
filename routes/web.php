@@ -146,8 +146,11 @@ Route::group(['middleware' => 'role:admin'], function () {
 
     // For Announcements
     Route::get('/announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
-Route::get('/announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
-Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
+    Route::get('/announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
+    Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
+    Route::get('/announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
+    Route::delete('/announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+    Route::get('/announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {
