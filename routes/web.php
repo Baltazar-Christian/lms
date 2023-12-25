@@ -151,6 +151,8 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::get('/announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
     Route::delete('/announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
     Route::get('/announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
+    Route::put('announcements/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
+
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {

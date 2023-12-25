@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <h1>Announcements</h1>
 
-        <a href="{{ route('announcements.create') }}" class="btn btn-primary mt-3 mb-3">Create Announcement</a>
+        <a href="{{ route('announcements.create') }}" class="btn btn-primary mt-3 mb-3 float-end">Create Announcement</a>
 
         <table class="table">
             <thead>
