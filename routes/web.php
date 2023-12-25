@@ -177,14 +177,13 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('tutor-dashboard', [TutorController::class, 'dashboard'])->name('lms.tutor-dashboard');
 
     // For Students
-        Route::any('tutor-students', [TutorStudentController::class, 'students'])->name('lms.tutor-students');
-        Route::any('tutor-add-student', [TutorStudentController::class, 'addStudent'])->name('lms.tutor-add-student');
-        Route::any('tutor-save-student', [TutorStudentController::class, 'saveStudent'])->name('lms.tutor-save-student');
-        Route::any('tutor-show-student/{id}', [TutorStudentController::class, 'showStudent'])->name('lms.tutor-show-student');
-        Route::any('tutor-edit-student/{id}', [TutorStudentController::class, 'editStudent'])->name('lms.tutor-edit-student');
-        Route::any('tutor-update-student/{id}', [TutorStudentController::class, 'updateStudent'])->name('lms.tutor-update-student');
-        Route::any('tutor-delete-student/{id}', [TutorStudentController::class, 'deleteStudent'])->name('lms.tutor-delete-student');
-
+    Route::any('tutor-students', [TutorStudentController::class, 'students'])->name('lms.tutor-students');
+    Route::any('tutor-add-student', [TutorStudentController::class, 'addStudent'])->name('lms.tutor-add-student');
+    Route::any('tutor-save-student', [TutorStudentController::class, 'saveStudent'])->name('lms.tutor-save-student');
+    Route::any('tutor-show-student/{id}', [TutorStudentController::class, 'showStudent'])->name('lms.tutor-show-student');
+    Route::any('tutor-edit-student/{id}', [TutorStudentController::class, 'editStudent'])->name('lms.tutor-edit-student');
+    Route::any('tutor-update-student/{id}', [TutorStudentController::class, 'updateStudent'])->name('lms.tutor-update-student');
+    Route::any('tutor-delete-student/{id}', [TutorStudentController::class, 'deleteStudent'])->name('lms.tutor-delete-student');
 });
 
 Route::group(['middleware' => 'role:student'], function () {

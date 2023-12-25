@@ -133,11 +133,7 @@
                         <span class="nav-main-link-name">Students</span>
                     </a>
                     <ul class="nav-main-submenu">
-                        {{-- <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.tutor-add-student') }}">
-                                <span class="nav-main-link-name">Register Student</span>
-                            </a>
-                        </li> --}}
+
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('lms.tutor-students') }}">
                                 <span class="nav-main-link-name">Active Students</span>
