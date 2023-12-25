@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
+
 
 class AdminPasswordResetController extends Controller
 {
@@ -26,12 +29,13 @@ class AdminPasswordResetController extends Controller
             'password' => 'required|confirmed|min:8',
         ]);
 
-        $status = Password::broker()->reset(
-            ['email' => $user->email, 'token' => $request->token, 'password' => $request->password]
-        );
+        // Update the user's password in the database
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
 
-        return $status == Password::PASSWORD_RESET
-            ? redirect()->route('admin.dashboard')->with('status', __($status))
-            : back()->withErrors(['email' => __($status)]);
+        // You can add additional logic or checks here if needed
+
+        return redirect()->route('admin.dashboard')->with('status', 'Password reset successfully');
     }
 }
