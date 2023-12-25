@@ -12,12 +12,12 @@ class AnnouncementController extends Controller
     {
         $announcements = Announcement::latest()->get();
 
-        return view('announcements.index', compact('announcements'));
+        return view('admin.announcements.index', compact('announcements'));
     }
 
     public function create()
     {
-        return view('announcements.create');
+        return view('admin.announcements.create');
     }
 
     public function store(Request $request)
@@ -43,12 +43,12 @@ class AnnouncementController extends Controller
 
     public function show(Announcement $announcement)
     {
-        return view('announcements.show', compact('announcement'));
+        return view('admin.announcements.show', compact('announcement'));
     }
 
     public function edit(Announcement $announcement)
     {
-        return view('announcements.edit', compact('announcement'));
+        return view('admin.announcements.edit', compact('announcement'));
     }
 
     public function update(Request $request, Announcement $announcement)
