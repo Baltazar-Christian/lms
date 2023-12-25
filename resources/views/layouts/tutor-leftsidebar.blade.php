@@ -156,42 +156,22 @@
 
 
                 {{-- start of Modules Managements --}}
+
+                @php
+                    $modules=App\Models\Module::get();
+                @endphp
+
+                @foreach ( $modules as $module )
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="be_pages_ecom_store_search.html">
-                        <i class="nav-main-link-icon fa fa-swatchbook"></i>
-                        <span class="nav-main-link-name">Modules</span>
-                    </a>
-                </li>
-                {{-- ./ --}}
-
-                {{-- start of Courses Management --}}
-                <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
                         <i class="nav-main-link-icon fa fa-book"></i>
-                        <span class="nav-main-link-name">Courses Management</span>
+                        <span class="nav-main-link-name">{{ $module->name }}</span>
                     </a>
-                    <ul class="nav-main-submenu">
-
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.add-course') }}">
-                                <span class="nav-main-link-name"> Register Course</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
-                                <span class="nav-main-link-name">Published Courses</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.courses') }}">
-                                <span class="nav-main-link-name">Draft Courses</span>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
+                @endforeach
+
                 {{-- ./ --}}
+
 
                 {{-- Assignemnts --}}
                 <li class="nav-main-item">
