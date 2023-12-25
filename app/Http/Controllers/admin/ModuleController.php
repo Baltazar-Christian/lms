@@ -16,6 +16,14 @@ class ModuleController extends Controller
         return view('admin.modules.index', compact('modules'));
     }
 
+    // For Tutors modules
+    public function tutor_modules()
+    {
+        $modules = Module::all();
+        return view('tutor.modules.index', compact('modules'));
+    }
+
+
     public function create()
     {
         $institutes = Instute::all();

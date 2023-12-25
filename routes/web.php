@@ -187,6 +187,10 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('tutor-activate-student/{id}', [TutorStudentController::class, 'activateStudent'])->name('lms.tutor-activate-student');
     Route::any('tutor-update-student/{id}', [TutorStudentController::class, 'updateStudent'])->name('lms.tutor-update-student');
     Route::any('tutor-delete-student/{id}', [TutorStudentController::class, 'deleteStudent'])->name('lms.tutor-delete-student');
+
+    // For Modules
+    Route::any('tutor-modules', [ModuleController::class, 'tutor_modules'])->name('lms.tutor-modules');
+
 });
 
 Route::group(['middleware' => 'role:student'], function () {
