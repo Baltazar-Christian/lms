@@ -12,6 +12,7 @@ use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\AnnouncementController;
+use App\Http\Controllers\tutor\TutorCoursesController;
 use App\Http\Controllers\tutor\TutorStudentController;
 use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
@@ -190,6 +191,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
     // For Modules
     Route::any('tutor-modules', [ModuleController::class, 'tutor_modules'])->name('lms.tutor-modules');
+    Route::any('tutor-view-module', [TutorCoursesController::class, 'module_courses'])->name('lms.tutor-view-module');
 
 });
 

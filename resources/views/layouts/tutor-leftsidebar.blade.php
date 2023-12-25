@@ -121,7 +121,7 @@
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-main-heading">USER MANAGEMENT</li>
+                <li class="nav-main-heading">STUDENT MANAGEMENT</li>
                 {{-- Start of User Managements --}}
 
 
