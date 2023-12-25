@@ -5,14 +5,21 @@ namespace App\Http\Controllers\tutor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TutorStudentController extends Controller
 {
         // For All Students
         public function students()
         {
-            $users = User::where('role','student')->get();
+            $users = User::where('role','student')->where('institute_id',Auth::user()->id)->get();
             return view('tutor.students.index', compact('users'));
+        }
+        // For Blocked Student
+        public function blocked_students()
+        {
+            $users = User::where('role','student')->where('institute_id',Auth::user()->id)->get();
+            return view('tutor.students.blocked', compact('users'));
         }
 
         // For Register Tutor
