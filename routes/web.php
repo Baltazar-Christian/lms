@@ -12,6 +12,7 @@ use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\AnnouncementController;
+use App\Http\Controllers\tutor\TutorStudentController;
 use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
 use App\Http\Controllers\admin\AdminPasswordResetController;
@@ -174,6 +175,16 @@ Route::group(['middleware' => 'role:admin'], function () {
 Route::group(['middleware' => 'role:tutor'], function () {
     // Tutor routes
     Route::any('tutor-dashboard', [TutorController::class, 'dashboard'])->name('lms.tutor-dashboard');
+
+    // For Students
+        Route::any('tutor-students', [TutorStudentController::class, 'students'])->name('lms.tutor-students');
+        Route::any('tutor-add-student', [TutorStudentController::class, 'addStudent'])->name('lms.tutor-add-student');
+        Route::any('tutor-save-student', [TutorStudentController::class, 'saveStudent'])->name('lms.tutor-save-student');
+        Route::any('tutor-show-student/{id}', [TutorStudentController::class, 'showStudent'])->name('lms.tutor-show-student');
+        Route::any('tutor-edit-student/{id}', [TutorStudentController::class, 'editStudent'])->name('lms.tutor-edit-student');
+        Route::any('tutor-update-student/{id}', [TutorStudentController::class, 'updateStudent'])->name('lms.tutor-update-student');
+        Route::any('tutor-delete-student/{id}', [TutorStudentController::class, 'deleteStudent'])->name('lms.tutor-delete-student');
+
 });
 
 Route::group(['middleware' => 'role:student'], function () {

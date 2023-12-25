@@ -41,7 +41,7 @@
 
 
       <!-- Sidebar -->
-        @include('layouts.tutor-lefsidebar')
+        @include('layouts.tutor-leftsidebar')
       <!-- END Sidebar -->
 
       <!-- start of Navbar -->
