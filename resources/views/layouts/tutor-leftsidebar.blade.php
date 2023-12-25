@@ -8,7 +8,7 @@
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
             <span class="smini-hide fs-5 tracking-wider">
-                <i class="nav-main-link-icon fa fa-graduation-cap"></i>
+                <i class="nav-main-link-icon fa fa-graduation-cap text-warning"></i>
                 LMS</span>
         </a>
         <!-- END Logo -->
@@ -157,30 +157,10 @@
 
                 {{-- start of Modules Managements --}}
                 <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
+                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
                         <i class="nav-main-link-icon fa fa-swatchbook"></i>
-                        <span class="nav-main-link-name">Modules Management</span>
+                        <span class="nav-main-link-name">Modules</span>
                     </a>
-                    <ul class="nav-main-submenu">
-                        {{-- For Active Modules --}}
-
-
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.add-module') }}">
-                                        <span class="nav-main-link-name"> Register Module</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.modules') }}">
-                                        <span class="nav-main-link-name">Active Mudules</span>
-                                    </a>
-                                </li>
-
-                        {{-- ./ --}}
-
-
-                    </ul>
                 </li>
                 {{-- ./ --}}
 
