@@ -153,6 +153,14 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::get('/announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
     Route::put('announcements/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
 
+
+    // For Company Detail
+    Route::get('/company_details', [CompanyDetailController::class, 'index'])->name('company_details.index');
+    Route::get('/company_details/create', [CompanyDetailController::class, 'create'])->name('company_details.create');
+    Route::post('/company_details', [CompanyDetailController::class, 'store'])->name('company_details.store');
+    Route::get('/company_details/{id}/edit', [CompanyDetailController::class, 'edit'])->name('company_details.edit');
+    Route::put('/company_details/{id}', [CompanyDetailController::class, 'update'])->name('company_details.update');
+    Route::delete('/company_details/{id}', [CompanyDetailController::class, 'destroy'])->name('company_details.destroy');
 });
 
 Route::group(['middleware' => 'role:tutor'], function () {

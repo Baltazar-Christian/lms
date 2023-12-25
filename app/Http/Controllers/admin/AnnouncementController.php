@@ -29,12 +29,12 @@ class AnnouncementController extends Controller
             'status' => 'in:draft,published',
         ]);
 
-        // $attachmentPath = $request->file('attachment')->store('attachments', 'public');
+        $attachmentPath = $request->file('attachment')->store('attachments', 'public');
 
         Announcement::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            // 'attachment' => $attachmentPath,
+            'attachment' => $attachmentPath,
             'status' => $request->input('status'),
         ]);
 
@@ -56,16 +56,16 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'attachment' => 'file|mimes:pdf,docx|max:10240',
+            // 'attachment' => 'file|mimes:pdf,docx|max:10240',
             'status' => 'in:draft,published',
         ]);
 
-        $attachmentPath = $request->file('attachment')->store('attachments', 'public');
+        // $attachmentPath = $request->file('attachment')->store('attachments', 'public');
 
         $announcement->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'attachment' => $attachmentPath,
+            // 'attachment' => $attachmentPath,
             'status' => $request->input('status'),
         ]);
 
