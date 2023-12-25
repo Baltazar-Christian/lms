@@ -27,7 +27,7 @@
 
     <!-- Stylesheets -->
     <!-- OneUI framework -->
-    <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css')}}">
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
@@ -211,7 +211,7 @@
                   <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                       <i class="nav-main-link-icon fa fa-book"></i>
-                      <span class="nav-main-link-name">Available Courses</span>
+                      <span class="nav-main-link-name">Courses</span>
                     </a>
                     <ul class="nav-main-submenu">
                       <li class="nav-main-item">
@@ -270,13 +270,14 @@
                   </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="bd_search.html">
-                      <i class="nav-main-link-icon si si-magnifier"></i>
-                      <span class="nav-main-link-name">Enrolled Courses</span>
+                        <i class="fa-solid fa-address-book"></i>
+
+                      <span class="nav-main-link-name"> &nbsp; Enrolled Courses</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="be_pages_dashboard.html">
-                      <i class="nav-main-link-icon si si-action-undo"></i>
+                      <i class="nav-main-link-icon fa fa-bookmark"></i>
                       <span class="nav-main-link-name">Completed Courses</span>
                     </a>
                   </li>
@@ -290,127 +291,223 @@
         <!-- END Navigation -->
         <!-- Page Content -->
         <div class="content">
+
           <!-- Stats -->
           <div class="row">
             <div class="col-6 col-md-3 col-lg-6 col-xl-3">
               <a class="block block-rounded block-link-pop" href="javascript:void(0)">
                 <div class="block-content block-content-full">
-                  <div class="fs-sm fw-semibold text-uppercase text-muted">Visitors</div>
-                  <div class="fs-2 fw-normal text-dark">120,580</div>
+                  <div class="fs-sm fw-semibold text-uppercase text-muted">Available Courses</div>
+                  <div class="fs-2 fw-normal text-dark">--</div>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3 col-lg-6 col-xl-3">
               <a class="block block-rounded block-link-pop" href="javascript:void(0)">
                 <div class="block-content block-content-full">
-                  <div class="fs-sm fw-semibold text-uppercase text-muted">Sales</div>
-                  <div class="fs-2 fw-normal text-dark">150</div>
+                  <div class="fs-sm fw-semibold text-uppercase text-muted">Enrolled Courses</div>
+                  <div class="fs-2 fw-normal text-dark">--</div>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3 col-lg-6 col-xl-3">
               <a class="block block-rounded block-link-pop" href="javascript:void(0)">
                 <div class="block-content block-content-full">
-                  <div class="fs-sm fw-semibold text-uppercase text-muted">Earnings</div>
-                  <div class="fs-2 fw-normal text-dark">$3,200</div>
+                  <div class="fs-sm fw-semibold text-uppercase text-muted">INCOMPLETE COURSES</div>
+                  <div class="fs-2 fw-normal text-dark">--</div>
                 </div>
               </a>
             </div>
             <div class="col-6 col-md-3 col-lg-6 col-xl-3">
               <a class="block block-rounded block-link-pop" href="javascript:void(0)">
                 <div class="block-content block-content-full">
-                  <div class="fs-sm fw-semibold text-uppercase text-muted">Avg Sale</div>
-                  <div class="fs-2 fw-normal text-dark">$21</div>
+                  <div class="fs-sm fw-semibold text-uppercase text-muted">COMPLETE COURSES</div>
+                  <div class="fs-2 fw-normal text-dark">--</div>
                 </div>
               </a>
             </div>
           </div>
           <!-- END Stats -->
 
-          <!-- Dashboard Charts -->
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="block block-rounded block-mode-loading-oneui">
-                <div class="block-header block-header-default">
-                  <h3 class="block-title">Earnings in $</h3>
-                  <div class="block-options">
-                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                      <i class="si si-refresh"></i>
-                    </button>
-                    <button type="button" class="btn-block-option">
-                      <i class="si si-settings"></i>
-                    </button>
-                  </div>
+
+             <!-- Page Content -->
+        <div class="content content-boxed">
+            <div class="row items-push py-4">
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-city">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="fab fa-html5 fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        10 lessons &bull; 3 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        Learn HTML5 in 10 simple and easy to follow steps
+                      </h4>
+                      <div class="fs-sm text-muted">November 5, 2021</div>
+                    </div>
+                  </a>
                 </div>
-                <div class="block-content p-0 text-center">
-                  <!-- Chart.js is initialized in js/pages/be_pages_dashboard_v1.min.js which was auto compiled from _js/pages/be_pages_dashboard_v1.js) -->
-                  <!-- For more info and examples you can check out http://www.chartjs.org/docs/ -->
-                  <div class="pt-3" style="height: 360px;"><canvas id="js-chartjs-dashboard-earnings"></canvas></div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-flat">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="fab fa-css3 fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        12 lessons &bull; 5 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        Be a pro with CSS3 in only two weeks
+                      </h4>
+                      <div class="fs-sm text-muted">November 1, 2021</div>
+                    </div>
+                  </a>
                 </div>
-                <div class="block-content">
-                  <div class="row items-push text-center py-3">
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-wallet fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">$148,000</div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-amethyst">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="si si-vector fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        4 lessons &bull; 2 hours
+                      </div>
                     </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-angle-double-up fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+9% Earnings</div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        Using SVG is easier than ever
+                      </h4>
+                      <div class="fs-sm text-muted">October 27, 2021</div>
                     </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-ticket-alt fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+20% Tickets</div>
-                    </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-users fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+46% Clients</div>
-                    </div>
-                  </div>
+                  </a>
                 </div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-smooth">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="si si-rocket fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        18 lessons &bull; 25 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        Build a modern web application from scratch
+                      </h4>
+                      <div class="fs-sm text-muted">October 25, 2021</div>
+                    </div>
+                  </a>
+                </div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-default">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <span class="fs-lg fw-bold text-white-75">PS</span>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        5 lessons &bull; 19 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        UI Design in Photoshop: Tips  &amp; Tricks
+                      </h4>
+                      <div class="fs-sm text-muted">October 10, 2021</div>
+                    </div>
+                  </a>
+                </div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-modern">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="si si-user-following fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        9 lessons &bull; 10 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        Marketing 101: All the basics
+                      </h4>
+                      <div class="fs-sm text-muted">October 1, 2021</div>
+                    </div>
+                  </a>
+                </div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-warning">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="si si-target fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        5 lessons &bull; 8 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        How to make your page convert in 5 steps
+                      </h4>
+                      <div class="fs-sm text-muted">September 19, 2021</div>
+                    </div>
+                  </a>
+                </div>
+                <!-- END Course -->
+
+                <!-- Course -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                  <a class="block block-rounded block-link-pop h-100 mb-0" href="be_pages_elearning_course.html">
+                    <div class="block-content block-content-full text-center bg-success">
+                      <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <i class="si si-support fa-2x text-white-75"></i>
+                      </div>
+                      <div class="fs-sm text-white-75">
+                        21 lessons &bull; 29 hours
+                      </div>
+                    </div>
+                    <div class="block-content block-content-full">
+                      <h4 class="h5 mb-1">
+                        How to provide rock star support
+                      </h4>
+                      <div class="fs-sm text-muted">September 15, 2021</div>
+                    </div>
+                  </a>
+                </div>
+                <!-- END Course -->
+
+
+
+
+
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="block block-rounded block-mode-loading-oneui">
-                <div class="block-header block-header-default">
-                  <h3 class="block-title">Sales</h3>
-                  <div class="block-options">
-                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                      <i class="si si-refresh"></i>
-                    </button>
-                    <button type="button" class="btn-block-option">
-                      <i class="si si-settings"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="block-content p-0 text-center">
-                  <!-- Chart.js is initialized in js/pages/be_pages_dashboard_v1.min.js which was auto compiled from _js/pages/be_pages_dashboard_v1.js) -->
-                  <!-- For more info and examples you can check out http://www.chartjs.org/docs/ -->
-                  <div class="pt-3" style="height: 360px;"><canvas id="js-chartjs-dashboard-sales"></canvas></div>
-                </div>
-                <div class="block-content">
-                  <div class="row items-push text-center py-3">
-                    <div class="col-6 col-xl-3">
-                      <i class="fab fa-wordpress fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+20% Themes</div>
-                    </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-font fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+25% Fonts</div>
-                    </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-archive fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">-10% Icons</div>
-                    </div>
-                    <div class="col-6 col-xl-3">
-                      <i class="fa fa-paint-brush fa-2x text-muted"></i>
-                      <div class="text-muted mt-3">+8% Graphics</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END Dashboard Charts -->
+        </div>
+
 
 
         </div>
@@ -441,12 +538,12 @@
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
-    <script src="assets/js/oneui.app.min.js"></script>
+    <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
 
     <!-- Page JS Plugins -->
-    <script src="assets/js/plugins/chart.js/chart.umd.js"></script>
+    <script src="{{  asset('assets/js/plugins/chart.js/chart.umd.js') }}"></script>
 
     <!-- Page JS Code -->
-    <script src="assets/js/pages/be_pages_dashboard_v1.min.js"></script>
+    <script src="{{ asset('assets/js/pages/be_pages_dashboard_v1.min.js') }}"></script>
   </body>
 </html>

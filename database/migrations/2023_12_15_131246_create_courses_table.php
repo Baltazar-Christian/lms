@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->string('cover_image');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

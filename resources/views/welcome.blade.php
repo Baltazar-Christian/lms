@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMS - Learn, Grow, Succeed</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css')}}">
+
     <!-- Add your custom styles here -->
     <style>
         body {
@@ -76,7 +78,9 @@
 <!-- Header / Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="#"> LMS</a>
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-graduation-cap text-warning"></i>
+            LMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -84,10 +88,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item m-1">
-                    <a class="nav-link btn btn-info"  href="{{ route('login') }}">Login</a>
+                    <a class=" btn btn-info"  href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item m-1">
-                    <a class="nav-link btn btn-danger  " href="{{ route('register') }}">Register</a>
+                    <a class="btn btn-warning  " href="{{ route('register') }}">Register</a>
                 </li>
             </ul>
         </div>
@@ -95,12 +99,23 @@
 </nav>
 
 <!-- Hero Section -->
-<div class="jumbotron text-center">
+{{-- <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to LMS</h1>
     <p class="lead">Learn, Grow, Succeed</p>
-    {{-- <a class="btn btn-primary btn-lg" href="#features" role="button">Explore Features</a> --}}
-</div>
-
+</div> --}}
+      <!-- Hero Content -->
+      <div class="bg-primary-dark">
+        <div class="content content-full text-center pt-7 pb-5">
+          <h1 class="h2 text-white mb-2">
+            Learn new creative skills today.
+          </h1>
+          <h2 class="h4 fw-normal text-white-75">
+            Join our community and get access to over 10,000 online courses.
+          </h2>
+          <a class="btn btn-primary px-4 py-2" href="javascript:void(0)">Subscribe from $9/month</a>
+        </div>
+      </div>
+      <!-- END Hero Content -->
 <!-- Features Section -->
 <div class="container" id="features">
     <div class="row">
