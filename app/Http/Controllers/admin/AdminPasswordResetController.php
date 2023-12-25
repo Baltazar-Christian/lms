@@ -8,6 +8,13 @@ use App\Http\Controllers\Controller;
 
 class AdminPasswordResetController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::get();
+        return view('admin.password.index', compact('users'));
+    }
+
     public function showResetForm(User $user)
     {
         return view('admin.password.reset', ['user' => $user]);

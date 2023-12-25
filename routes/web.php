@@ -165,6 +165,8 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::delete('/company_details/{id}', [CompanyDetailController::class, 'destroy'])->name('company_details.destroy');
 
     //For Password Reset
+    Route::get('/admin/reset-user-password', [AdminPasswordResetController::class, 'index'])->name('admin.password.index');
+
     Route::get('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'showResetForm'])->name('admin.password.reset');
     Route::post('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'reset'])->name('admin.password.update');
 });

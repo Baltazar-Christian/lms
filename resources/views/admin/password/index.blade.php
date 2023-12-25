@@ -40,13 +40,11 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.show-tutor', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.edit-tutor', $user->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('lms.delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                    </form>
+                    <a href="{{ route('lms.show-tutor', $user->id) }}" class="btn btn-warning">
+                        <i class="fa fa-key"></i>
+                        Reset Password
+                    </a>
+
                 </td>
             </tr>
         @endforeach
