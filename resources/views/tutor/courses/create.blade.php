@@ -6,7 +6,13 @@
 
         <div class="card">
             <div class="card-header">
-                <h5>Create Course</h5>
+                <h5>Create Course
+
+                    <a href="{{ route('lms.tutor-view-module',$module->id) }}" class="btn btn-primary float-end">
+                        <i class="fa fa-plus"></i>
+                        Back
+                    </a>
+                </h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('lms.save-course') }}" method="post" enctype="multipart/form-data">

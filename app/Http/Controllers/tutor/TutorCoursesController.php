@@ -51,7 +51,7 @@ class TutorCoursesController extends Controller
 
         Course::create($request->all());
 
-        $module=Module::findOrFail($request->module_id)->fisrt();;
+        $module=Module::findOrFail($request->module_id)->first();;
 
         return redirect()->route('lms.tutor-view-module',$module->id)->with('success', 'Course created successfully.');
     }
