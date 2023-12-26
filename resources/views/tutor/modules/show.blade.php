@@ -1,5 +1,3 @@
-<!-- resources/views/modules/show.blade.php -->
-
 @extends('layouts.tutor')
 
 @section('content')
@@ -12,7 +10,7 @@
                         <h4 class="mb-0">
                             <i class="fa fa-book text-warning"></i>
                             {{ $module->name }}
-                        <a href="{{ route('lms.modules') }}" class="btn btn-primary float-end">
+                        <a href="{{ route('lms.add-tutor-course',$module->id) }}" class="btn btn-primary float-end">
                             <i class="fa fa-plus"></i>
                             Create Course
                         </a>

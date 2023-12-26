@@ -18,4 +18,11 @@ class TutorCoursesController extends Controller
         return view('tutor.modules.show', $data);
 
     }
+
+    // For Create Course
+    public function create()
+    {
+        $data['modules'] = Module::all();
+        return view('tutor.courses.create', $data);
+    }
 }
