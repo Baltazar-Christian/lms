@@ -28,8 +28,8 @@
                             <thead>
                                     <th>ID</th>
                                     <th>Course Title</th>
-                                    <th>Code</th>
-                                    <th>Status</th>
+                                    <th>Price</th>
+                                    <th>Published</th>
                                     <th>Actions</th>
                             </thead>
                             <tbody>
