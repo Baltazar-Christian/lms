@@ -246,6 +246,11 @@ Route::group(['middleware' => 'role:student'], function () {
 
     Route::post('students/{student}/enroll/{course}', [StudentController::class, 'enrollSelf'])->name('students.enrollSelf');
 Route::post('students/{student}/unenroll/{course}', [StudentController::class, 'unenrollSelf'])->name('students.unenrollSelf');
+Route::get('users/{user}/enrolled-courses', [UserController::class, 'enrolledCourses'])
+    ->name('users.enrolledCourses');
+
+Route::get('users/{user}/search-courses', [UserController::class, 'searchCourses'])
+    ->name('users.searchCourses');
 });
 
 Auth::routes();
