@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -16,7 +17,9 @@ class StudentController extends Controller
 
     public function dashboard()
     {
-        return view('student.dashboard');
+        $data['courses']=Course::get();
+        $data['student']=User::with('courses')->find(Auth::user()-id);;
+        return view('student.dashboard',$data);
     }
 
     public function enrollSelf(Request $request, User $student, Course $course)

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Module;
 use App\Models\CourseContent;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,10 @@ class Course extends Model
     public function contents()
     {
         return $this->hasMany(CourseContent::class);
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'enrollments');
     }
 }
