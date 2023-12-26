@@ -36,9 +36,11 @@
                                         <td>{{ $course->id }}</td>
                                         <td>{{ $course->title }}</td>
                                         <td>{{ number_format($course->price,2) }}</td>
-                                        <td>{{ $course->status }}</td>
                                         <td>
-                                            <a href="{{ route('institutes.show', $course->id) }}" class="btn btn-sm btn-success">Show</a>
+                                            {{ $course->is_published ? 'Yes' : 'No' }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-success">Show</a>
 
                                             <a href="{{ route('institutes.edit', $course->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                             <form action="{{ route('institutes.destroy', $course->id) }}" method="POST" class="d-inline">

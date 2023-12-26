@@ -196,8 +196,8 @@ Route::group(['middleware' => 'role:tutor'], function () {
      //For Courses
 
      Route::any('add-tutor-course/{id}', [TutorCoursesController::class, 'create'])->name('lms.add-tutor-course');
-     Route::any('save-course', [TutorCoursesController::class, 'store'])->name('lms.save-course');
-     Route::any('show-course/{id}', [TutorCoursesController::class, 'show'])->name('lms.show-course');
+     Route::any('save-tutor-course', [TutorCoursesController::class, 'store'])->name('lms.save-tutor-course');
+     Route::any('show-tutor-course/{id}', [TutorCoursesController::class, 'show'])->name('lms.show-tutor-course');
      Route::any('edit-course/{id}', [TutorCoursesController::class, 'edit'])->name('lms.edit-course');
      Route::any('update-course/{id}', [TutorCoursesController::class, 'update'])->name('lms.update-course');
      Route::any('delete-course/{id}', [TutorCoursesController::class, 'destroy'])->name('lms.delete-course');

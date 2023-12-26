@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\tutor;
 
+use App\Models\Quiz;
 use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
+use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +28,15 @@ class TutorCoursesController extends Controller
         return view('tutor.courses.create', $data);
     }
 
+    // For Show Course
+    public function show($id)
+    {
+        $course = Course::findOrFail($id);
+        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',NULL)->get();
+        $quizzes=Quiz::where('course_id',$course->id)->get();
+
+        return view('tutor.courses.show', compact('course','contents','quizzes'));
+    }
 
     // For Saving Course
     public function store(Request $request)
