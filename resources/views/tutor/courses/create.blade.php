@@ -23,7 +23,7 @@
                     </div>
                     @endif
 
-                 <input type="text" name="module_id"  value="{{  $module->id }}"  placeholder="{{ $module->name }}" id="">
+                 <input type="hidden" name="module_id"  value="{{  $module->id }}"  placeholder="{{ $module->name }}" id="">
 
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -63,7 +63,7 @@
                         <input type="file" name="cover_image" id="cover_image" class="form-control-file">
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary float-end">Create Course</button>
+                    <button type="submit" class="btn btn-primary float-end">Save Course</button>
                 </form>
             </div>
 

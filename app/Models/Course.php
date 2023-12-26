@@ -20,7 +20,8 @@ class Course extends Model
         'duration_in_minutes',
         'is_published',
         'published_at',
-        'cover_image'
+        'cover_image',
+        'user_id'
     ];
 
 
