@@ -193,6 +193,52 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('tutor-modules', [ModuleController::class, 'tutor_modules'])->name('lms.tutor-modules');
     Route::any('tutor-view-module/{id}', [TutorCoursesController::class, 'module_courses'])->name('lms.tutor-view-module');
 
+     //For Courses
+    //  Route::any('courses', [CourseController::class, 'index'])->name('lms.courses');
+    //  Route::any('draft-courses', [CourseController::class, 'draft'])->name('lms.draft-courses');
+     Route::any('add-tutor-course', [TutorCoursesController::class, 'create'])->name('lms.add-tutor-course');
+     Route::any('save-course', [TutorCoursesController::class, 'store'])->name('lms.save-course');
+     Route::any('show-course/{id}', [TutorCoursesController::class, 'show'])->name('lms.show-course');
+     Route::any('edit-course/{id}', [TutorCoursesController::class, 'edit'])->name('lms.edit-course');
+     Route::any('update-course/{id}', [TutorCoursesController::class, 'update'])->name('lms.update-course');
+     Route::any('delete-course/{id}', [TutorCoursesController::class, 'destroy'])->name('lms.delete-course');
+        // For Course Content
+        Route::group(['prefix' => 'tutor-courses'], function () {
+            Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.courses.create-content');
+            Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.courses.save-content');
+            Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.courses.edit-content');
+            Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
+            Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.show-course-content');
+            Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.delete-course-content');
+
+            Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.create-subsection');
+
+
+            Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.create-subsection');
+            Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.show-subsection');
+
+            Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.edit-subsection');
+
+            Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
+
+            // For Courses  Quizes
+            Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
+            Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');
+            Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.show-quiz');
+            Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.create-question');
+            Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.store-question');
+
+            Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+
+            Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.create-answer');
+            Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.store-answer');
+            // Show a single question's answers
+            Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.show-question');
+
+            // Show a single answer in detail
+            Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.show-answer');
+        });
+
 });
 
 Route::group(['middleware' => 'role:student'], function () {
