@@ -191,7 +191,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
     // For Modules
     Route::any('tutor-modules', [ModuleController::class, 'tutor_modules'])->name('lms.tutor-modules');
-    Route::any('tutor-view-module', [TutorCoursesController::class, 'module_courses'])->name('lms.tutor-view-module');
+    Route::any('tutor-view-module/{id}', [TutorCoursesController::class, 'module_courses'])->name('lms.tutor-view-module');
 
 });
 

@@ -163,9 +163,9 @@
 
                 @foreach ( $modules as $module )
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                    <a class="nav-main-link" href="{{ route('lms.tutor-view-module', $module->id) }}">
                         <i class="nav-main-link-icon fa fa-book"></i>
-                        <span class="nav-main-link-name">{{ $module->name }}</span>
+                        <span class="nav-main-link-name text-uppercase">{{ $module->name }}</span>
                     </a>
                 </li>
                 @endforeach
