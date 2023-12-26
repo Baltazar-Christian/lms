@@ -18,7 +18,7 @@ class StudentController extends Controller
     public function dashboard()
     {
         $data['courses']=Course::get();
-        $data['student']=User::with('courses')->find(Auth::user()-id);;
+        $data['student']=User::with('courses')->find(Auth::user()->id);;
         return view('student.dashboard',$data);
     }
 
