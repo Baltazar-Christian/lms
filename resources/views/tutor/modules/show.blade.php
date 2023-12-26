@@ -34,11 +34,11 @@
                                 @foreach($courses as $course)
                                     <tr>
                                         <td>{{ $course->id }}</td>
-                                        <td>{{ $course->name }}</td>
-                                        <td>{{ $course->code }}</td>
+                                        <td>{{ $course->title }}</td>
+                                        <td>{{ number_format($course->price,2) }}</td>
                                         <td>{{ $course->status }}</td>
                                         <td>
-                                            <a href="{{ route('institutes.show', $course->id) }}" class="btn btn-sm btn-primary">Show</a>
+                                            <a href="{{ route('institutes.show', $course->id) }}" class="btn btn-sm btn-success">Show</a>
 
                                             <a href="{{ route('institutes.edit', $course->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                             <form action="{{ route('institutes.destroy', $course->id) }}" method="POST" class="d-inline">
