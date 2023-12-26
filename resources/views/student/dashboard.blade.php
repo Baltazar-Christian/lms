@@ -370,7 +370,7 @@
                         </div>
                     </div>
                     <div class="block-content block-content-full">
-                        <h4 class="h5 mb-1">{{ $course->name }}</h4>
+                        <h4 class="mb-1">{{ $course->title }}</h4>
                         <p class="text-muted">
                             <!-- ... Existing course content ... -->
                             Description: {{ $course->description }}
@@ -381,13 +381,17 @@
                             <!-- Unenroll button -->
                             <form action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
                                 @csrf
-                                <button type="submit" class="btn btn-danger">Unenroll</button>
+                                {{-- <div class="col-12"> --}}
+                                    <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
+                                {{-- </div> --}}
                             </form>
                         @else
                             <!-- Enroll button -->
                             <form action="{{ route('students.enrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
                                 @csrf
-                                <button type="submit" class="btn btn-success">Enroll</button>
+                                {{-- <div class="col-12"> --}}
+                                <button type="submit" class=" form-control btn btn-success btn-block">Enroll</button>
+                                {{-- </div> --}}
                             </form>
                         @endif
                     </div>

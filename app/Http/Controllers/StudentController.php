@@ -26,13 +26,17 @@ class StudentController extends Controller
     {
         $student->courses()->attach($course->id);
 
-        return redirect()->route('students.show', $student->id)->with('success', 'Enrolled in the course successfully');
+        // return redirect()->route('students.show', $student->id)->with('success', 'Enrolled in the course successfully');
+
+        return back()->with('success', 'Enrolled in the course successfully');
+
     }
 
     public function unenrollSelf(Request $request, User $student, Course $course)
     {
         $student->courses()->detach($course->id);
 
-        return redirect()->route('students.show', $student->id)->with('success', 'Unenrolled from the course successfully');
+        // return redirect()->route('students.show', $student->id)->with('success', 'Unenrolled from the course successfully');
+        return back()->with('success', 'Unenrolled from the course successfully');
     }
 }
