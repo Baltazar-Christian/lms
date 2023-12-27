@@ -69,4 +69,12 @@ class StudentController extends Controller
 
         return view('student.search_course', compact('courses', 'search'));
     }
+
+
+    public function show(Course $course)
+    {
+        $courseContents = $course->contents;
+
+        return view('student.show_course', compact('course', 'courseContents'));
+    }
 }

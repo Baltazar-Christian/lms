@@ -257,8 +257,13 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('student-courses/search', [StudentController::class, 'searchCourses1'])
     ->name('student-courses.search');
 
-    Route::get('student-courses/{course}', [CourseController::class, 'show'])
+
+    Route::get('student-courses/{course}', [StudentController::class, 'show'])
     ->name('student-courses.show');
+
+
+Route::get('contents/{content}', [ContentController::class, 'show_content'])
+->name('contents.show');
 });
 
 Auth::routes();

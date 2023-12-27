@@ -17,7 +17,9 @@
             @forelse($enrolledCourses as $course)
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ 'storage/covers/'.$course->image_url }}" class="card-img-top" alt="{{ $course->name }}">
+                        <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
+
+                        <img src="{{ asset('storage/covers/'.$course->image_url) }}" class="card-img-top" alt="{{ $course->name }}">
                         <div class="card-body">
                             <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
                                 <!-- ... Existing course icon or image ... -->
@@ -40,6 +42,7 @@
                                 <button type="submit" class="btn btn-danger form-control">Unenroll</button>
                             </form>
                         </div>
+                        </a>
                     </div>
                 </div>
             @empty
