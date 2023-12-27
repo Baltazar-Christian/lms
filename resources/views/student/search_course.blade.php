@@ -1,23 +1,25 @@
+<!-- resources/views/courses/search_courses.blade.php -->
+
 @extends('layouts.student')
 
 @section('content')
     <div class="container mt-5">
-        <h1 class="mb-4">All Courses</h1>
 
-        <!-- Search Form -->
-        <form action="{{ route('student-courses.search') }}" method="get" class="mb-4">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search for a course">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </form>
+             <!-- Search Form -->
+             <form action="{{ route('student-courses.search') }}" method="get" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Search for a course">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        <h6 class="mb-4">Search Results for "{{ $search }}"</h6>
 
-        <!-- Display All Courses -->
+        <!-- Display Search Results -->
         <div class="row">
             @forelse($courses as $course)
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ 'storage/covers/'.$course->image_url }}" class="card-img-top" alt="{{ $course->name }}">
+                        <img src="{{ 'storage/covers/' .$course->cover_image }}" class="card-img-top" alt="{{ $course->name }}">
                         <div class="card-body">
                             <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
                                 <!-- ... Existing course icon or image ... -->
@@ -37,7 +39,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p>No courses available.</p>
+                    <p>No matching courses found.</p>
                 </div>
             @endforelse
         </div>

@@ -61,4 +61,12 @@ class StudentController extends Controller
 
         return view('student.all_courses', compact('courses'));
     }
+
+    public function searchCourses1(Request $request)
+    {
+        $search = $request->input('search');
+        $courses = Course::where('title', 'like', "%$search%")->get();
+
+        return view('student.search_course', compact('courses', 'search'));
+    }
 }
