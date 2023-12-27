@@ -228,7 +228,7 @@
                                         <span class="nav-main-link-name">Dashboard</span>
                                     </a>
                                 </li>
-                           
+
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="bd_search.html">
                                         <i class="nav-main-link-icon fa fa-book"></i>
@@ -236,7 +236,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="bd_search.html">
+                                    <a class="nav-main-link" href="{{ route('student.enrolledCourses',Auth::user()->id)}}">
                                         <i class="fa-solid fa-address-book"></i>
 
                                         <span class="nav-main-link-name"> &nbsp; Enrolled Courses</span>

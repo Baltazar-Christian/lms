@@ -39,4 +39,19 @@ class StudentController extends Controller
         // return redirect()->route('students.show', $student->id)->with('success', 'Unenrolled from the course successfully');
         return back()->with('success', 'Unenrolled from the course successfully');
     }
+
+    public function enrolledCourses(User $user)
+    {
+        $enrolledCourses = $user->courses; // Assuming 'courses' is the relationship name
+
+        return view('student.enrolled_courses', compact('enrolledCourses', 'user'));
+    }
+
+    public function searchCourses(User $user, Request $request)
+    {
+        $search = $request->input('search');
+        $courses = Course::where('title', 'like', "%$search%")->get();
+
+        return view('student.search_courses', compact('courses', 'user', 'search'));
+    }
 }
