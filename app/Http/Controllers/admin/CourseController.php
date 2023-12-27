@@ -47,11 +47,17 @@ class CourseController extends Controller
         ]);
 
         // Handle cover image upload and storage
-        if ($request->hasFile('cover_image')) {
+        // if ($request->hasFile('cover_image')) {
 
-            $imageName = $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
-            $request->merge(['cover_image' => $imageName]);
+        //     $imageName = $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
+        //     $request->merge(['cover_image' => $imageName]);
+        // }
+
+        if ($request->hasFile('cover_image')) {
+            $imagePath = $request->file('covers')->store('covers', 'public');
+            $request->merge(['cover_image' => $imagePath]);
         }
+
 
         Course::create($request->all());
 

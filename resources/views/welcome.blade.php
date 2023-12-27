@@ -145,34 +145,23 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="d-flex justify-content-center">
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 1</h5>
-                        <p class="card-text">Description for Course 1 goes here.</p>
-                    </div>
+                @php
+                $courses=App\Models\Course::get();
+            @endphp
+
+            @foreach ( $courses as $course )
+            <div class="card">
+                <a href="{{ route('login') }}">
+                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" class="card-img-top" alt="Course 1">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ $course->title }} </h5>
+                    <p class="card-text">{{ $course->description}}</p>
                 </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 2</h5>
-                        <p class="card-text">Description for Course 2 goes here.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 3</h5>
-                        <p class="card-text">Description for Course 3 goes here.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Course 4</h5>
-                        <p class="card-text">Description for Course 4 goes here.</p>
-                    </div>
-                </div>
+            </a>
+            </div>
+            @endforeach
+
+
             </div>
         </div>
         <!-- Add more slides as needed -->

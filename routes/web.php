@@ -262,7 +262,7 @@ Route::group(['middleware' => 'role:student'], function () {
     ->name('student-courses.show');
 
 
-Route::get('contents/{content}', [ContentController::class, 'show_content'])
+Route::get('contents/{content}', [StudentController::class, 'show_content'])
 ->name('contents.show');
 });
 

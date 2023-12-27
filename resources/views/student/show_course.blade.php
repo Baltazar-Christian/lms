@@ -45,17 +45,23 @@
         <!-- View Contents for Enrolled Courses -->
         <div class="mt-5">
             <h2>Enrolled Courses</h2>
-            @foreach(auth()->user()->courses as $enrolledCourse)
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $enrolledCourse->name }}</h5>
-                        <p class="card-text">{{ $enrolledCourse->description }}</p>
-                        <!-- Add more course details as needed -->
+            <div class="row">
+                @foreach(auth()->user()->courses as $enrolledCourse)
+                <div class="col-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $enrolledCourse->name }}</h5>
+                            <p class="card-text">{{ $enrolledCourse->description }}</p>
+                            <!-- Add more course details as needed -->
 
-                        <a href="{{ route('student-courses.show', $enrolledCourse) }}" class="btn btn-primary">View Course</a>
+                            <a href="{{ route('student-courses.show', $enrolledCourse) }}" class="btn btn-primary">View Course</a>
+                        </div>
                     </div>
                 </div>
+
             @endforeach
+            </div>
+
         </div>
     </div>
 @endsection

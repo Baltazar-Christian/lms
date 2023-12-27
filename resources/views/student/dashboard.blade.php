@@ -44,9 +44,8 @@
     <div class="row items-push py-4">
         @foreach($courses as $course)
             <div class="col-md-6 col-lg-4 col-xl-3">
-                <a class="block block-rounded block-link-pop h-100 mb-0" href="
-                {{-- {{ route('students.show', $student->id) }} --}}
-                ">
+                <a class="block block-rounded block-link-pop h-100 mb-0" href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
+
                     <div class="block-content block-content-full text-center bg-city">
                         <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
                             <!-- ... Existing course icon or image ... -->

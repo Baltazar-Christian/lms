@@ -306,7 +306,7 @@
 
                 <li class="nav-main-heading">SETTINGS MANAGEMENT</li>
 
-                <li class="nav-main-item">
+            <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('announcements.index') }}">
                         <i class="nav-main-link-icon fa fa-bell"></i>
                         <span class="nav-main-link-name">Announcements</span>

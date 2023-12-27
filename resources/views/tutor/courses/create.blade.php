@@ -15,7 +15,7 @@
                 </h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.save-course') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('lms.save-tutor-course') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Include validation errors if any --}}
