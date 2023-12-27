@@ -250,6 +250,12 @@ Route::group(['middleware' => 'role:student'], function () {
 
     Route::get('students/{user}/search-courses', [StudentController::class, 'searchCourses'])
         ->name('students.searchCourses');
+
+    Route::get('student0courses', [StudentController::class, 'allCourses'])
+    ->name('courses.allCourses');
+
+    Route::get('student-courses/search', [StudentController::class, 'searchCourses'])
+    ->name('courses.search');
 });
 
 Auth::routes();

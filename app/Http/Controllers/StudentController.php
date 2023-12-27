@@ -54,4 +54,11 @@ class StudentController extends Controller
 
         return view('student.search_courses', compact('courses', 'user', 'search'));
     }
+
+    public function allCourses()
+    {
+        $courses = Course::all();
+
+        return view('student.all_courses', compact('courses'));
+    }
 }
