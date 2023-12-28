@@ -46,16 +46,15 @@ class CourseController extends Controller
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle cover image upload and storage
-        // if ($request->hasFile('cover_image')) {
-
-        //     $imageName = $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
-        //     $request->merge(['cover_image' => $imageName]);
-        // }
-
         if ($request->hasFile('cover_image')) {
-            $imagePath = $request->file('covers')->store('covers', 'public');
-            $request->merge(['cover_image' => $imagePath]);
+
+            // Upload the new cover image
+            $coverImage = $request->file('cover_image');
+            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
+
+            // Update the request data to include the new cover image name
+            $request->merge(['cover_image' => $imageName]);
         }
 
 

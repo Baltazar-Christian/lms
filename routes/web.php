@@ -198,9 +198,9 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('add-tutor-course/{id}', [TutorCoursesController::class, 'create'])->name('lms.add-tutor-course');
     Route::any('save-tutor-course', [TutorCoursesController::class, 'store'])->name('lms.save-tutor-course');
     Route::any('show-tutor-course/{id}', [TutorCoursesController::class, 'show'])->name('lms.show-tutor-course');
-    Route::any('edit-course/{id}', [TutorCoursesController::class, 'edit'])->name('lms.edit-course');
-    Route::any('update-course/{id}', [TutorCoursesController::class, 'update'])->name('lms.update-course');
-    Route::any('delete-course/{id}', [TutorCoursesController::class, 'destroy'])->name('lms.delete-course');
+    Route::any('edit-tutor-course/{id}', [TutorCoursesController::class, 'edit'])->name('lms.edit-tutor-course');
+    Route::any('update-tutor-course/{id}', [TutorCoursesController::class, 'update'])->name('lms.update-tutor-course');
+    Route::any('delete-tutor-course/{id}', [TutorCoursesController::class, 'destroy'])->name('lms.delete-tutor-course');
     // For Course Content
     Route::group(['prefix' => 'tutor-courses'], function () {
         Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.courses.create-content');
