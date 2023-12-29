@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <img src="{{ $course->image_url }}" class="card-img-top" alt="{{ $course->name }}">
+                    <img src="{{ asset('storage/covers/' . $course->cover_image) }}" class="card-img-top" alt="{{ $course->name }}">
                     <div class="card-body">
-                        <h1 class="card-title">{{ $course->name }}</h1>
+                        <h5 class="card-title">{{ $course->title }}</h5>
                         <p class="card-text">{{ $course->description }}</p>
                         <!-- Add more course details as needed -->
                     </div>
@@ -50,11 +50,11 @@
                 <div class="col-3">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $enrolledCourse->name }}</h5>
+                            <h5 class="card-title">{{ $enrolledCourse->title }}</h5>
                             <p class="card-text">{{ $enrolledCourse->description }}</p>
                             <!-- Add more course details as needed -->
 
-                            <a href="{{ route('student-courses.show', $enrolledCourse) }}" class="btn btn-primary">View Course</a>
+                            <a href="{{ route('student-courses.show', $enrolledCourse) }}" class="form-control btn btn-primary">View Course</a>
                         </div>
                     </div>
                 </div>

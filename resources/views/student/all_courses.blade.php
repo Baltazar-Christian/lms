@@ -19,12 +19,12 @@
                     <div class="card">
                         <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
-                        <img src="{{ asset('storage/covers/'.$course->image_url) }}" class="card-img-top" alt="{{ $course->name }}">
+                        <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="{{ $course->name }}">
                         <div class="card-body">
-                            <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                            {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
                                 <!-- ... Existing course icon or image ... -->
                                 <i class="fab fa-html5 fa-2x text-white-75"></i>
-                            </div>
+                            </div> --}}
                             <h5 class="card-title">{{ $course->title }}</h5>
                             <p class="card-text">{{ $course->description }}</p>
                             <!-- Add more course details as needed -->
