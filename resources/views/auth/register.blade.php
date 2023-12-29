@@ -47,24 +47,23 @@
                 <!-- Sign Up Block -->
                 <div class="block block-rounded mb-0">
                   <div class="block-header block-header-default">
-                    <h3 class="block-title">Create Account</h3>
+                    {{-- <h3 class="block-title">Create Account</h3> --}}
                     <div class="block-options">
-                      <a class="btn-block-option fs-sm" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#one-signup-terms">View Terms</a>
+                      {{-- <a class="btn-block-option fs-sm" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#one-signup-terms">View Terms</a>
                       <a class="btn-block-option" href="op_auth_signin.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Sign In">
                         <i class="fa fa-sign-in-alt"></i>
-                      </a>
+                      </a> --}}
                     </div>
                   </div>
                   <div class="block-content">
                     <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
-                      <h1 class="h2 mb-1">OneUI</h1>
-                      <p class="fw-medium text-muted">
-                        Please fill the following details to create a new account.
-                      </p>
+                        <h1 class="h2 mb-1 text-center">
+                            <i class="nav-main-link-icon fa fa-graduation-cap text-warning"></i>
+                            LMS</h1>
+                          <p class="fw-medium text-muted text-center ">
+                            Welcome, please regiter.
+                          </p>
 
-                      <!-- Sign Up Form -->
-                      <!-- jQuery Validation (.js-validation-signup class is initialized in js/pages/op_auth_signup.min.js which was auto compiled from _js/pages/op_auth_signup.js) -->
-                      <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
                       <form class="js-validation-signup" action="be_pages_auth_all.html" method="POST">
                         <div class="py-3">
                           <div class="mb-4">
@@ -87,10 +86,16 @@
                           </div>
                         </div>
                         <div class="row mb-4">
-                          <div class="col-md-6 col-xl-5">
+                          <div class="col-md-6 col-xl-6">
                             <button type="submit" class="btn w-100 btn-alt-success form-control">
-                              <i class="fa fa-fw fa-plus me-1 opacity-50"></i> Sign Up
+                              {{-- <i class="fa fa-fw fa-plus me-1 opacity-50"></i> --}}
+                               Register
                             </button>
+                          </div>
+                          <div class="col-md-6 col-xl-6">
+                            <a href="{{ route('login') }}" class="btn w-100 btn-alt-info">
+                                Log In
+                               </a>
                           </div>
                         </div>
                       </form>
