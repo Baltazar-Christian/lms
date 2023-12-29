@@ -2,31 +2,28 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class="mb-4">All Courses</h1>
+        <h5 class="mb-2"> <i class="fa fa-book text-warning"></i>  All Courses</h5>
 
         <!-- Search Form -->
         <form action="{{ route('student-courses.search') }}" method="get" class="mb-4">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search for a course">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-warning" > <i class="fa fa-search"></i> Search</button>
             </div>
         </form>
 
         <!-- Display All Courses -->
         <div class="row">
             @forelse($courses as $course)
-                <div class="col-md-4 mb-4">
+                <div class="col-md-3 mb-4">
                     <div class="card">
                         <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
                         <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="{{ $course->name }}">
                         <div class="card-body">
-                            {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
-                                <!-- ... Existing course icon or image ... -->
-                                <i class="fab fa-html5 fa-2x text-white-75"></i>
-                            </div> --}}
-                            <h5 class="card-title">{{ $course->title }}</h5>
-                            <p class="card-text">{{ $course->description }}</p>
+
+                            <h6 class="card-title text-dark">{{ $course->title }}</h5>
+                            <p class="card-text text-dark">{{ $course->price }}</p>
                             <!-- Add more course details as needed -->
 
                             <!-- Enroll button -->

@@ -47,13 +47,12 @@
                 <a class="block block-rounded block-link-pop h-100 mb-0" href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
                     <div class="block-content block-content-full text-center bg-city">
-                        <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
-                            <!-- ... Existing course icon or image ... -->
-                            <i class="fab fa-html5 fa-2x text-white-75"></i>
-                        </div>
-                        <div class="fs-sm text-white-75">
+                        {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto"> --}}
+                        <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="Course 1">
+                        {{-- </div> --}}
+                        {{-- <div class="fs-sm text-white-75">
                             {{ $course->lessons_count }} lessons &bull; {{ $course->duration }}
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="block-content block-content-full">
                         <h4 class="mb-1">{{ $course->title }}</h4>
