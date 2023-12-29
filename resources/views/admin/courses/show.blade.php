@@ -5,7 +5,7 @@
         style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
 
         <h3 class="text-start text-dark">
-            <i class="fa fa-book"></i>
+            <i class="fa fa-book text-warning"></i>
             {{ $course->title }}
         </h3>
         <hr>
