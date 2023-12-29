@@ -152,7 +152,7 @@
             @foreach ( $courses as $course )
             <div class="card">
                 <a href="{{ route('login') }}">
-                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" class="card-img-top" alt="Course 1">
+                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="Course 1">
                 <div class="card-body">
                     <h5 class="card-title"> {{ $course->title }} </h5>
                     <p class="card-text">{{ $course->description}}</p>
