@@ -8,7 +8,7 @@
                 <i class="fa fa-circle-notch text-primary"></i>
             </span>
             <span class="smini-hide fs-5 tracking-wider">
-                <i class="nav-main-link-icon fa fa-graduation-cap"></i>
+                <i class="nav-main-link-icon fa fa-graduation-cap text-warning"></i>
                 LMS</span>
         </a>
         <!-- END Logo -->
