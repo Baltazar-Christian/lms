@@ -154,20 +154,18 @@
                 <a href="{{ route('login') }}">
                 <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="Course 1">
                 <div class="card-body">
-                    <h6 class="card-title"> {{ $course->title }} </h6>
-                    <p class="card-text">{{ $course->description}}</p>
+                    <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>
+                    <p class="card-text text-start text-dark"> Tsh {{ number_format($course->price,2) }}</p>
                 </div>
-                <div class="card-foot">
-                    <div class="row">
-                        <div class="col-5">
-                            <span>
-                                <b>{{ $course->price}}</b>
-                            </span>
 
-                        </div>
-                        <div class="col-6">
-                         <a href="" type="button" class="btn btn-primary ">
+                <div class="card-foot">
+
+                    <div class="row p-2">
+
+                        <div class="col-12">
+                         <a href="{{ route('login') }}" type="button" class="btn btn-primary form-control ">
                             <i class="fa fa-shopping-cart"></i>
+                            Add to Cart
                          </a>
                         </div>
 
