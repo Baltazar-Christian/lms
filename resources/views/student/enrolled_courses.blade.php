@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class="mb-4">Enrolled Courses for {{ $user->name }}</h1>
+        <h5 class="mb-4">Enrolled Courses for {{ $user->name }}</h5>
 
         <!-- Search Form -->
         <form action="{{ route('students.searchCourses', $user) }}" method="get" class="mb-4">
