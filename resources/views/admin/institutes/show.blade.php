@@ -6,12 +6,20 @@
     <div class="container mt-2">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">{{ $institute->name }} Details</h5>
-                <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list"></i> Back </a>
-
+                <h5 class="mb-0">{{ $institute->name }} Details
+                <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+            </h5>
             </div>
+
             <div class="card-body">
+                <div class="col-4 mx-auto">
+                    @if ($institute->logo)
+                    <img src="{{ asset('storage/' . $institute->logo) }}" width="150px" height="150px" alt="Logo" class="img-fluid">
+                @endif
+                </div>
+                <hr>
                 <div class="row">
+
                     <div class="col-md-6">
                         <p class="lead"><strong>Description:</strong> {{ $institute->description ?: 'N/A' }}</p>
                         <p><strong>Contact Address:</strong> {{ $institute->contact_address ?: 'N/A' }}</p>
@@ -22,10 +30,7 @@
                     <div class="col-md-6">
                         <p><strong>Code:</strong> {{ $institute->code }}</p>
                         <p><strong>Status:</strong> {{ ucfirst($institute->status) }}</p>
-                        @if ($institute->logo)
-                            <p class="mb-2"><strong>Logo:</strong></p>
-                            <img src="{{ asset('storage/' . $institute->logo) }}" alt="Logo" class="img-fluid">
-                        @endif
+
                     </div>
                 </div>
             </div>
