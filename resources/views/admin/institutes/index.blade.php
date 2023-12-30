@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <h5>Institutes</h5>
+                    <h5>    <i class="fa fa-building text-warning"></i> Institutes</h5>
                 </div>
                 <div class="col-6">
                     <a href="{{ route('institutes.create') }}" class="btn btn-dark  float-end">
@@ -47,7 +47,9 @@
                                 <form action="{{ route('institutes.destroy', $institute->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
