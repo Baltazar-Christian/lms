@@ -18,7 +18,7 @@
         <!-- Display Enrolled Courses -->
         <div class="row">
             @forelse($enrolledCourses as $course)
-                <div class="col-md-4 mb-4">
+                <div class="col-md-3 mb-4">
                     <div class="card">
                         <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
