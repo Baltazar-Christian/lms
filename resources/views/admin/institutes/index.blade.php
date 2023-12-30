@@ -12,7 +12,9 @@
                     <h5>Institutes</h5>
                 </div>
                 <div class="col-6">
-                    <a href="{{ route('institutes.create') }}" class="btn btn-primary float-end">Create Institute</a>
+                    <a href="{{ route('institutes.create') }}" class="btn btn-dark  float-end">
+
+                        Create Institute</a>
                 </div>
             </div>
         </div>
@@ -35,9 +37,13 @@
                             <td>{{ $institute->code }}</td>
                             <td>{{ $institute->status }}</td>
                             <td>
-                                <a href="{{ route('institutes.show', $institute->id) }}" class="btn btn-sm btn-primary">Show</a>
+                                <a href="{{ route('institutes.show', $institute->id) }}" class="btn btn-sm btn-dark">
+                                    <i class="fa fa-eye"></i>
+                                </a>
 
-                                <a href="{{ route('institutes.edit', $institute->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="{{ route('institutes.edit', $institute->id) }}" class="btn btn-sm btn-dark">
+                                    <i class="fa fa-edit"></i>
+                                </a>
                                 <form action="{{ route('institutes.destroy', $institute->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
