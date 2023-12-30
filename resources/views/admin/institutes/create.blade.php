@@ -20,20 +20,8 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-group col-6 mb-2">
-                        <label for="logo">Logo</label>
-                        <input type="file" name="logo" class="form-control-file" accept="image/*" required>
-                        @error('logo')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group col-6 mb-2">
-                        <label for="description">Description</label>
-                        <textarea name="description" class="form-control" rows="4"></textarea>
-                        @error('description')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+
+
                     <div class="form-group col-6 mb-2">
                         <label for="contact_address">Contact Address</label>
                         <input type="text" name="contact_address" class="form-control">
@@ -70,6 +58,13 @@
                         @enderror
                     </div>
                     <div class="form-group col-6 mb-2">
+                        <label for="logo">Logo</label>
+                        <input type="file" name="logo" class="form-control-file" accept="image/*" required>
+                        @error('logo')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-6 mb-2">
                         <label for="status">Status</label>
                         <select name="status" class="form-control" required>
                             <option value="active">Active</option>
@@ -79,11 +74,19 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group col-12 mb-2">
+                        <label for="description">Description</label>
+                        <textarea name="description" class="form-control" rows="4"></textarea>
+                        @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
 
                 <!-- Add more fields as needed -->
                 <br>
-                <button type="submit" class="btn btn-primary float-end">Create</button>
+                <button type="submit" class="btn btn-dark text-warning float-end">Create</button>
             </form>
         </div>
     </div>
