@@ -8,7 +8,10 @@
         <form action="{{ route('students.searchCourses', $user) }}" method="get" class="mb-4">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search for a course">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-warning">
+                    <i class="fa fa-search"></i>
+                    Search
+                </button>
             </div>
         </form>
 
