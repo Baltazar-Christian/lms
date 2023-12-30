@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="block-content block-content-full">
-                            <h6 class="mb-1">{{ $course->title }}</h6>
+                            <h6 class="mb-1 text-dark">{{ $course->title }}</h6>
                             <p class="text-muted">
                                 <!-- ... Existing course content ... -->
                                 Price: {{ number_format($course->price,2)  }}
