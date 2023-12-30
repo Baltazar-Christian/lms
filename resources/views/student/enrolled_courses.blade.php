@@ -33,10 +33,10 @@
                             </div>
                         </div>
                         <div class="block-content block-content-full">
-                            <h4 class="mb-1">{{ $course->title }}</h4>
+                            <h6 class="mb-1">{{ $course->title }}</h6>
                             <p class="text-muted">
                                 <!-- ... Existing course content ... -->
-                                Description: {{ $course->description }}
+                                Price: {{ number_format($course->price,2)  }}
                             </p>
                             <div class="fs-sm text-muted">{{ $course->created_at->format('F d, Y') }}</div>
                             <!-- Unenroll button -->
