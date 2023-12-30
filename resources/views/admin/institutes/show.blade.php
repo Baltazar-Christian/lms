@@ -3,10 +3,12 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div class="card">
             <div class="card-header">
-                <h1 class="mb-0">{{ $institute->name }} Details</h1>
+                <h5 class="mb-0">{{ $institute->name }} Details</h5>
+                <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list"></i> Back </a>
+
             </div>
             <div class="card-body">
                 <div class="row">
@@ -28,7 +30,6 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a href="{{ route('institutes.index') }}" class="btn btn-primary">Back to Institutes</a>
             </div>
         </div>
     </div>
