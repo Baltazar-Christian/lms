@@ -15,9 +15,9 @@
                     </div>
 
                     <div class="card-body">
-                        <p>Status: <span class="{{ $module->status === 'active' ? 'text-success' : 'text-danger' }}">{{ $module->status }}</span></p>
+                        {{-- <p>Status: <span class="{{ $module->status === 'active' ? 'text-success' : 'text-danger' }}">{{ $module->status }}</span></p> --}}
 
-                        <h2>Associated Institutes:</h2>
+                        <h5>Associated Institutes:</h5>
                         <ul>
                             @forelse ($module->institutes as $institute)
                                 <li>{{ $institute->name }}</li>
@@ -35,6 +35,5 @@
             </div>
         </div>
 
-        <a href="{{ route('lms.modules') }}" class="btn btn-primary mt-3">Back to Module Index</a>
     </div>
 @endsection
