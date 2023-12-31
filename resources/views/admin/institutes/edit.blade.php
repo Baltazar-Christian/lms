@@ -93,7 +93,7 @@
                 <br>
             </div>
 
-            <button type="submit" class="btn btn-secondary float-end">Update</button>
+            <button type="submit" class="btn btn-secondary float-end mt-2">Update</button>
         </form>
     </div>
 </div>
