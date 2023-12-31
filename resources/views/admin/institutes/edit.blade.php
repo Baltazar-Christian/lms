@@ -9,7 +9,10 @@
 <div class="card">
 
     <div class="card-header">
-        <h5>Edit Institute</h5>
+        <h5>Edit Institute
+            <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Institutes </a>
+
+        </h5>
     </div>
 
     <div class="card-body">
