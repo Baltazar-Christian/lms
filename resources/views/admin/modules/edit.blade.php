@@ -7,7 +7,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Edit Module</h1>
+        <h5 class="mb-4">
+            Edit Module
+            <a href="{{ route('lms.modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
+
+        </h5>
 
         <div class="card">
             <div class="card-body">
