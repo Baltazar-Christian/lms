@@ -73,7 +73,7 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::get('/institutes', [InstituteController::class, 'index'])->name('institutes.index');
 
     // For Inactive Institute
-    Route::get('/institutes', [InstituteController::class, 'inactive'])->name('institutes.inactive');
+    Route::get('/inactive-institutes', [InstituteController::class, 'inactive'])->name('institutes.inactive');
 
     // Create Institute Form
     Route::get('/institutes/create', [InstituteController::class, 'create'])->name('institutes.create');
