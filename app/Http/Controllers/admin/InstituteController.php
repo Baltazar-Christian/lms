@@ -16,7 +16,7 @@ class InstituteController extends Controller
 
     public function inactive()
     {
-        $institutes = Instute::all();
+        $institutes = Instute::where('status','inactive')->get();
         return view('admin.institutes.inactive', compact('institutes'));
     }
 
