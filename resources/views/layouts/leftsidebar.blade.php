@@ -233,7 +233,7 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="be_pages_ecom_orders.html">
+                            <a class="nav-main-link" href="{{ route('institutes.inactive') }}">
                                 <span class="nav-main-link-name">InActive Institute</span>
                             </a>
                         </li>
