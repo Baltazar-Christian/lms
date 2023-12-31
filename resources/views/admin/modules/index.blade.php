@@ -2,16 +2,17 @@
 
 @section('content')
     <div class="container">
-        <div class="card-header">
-            <h5 class="mb-4">Modules
-                <a href="{{ route('lms.add-module') }}" class="btn btn-primary float-end mb-3">Create Module</a>
-
-            </h5>
-
-        </div>
 
 
-        <div class="card col-12">
+
+        <div class="card col-12 mt-2">
+            <div class="card-header">
+                <h5 class="mb-4">Modules
+                    <a href="{{ route('lms.add-module') }}" class="btn btn-secondary float-end mb-3">Create Module</a>
+
+                </h5>
+
+            </div>
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
