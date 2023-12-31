@@ -71,7 +71,7 @@
                         <label for="status">Status</label>
                         <select name="status" class="form-control" required>
                             <option value="active">Active</option>
-                            <option value="blocked">Blocked</option>
+                            <option value="inactive">Blocked</option>
                         </select>
                         @error('status')
                             <span class="text-danger">{{ $message }}</span>
