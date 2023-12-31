@@ -2,9 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Create Module</h1>
 
         <div class="card">
+            <div class="card-head">
+                <h5 class="mb-4">Create Module</h5>
+            </div>
             <div class="card-body">
                 <form action="{{ route('lms.save-module') }}" method="post">
                     @csrf
