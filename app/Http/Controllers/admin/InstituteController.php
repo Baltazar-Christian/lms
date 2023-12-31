@@ -42,7 +42,7 @@ class InstituteController extends Controller
             'contact_email' => 'nullable|email',
 
             'code' => 'required|unique:instutes',
-            'status' => 'required|in:active,blocked',
+            'status' => 'required|in:active,inactive',
         ]);
  //'website' => 'nullable|url',
         // Handle file upload
@@ -83,7 +83,7 @@ class InstituteController extends Controller
             'contact_email' => 'nullable|email',
             // 'website' => 'nullable|url',
             'code' => 'required|unique:instutes,code,' . $id,
-            'status' => 'required|in:active,blocked',
+            'status' => 'required|in:active,inactive',
         ]);
 
         $institute = Instute::findOrFail($id);

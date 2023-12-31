@@ -79,7 +79,7 @@
                     <label for="status">Status</label>
                     <select name="status" class="form-control" required>
                         <option value="active" {{ $institute->status === 'active' ? 'selected' : '' }}>Active</option>
-                        <option value="inactive" {{ $institute->status === '' ? 'inactive' : '' }}>Blocked</option>
+                        <option value="inactive" {{ $institute->status === '' ? 'inactive' : '' }}>InActive</option>
                     </select>
                     @error('status')
                         <span class="text-danger">{{ $message }}</span>
