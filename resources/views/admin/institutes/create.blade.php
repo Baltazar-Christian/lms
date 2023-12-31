@@ -7,7 +7,10 @@
 <div class="col-12 mt-2 mx-2">
     <div class="card">
         <div class="card-header">
-            <h5>Create Institute</h5>
+            <h5>Create Institute
+                <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Institutes </a>
+
+            </h5>
         </div>
         <div class="card-body">
             <form action="{{ route('institutes.store') }}" method="POST" enctype="multipart/form-data">
