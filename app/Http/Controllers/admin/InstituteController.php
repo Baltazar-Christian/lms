@@ -10,7 +10,7 @@ class InstituteController extends Controller
 {
     public function index()
     {
-        $institutes = Instute::all();
+        $institutes = Instute::where('status','active')->get();
         return view('admin.institutes.index', compact('institutes'));
     }
 
@@ -86,7 +86,7 @@ class InstituteController extends Controller
             'status' => 'required|in:active,blocked',
         ]);
 
-        $institute = Institute::findOrFail($id);
+        $institute = Instute::findOrFail($id);
 
         // Handle file upload
         if ($request->hasFile('logo')) {
