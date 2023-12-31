@@ -3,17 +3,17 @@
 @section('content')
     <div class="container">
 
-        <div class="card">
-            <div class="card-head">
+        <div class="card mt-2">
+            <div class="card-header">
                 <h5 class="mb-4">Create Module</h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('lms.save-module') }}" method="post">
                     @csrf
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="name">Module Name</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                        <input type="text" name="name" id="name" placeholder="Enter Module Name" class="form-control" required>
                     </div>
 
                     <div class="form-group">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Create Module</button>
+                    <button type="submit" class="btn btn-secondary mt-2 float-end">Create Module</button>
                 </form>
             </div>
         </div>
