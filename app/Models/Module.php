@@ -18,4 +18,9 @@ class Module extends Model
             ->withPivot('status', 'created_by')
             ->withTimestamps();
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'created_by');
+    }
 }
