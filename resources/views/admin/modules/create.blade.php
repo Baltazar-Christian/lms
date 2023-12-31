@@ -5,7 +5,11 @@
 
         <div class="card mt-2">
             <div class="card-header">
-                <h5 class="mb-4">Create Module</h5>
+                <h5 class="mb-4">
+                    Create Module
+                    <a href="{{ route('lms.modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
+
+                </h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('lms.save-module') }}" method="post">
