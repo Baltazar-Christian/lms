@@ -71,6 +71,10 @@ Route::group(['middleware' => 'role:admin'], function () {
 
     // Index Page - List of Institutes
     Route::get('/institutes', [InstituteController::class, 'index'])->name('institutes.index');
+
+    // For Inactive Institute
+    Route::get('/institutes', [InstituteController::class, 'inactive'])->name('institutes.inactive');
+
     // Create Institute Form
     Route::get('/institutes/create', [InstituteController::class, 'create'])->name('institutes.create');
     Route::post('/institutes', [InstituteController::class, 'store'])->name('institutes.store');
@@ -140,9 +144,7 @@ Route::group(['middleware' => 'role:admin'], function () {
 
 
     Route::get('/quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
-    // Route::get('/quizzes/create', [QuizController::class, 'create'])->name('lms.create-quiz');
     Route::post('/quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
-    // Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('lms.show-quiz');
     Route::get('/quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
     Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
     Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
@@ -194,7 +196,6 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('tutor-view-module/{id}', [TutorCoursesController::class, 'module_courses'])->name('lms.tutor-view-module');
 
     //For Courses
-
     Route::any('add-tutor-course/{id}', [TutorCoursesController::class, 'create'])->name('lms.add-tutor-course');
     Route::any('save-tutor-course', [TutorCoursesController::class, 'store'])->name('lms.save-tutor-course');
     Route::any('show-tutor-course/{id}', [TutorCoursesController::class, 'show'])->name('lms.show-tutor-course');
