@@ -30,11 +30,11 @@
                                 <td>{{ $module->id }}</td>
                                 <td>{{ $module->name }}</td>
                                 <td>
-                                    <span class="badge {{ $module->status === 'active' ? 'badge-success' : 'badge-danger' }}">
+                                    <span class="badge {{ $module->status === 'active' ? 'badge-success text-success' : 'badge-danger text-danger' }}">
                                         {{ $module->status }}
                                     </span>
                                 </td>
-                                <td>{{ $module->created_by }}</td>
+                                <td>{{ $module->user->name }}</td>
                                 <td>
                                     <a href="{{ route('lms.show-module', $module->id) }}" class="btn btn-sm btn-secondary">
                                         <i class="fas fa-eye"></i>
