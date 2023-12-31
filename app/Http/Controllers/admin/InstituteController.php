@@ -14,6 +14,12 @@ class InstituteController extends Controller
         return view('admin.institutes.index', compact('institutes'));
     }
 
+    public function inactive()
+    {
+        $institutes = Instute::all();
+        return view('admin.institutes.inactive', compact('institutes'));
+    }
+
     public function show($id)
     {
         $institute = Instute::findOrFail($id);
