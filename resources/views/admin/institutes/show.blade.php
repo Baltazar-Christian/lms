@@ -7,7 +7,11 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0">{{ $institute->name }} Details
-                <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+                    @if ( $institute->status =='active')
+                    <a href="{{ route('institutes.index') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+                    @else
+                    <a href="{{ route('institutes.inactive') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+                    @endif
             </h5>
             </div>
 
