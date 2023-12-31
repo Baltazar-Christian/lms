@@ -35,13 +35,7 @@
                         <img src="{{ asset('storage/' . $institute->logo) }}" alt="Logo" class="mt-2" style="max-width: 150px;">
                     @endif
                 </div>
-                <div class="form-group col-6">
-                    <label for="description">Description</label>
-                    <textarea name="description" class="form-control" rows="4">{{ $institute->description }}</textarea>
-                    @error('description')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
+
                 <div class="form-group col-6">
                     <label for="contact_address">Contact Address</label>
                     <input type="text" name="contact_address" class="form-control" value="{{ $institute->contact_address }}">
@@ -84,6 +78,14 @@
                         <option value="blocked" {{ $institute->status === 'blocked' ? 'selected' : '' }}>Blocked</option>
                     </select>
                     @error('status')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group col-12">
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" rows="3">{{ $institute->description }}</textarea>
+                    @error('description')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
