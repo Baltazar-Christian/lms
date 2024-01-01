@@ -3,8 +3,9 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-4">
-        <h4 class="mb-4"> <i class="fa fa-book"></i> Published Courses</h4>
+    <div class="container mt-2">
+
+        <h5 class="mb-2"> <i class="fa fa-book"></i> Published Courses</h5>
 
         <a href="{{ route('lms.add-course') }}" class="btn btn-primary float-end mb-3">Create Course</a>
 <hr>
