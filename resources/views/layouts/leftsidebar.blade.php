@@ -260,7 +260,7 @@
                                 </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="{{ route('lms.modules') }}">
-                                        <span class="nav-main-link-name">Active Mudules</span>
+                                        <span class="nav-main-link-name">All Mudules</span>
                                     </a>
                                 </li>
 
