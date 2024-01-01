@@ -19,12 +19,12 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="name">Module Name</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{ $module->name }}" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label>Select Institutes</label>
                         <div>
                             @foreach ($institutes as $institute)
@@ -36,9 +36,9 @@
                         </div>
                     </div>
 
+<hr>
 
-
-                    <button type="submit" class="btn btn-primary">Update Module</button>
+                    <button type="submit" class="btn btn-secondary float-end">Update Module</button>
                 </form>
             </div>
         </div>
