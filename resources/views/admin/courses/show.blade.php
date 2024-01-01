@@ -54,9 +54,9 @@
                     <h3 class="card-title">{{ $content->title }}</h3>
                     <div class="d-flex justify-content-end align-items-center">
                         <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                            class="btn btn-sm btn-primary ms-2">View </a>
+                            class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
                         <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
-                            class="btn btn-sm btn-secondary  ms-2"><i class="fa fa-download"></i></a>
+                            class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
 
                         <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                             class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
