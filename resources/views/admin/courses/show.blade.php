@@ -12,11 +12,11 @@
                     {{ $course->title }} --}}
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning me-2"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning mx-1"><i class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
                     </form>
                     <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add Content</a>
                     <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
