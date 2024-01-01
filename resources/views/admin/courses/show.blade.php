@@ -45,7 +45,7 @@
         <hr>
 
         {{-- Display course contents --}}
-        <h2 class="mt-4 mb-3">Course Contents</h2>
+        <h6 class="mt-4 mb-3">Course Contents</h6>
         @forelse ($contents as $content)
 
             <div class="card mb-3">
@@ -76,7 +76,7 @@
         @endforelse
 
         {{-- For Quizzes --}}
-        <h2 class="mt-4 mb-3">Quizzes</h2>
+        <h6 class="mt-4 mb-3">Quizzes</h6>
         @forelse ($quizzes as $quiz)
             <div class="card mb-3">
                 <div class="card-body">
