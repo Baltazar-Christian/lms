@@ -12,7 +12,7 @@
                     {{ $course->title }} --}}
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning mx-1"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-dark mx-1"><i class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
