@@ -56,10 +56,10 @@
                         <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                             class="btn btn-sm btn-primary ms-2">View </a>
                         <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
-                            class="btn btn-sm btn-secondary  ms-2">Download</a>
+                            class="btn btn-sm btn-secondary  ms-2"><i class="fa fa-download"></i></a>
 
                         <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                            class="btn btn-sm btn-warning ms-2">><i class="fa fa-edit"></i></a>
+                            class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
                         <!-- Add the delete button -->
                         <form
                             action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
