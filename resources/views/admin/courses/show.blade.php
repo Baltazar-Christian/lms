@@ -7,10 +7,10 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="text-start text-dark">
-                    <i class="fa fa-book text-warning"></i>
-                    {{ $course->title }}
-                </h5>
+                {{-- <h5 class="text-start text-dark"> --}}
+                    {{-- <i class="fa fa-book text-warning"></i>
+                    {{ $course->title }} --}}
+
                 <div class="mt-4 d-flex justify-content-end">
                     <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning me-2">Edit Course</a>
                     <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add Content</a>
@@ -22,6 +22,7 @@
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
                     </form>
                 </div>
+            {{-- </h5> --}}
             </div>
 
             <div class="card-body p-2">
@@ -35,12 +36,12 @@
 
             @endif
         </div>
-
-        <p class="lead text-muted">{{ $course->description }}</p>
+        <p><strong>Title:</strong> ${{ $course->title }}</p>
         <p><strong>Price:</strong> ${{ $course->price }}</p>
         <p><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</p>
         <p><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
 
+        <p class="lead text-muted">{{ $course->description }}</p>
         <hr>
 
         {{-- Display course contents --}}
