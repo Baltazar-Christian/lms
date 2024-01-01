@@ -1,14 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-2 mb-5 p-4"
-        style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+    <div class="container mt-2 mb-5 "
+        {{-- style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);" --}}
+        >
 
-        <h3 class="text-start text-dark">
-            <i class="fa fa-book text-warning"></i>
-            {{ $course->title }}
-        </h3>
-        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-start text-dark">
+                    <i class="fa fa-book text-warning"></i>
+                    {{ $course->title }}
+                </h5>
+                <div class="mt-4 d-flex justify-content-end">
+                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning me-2">Edit Course</a>
+                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add Content</a>
+                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
+
+                    <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card-body p-2">
+
+
 
         <div class="col-5 mx-auto mt-4">
             @if ($course->cover_image)
@@ -82,16 +100,7 @@
             <p class="text-muted">No quizzes available for this course.</p>
         @endforelse
 
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-warning me-2">Edit Course</a>
-            <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add Content</a>
-            <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
+    </div>
 
-            <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Course</button>
-            </form>
-        </div>
     </div>
 @endsection
