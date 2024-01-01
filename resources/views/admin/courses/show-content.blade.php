@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-3 mx-auto mb-5 p-4 card rounded shadow mx-1">
 
-        <h4 class="text-start text-dark"> <div class="fa fa-book"></div> {{ $course->title }} - Course Content</h4>
+        <h5 class="text-start text-dark"> <div class="fa fa-book text-warning"></div> {{ $course->title }} - Course Content</h4>
 
         <hr>
         {{-- Display content details --}}
@@ -29,7 +29,7 @@
                 @endforelse
             </ul>
             {{-- Add button to create a new sub-section --}}
-            <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}" class="btn btn-primary float-end mt-3">Create Sub-Section</a>
+            <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}" class="btn btn-dark float-end mt-3">Create Sub-Section</a>
         </div>
          <div class="mt-4">
             <h2>Quizes</h2>
