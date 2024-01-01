@@ -58,14 +58,14 @@
                             class="btn btn-sm btn-secondary  ms-2">Download</a>
 
                         <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                            class="btn btn-sm btn-warning ms-2">Edit</a>
+                            class="btn btn-sm btn-warning ms-2">><i class="fa fa-edit"></i></a>
                         <!-- Add the delete button -->
                         <form
                             action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                             method="post" style="display: inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-danger ms-2"><i class="fa fa-trash"></i></button>
                         </form>
                     </div>
                 </div>
