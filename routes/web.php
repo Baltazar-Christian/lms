@@ -204,14 +204,14 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('delete-tutor-course/{id}', [TutorCoursesController::class, 'destroy'])->name('lms.delete-tutor-course');
     // For Course Content
     Route::group(['prefix' => 'tutor-courses'], function () {
-        Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.courses.create-content');
-        Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.courses.save-content');
-        Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.courses.edit-content');
-        Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
-        Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.show-course-content');
-        Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.delete-course-content');
+        Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.tutor-courses.create-content');
+        Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.tutor-courses.save-content');
+        Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.tutor-courses.edit-content');
+        Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.tutor-courses.update-content');
+        Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.tutor-show-course-content');
+        Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.tutor-delete-course-content');
 
-        Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.create-subsection');
+        Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
 
 
         Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.create-subsection');
