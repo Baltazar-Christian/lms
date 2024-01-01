@@ -4,11 +4,15 @@
 
 @section('content')
     <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">
 
-        <h5 class="mb-2"> <i class="fa fa-book"></i> Published Courses</h5>
+                <h5 class="mb-2"> <i class="fa fa-book"></i> Published Courses</h5>
 
-        <a href="{{ route('lms.add-course') }}" class="btn btn-primary float-end mb-3">Create Course</a>
-<hr>
+                <a href="{{ route('lms.add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
+            </div>
+
+            <div class="card-body">
         <div class="table-responsive col-12">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
@@ -33,11 +37,14 @@
                             <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
                             <td>
                                 <a href="{{ route('lms.show-course', $course->id) }}" class="btn btn-sm btn-info">View</a>
-                                <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block">
+                                <a href="{{ route('lms.edit-course', $course->id) }}"
+                                    class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('lms.delete-course', $course->id) }}" method="post"
+                                    style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -45,5 +52,8 @@
                 </tbody>
             </table>
         </div>
+            </div>
+        </div>
+
     </div>
 @endsection
