@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
 
-                <h5 class="mb-2"> <i class="fa fa-book"></i> Published Courses
+                <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published Courses
                     <a href="{{ route('lms.add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
 
                 </h5>
@@ -38,15 +38,23 @@
                             <td>{{ $course->duration_in_minutes }}</td>
                             <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
                             <td>
-                                <a href="{{ route('lms.show-course', $course->id) }}" class="btn btn-sm btn-info">View</a>
+                                <a href="{{ route('lms.show-course', $course->id) }}" class="btn btn-sm btn-secondary">
+                                <i class="fa fa-eye"></i>
+                                </a>
                                 <a href="{{ route('lms.edit-course', $course->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a>
+                                    class="btn btn-sm btn-secondary">
+                                    <i class="fa fa-edit"></i>
+
+                                </a>
                                 <form action="{{ route('lms.delete-course', $course->id) }}" method="post"
                                     style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                        onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+
+                                    </button>
                                 </form>
                             </td>
                         </tr>
