@@ -19,20 +19,33 @@
                             </ul>
                         </div>
                     @endif
-
                     <div class="form-group">
-                        <label for="title">Content Title</label>
+                        <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control" required>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <label for="description">Content Description</label>
-                        <textarea name="description" id="description" class="form-control" rows="4"></textarea>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
                     </div>
 
-                    <div class="form-group mt-3">
-                        <label for="file_path">Upload File</label>
-                        <input type="file" name="file_path" id="file_path" class="form-control-file" required>
+                    <div class="form-group">
+                        <label for="type">Content Type</label>
+                        <select name="type" id="type" class="form-control" required>
+                            <option value="pdf">PDF</option>
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">File</label>
+                        <input type="file" name="file" id="file" class="form-control-file">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes)</label>
+                        <input type="number" name="duration" id="duration" class="form-control">
                     </div>
                     <br>
 
