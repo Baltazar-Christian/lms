@@ -1,10 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-4">
-        <h1>Create Course Content</h1>
+    <div class="container mt-2">
 
         <div class="card mt-3">
+            <div class="card-header">
+                <h5>Create Course Content</h5>
+
+            </div>
             <div class="card-body">
                 <form action="{{ route('lms.courses.save-content', $course->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -19,37 +22,41 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" class="form-control" required>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
-                    </div>
+                    <div class="row">
+                        <div class="form-group col-6 mb-2">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" class="form-control" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="type">Content Type</label>
-                        <select name="type" id="type" class="form-control" required>
-                            <option value="pdf">PDF</option>
-                            <option value="image">Image</option>
-                            <option value="video">Video</option>
-                        </select>
-                    </div>
+                        <div class="form-group col-6 mb-2">
+                            <label for="type">Content Type</label>
+                            <select name="type" id="type" class="form-control" required>
+                                <option value="pdf">PDF</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="file">File</label>
-                        <input type="file" name="file" id="file" class="form-control-file">
-                    </div>
+                        <div class="form-group col-6 mb-2">
+                            <label for="file">File</label>
+                            <input type="file" name="file" id="file" class="form-control-file">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="duration">Duration (minutes)</label>
-                        <input type="number" name="duration" id="duration" class="form-control">
-                    </div>
-                    <br>
+                        <div class="form-group col-6 mb-2">
+                            <label for="duration">Duration (minutes)</label>
+                            <input type="number" name="duration" id="duration" class="form-control">
+                        </div>
 
-                    <button type="submit" class="btn btn-primary float-end">Create Content</button>
+                        <div class="form-group col-12 mb-2">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+                        </div>
+
+                    </div>
+                     <br>
+
+                    <button type="submit" class="btn btn-dark float-end">Create Content</button>
                 </form>
             </div>
         </div>
