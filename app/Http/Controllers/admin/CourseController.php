@@ -152,13 +152,19 @@ class CourseController extends Controller
         // $this->validateContent($request);
 
 
-        $content = new CourseContent($request->all());
-        $content->course_id = $courseId;
+        $file = $request->file('file');
+        $filePath = $file->store('course_contents');
 
-        // Handle file upload and storage here...
-        $content->file_path = $this->uploadFile($request, 'file_path', 'course_contents');
-
-        $content->save();
+        // Create the sub-section
+        $subSection = CourseContent::create([
+            'course_id' => $courseId,
+            'parent_id' => $courseId,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'type' => $request->input('type'),
+            'file_path' => $filePath,
+            'duration' => $request->input('duration'),
+        ]);
 
         return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content created successfully');
     }
