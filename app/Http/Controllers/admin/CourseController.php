@@ -67,6 +67,7 @@ class CourseController extends Controller
     {
         $course = Course::findOrFail($id);
         $contents=CourseContent::where('course_id',$course->id)->where('parent_id',$course->id)->get();
+
         $quizzes=Quiz::where('course_id',$course->id)->get();
 
         return view('admin.courses.show', compact('course','contents','quizzes'));
