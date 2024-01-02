@@ -6,7 +6,9 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-4">Draft Courses
+                <h5 class="mb-4">
+                    <i class="fa fa-book text-warning"></i>
+                    Draft Courses
                     <a href="{{ route('lms.add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
                 </h5>
             </div>
