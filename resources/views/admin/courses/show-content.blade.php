@@ -7,7 +7,9 @@
 
         <hr>
         {{-- Display content details --}}
-
+            <p>
+                {{  $content->description}}
+            </p>
         <div class="mt-4">
             <h2>Sub-Sections</h2>
 
