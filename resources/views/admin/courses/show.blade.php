@@ -77,13 +77,13 @@
 
                                 <table class="table table-borderless table-vcenter mt-2">
                                     <tbody>
-                                      <tr class="table-active mt-2">
+                                      {{-- <tr class="table-active mt-2">
                                         <th style="width: 50px;"></th>
                                         <th>1. Intro</th>
                                         <th class="text-end">
                                           <span class="text-muted">0.2 hours</span>
                                         </th>
-                                      </tr>
+                                      </tr> --}}
                                       <tr>
                                         <td class="table-success text-center">
                                           <i class="fa fa-fw fa-unlock text-success"></i>
