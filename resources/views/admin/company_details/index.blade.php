@@ -35,13 +35,13 @@
                         <tr>
                             <td>{{ $companyDetail->id }}</td>
                             <td>{{ $companyDetail->name }}</td>
-                            <td>{{ $companyDetail->description }}</td>
+                            <td>{!! $companyDetail->description !!}</td>
                             <td>
-                                <a href="{{ route('company_details.edit', $companyDetail->id) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-dark "> <i class="fa fa-edit"></i> </a>
                                 <form action="{{ route('company_details.destroy', $companyDetail->id) }}" method="post" style="display:inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn  btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

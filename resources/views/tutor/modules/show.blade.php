@@ -10,7 +10,7 @@
                         <h4 class="mb-0">
                             <i class="fa fa-book text-warning"></i>
                             {{ $module->name }}
-                        <a href="{{ route('lms.add-tutor-course',$module->id) }}" class="btn btn-primary float-end">
+                        <a href="{{ route('lms.add-tutor-course',$module->id) }}" class="btn btn-dark float-end">
                             <i class="fa fa-plus"></i>
                             Create Course
                         </a>
@@ -40,13 +40,20 @@
                                             {{ $course->is_published ? 'Yes' : 'No' }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-success">Show</a>
+                                            <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark">
+                                            <i class="fa fa-eye"></i>
+                                            </a>
 
-                                            <a href="{{ route('institutes.edit', $course->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="{{ route('institutes.edit', $course->id) }}" class="btn btn-sm btn-dark">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                             <form action="{{ route('institutes.destroy', $course->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                                    <i class="fa fa-trash"></i>
+
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
