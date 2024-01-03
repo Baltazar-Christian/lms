@@ -18,9 +18,6 @@
                         <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
                                 class="fa fa-trash"></i></button>
                     </form>
-                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-primary me-2">Add
-                        Content</a>
-                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
 
 
                 </div>
@@ -72,9 +69,13 @@
                         <div class="block-content tab-content">
                             <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
-                                <h4 class="fw-normal">Home Content</h4>
                                 {{-- Display course contents --}}
-                                <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents</h6>
+                                <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
+                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-secondary float-end">Add
+                                        Content</a>
+                                </h6>
+
+
                                 @forelse ($contents as $content)
                                     <div class=" mb-3">
                                         <div class="">
@@ -108,7 +109,11 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 <h4 class="fw-normal">Profile Content</h4>
                                 {{-- For Quizzes --}}
-                                <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes</h6>
+                                <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
+                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
+
+                                </h6>
+
                                 @forelse ($quizzes as $quiz)
                                     <div class="card mb-3">
                                         <div class="card-body">
