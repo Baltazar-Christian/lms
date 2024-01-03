@@ -90,7 +90,7 @@
                                           <i class="fa fa-fw fa-book text-success"></i>
                                         </td>
                                         <td>
-                                          <a class="fw-medium" href="be_pages_elearning_lesson.html">{{ $content->title }}</a>
+                                          <a class="fw-medium" href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                         </td>
                                         <td class="text-end text-muted">
                                           12 min
