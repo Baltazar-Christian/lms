@@ -1,22 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-5">
-        <h1>{{ $announcement->title }}</h1>
-        <p>Status: {{ ucfirst($announcement->status) }}</p>
-        <p>Content: {{ $announcement->content }}</p>
+    <div class="container mt-2">
 
-        @if ($announcement->attachment)
-            <p>Attachment: <a href="{{ asset('storage/' . $announcement->attachment) }}" target="_blank">Download</a></p>
-        @endif
 
-        <a href="{{ route('announcements.index') }}" class="btn btn-primary mt-3">Back to Announcements</a>
-        <a href="{{ route('announcements.edit', $announcement->id) }}" class="btn btn-warning mt-3">Edit</a>
+        <div class="card">
+            <div class="card-header">
+                 <a href="{{ route('announcements.index') }}" class="btn btn-dark float-end mt-3">Back </a>
+        <a href="{{ route('announcements.edit', $announcement->id) }}" class="btn btn-dark mt-3"><i class="fa fa-edit"></i></a>
 
         <form action="{{ route('announcements.destroy', $announcement->id) }}" method="post" style="display: inline-block">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('Are you sure?')">Delete</button>
+            <button type="submit" class="btn btn-danger mt-3" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
         </form>
+            </div>
+            <div class="card-body">
+                <h5>{{ $announcement->title }}</h5>
+                <p>Status: {{ ucfirst($announcement->status) }}</p>
+                <p> {!! $announcement->content !!}</p>
+
+                @if ($announcement->attachment)
+                    <p>Attachment: <a href="{{ asset('storage/' . $announcement->attachment) }}" target="_blank">Download</a></p>
+                @endif
+            </div>
+        </div>
+
+
+
     </div>
 @endsection
