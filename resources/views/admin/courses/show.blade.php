@@ -76,8 +76,8 @@
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents</h6>
                                 @forelse ($contents as $content)
-                                    <div class="card mb-3">
-                                        <div class="card-body">
+                                    <div class=" mb-3">
+                                        <div class="">
                                             <h3 class="card-title">{{ $content->title }}</h3>
                                             <div class="d-flex justify-content-end align-items-center">
                                                 <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
