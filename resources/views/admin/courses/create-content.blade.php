@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
     <div class="container mt-2">
 
         <div class="card mt-3">
@@ -50,7 +51,9 @@
 
                         <div class="form-group col-12 mb-2">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+                            <textarea name="description" id="editor" class="form-control" rows="4" required></textarea>
+                            {{-- <div id="">Hello classic CKEditor 5!</div> --}}
+
                         </div>
 
                     </div>
@@ -61,4 +64,17 @@
             </div>
         </div>
     </div>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
+        <!-- Page JS Plugins -->
+        {{-- <script src="{{ asset('assets/js/plugins/ckeditor5-classic/build/ckeditor.js') }}"></script> --}}
+
+        <!-- Page JS Helpers (CKEditor 5 plugins) -->
+        {{-- <script>One.helpersOnLoad(['js-ckeditor5']);</script> --}}
 @endsection
