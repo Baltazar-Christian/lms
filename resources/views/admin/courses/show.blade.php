@@ -84,21 +84,25 @@
                                           <span class="text-muted">0.2 hours</span>
                                         </th>
                                       </tr> --}}
+                                      @forelse ($contents as $content)
                                       <tr>
-                                        <td class="table-success text-center">
-                                          <i class="fa fa-fw fa-unlock text-success"></i>
+                                        <td class="table-success text-center" width="2%">
+                                          <i class="fa fa-fw fa-book text-success"></i>
                                         </td>
                                         <td>
-                                          <a class="fw-medium" href="be_pages_elearning_lesson.html">1.1 HTML5 Intro (free preview)</a>
+                                          <a class="fw-medium" href="be_pages_elearning_lesson.html">{{ $content->title }}</a>
                                         </td>
                                         <td class="text-end text-muted">
                                           12 min
                                         </td>
                                       </tr>
+                                      @empty
+                                      <p class="text-muted">No contents available for this course.</p>
+                                  @endforelse
                                     </tbody>
                                   </table>
 
-                                @forelse ($contents as $content)
+                                {{-- @forelse ($contents as $content)
                                     <div class=" mb-3">
                                         <div class="">
                                             <h3 class="card-title">{{ $content->title }}</h3>
@@ -125,7 +129,7 @@
 
                                 @empty
                                     <p class="text-muted">No contents available for this course.</p>
-                                @endforelse
+                                @endforelse --}}
                             </div>
                             <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
