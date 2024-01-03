@@ -45,16 +45,23 @@
             <!-- Introduction -->
             <table class="table table-borderless table-vcenter">
               <tbody>
+                @php
+                    $i=1;
+                @endphp
+                @foreach ( $contents as $content )
                 <tr class="table-active">
-                  <th style="width: 50px;"></th>
-                  <th>1. Intro</th>
-                  <th class="text-end">
-                    <span class="text-muted">0.2 hours</span>
-                  </th>
-                </tr>
-                <tr>
+                    <th style="width: 50px;">{{ $i++ }}</th>
+                    <th>{{ $content->title }}</th>
+                    <th class="text-end">
+                      <span class="text-muted">0.2 hours</span>
+                    </th>
+                  </tr>
+                @endforeach
+
+
+                {{-- <tr>
                   <td class="table-success text-center">
-                    <i class="fa fa-fw fa-unlock text-success"></i>
+                    <i class="fa fa-fw fa-eye text-success"></i>
                   </td>
                   <td>
                     <a class="fw-medium" href="be_pages_elearning_lesson.html">1.1 HTML5 Intro (free preview)</a>
@@ -62,137 +69,11 @@
                   <td class="text-end text-muted">
                     12 min
                   </td>
-                </tr>
+                </tr> --}}
               </tbody>
             </table>
             <!-- END Introduction -->
 
-            <!-- Basics -->
-            <table class="table table-borderless table-vcenter">
-              <tbody>
-                <tr class="table-active">
-                  <th style="width: 50px;"></th>
-                  <th>2. Basics</th>
-                  <th class="text-end">
-                    <span class="text-muted">1.3 hours</span>
-                  </th>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">2.1 HTML5 Structure</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    15 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">2.2 Basic HTML5 Elements</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    25 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">2.3 New Elements in HTML5</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    20 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">2.4 HTML5 Semantics</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    18 min
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- END Basics -->
-
-            <!-- Advanced -->
-            <table class="table table-borderless table-vcenter">
-              <tbody>
-                <tr class="table-active">
-                  <th style="width: 50px;"></th>
-                  <th>3. Advanced</th>
-                  <th class="text-end">
-                    <span class="text-muted">1.5 hours</span>
-                  </th>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">3.1 HTML5 Forms</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    30 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">3.2 HTML5 Media</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    20 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">3.3 HTML5 APIS</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    10 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">3.4 HTML5 Graphics</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    14 min
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-danger text-center">
-                    <i class="fa fa-fw fa-lock text-danger"></i>
-                  </td>
-                  <td>
-                    <a class="fw-medium" href="javascript:void(0)">3.5 HTML5 Examples</a>
-                  </td>
-                  <td class="text-end text-muted">
-                    16 min
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- END Advanced -->
           </div>
         </div>
         <!-- END Lessons -->
