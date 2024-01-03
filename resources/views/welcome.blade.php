@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMS - Learn, Grow, Succeed</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css')}}">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick-theme.css') }}">
+
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
 
     <!-- Add your custom styles here -->
     <style>
@@ -73,142 +79,202 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- Header / Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <i class="fa fa-graduation-cap text-warning"></i>
-            LMS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <!-- Header / Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-graduation-cap text-warning"></i>
+                LMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item m-1">
-                    <a class=" btn btn-info"  href="{{ route('login') }}">Login</a>
-                </li>
-                <li class="nav-item m-1">
-                    <a class="btn btn-warning  " href="{{ route('register') }}">Register</a>
-                </li>
-            </ul>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item m-1">
+                        <a class=" btn btn-info" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item m-1">
+                        <a class="btn btn-warning  " href="{{ route('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Hero Section -->
-{{-- <div class="jumbotron text-center">
+    <!-- Hero Section -->
+    {{-- <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to LMS</h1>
     <p class="lead">Learn, Grow, Succeed</p>
 </div> --}}
-      <!-- Hero Content -->
-      <div class="bg-primary-dark">
+    <!-- Hero Content -->
+    <div class="bg-primary-dark">
         <div class="content content-full text-center pt-7 pb-5">
-          <h1 class="h2 text-white mb-2">
-            Learn new creative skills today.
-          </h1>
-          <h2 class="h4 fw-normal text-white-75">
-            Join our community and get access to over 10,000 online courses.
-          </h2>
-          <a class="btn btn-primary px-4 py-2" href="javascript:void(0)">Subscribe from $9/month</a>
+            <h1 class="h2 text-white mb-2">
+                Learn new creative skills today.
+            </h1>
+            <h2 class="h4 fw-normal text-white-75">
+                Join our community and get access to over 10,000 online courses.
+            </h2>
+            <a class="btn btn-primary px-4 py-2" href="javascript:void(0)">Subscribe from $9/month</a>
         </div>
-      </div>
-      <!-- END Hero Content -->
-<!-- Features Section -->
-<div class="container" id="features">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="feature-box">
-                <h3>Interactive Courses</h3>
-                <p>Engaging courses with interactive content to enhance learning.</p>
+    </div>
+    <!-- END Hero Content -->
+    <!-- Features Section -->
+    <div class="container" id="features">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Interactive Courses</h3>
+                    <p>Engaging courses with interactive content to enhance learning.</p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-box">
-                <h3>User-Friendly Interface</h3>
-                <p>An intuitive and easy-to-use platform for both students and instructors.</p>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>User-Friendly Interface</h3>
+                    <p>An intuitive and easy-to-use platform for both students and instructors.</p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="feature-box">
-                <h3>Progress Tracking</h3>
-                <p>Track your progress and stay on top of your learning goals.</p>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h3>Progress Tracking</h3>
+                    <p>Track your progress and stay on top of your learning goals.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Courses Section (Carousel) -->
-<div id="courses" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                @php
-                $courses=App\Models\Course::get();
-            @endphp
+    <!-- Courses Section (Carousel) -->
+    <div id="courses" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    @php
+                        $courses = App\Models\Course::get();
+                    @endphp
 
-            @foreach ( $courses as $course )
-            <div class="card">
-                <a href="{{ route('login') }}">
-            <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="Course 1">
-                <div class="card-body">
-                    <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>
-                    <p class="card-text text-start text-dark"> Tsh {{ number_format($course->price,2) }}</p>
-                </div>
+                    @foreach ($courses as $course)
+                        <div class="card">
+                            <a href="{{ route('login') }}">
+                                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px"
+                                    height="150px" class="card-img-top" alt="Course 1">
+                                <div class="card-body">
+                                    <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>
+                                    <p class="card-text text-start text-dark"> Tsh {{ number_format($course->price, 2) }}
+                                    </p>
+                                </div>
 
-                <div class="card-foot">
+                                <div class="card-foot">
 
-                    <div class="row p-2">
+                                    <div class="row p-2">
 
-                        <div class="col-12">
-                         <a href="{{ route('login') }}" type="button" class="btn btn-primary form-control ">
-                            <i class="fa fa-shopping-cart"></i>
-                            Add to Cart
-                         </a>
+                                        <div class="col-12">
+                                            <a href="{{ route('login') }}" type="button"
+                                                class="btn btn-primary form-control ">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Add to Cart
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+                    @endforeach
 
+
+                </div>
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+        <a class="carousel-control-prev" href="#courses" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#courses" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="col-md-8">
+        <!-- Slider with Multiple Slides/Avatars -->
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">
+                    Multiple Avatars
+                </h3>
+            </div>
+            <div class="block-content">
+                <div class="js-slider text-center" data-autoplay="true" data-dots="true" data-arrows="true"
+                    data-slides-to-show="3">
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar4.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Carol Ray</div>
+                        <div class="fs-sm text-muted">Graphic Designer</div>
+                    </div>
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Marie Duncan</div>
+                        <div class="fs-sm text-muted">Photographer</div>
+                    </div>
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar6.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Amber Harvey</div>
+                        <div class="fs-sm text-muted">Web Developer</div>
+                    </div>
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar1.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Lisa Jenkins</div>
+                        <div class="fs-sm text-muted">Web Designer</div>
+                    </div>
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar2.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Lisa Jenkins</div>
+                        <div class="fs-sm text-muted">Font Designer</div>
+                    </div>
+                    <div class="py-3">
+                        <img class="img-avatar" src="assets/media/avatars/avatar3.jpg" alt="">
+                        <div class="mt-2 fw-semibold">Judy Ford</div>
+                        <div class="fs-sm text-muted">Artist</div>
                     </div>
                 </div>
-            </a>
-            </div>
-            @endforeach
-
-
             </div>
         </div>
-        <!-- Add more slides as needed -->
+        <!-- END Slider with Multiple Slides/Avatars -->
     </div>
-    <a class="carousel-control-prev" href="#courses" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#courses" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
 
-<!-- Call-to-Action Section -->
-<div class="cta-section text-center">
-    <div class="container">
-        <h2>Ready to Get Started?</h2>
-        <p class="lead">Join our community of learners today and unlock a world of knowledge.</p>
-        <a class="btn btn-light btn-lg" href="{{ route('register') }}" role="button">Sign Up Now</a>
+    <!-- Call-to-Action Section -->
+    <div class="cta-section text-center">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p class="lead">Join our community of learners today and unlock a world of knowledge.</p>
+            <a class="btn btn-light btn-lg" href="{{ route('register') }}" role="button">Sign Up Now</a>
+        </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2023  LMS. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 LMS. All rights reserved.</p>
+    </footer>
 
-<!-- Bootstrap JS and any additional scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS and any additional scripts -->
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Add your custom scripts here -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+    <!-- Add your custom scripts here -->
+
+    <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
+
+    <!-- jQuery (required for Slick Slider plugin) -->
+    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="{{ asset('assets/js/plugins/slick-carousel/slick.min.js') }}  "></script>
 
 </body>
+
 </html>

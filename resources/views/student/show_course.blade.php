@@ -11,7 +11,7 @@
             {{ $course->title }}
         </h1>
         <h2 class="h4 fw-normal text-white-75">
-          10 Lessons &bull; 3 hours
+          {{ count( $contents) }} Lessons &bull; {{ $course->duration/60 }} hours
         </h2>
       </div>
     </div>

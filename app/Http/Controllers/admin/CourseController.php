@@ -159,7 +159,7 @@ class CourseController extends Controller
         // Create the sub-section
         $subSection = CourseContent::create([
             'course_id' => $courseId,
-            'parent_id' => $courseId,
+            'parent_id' => 1,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),

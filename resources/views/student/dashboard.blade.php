@@ -43,45 +43,50 @@
 <div class="content content-boxed">
     <div class="row items-push py-4">
         @foreach($courses as $course)
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <a class="block block-rounded block-link-pop h-100 mb-0" href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
-                    <div class="block-content block-content-full text-center bg-city">
-                        {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto"> --}}
-                        <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="Course 1">
+                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="{{ $course->name }}">
+                <div class="card-body">
+                    {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
+                        <!-- ... Existing course icon or image ... -->
+                        <i class="fab fa-html5 fa-2x text-white-75"></i>
+                    </div> --}}
+                    {{-- <div class="fs-sm text-white-75">
+                        {{ $course->lessons_count }} lessons &bull; {{ $course->duration }}
+                    </div> --}}
+                </div>
+                <div class="block-content block-content-full">
+                    <h6 class="text-dark">{{ $course->title }}</h6>
+                    <p class="text-muted">
+                        <!-- ... Existing course content ... -->
+                        Price: {{ number_format($course->price,2)  }}
+                    </p>
+                    {{-- <div class="fs-sm text-muted">{{ $course->created_at->format('F d, Y') }}</div> --}}
+
+                    @if ($student->courses->contains('id', $course->id))
+                    <!-- Unenroll button -->
+                    <form action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
+                        @csrf
+                        {{-- <div class="col-12"> --}}
+                            <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
                         {{-- </div> --}}
-                        {{-- <div class="fs-sm text-white-75">
-                            {{ $course->lessons_count }} lessons &bull; {{ $course->duration }}
-                        </div> --}}
-                    </div>
-                    <div class="block-content block-content-full">
-                        <h4 class="mb-1">{{ $course->title }}</h4>
-                        <p class="text-muted">
-                            <!-- ... Existing course content ... -->
-                            Description: {{ $course->description }}
-                        </p>
-                        <div class="fs-sm text-muted">{{ $course->created_at->format('F d, Y') }}</div>
-
-                        @if ($student->courses->contains('id', $course->id))
-                            <!-- Unenroll button -->
-                            <form action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
-                                @csrf
-                                {{-- <div class="col-12"> --}}
-                                    <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
-                                {{-- </div> --}}
-                            </form>
-                        @else
-                            <!-- Enroll button -->
-                            <form action="{{ route('students.enrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
-                                @csrf
-                                {{-- <div class="col-12"> --}}
-                                <button type="submit" class=" form-control btn btn-success btn-block">Enroll</button>
-                                {{-- </div> --}}
-                            </form>
-                        @endif
-                    </div>
+                    </form>
+                @else
+                    <!-- Enroll button -->
+                    <form action="{{ route('students.enrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
+                        @csrf
+                        {{-- <div class="col-12"> --}}
+                        <button type="submit" class=" form-control btn btn-success btn-block">Enroll</button>
+                        {{-- </div> --}}
+                    </form>
+                @endif
+                </div>
                 </a>
             </div>
+        </div>
+
         @endforeach
     </div>
 </div>
