@@ -75,6 +75,28 @@
                                         Content</a>
                                 </h6>
 
+                                <table class="table table-borderless table-vcenter mt-2">
+                                    <tbody>
+                                      <tr class="table-active mt-2">
+                                        <th style="width: 50px;"></th>
+                                        <th>1. Intro</th>
+                                        <th class="text-end">
+                                          <span class="text-muted">0.2 hours</span>
+                                        </th>
+                                      </tr>
+                                      <tr>
+                                        <td class="table-success text-center">
+                                          <i class="fa fa-fw fa-unlock text-success"></i>
+                                        </td>
+                                        <td>
+                                          <a class="fw-medium" href="be_pages_elearning_lesson.html">1.1 HTML5 Intro (free preview)</a>
+                                        </td>
+                                        <td class="text-end text-muted">
+                                          12 min
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
 
                                 @forelse ($contents as $content)
                                     <div class=" mb-3">
