@@ -8,9 +8,9 @@
 
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
+                    <a href="{{ route('lms.tutor-edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
                             class="fa fa-edit"></i></a>
-                    <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                    <form action="{{ route('lms.tutor-delete-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
