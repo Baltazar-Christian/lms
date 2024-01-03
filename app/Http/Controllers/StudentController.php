@@ -75,8 +75,9 @@ class StudentController extends Controller
     public function show(Course $course)
     {
         $courseContents = $course->contents;
+        $student=Auth::user();
 
-        return view('student.show_course', compact('course', 'courseContents'));
+        return view('student.show_course', compact('course', 'courseContents','student'));
     }
 
 
