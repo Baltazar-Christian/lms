@@ -27,14 +27,9 @@
 
                 <div class="row">
 
-                    <div class="mb-3 col-6">
+                    <div class="mb-3 col-12">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" id="title" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3 col-6">
-                        <label for="attachment" class="form-label">Attachment</label>
-                        <input type="file" name="attachment" id="attachment" class="form-control-file">
+                        <input type="text" name="title" id="title" placeholder="Enter Title Here" class="form-control" required>
                     </div>
 
                     <div class="mb-3 col-6">
@@ -44,6 +39,12 @@
                             <option value="published">Published</option>
                         </select>
                     </div>
+                    <div class="mb-3 col-6">
+                        <label for="attachment" class="form-label">Attachment</label>
+
+                        <input type="file" name="attachment" id="attachment" class="form-control-file">
+                    </div>
+
 
                     <div class="mb-3 col-12">
                         <label for="content" class="form-label">Content</label>
