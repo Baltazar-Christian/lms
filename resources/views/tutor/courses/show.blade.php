@@ -8,9 +8,9 @@
 
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.tutor-edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
+                    <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark mx-1"><i
                             class="fa fa-edit"></i></a>
-                    <form action="{{ route('lms.tutor-delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                    <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
@@ -33,11 +33,11 @@
                             class="img-fluid rounded mx-auto shadow mb-4">
                     @endif
                 </div>
-                <p><strong>Title:</strong> ${{ $course->title }}</p>
-                <p><strong>Price:</strong> ${{ $course->price }}</p>
-                <p><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</p>
-                <p><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
-
+                <span><strong>Title:</strong> ${{ $course->title }}</span>
+                <span><strong>Price:</strong> ${{ $course->price }}</span>
+                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span>
+                <span><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
+                <hr>
                 <p class="lead text-muted">{{ $course->description }}</p>
                 <hr>
                 <div class="col-lg-12">
