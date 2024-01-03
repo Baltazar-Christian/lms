@@ -107,13 +107,12 @@
                             </div>
                             <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
-                                <h4 class="fw-normal">Profile Content</h4>
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-info me-2">Add Quiz</a>
+                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-dark  float-end">Add Quiz</a>
 
                                 </h6>
-
+                                <br>
                                 @forelse ($quizzes as $quiz)
                                     <div class="card mb-3">
                                         <div class="card-body">
