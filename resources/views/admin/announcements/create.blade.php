@@ -44,8 +44,8 @@
                             <option value="published">Published</option>
                         </select>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Create Announcement</button>
+                    <hr>
+                    <button type="submit" class="btn btn-dark float-end mt-2">Create Announcement</button>
                 </form>
             </div>
         </div>
