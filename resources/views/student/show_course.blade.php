@@ -200,7 +200,7 @@
       <div class="col-xl-4">
         <!-- Subscribe -->
         <div class="block block-rounded">
-          <div class="block-content">
+          <div class="block-content p-2">
             @if ($student->courses->contains('id', $course->id))
             <!-- Unenroll button -->
             <form action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}" method="post">
@@ -232,30 +232,30 @@
               <tbody>
                 <tr>
                   <td>
-                    <i class="fa fa-fw fa-book me-1"></i> 10 Lessons
+                    <i class="fa fa-fw fa-book me-1"></i> {{ count($contents) }} Lessons
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <i class="fa fa-fw fa-clock me-1"></i> 3 hours
+                    <i class="fa fa-fw fa-clock me-1"></i> {{ $course->duration_in_minutes}} Minutes
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <i class="fa fa-fw fa-heart me-1"></i> 16850 Favorites
+                    <i class="fa fa-fw fa-heart me-1"></i> 0 Favorites
                   </td>
                 </tr>
-                <tr>
+                {{-- <tr>
                   <td>
                     <i class="fa fa-fw fa-calendar me-1"></i> 3 weeks ago
                   </td>
-                </tr>
+                </tr> --}}
                 <tr>
                   <td>
                     <i class="fa fa-fw fa-tags me-1"></i>
-                    <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">HTML</a>,
-                    <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">CSS</a>,
-                    <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">JavaScript</a>
+                    <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">{{  $course->title }}</a>,
+                    {{-- <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">CSS</a>,
+                    <a class="fw-semibold link-fx text-primary" href="javascript:void(0)">JavaScript</a> --}}
                   </td>
                 </tr>
               </tbody>
@@ -271,9 +271,9 @@
           </div>
           <div class="block-content block-content-full text-center">
             <div class="push">
-              <img class="img-avatar" src="assets/media/avatars/avatar16.jpg" alt="">
+              <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
             </div>
-            <div class="fw-semibold mb-1">Wayne Garcia</div>
+            <div class="fw-semibold mb-1">{{  $course->user->name }}</div>
             <div class="fs-sm text-muted">Front-end Developer</div>
           </div>
         </a>

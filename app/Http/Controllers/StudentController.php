@@ -76,8 +76,9 @@ class StudentController extends Controller
     {
         $courseContents = $course->contents;
         $student=Auth::user();
+        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',$course->id)->get();
 
-        return view('student.show_course', compact('course', 'courseContents','student'));
+        return view('student.show_course', compact('course', 'courseContents','student','contents'));
     }
 
 
