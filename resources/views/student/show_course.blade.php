@@ -49,13 +49,20 @@
                     $i=1;
                 @endphp
                 @foreach ( $contents as $content )
-                <tr class="table-active">
-                    <th style="width: 50px;">{{ $i++ }}</th>
-                    <th>{{ $content->title }}</th>
-                    <th class="text-end">
-                      <span class="text-muted">0.2 hours</span>
-                    </th>
-                  </tr>
+
+                    <tr class="table-active">
+                        <th style="width: 50px;">{{ $i++ }}</th>
+                        <th>
+                        <a href="{{ route('contents.show', $content) }}" class="text-dark">
+                            {{ $content->title }}
+                        </a>
+                        </th>
+                        <th class="text-end">
+                          <span class="text-muted">{{ $content->duration }} MINUTES</span>
+                        </th>
+                      </tr>
+
+
                 @endforeach
 
 
