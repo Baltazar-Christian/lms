@@ -58,15 +58,16 @@
                                 </button>
                             </li>
                             <li class="nav-item">
-                                <button class="nav-link" id="btabs-static2-profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#btabs-static2-profile" role="tab"
-                                    aria-controls="btabs-static2-profile" aria-selected="false">Contents</button>
-                            </li>
-                            <li class="nav-item">
                                 <button class="nav-link active" id="btabs-static2-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-home" role="tab" aria-controls="btabs-static2-home"
-                                    aria-selected="true">Quizes</button>
+                                    aria-selected="true">Contents</button>
                             </li>
+                            <li class="nav-item">
+                                <button class="nav-link" id="btabs-static2-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#btabs-static2-profile" role="tab"
+                                    aria-controls="btabs-static2-profile" aria-selected="false">Quizes</button>
+                            </li>
+
                         </ul>
                         <div class="block-content tab-content">
                             <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
