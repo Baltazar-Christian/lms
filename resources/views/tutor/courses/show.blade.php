@@ -69,7 +69,7 @@
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
-                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-secondary float-end">Add
+                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-dark btn-sm float-end">Add
                                         Content</a>
                                 </h6>
 
@@ -127,7 +127,7 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-dark  float-end">Add Quiz</a>
+                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-dark btn-sm  float-end">Add Quiz</a>
 
                                 </h6>
                                 <br>
