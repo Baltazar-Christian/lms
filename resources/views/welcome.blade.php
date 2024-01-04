@@ -87,7 +87,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="fa fa-graduation-cap text-warning"></i>
-                LMS</a>
+                UPPER</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -178,9 +178,9 @@
 
                                         <div class="col-12">
                                             <a href="{{ route('login') }}" type="button"
-                                                class="btn btn-primary form-control ">
+                                                class="btn btn-warning form-control ">
                                                 <i class="fa fa-shopping-cart"></i>
-                                                Add to Cart
+                                                Purchase
                                             </a>
                                         </div>
 
@@ -209,11 +209,11 @@
 
 
     <!-- Call-to-Action Section -->
-    <div class="cta-section text-center">
+    <div class="cta-section text-center bg-secondary">
         <div class="container">
-            <h2>Ready to Get Started?</h2>
+            <h2 class="text-warning">Ready to Get Started?</h2>
             <p class="lead">Join our community of learners today and unlock a world of knowledge.</p>
-            <a class="btn btn-light btn-lg" href="{{ route('register') }}" role="button">Sign Up Now</a>
+            <a class="btn btn-dark text-warning btn-lg" href="{{ route('register') }}" role="button">Sign Up Now</a>
         </div>
     </div>
 
