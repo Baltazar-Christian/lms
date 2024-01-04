@@ -118,6 +118,7 @@
                                <div class="alert alert-success mt-1 mb-1 col-12 mx-auto" role="alert">
                                    {{ session('msg') }}
                                </div>
+                               @endif
                         <div class="row mb-4">
                           <div class="col-md-6 col-xl-6">
                             <button type="submit" class="btn w-100 btn-alt-primary">
