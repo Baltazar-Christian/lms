@@ -148,15 +148,20 @@
     </div>
 
     <!-- Courses Section (Carousel) -->
-    <div id="courses" class="carousel slide" data-ride="carousel">
+ <!-- Courses Section (Carousel) -->
+    <div id="courses-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="d-flex justify-content-center">
-                    @php
-                        $courses = App\Models\Course::get();
-                    @endphp
+            @php
+                $courses = App\Models\Course::get();
+                $totalCourses = count($courses);
+                $itemsPerSlide = 4;
+                $totalSlides = ceil($totalCourses / $itemsPerSlide);
+            @endphp
 
-                    @foreach ($courses as $course)
+            @for ($i = 0; $i < $totalSlides; $i++)
+                <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
+                    <div class="d-flex justify-content-center">
+                        @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
                         <div class="card">
                             <a href="{{ route('login') }}">
                                 <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px"
@@ -183,69 +188,25 @@
                                 </div>
                             </a>
                         </div>
-                    @endforeach
 
-
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            <!-- Add more slides as needed -->
+            @endfor
         </div>
-        <a class="carousel-control-prev" href="#courses" role="button" data-slide="prev">
+
+        <!-- Add more slides as needed -->
+
+        <a class="carousel-control-prev" href="#courses-carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#courses" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#courses-carousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
 
-    <div class="col-md-8">
-        <!-- Slider with Multiple Slides/Avatars -->
-        <div class="block block-rounded">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">
-                    Multiple Avatars
-                </h3>
-            </div>
-            <div class="block-content">
-                <div class="js-slider text-center" data-autoplay="true" data-dots="true" data-arrows="true"
-                    data-slides-to-show="3">
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar4.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Carol Ray</div>
-                        <div class="fs-sm text-muted">Graphic Designer</div>
-                    </div>
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Marie Duncan</div>
-                        <div class="fs-sm text-muted">Photographer</div>
-                    </div>
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar6.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Amber Harvey</div>
-                        <div class="fs-sm text-muted">Web Developer</div>
-                    </div>
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar1.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Lisa Jenkins</div>
-                        <div class="fs-sm text-muted">Web Designer</div>
-                    </div>
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar2.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Lisa Jenkins</div>
-                        <div class="fs-sm text-muted">Font Designer</div>
-                    </div>
-                    <div class="py-3">
-                        <img class="img-avatar" src="assets/media/avatars/avatar3.jpg" alt="">
-                        <div class="mt-2 fw-semibold">Judy Ford</div>
-                        <div class="fs-sm text-muted">Artist</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END Slider with Multiple Slides/Avatars -->
-    </div>
 
     <!-- Call-to-Action Section -->
     <div class="cta-section text-center">
@@ -262,18 +223,44 @@
     </footer>
 
     <!-- Bootstrap JS and any additional scripts -->
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
-    <!-- Add your custom scripts here -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Initialize Slick Carousel -->
+    <script>
+        $(document).ready(function () {
+            $('#courses-carousel').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                infinite: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 
-    <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
-
-    <!-- jQuery (required for Slick Slider plugin) -->
-    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
-
-    <!-- Page JS Plugins -->
-    <script src="{{ asset('assets/js/plugins/slick-carousel/slick.min.js') }}  "></script>
 
 </body>
 
