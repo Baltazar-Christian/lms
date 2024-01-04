@@ -105,10 +105,23 @@
                             </div>
                           </div>
                         </div>
+                               {{--displaying all the errors  --}}
+                               @if ($errors->any())
+                               <div class="btn disabled btn-danger col-12 mb-2">
+                                   @foreach ($errors->all() as $error)
+                                       <div>{{$error}}</div>
+                                   @endforeach
+                               </div>
+                               @endif
+                               {{-- Alert Messages --}}
+                               @if (session('msg'))
+                               <div class="alert alert-success mt-1 mb-1 col-12 mx-auto" role="alert">
+                                   {{ session('msg') }}
+                               </div>
                         <div class="row mb-4">
                           <div class="col-md-6 col-xl-6">
                             <button type="submit" class="btn w-100 btn-alt-primary">
-                              <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Login In
+                              <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Log In
                             </button>
                           </div>
                           <div class="col-md-6 col-xl-6">
