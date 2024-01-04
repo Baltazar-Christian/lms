@@ -87,19 +87,19 @@
                             Welcome, please regiter.
                           </p>
 
-                      <form class="js-validation-signup" action="be_pages_auth_all.html" method="POST">
+                      <form class="js-validation-signup" action="{{ route('register') }}" method="POST">
                         <div class="py-3">
                           <div class="mb-4">
-                            <input type="text" class="form-control form-control-lg form-control-alt" id="signup-username" name="signup-username" placeholder="Username">
+                            <input type="text" class="form-control form-control-lg form-control-alt" id="signup-username" name="name" placeholder="Username">
                           </div>
                           <div class="mb-4">
-                            <input type="email" class="form-control form-control-lg form-control-alt" id="signup-email" name="signup-email" placeholder="Email">
+                            <input type="email" class="form-control form-control-lg form-control-alt" id="signup-email" name="email" placeholder="Email">
                           </div>
                           <div class="mb-4">
-                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="signup-password" placeholder="Password">
+                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
                           </div>
                           <div class="mb-4">
-                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="signup-password-confirm" placeholder="Confirm Password">
+                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
                           </div>
                           <div class="mb-4">
                             <div class="form-check">
@@ -109,13 +109,13 @@
                           </div>
                         </div>
                         <div class="row mb-4">
-                          <div class="col-md-6 col-xl-6">
+                          <div class="col-md-6 col-6 col-xl-6">
                             <button type="submit" class="btn w-100 btn-alt-success form-control">
                               {{-- <i class="fa fa-fw fa-plus me-1 opacity-50"></i> --}}
                                Register
                             </button>
                           </div>
-                          <div class="col-md-6 col-xl-6">
+                          <div class="col-md-6 col-6 col-xl-6">
                             <a href="{{ route('login') }}" class="btn w-100 btn-alt-info">
                                 Log In
                                </a>
