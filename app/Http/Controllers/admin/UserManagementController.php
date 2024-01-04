@@ -229,6 +229,8 @@ class UserManagementController extends Controller
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'role' => $request->input('role'),
+
             'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
