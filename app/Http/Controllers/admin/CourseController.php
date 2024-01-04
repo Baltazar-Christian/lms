@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Quiz;
 use App\Models\Course;
 use App\Models\Module;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
-use App\Models\Quiz;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
