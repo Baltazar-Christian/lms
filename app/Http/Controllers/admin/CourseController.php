@@ -57,7 +57,7 @@ class CourseController extends Controller
             $request->merge(['cover_image' => $imageName]);
         }
 
-
+        $request->merge(['user_id' => Auth::user()->id]);
         Course::create($request->all());
 
         return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
