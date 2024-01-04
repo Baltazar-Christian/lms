@@ -113,13 +113,13 @@
     <!-- Hero Content -->
     <div class="bg-primary-dark">
         <div class="content content-full text-center pt-7 pb-5">
-            <h1 class="h2 text-white mb-2">
+            <h1 class="h2 text-light mb-2  text-warning">
                 Learn new creative skills today.
             </h1>
-            <h2 class="h4 fw-normal text-white-75">
+            <h2 class="h4 fw-normal text-light  ">
                 Join our community and get access to over 10,000 online courses.
             </h2>
-            <a class="btn btn-primary px-4 py-2" href="javascript:void(0)">Subscribe from $9/month</a>
+            {{-- <a class="btn btn-primary px-4 py-2" href="javascript:void(0)">Subscribe from $9/month</a> --}}
         </div>
     </div>
     <!-- END Hero Content -->
@@ -128,19 +128,19 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="feature-box">
-                    <h3>Interactive Courses</h3>
+                    <h3 class="text-warning">Interactive Courses</h3>
                     <p>Engaging courses with interactive content to enhance learning.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-box">
-                    <h3>User-Friendly Interface</h3>
+                    <h3 class="text-warning">User-Friendly Interface</h3>
                     <p>An intuitive and easy-to-use platform for both students and instructors.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-box">
-                    <h3>Progress Tracking</h3>
+                    <h3 class="text-warning">Progress Tracking</h3>
                     <p>Track your progress and stay on top of your learning goals.</p>
                 </div>
             </div>
