@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="col-12 mt-2" style=" margin: 0 auto;">
+    <div class="col-12 mt-2 m-1 " style=" margin: 0 auto;">
 
         <div class="card">
 
@@ -67,8 +67,8 @@
                     </div>
 
                     <br>
-
-                    <button type="submit" class="btn btn-primary float-end" style="margin-top: 20px;">Update Course</button>
+                    <hr>
+                    <button type="submit" class="btn btn-dark float-end" style="margin-top: 20px;">Update Course</button>
                 </form>
             </div>
         </div>

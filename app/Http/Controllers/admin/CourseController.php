@@ -130,7 +130,6 @@ class CourseController extends Controller
     public function destroy( $course)
     {
         $course=Course::where('id', $course)->first();
-        dd(     $course);
         // Delete the cover image
         if ($course->cover_image) {
             Storage::disk('public')->delete('covers/' . $course->cover_image);
