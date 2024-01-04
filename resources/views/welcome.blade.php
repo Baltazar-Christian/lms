@@ -85,7 +85,7 @@
     <!-- Header / Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fa fa-graduation-cap text-warning"></i>
                 UPPER</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -199,7 +199,7 @@
 
         <a class="carousel-control-prev" href="#courses-carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only text-dark">Previous</span>
         </a>
         <a class="carousel-control-next" href="#courses-carousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
