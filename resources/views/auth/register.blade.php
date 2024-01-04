@@ -33,6 +33,29 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-graduation-cap text-warning"></i>
+                UPPER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item m-1">
+                        <a class=" btn btn-info" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item m-1">
+                        <a class="btn btn-warning  " href="{{ route('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Page Container -->
 
     <div id="page-container">

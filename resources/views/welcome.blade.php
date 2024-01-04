@@ -124,7 +124,7 @@
     </div>
     <!-- END Hero Content -->
     <!-- Features Section -->
-    <div class="container" id="features">
+    <div class="container mt-2" id="features">
         <div class="row">
             <div class="col-md-4">
                 <div class="feature-box">
