@@ -35,7 +35,7 @@ class InstituteController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust the validation rules as needed
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480', // Adjust the validation rules as needed
             'description' => 'nullable|string',
             'contact_address' => 'nullable|string',
             'contact_phone' => 'nullable|string',
