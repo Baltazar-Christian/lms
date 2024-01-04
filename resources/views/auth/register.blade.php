@@ -88,6 +88,7 @@
                           </p>
 
                       <form class="js-validation-signup" action="{{ route('register') }}" method="POST">
+                        @csrf
                         <div class="py-3">
                           <div class="mb-4">
                             <input type="text" class="form-control form-control-lg form-control-alt" id="signup-username" name="name" placeholder="Username">
