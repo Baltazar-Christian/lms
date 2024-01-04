@@ -11,7 +11,7 @@
                     <h5>Students List</h5>
                 </div>
                 <div class="col-6">
-                    <a href="{{ route('lms.add-student') }}" class="btn btn-success float-end">Register Student</a>
+                    <a href="{{ route('lms.add-student') }}" class="btn btn-dark btn-sm float-end">Register</a>
                 </div>
             </div>
         </div>
@@ -40,12 +40,12 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.show-student', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.edit-student', $user->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('lms.show-student', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
+                    <a href="{{ route('lms.edit-student', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-student', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
