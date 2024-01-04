@@ -36,7 +36,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fa fa-graduation-cap text-warning"></i>
                 UPPER</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -82,7 +82,7 @@
                     <div class="p-sm-3 px-lg-4 px-xxl-5 py-lg-5">
                         <h1 class="h2 mb-1 text-center">
                             <i class="nav-main-link-icon fa fa-graduation-cap text-warning"></i>
-                            LMS</h1>
+                            UPPER</h1>
                           <p class="fw-medium text-muted text-center ">
                             Welcome, please regiter.
                           </p>
