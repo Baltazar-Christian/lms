@@ -65,16 +65,19 @@
                         </th>
                       </tr>
                       @php
+                      $count=1;
                         $subContents=App\Models\CourseContent::where('parent_id',$content->id)->get();
                       @endphp
                       @if (count($subContents)>0)
                       @foreach ( $subContents as $subContent )
                             <tr>
                   <td class="table-success text-center">
-                    <i class="fa fa-fw fa-eye text-success"></i>
+                    {{-- <i class="fa fa-fw fa-info text-success"></i> --}}
+
+                    {{ $count++ }}
                   </td>
                   <td>
-                    <a class="fw-medium" href="be_pages_elearning_lesson.html">1.1 HTML5 Intro (free preview)</a>
+                    <a class="fw-medium text-dark" href="be_pages_elearning_lesson.html">{{ $subContent->title }}</a>
                   </td>
                   <td class="text-end text-muted">
                     12 min

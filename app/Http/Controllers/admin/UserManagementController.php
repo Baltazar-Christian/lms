@@ -12,6 +12,11 @@ class UserManagementController extends Controller
     // FOR STYSTEM ADMINS
     // =======================================================================
 
+    public function __construct()
+    {
+        $this->middleware('auth'); // Require authentication for all admin routes
+        $this->middleware('role:admin'); // Require admin role for all admin routes
+    }
 
     // For All System Admins
     public function systemAdmins()
