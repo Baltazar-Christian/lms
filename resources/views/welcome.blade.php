@@ -164,7 +164,7 @@
                         @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
                         <div class="card">
                             <a href="{{ route('login') }}">
-                                <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px"
+                                <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
                                     height="150px" class="card-img-top" alt="Course 1">
                                 <div class="card-body">
                                     <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>

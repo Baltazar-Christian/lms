@@ -2,9 +2,12 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1>Create Question</h1>
 
-        <div class="card mt-3">
+        <div class="card ">
+            <div class="card-header">
+                <h5>Create Question</h5>
+
+            </div>
             <div class="card-body">
                 <form action="{{ route('lms.store-question', [$course->id, $quiz->id]) }}" method="post">
                     @csrf
@@ -15,7 +18,7 @@
                     </div>
 
                     <br>
-                    <button type="submit" class="btn btn-primary">Add Question</button>
+                    <button type="submit" class="btn btn-dark float-end">Add Question</button>
                 </form>
             </div>
         </div>
