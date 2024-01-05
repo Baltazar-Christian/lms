@@ -6,7 +6,16 @@
     <div class=" mt-2 col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title "> <i class="fa fa-clipboard text-warning"></i> {{ $content->title }}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-alt">
+                      <li class="breadcrumb-item">
+                        <a class="link-fx" href="be_pages_elearning_courses.html"> {{ $content->course->title }}</a>
+                      </li>
+                      <li class="breadcrumb-item" aria-current="page">
+                        {{ $content->title }}
+                      </li>
+                    </ol>
+                  </nav>
 
             </div>
             <div class="card-body">

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <img src="{{ asset('storage/covers/' . $course->cover_image) }}" class="card-img-top" alt="{{ $course->name }}">
+                    <img src="{{ asset('storage/covers/'.$course->cover_image ) }}" class="card-img-top" alt="{{ $course->name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $course->title }}</h5>
                         <p class="card-text">{{ $course->description }}</p>
