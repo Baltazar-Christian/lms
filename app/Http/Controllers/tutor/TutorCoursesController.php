@@ -73,4 +73,12 @@ class TutorCoursesController extends Controller
 
         return redirect()->route('lms.tutor-view-module',$module->id)->with('success', 'Course created successfully.');
     }
+
+
+    public function edit($id)
+    {
+        $data['modules'] = Module::all();
+        $data['course'] = Course::findOrFail($id);
+        return view('admin.courses.edit', $data);
+    }
 }
