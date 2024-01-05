@@ -16,7 +16,8 @@ class HomeController extends Controller
 
      public function about()
      {
-        $data['company_detail']=CompanyDetail::first()->get();
+        $data['company_detail']=CompanyDetail::first();
+
          return view('about',$data);
      }
 
