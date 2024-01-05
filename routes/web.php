@@ -110,7 +110,7 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.courses.create-content');
         Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.courses.save-content');
         Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.courses.edit-content');
-        Route::put('/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
+        Route::any('update-course/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.courses.update-content');
         Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.show-course-content');
         Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.delete-course-content');
 

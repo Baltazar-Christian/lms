@@ -6,7 +6,7 @@
     <div class="container mt-4">
         <h1>Edit Course Content</h1>
 
-        <form action="{{ route('lms.courses.update-content', ['course' => $course->id, 'content' => $content->id]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url('courses/update-course/'.$course->id.'/content'.'/'. $content->id.'/update') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
