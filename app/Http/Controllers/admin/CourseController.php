@@ -36,6 +36,7 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -47,20 +48,17 @@ class CourseController extends Controller
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Handle cover image upload and storage
         if ($request->hasFile('cover_image')) {
 
-            // Upload the new cover image
-            $coverImage = $request->file('cover_image');
-            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
-
-            // Update the request data to include the new cover image name
+            $imageName = $request->file('cover_image')->store('covers', 'public'); // Adjust the storage path as needed
             $request->merge(['cover_image' => $imageName]);
         }
+        $request['user_id']=Auth::user()->id;
 
-        $request->merge(['user_id' => Auth::user()->id]);
         Course::create($request->all());
 
+        $module=Module::findOrFail($request->module_id)->first();;
         return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
     }
 
