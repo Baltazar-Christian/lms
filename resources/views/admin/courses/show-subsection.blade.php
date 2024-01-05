@@ -19,13 +19,13 @@
 
         @if ($subsection->type === 'video')
             <video width="100%" controls>
-                <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
+                <source src="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         @else
             {{-- Display other file types or embed PDF viewer --}}
             {{-- Adjust this part based on your actual requirements --}}
-            <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank">View File</a>
+            <a href="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" target="_blank">View File</a>
         @endif
 
         {{-- Add more details or customize the display based on your requirements --}}
