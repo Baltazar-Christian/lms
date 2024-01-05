@@ -64,12 +64,12 @@
                             </a>
                         </th>
                       </tr>
-
-
-                @endforeach
-
-
-                {{-- <tr>
+                      @php
+                        $subContents=App\Models\CourseContent::where('parent_id',$content->id)->get();
+                      @endphp
+                      @if (count($subContents)>0)
+                      @foreach ( $subContents as $subContent )
+                            <tr>
                   <td class="table-success text-center">
                     <i class="fa fa-fw fa-eye text-success"></i>
                   </td>
@@ -79,7 +79,15 @@
                   <td class="text-end text-muted">
                     12 min
                   </td>
-                </tr> --}}
+                </tr>
+                      @endforeach
+                      @endif
+
+
+                @endforeach
+
+
+
               </tbody>
             </table>
             <!-- END Introduction -->
