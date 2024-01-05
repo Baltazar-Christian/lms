@@ -13,7 +13,7 @@
                       </li>
                       @if ($content->parent_id!=0)
                       <li class="breadcrumb-item">
-                        <a class="link-fx" href="{{ route('student-courses.show', $content->course->id) }}"> {{ $content->parent->title }}</a>
+                        <a class="link-fx" href="{{ route('contents.show', $content->parent_id) }}"> {{ $content->parent->title }}</a>
                       </li>  
                       @endif
                       <li class="breadcrumb-item" aria-current="page">
