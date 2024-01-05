@@ -19,7 +19,7 @@
                     <div class="card">
                         <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
-                        <img src="{{ asset('storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="{{ $course->name }}">
+                        <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px" height="150px" class="card-img-top" alt="{{ $course->name }}">
                         <div class="card-body">
 
                             <h6 class="card-title text-dark">{{ $course->title }}</h5>
