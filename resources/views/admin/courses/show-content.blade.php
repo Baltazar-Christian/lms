@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container mt-3 mx-auto mb-5 p-4 card rounded shadow mx-1">
+    <div class="container mt-2 mx-auto mb-5 mx-auto p-4 card rounded shadow mx-1">
 
         <h5 class="text-start text-dark">
             <div class="fa fa-book text-warning"></div> {{ $course->title }} - Course Content</h4>
@@ -19,7 +19,6 @@
                 </video>
             @else
                 {{-- Display other file types or embed PDF viewer --}}
-                {{-- Adjust this part based on your actual requirements --}}
                 <a href="{{ Storage::url($content->file_path) }}" target="_blank" type="button" class=" btn-sm btn-dark">View File</a>
             @endif
 
