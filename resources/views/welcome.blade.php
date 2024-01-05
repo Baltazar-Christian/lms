@@ -90,10 +90,10 @@
                 UPPER</a>
 
                 <div class="navbar-text mx-3">
-                    <a class="btn btn-secondary" href="{{ route('about-us') }}">About Us</a>
+                    <a class="nav-link text-light" href="{{ route('about-us') }}">About Us</a>
                 </div>
                 <div class="navbar-text">
-                    <a class="btn btn-secondary" href="{{ route('contact-us') }}">Contact Us</a>
+                    <a class="nav-link text-light" href="{{ route('contact-us') }}">Contact Us</a>
                 </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,38 +156,7 @@
     </div>
 
     <!-- Courses Section (Carousel) -->
-    <div class="block block-rounded h-100 mb-0">
 
-          <button type="button" class="btn btn-alt-primary push" data-bs-toggle="modal" data-bs-target="#modal-block-slideup">About Us</button>
-
-      </div>
-
-          <!-- Slide Up Block Modal -->
-          <div class="modal fade" id="modal-block-slideup" tabindex="-1" role="dialog" aria-labelledby="modal-block-slideup" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideup" role="document">
-              <div class="modal-content">
-                <div class="block block-rounded block-transparent mb-0">
-                  <div class="block-header block-header-default">
-                    <h3 class="block-title">Modal Title</h3>
-                    <div class="block-options">
-                      <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa fa-fw fa-times"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="block-content fs-sm">
-                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
-                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
-                  </div>
-                  <div class="block-content block-content-full text-end bg-body">
-                    <button type="button" class="btn btn-sm btn-alt-secondary me-1" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">Perfect</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END Slide Up Block Modal -->
  <!-- Courses Section (Carousel) -->
     <div id="courses-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
