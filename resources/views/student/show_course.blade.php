@@ -50,7 +50,7 @@
                 @endphp
                 @foreach ( $contents as $content )
 
-                    <tr class="table-active">
+                    <tr class="table-active mb-1">
                         <th style="width: 50px;">{{ $i++ }}</th>
                         <th>
                         <a href="{{ route('contents.show', $content) }}" class="text-dark">
@@ -58,7 +58,10 @@
                         </a>
                         </th>
                         <th class="text-end">
-                          <span class="text-muted">{{ $content->duration }} MINUTES</span>
+                          {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
+                          <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-success">
+                           Read
+                            </a>
                         </th>
                       </tr>
 
