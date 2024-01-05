@@ -3,7 +3,9 @@
 @extends('layouts.student')
 
 @section('content')
+    
     <div class=" mt-2 mb-2 col-12">
+
         <div class="card">
             <div class="card-header">
                 <nav aria-label="breadcrumb">
