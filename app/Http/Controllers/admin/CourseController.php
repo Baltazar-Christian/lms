@@ -71,7 +71,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',$course->id)->get();
+        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',0)->get();
 
         $quizzes=Quiz::where('course_id',$course->id)->get();
 
@@ -165,7 +165,6 @@ class CourseController extends Controller
         // Create the sub-section
         $subSection = CourseContent::create([
             'course_id' => $courseId,
-            'parent_id' => 1,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),
