@@ -59,7 +59,7 @@
                         </th>
                         <th class="text-end">
                           {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
-                          <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-success">
+                          <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-warning">
                            Read
                             </a>
                         </th>
