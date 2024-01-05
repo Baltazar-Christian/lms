@@ -3,13 +3,13 @@
 @extends('layouts.student')
 
 @section('content')
-    <div class=" mt-2 col-12">
+    <div class=" mt-2 mb-2 col-12">
         <div class="card">
             <div class="card-header">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
                       <li class="breadcrumb-item">
-                        <a class="link-fx" href="be_pages_elearning_courses.html"> {{ $content->course->title }}</a>
+                        <a class="link-fx" href="{{ route('student-courses.show', $content->course->id) }}"> {{ $content->course->title }}</a>
                       </li>
                       <li class="breadcrumb-item" aria-current="page">
                         {{ $content->title }}
