@@ -111,7 +111,7 @@
                         </div>
                         <div class="row mb-4">
                           <div class="col-md-6 col-6 col-xl-6">
-                            <button type="submit" class="btn w-100 btn-alt-success form-control">
+                            <button type="submit" class="btn w-100 btn-alt-warning form-control">
                               {{-- <i class="fa fa-fw fa-plus me-1 opacity-50"></i> --}}
                                Register
                             </button>
