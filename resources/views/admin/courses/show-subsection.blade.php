@@ -13,7 +13,7 @@
     <div class="card-body">
 
         <h2>{{ $subsection->title }}</h2>
-        <p>Description: {{ $subsection->description }}</p>
+        <p> {!! $subsection->description !!}</p>
         <p>Type: {{ $subsection->type }}</p>
         <p>Duration: {{ $subsection->duration }} minutes</p>
 
