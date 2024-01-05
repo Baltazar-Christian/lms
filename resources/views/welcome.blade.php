@@ -95,7 +95,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">
-                        <a class=" btn btn-info" href="{{ route('login') }}">Login</a>
+                        <a class=" btn btn-info" href="{{ route('login') }}">Log In</a>
                     </li>
                     <li class="nav-item m-1">
                         <a class="btn btn-warning  " href="{{ route('register') }}">Register</a>
@@ -152,7 +152,7 @@
     <div id="courses-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @php
-                $courses = App\Models\Course::get();
+                $courses = App\Models\Course::where('is_published',1)->get();
                 $totalCourses = count($courses);
                 $itemsPerSlide = 4;
                 $totalSlides = ceil($totalCourses / $itemsPerSlide);
@@ -213,7 +213,7 @@
         <div class="container">
             <h2 class="text-warning">Ready to Get Started?</h2>
             <p class="lead">Join our community of learners today and unlock a world of knowledge.</p>
-            <a class="btn btn-dark text-warning btn-lg" href="{{ route('register') }}" role="button">Sign Up Now</a>
+            <a class="btn btn btn-alt-info btn-lg" href="{{ route('register') }}" role="button">Register Now</a>
         </div>
     </div>
 
