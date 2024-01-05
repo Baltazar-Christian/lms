@@ -80,7 +80,7 @@
                     <a class="fw-medium text-dark" href="{{ route('contents.show', $subContent) }}">{{ $subContent->title }}</a>
                   </td>
                   <td class="text-end text-muted">
-                    <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-warning">
+                    <a href="{{ route('contents.show', $subContent) }}" class="btn btn-sm btn-warning">
                         Read
                     </a>
                   </td>
