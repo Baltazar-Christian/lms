@@ -197,13 +197,13 @@
 
         <!-- Add more slides as needed -->
 
-        <a class="carousel-control-prev" href="#courses-carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <a class="carousel-control-prev text-dark" href="#courses-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon  text-dark" aria-hidden="true"></span>
             <span class="sr-only text-dark">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#courses-carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+        <a class="carousel-control-next  text-dark" href="#courses-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon  text-dark" aria-hidden="true"></span>
+            <span class="sr-only ">Next</span>
         </a>
     </div>
 
