@@ -16,7 +16,7 @@
             </p>
 
             @if ($content->type === 'video')
-                <video width="400" controls>
+                <video width="90%" controls>
                     <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
