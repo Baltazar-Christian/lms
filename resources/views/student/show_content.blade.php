@@ -10,13 +10,10 @@
 
             </div>
             <div class="card-body">
-                 {{-- Display content details --}}
-            <p>
-                {!! $content->description !!}
-            </p>
+
 
             @if ($content->type === 'video')
-                <video width="90%" controls>
+                <video width="100%" controls>
                     <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -25,7 +22,13 @@
                 {{-- Adjust this part based on your actual requirements --}}
                 <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" class="btn btn-dark float-end " target="_blank">View Attachment</a>
             @endif
+
+                  {{-- Display content details --}}
+                  <p>
+                    {!! $content->description !!}
+                </p>
             </div>
+
         </div>
     </div>
 @endsection
