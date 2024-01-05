@@ -32,6 +32,7 @@
                             alt="{{ $course->title }} Cover Image" width="100%"
                             class="img-fluid rounded mx-auto shadow mb-4">
                     @endif
+
                 </div>
                 <span><strong>Title:</strong> ${{ $course->title }}</span>
                 <span><strong>Price:</strong> ${{ $course->price }}</span>
