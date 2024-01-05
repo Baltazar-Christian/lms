@@ -23,7 +23,9 @@ class HomeController extends Controller
 
      public function contact()
      {
-         return view('contact');
+        $data['company_detail']=CompanyDetail::first();
+
+         return view('contact',$data);
      }
 
     // public function __construct()
