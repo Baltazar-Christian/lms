@@ -162,32 +162,35 @@
                 <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
                     <div class="d-flex justify-content-center">
                         @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
-                        <div class="card">
-                            <a href="{{ route('login') }}">
-                                <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
-                                    height="150px" class="card-img-top" alt="Course 1">
-                                <div class="card-body">
-                                    <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>
-                                    <p class="card-text text-start text-dark"> Tsh {{ number_format($course->price, 2) }}
-                                    </p>
-                                </div>
-
-                                <div class="card-foot">
-
-                                    <div class="row p-2">
-
-                                        <div class="col-12">
-                                            <a href="{{ route('login') }}" type="button"
-                                                class="btn btn-warning form-control ">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                Purchase
-                                            </a>
-                                        </div>
-
+                        <div class="col-12 col-sm-3">
+                            <div class="card">
+                                <a href="{{ route('login') }}">
+                                    <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
+                                        height="150px" class="card-img-top" alt="Course 1">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-start text-dark"> {{ $course->title }} </h6>
+                                        <p class="card-text text-start text-dark"> Tsh {{ number_format($course->price, 2) }}
+                                        </p>
                                     </div>
-                                </div>
-                            </a>
+    
+                                    <div class="card-foot">
+    
+                                        <div class="row p-2">
+    
+                                            <div class="col-12">
+                                                <a href="{{ route('login') }}" type="button"
+                                                    class="btn btn-warning form-control ">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    Purchase
+                                                </a>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
+                      
 
                         @endforeach
                     </div>
