@@ -71,7 +71,7 @@
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
-                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-secondary float-end">Add
+                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-dark float-end">Add
                                         Content</a>
                                 </h6>
 
