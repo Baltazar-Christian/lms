@@ -17,6 +17,7 @@ use App\Http\Controllers\tutor\TutorStudentController;
 use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
 use App\Http\Controllers\admin\AdminPasswordResetController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ use App\Http\Controllers\admin\AdminPasswordResetController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::any('about-us', [HomeController::class, 'about'])->name('about-us');
+Route::any('contact-us', [HomeController::class, 'contact'])->name('contact-us');
+
 
 
 Route::group(['middleware' => 'role:admin'], function () {
