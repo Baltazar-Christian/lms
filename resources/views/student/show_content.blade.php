@@ -17,13 +17,13 @@
 
             @if ($content->type === 'video')
                 <video width="400" controls>
-                    <source src="{{ Storage::url($content->file_path) }}" type="video/mp4">
+                    <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             @else
                 {{-- Display other file types or embed PDF viewer --}}
                 {{-- Adjust this part based on your actual requirements --}}
-                <a href="{{ Storage::url('public/'.$content->file_path) }}" class="btn btn-dark float-end " target="_blank">View Attachment</a>
+                <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" class="btn btn-dark float-end " target="_blank">View Attachment</a>
             @endif
             </div>
         </div>

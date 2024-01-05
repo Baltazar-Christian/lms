@@ -159,8 +159,18 @@ class CourseController extends Controller
         // $this->validateContent($request);
 
 
-        $file = $request->file('file');
-        $filePath = $file->store('course_contents');
+        // $file = $request->file('file');
+        // $filePath = $file->store('course_contents');
+        // Handle cover image update
+        if ($request->hasFile('file')) {
+
+            // Upload the new cover image
+            $coverImage = $request->file('file');
+            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->storeAs('course_contents', $imageName, 'public'); // Adjust the storage path as needed
+            // Update the request data to include the new cover image name
+            $filePath=$imageName;
+        }
 
         // Create the sub-section
         $subSection = CourseContent::create([

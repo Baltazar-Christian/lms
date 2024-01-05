@@ -13,13 +13,14 @@
             </p>
 
             @if ($content->type === 'video')
-                <video width="400" controls>
-                    <source src="{{ Storage::url($content->file_path) }}" type="video/mp4">
+                <video width="100%" controls>
+                    <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
             @else
                 {{-- Display other file types or embed PDF viewer --}}
-                <a href="{{ Storage::url($content->file_path) }}" target="_blank" type="button" class=" btn-sm btn-dark">View File</a>
+                <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank" type="button" class=" btn-sm btn-dark">View File</a>
             @endif
 
             <div class="mt-4">
