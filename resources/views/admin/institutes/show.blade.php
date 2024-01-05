@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="col-4 mx-auto">
                     @if ($institute->logo)
-                    <img src="{{ asset('storage/' . $institute->logo) }}" width="150px" height="150px" alt="Logo" class="img-fluid">
+                    <img src="{{ asset('public/storage/' . $institute->logo) }}" width="150px" height="150px" alt="Logo" class="img-fluid">
                 @endif
                 </div>
                 <hr>

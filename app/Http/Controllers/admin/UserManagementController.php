@@ -64,14 +64,14 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'nullable|min:6',
+            'role' => 'nullable|min:6',
         ]);
 
         $user = User::findOrFail($id);
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
+            'role' => $request->input('role'),
         ]);
 
         return redirect()->route('lms.system-admins')->with('success', 'User updated successfully');
@@ -144,14 +144,14 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'nullable|min:6',
+            'role' => 'nullable|min:6',
         ]);
 
         $user = User::findOrFail($id);
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
+            'role' => $request->input('role'),
         ]);
 
         return redirect()->route('lms.tutors')->with('success', 'Tutor was updated successfully');
@@ -222,7 +222,7 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'nullable|min:6',
+            'role' => 'nullable|min:6',
         ]);
 
         $user = User::findOrFail($id);
@@ -230,7 +230,6 @@ class UserManagementController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role' => $request->input('role'),
-
             'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 

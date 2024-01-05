@@ -31,8 +31,12 @@
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <label for="password" class="form-label">Role</label>
+                <select name="role" class="form-control" id="">
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                    <option value="tutor">Tutor</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary float-end">Update Tutor</button>
         </form>
