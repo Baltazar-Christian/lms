@@ -34,6 +34,6 @@ class CourseContent extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Course::class, 'parent_id');
+        return $this->belongsTo(CourseContent::class, 'parent_id');
     }
 }
