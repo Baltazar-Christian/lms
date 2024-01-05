@@ -77,7 +77,7 @@
                     {{ $count++ }}
                   </td>
                   <td>
-                    <a class="fw-medium text-dark" href="be_pages_elearning_lesson.html">{{ $subContent->title }}</a>
+                    <a class="fw-medium text-dark" href="{{ route('contents.show', $subContent) }}">{{ $subContent->title }}</a>
                   </td>
                   <td class="text-end text-muted">
                     12 min

@@ -86,4 +86,6 @@ class StudentController extends Controller
     {
         return view('student.show_content', compact('content'));
     }
+
+    
 }
