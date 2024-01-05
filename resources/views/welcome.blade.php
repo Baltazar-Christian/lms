@@ -161,6 +161,7 @@
             @for ($i = 0; $i < $totalSlides; $i++)
                 <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
                     <div class="d-flex justify-content-center">
+                        <div class="row">
                         @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
                         <div class="col-12 col-sm-3">
                             <div class="card">
@@ -194,6 +195,7 @@
 
                         @endforeach
                     </div>
+                </div>
                 </div>
             @endfor
         </div>
