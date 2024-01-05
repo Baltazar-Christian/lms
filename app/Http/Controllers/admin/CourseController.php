@@ -184,7 +184,7 @@ class CourseController extends Controller
 
     public function updateContent(Request $request, $courseId, $contentId)
     {
-        $this->validateContent($request);
+        // $this->validateContent($request);
 
         $content = CourseContent::findOrFail($contentId);
         $content->update($request->all());

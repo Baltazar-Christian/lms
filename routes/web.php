@@ -222,21 +222,21 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
 
         // For Courses  Quizes
-        Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
-        Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.show-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.create-question');
-        Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.store-question');
+        Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.tutor-create-quiz');
+        Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.tutor-save-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.tutor-show-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.tutor-create-question');
+        Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.tutor-store-question');
 
-        Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+        Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
-        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.create-answer');
+        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.tutor-create-answer');
         Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.store-answer');
         // Show a single question's answers
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.show-question');
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
 
         // Show a single answer in detail
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.show-answer');
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
     });
 });
 
