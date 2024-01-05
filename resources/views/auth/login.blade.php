@@ -66,7 +66,7 @@
         <div class="hero-static d-flex align-items-center">
           <div class="content">
             <div class="row justify-content-center push">
-              <div class="col-md-6 col-lg-6 col-xl-6">
+              <div class="col-md-4 col-lg-4 col-xl-4 col-5">
                 <!-- Sign In Block -->
                 <div class="block block-rounded mb-0">
                   <div class="block-header block-header-default">
