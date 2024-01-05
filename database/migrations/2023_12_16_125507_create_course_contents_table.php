@@ -19,7 +19,7 @@ class CreateCourseContentsTable extends Migration
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('parent_id')->references('id')->on('course_contents')->onDelete('cascade');
+            // $table->foreign('parent_id')->references('id')->on('course_contents')->onDelete('cascade');
         });
     }
 
