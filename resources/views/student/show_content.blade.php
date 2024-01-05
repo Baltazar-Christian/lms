@@ -23,7 +23,7 @@
             @else
                 {{-- Display other file types or embed PDF viewer --}}
                 {{-- Adjust this part based on your actual requirements --}}
-                <a href="{{ Storage::url($content->file_path) }}" class="btn btn-dark float-end " target="_blank">View Attachment</a>
+                <a href="{{ Storage::url('public/'.$content->file_path) }}" class="btn btn-dark float-end " target="_blank">View Attachment</a>
             @endif
             </div>
         </div>
