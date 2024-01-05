@@ -129,21 +129,23 @@
     <!-- END Hero Content -->
     <!-- About Section -->
 
-    <div class="container">
+    <div class="container p-4">
         {{-- <h1>Contact Us</h1> --}}
 
-        <p>
+        <h5>
             We would love to hear from you! If you have any questions, suggestions, or just want to say hello,
-            feel free to reach out to us at <strong>info@example.com</strong>.
-        </p>
+            feel free to reach out to us at <strong>{{ $company_detail->contact_email }}</strong>.
+        </h5>
 
         <div class="my-4">
-            <h2>Visit Us</h2>
-            <p>123 Main Street, Cityville, Country</p>
+            <h2 class="text-warning">Visit Us</h2>
+            <p>Address: {{ $company_detail->contact_address }}</p>
+            <p>Phone: {{ $company_detail->contact_phone }}</p>
+            <p>Email: {{ $company_detail->contact_email }}</p>
         </div>
 
         <div class="my-4">
-            <h2>Connect with Us</h2>
+            <h2 class="text-warning">Connect with Us</h2>
             <p>
                 Follow us on social media for updates and news:
                 <a href="#" class="btn btn-primary mx-1">Facebook</a>
