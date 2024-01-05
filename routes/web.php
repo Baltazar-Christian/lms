@@ -218,12 +218,12 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
 
 
-        Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.create-subsection');
-        Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.show-subsection');
+        Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.tutor-create-subsection');
+        Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.tutor-show-subsection');
 
-        Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.edit-subsection');
+        Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.tutor-edit-subsection');
 
-        Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
+        Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.tutor-delete-subsection');
 
         // For Courses  Quizes
         Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.tutor-create-quiz');
