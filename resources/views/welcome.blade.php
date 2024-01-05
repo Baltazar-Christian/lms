@@ -28,9 +28,9 @@
             color: #ffffff;
         }
 
-        .navbar-dark .navbar-toggler-icon {
+        /* .navbar-dark .navbar-toggler-icon {
             background-color: #ffffff;
-        }
+        } */
 
         .jumbotron {
             background-color: #303341;
@@ -160,7 +160,7 @@
 
             @for ($i = 0; $i < $totalSlides; $i++)
                 <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
-                    <div class="d-flex justify-content-center">
+                    <div class="">
                         <div class="row">
                         @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
                         <div class="col-12 col-sm-3">
