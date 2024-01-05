@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyDetail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +12,23 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
+
+     public function about()
+     {
+        $data['company_detail']=CompanyDetail::first()->get();
+         return view('about',$data);
+     }
+
+     public function contact()
+     {
+         return view('contact');
+     }
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,17 +37,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->middleware('auth');
+
         return view('home');
     }
 
 
-    public function about()
-    {
-        return view('about');
-    }
 
-    public function contact()
-    {
-        return view('contact');
-    }
 }
