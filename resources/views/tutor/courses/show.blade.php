@@ -86,7 +86,23 @@
                                           <a class="fw-medium" href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                         </td>
                                         <td class="text-end text-muted">
-                                          12 min
+                                            <div class="d-flex justify-content-end align-items-center">
+                                                <a href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                    class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
+                                                <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
+                                                    class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
+
+                                                <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                    class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
+                                                <!-- Add the delete button -->
+                                                <form
+                                                    action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                    method="post" style="display: inline-block">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger ms-2"><i
+                                                            class="fa fa-trash"></i></button>
+                                                </form>
                                         </td>
                                       </tr>
                                       @empty
