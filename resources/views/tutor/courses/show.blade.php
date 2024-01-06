@@ -29,7 +29,7 @@
                 <div class="col-5 mx-auto mt-4">
                     @if ($course->cover_image)
                         <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}"
-                            alt="{{ $course->title }} Cover Image" height="100px" width="100%"
+                            alt="{{ $course->title }} Cover Image" height="150px" width="100%"
                             class="rounded mx-auto shadow mb-4">
                     @endif
 
