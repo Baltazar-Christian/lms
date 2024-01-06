@@ -188,11 +188,20 @@
                                         <div class="row p-2">
 
                                             <div class="col-12">
+                                                @if ($course->price<=0)
                                                 <a href="{{ route('login') }}" type="button"
-                                                    class="btn btn-warning form-control ">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                    Purchase
-                                                </a>
+                                                class="btn btn-success form-control ">
+                                                <i class="fa fa-book"></i>
+                                                Enroll
+                                            </a>
+                                                @else
+                                                <a href="{{ route('login') }}" type="button"
+                                                class="btn btn-warning form-control ">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Purchase
+                                            </a>
+                                                @endif
+
                                             </div>
 
                                         </div>
