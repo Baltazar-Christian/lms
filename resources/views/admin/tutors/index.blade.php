@@ -47,7 +47,7 @@
                     <form action="{{ route('lms.delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
                         <i class="fa fa-trash"></i>
                         </button>
                     </form>
