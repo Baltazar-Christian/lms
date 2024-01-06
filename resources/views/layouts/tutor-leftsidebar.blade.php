@@ -174,7 +174,7 @@
 
 
                 {{-- Assignments --}}
-                <li class="nav-main-item">
+                {{-- <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                         aria-expanded="false" href="#">
                         <i class="nav-main-link-icon fa fa-clipboard"></i>
@@ -199,7 +199,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> --}}
 
 
                 {{-- <li class="nav-main-heading">SETTINGS MANAGEMENT</li> --}}

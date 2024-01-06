@@ -1,6 +1,6 @@
 <!-- resources/views/courses/create.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.tutor')
 
 @section('content')
     <div class="container mt-4 mb-2">
