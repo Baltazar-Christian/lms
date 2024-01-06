@@ -118,6 +118,6 @@ class TutorCoursesController extends Controller
             'duration' => $request->input('duration'),
         ]);
 
-        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content created successfully');
+        return redirect()->route('lms.tutor-show-course', $courseId)->with('success', 'Course content created successfully');
     }
 }
