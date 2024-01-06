@@ -30,7 +30,7 @@
                     @if ($course->cover_image)
                         <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}"
                             alt="{{ $course->title }} Cover Image" height="100px" width="100%"
-                            class="img-fluid rounded mx-auto shadow mb-4">
+                            class="rounded mx-auto shadow mb-4">
                     @endif
 
                 </div>
