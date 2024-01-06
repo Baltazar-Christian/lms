@@ -38,7 +38,7 @@
                     <option value="tutor">Tutor</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary float-end">Update Tutor</button>
+            <button type="submit" class="btn btn-dark float-end">Update </button>
         </form>
         </div>
     </div>

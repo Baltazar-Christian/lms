@@ -34,7 +34,7 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <hr>
-                <button type="submit" class="btn btn-primary float-end">Save Tutor</button>
+                <button type="submit" class="btn btn-dark float-end">Save Tutor</button>
             </form>
             </div>
 

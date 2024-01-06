@@ -11,7 +11,7 @@
                     <h5>Tutors List</h5>
                 </div>
                 <div class="col-6">
-                    <a href="{{ route('lms.add-tutor') }}" class="btn btn-success float-end">Register Tutor</a>
+                    <a href="{{ route('lms.add-tutor') }}" class="btn btn-dark float-end">Register </a>
                 </div>
             </div>
         </div>
@@ -40,8 +40,8 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.show-tutor', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.edit-tutor', $user->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('lms.show-tutor', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
+                    <a href="{{ route('lms.edit-tutor', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
