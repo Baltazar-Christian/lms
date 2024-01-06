@@ -92,11 +92,11 @@
                                                 <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
                                                     class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
 
-                                                <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                <a href="{{ route('lms.tutor-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                     class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
                                                 <!-- Add the delete button -->
                                                 <form
-                                                    action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                    action="{{ route('lms.tutor-delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                     method="post" style="display: inline-block">
                                                     @csrf
                                                     @method('DELETE')
