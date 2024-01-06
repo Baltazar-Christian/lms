@@ -28,15 +28,15 @@
 
                 <div class="col-5 mx-auto mt-4">
                     @if ($course->cover_image)
-                        <img src="{{ asset('storage/covers/' . $course->cover_image) }}"
+                        <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}"
                             alt="{{ $course->title }} Cover Image" width="100%"
                             class="img-fluid rounded mx-auto shadow mb-4">
                     @endif
 
                 </div>
-                <span><strong>Title:</strong> ${{ $course->title }}</span>
-                <span><strong>Price:</strong> ${{ $course->price }}</span>
-                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span>
+                <span><strong>Title:</strong> ${{ $course->title }}</span> <br>
+                <span><strong>Price:</strong> ${{ $course->price }}</span><br>
+                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span><br>
                 <span><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
                 <hr>
                 <p class="lead text-muted">{{ $course->description }}</p>
