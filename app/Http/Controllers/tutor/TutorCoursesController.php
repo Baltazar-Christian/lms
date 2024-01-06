@@ -81,4 +81,43 @@ class TutorCoursesController extends Controller
         $data['course'] = Course::findOrFail($id);
         return view('admin.courses.edit', $data);
     }
+
+
+        // Add the following methods
+        public function createContent($courseId)
+        {
+            $course = Course::findOrFail($courseId);
+            return view('tutor.courses.create-content', compact('course'));
+        }
+
+        public function saveContent(Request $request, $courseId)
+    {
+        // $this->validateContent($request);
+
+
+        // $file = $request->file('file');
+        // $filePath = $file->store('course_contents');
+        // Handle cover image update
+        if ($request->hasFile('file')) {
+
+            // Upload the new cover image
+            $coverImage = $request->file('file');
+            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->storeAs('course_contents', $imageName, 'public'); // Adjust the storage path as needed
+            // Update the request data to include the new cover image name
+            $filePath=$imageName;
+        }
+
+        // Create the sub-section
+        $subSection = CourseContent::create([
+            'course_id' => $courseId,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'type' => $request->input('type'),
+            'file_path' => $filePath,
+            'duration' => $request->input('duration'),
+        ]);
+
+        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content created successfully');
+    }
 }
