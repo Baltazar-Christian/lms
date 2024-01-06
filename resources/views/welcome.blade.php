@@ -233,7 +233,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2023 LMS. All rights reserved.</p>
+        <p>&copy; 2023 UPPER. All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JS and any additional scripts -->
