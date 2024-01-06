@@ -83,7 +83,7 @@
                                           <i class="fa fa-fw fa-book text-success"></i>
                                         </td>
                                         <td>
-                                          <a class="fw-medium" href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
+                                          <a class="fw-medium" href="{{ route('lms.tutor-courses.create-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                         </td>
                                         <td class="text-end text-muted">
                                           12 min
@@ -128,7 +128,7 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.tutor-create-quiz', $course->id) }}" class="btn btn-dark btn-sm  float-end">Add Quiz</a>
+                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-dark btn-sm  float-end">Add Quiz</a>
 
                                 </h6>
                                 <br>
