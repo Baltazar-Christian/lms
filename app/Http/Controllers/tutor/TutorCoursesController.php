@@ -131,4 +131,17 @@ class TutorCoursesController extends Controller
 
         return view('tutor.courses.show-content', compact('course', 'content','subContents'));
     }
+
+
+
+
+    public function createSubsection($courseId, $parentId)
+{
+    // Retrieve course and parent content
+    $course = Course::findOrFail($courseId);
+    $parentContent = CourseContent::findOrFail($parentId);
+
+    return view('tutor.courses.create-subsection', compact('course', 'parentContent'));
+}
+
 }

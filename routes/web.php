@@ -215,7 +215,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::get('/{courseId}/content/{contentId}', [TutorCoursesController::class, 'showCourseContent'])->name('lms.tutor-show-course-content');
         Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.tutor-delete-course-content');
 
-        Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
+        Route::get('/{courseId}/content/{parentId}/create-subsection', [TutorCoursesController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
 
 
         Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.tutor-create-subsection');
