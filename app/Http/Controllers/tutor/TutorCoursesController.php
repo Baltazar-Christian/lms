@@ -32,7 +32,7 @@ class TutorCoursesController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',NULL)->get();
+        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',0)->get();
         $quizzes=Quiz::where('course_id',$course->id)->get();
 
         return view('tutor.courses.show', compact('course','contents','quizzes'));
