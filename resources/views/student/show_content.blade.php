@@ -3,10 +3,12 @@
 @extends('layouts.student')
 
 @section('content')
-    
-    <div class=" mt-2 mb-2 col-12">
 
-        <div class="card">
+    <div class=" mt-2 mb-2 col-12">
+      <div class="row">
+
+        <div class="col-md-8">
+          <div class="card">
             <div class="card-header">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
@@ -16,7 +18,7 @@
                       @if ($content->parent_id!=0)
                       <li class="breadcrumb-item">
                         <a class="link-fx" href="{{ route('contents.show', $content->parent_id) }}"> {{ $content->parent->title }}</a>
-                      </li>  
+                      </li>
                       @endif
                       <li class="breadcrumb-item" aria-current="page">
                         {{ $content->title }}
@@ -46,5 +48,11 @@
             </div>
 
         </div>
+        </div>
+        <div class="col-4">
+
+        </div>
+      </div>
+
     </div>
 @endsection
