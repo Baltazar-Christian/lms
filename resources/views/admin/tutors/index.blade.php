@@ -8,7 +8,9 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <h5>Tutors List</h5>
+                    <h5>
+                        <i class="fa fa-users text-warning"></i>
+                        Tutors List</h5>
                 </div>
                 <div class="col-6">
                     <a href="{{ route('lms.add-tutor') }}" class="btn btn-dark float-end">Register </a>
