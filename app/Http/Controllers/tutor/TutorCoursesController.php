@@ -120,4 +120,15 @@ class TutorCoursesController extends Controller
 
         return redirect()->route('lms.tutor-show-course', $courseId)->with('success', 'Course content created successfully');
     }
+
+
+
+    public function showCourseContent($courseId, $contentId)
+    {
+        $course = Course::findOrFail($courseId);
+        $content = CourseContent::findOrFail($contentId);
+        $subContents=CourseContent::where('parent_id',$content->id)->get();
+
+        return view('tutor.courses.show-content', compact('course', 'content','subContents'));
+    }
 }
