@@ -95,7 +95,7 @@
             </button>
                 <div class="collapse navbar-collapse navbarNav">
                     <div class="navbar-item p-1">
-                        <a class="nav-link text-light" href="{{ route('/') }}">Home</a>
+                        <a class="nav-link text-light" href="{{ url('/') }}">Home</a>
                     </div>
                 <div class="navbar-item p-1">
                     <a class="nav-link text-light" href="{{ route('about-us') }}">About Us</a>
