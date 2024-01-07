@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h5 class="mb-4">Enrolled Courses for {{ $user->name }}</h5>
+        <h5 class="mb-4"> <i class="fa fa-book text-warning"></i> Enrolled Courses </h5>
 
         <!-- Search Form -->
         <form action="{{ route('students.searchCourses', $user) }}" method="get" class="mb-4">
@@ -38,7 +38,7 @@
                                 <!-- ... Existing course content ... -->
                                 Price: {{ number_format($course->price,2)  }}
                             </p>
-                            <div class="fs-sm text-muted">{{ $course->created_at->format('F d, Y') }}</div>
+                            {{-- <div class="fs-sm text-muted">{{ $course->created_at->format('F d, Y') }}</div> --}}
                             <!-- Unenroll button -->
                             <form action="{{ route('students.unenrollSelf', ['student' => $user, 'course' => $course]) }}" method="post">
                                 @csrf
