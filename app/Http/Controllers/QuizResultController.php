@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz;
 use App\Models\QuizAnswer;
 use App\Models\QuizResult;
 use Illuminate\Http\Request;

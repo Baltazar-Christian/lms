@@ -118,6 +118,27 @@
                     </div>
                 </div>
                 <!-- END Lessons -->
+
+                <!-- quizzes -->
+                <div class="mt-3">
+                    @forelse ($quizzes as $quiz)
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $quiz->title }}</h3>
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                        class="btn btn-sm btn-primary ms-2">View </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p class="text-muted">No quizzes available for this course.</p>
+                    @endforelse
+                </div>
+                <!-- End of Quizzes -->
+
+
             </div>
             <div class="col-xl-4">
                 <!-- Subscribe -->

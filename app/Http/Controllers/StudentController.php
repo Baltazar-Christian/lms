@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
-use App\Models\Enrollment;
 use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
@@ -23,7 +24,6 @@ class StudentController extends Controller
         $data['available']=Course::count();
         $data['incomplete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',0)->count();
         $data['complete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->count();
-
 
         $data['courses']=Course::get();
         $data['student']=User::with('courses')->find(Auth::user()->id);;
@@ -91,8 +91,9 @@ class StudentController extends Controller
         $courseContents = $course->contents;
         $student=Auth::user();
         $contents=CourseContent::where('course_id',$course->id)->where('parent_id',0)->get();
+        $quizzes=Quiz::where('course_id',$course->id)->get();
 
-        return view('student.show_course', compact('course', 'courseContents','student','contents'));
+        return view('student.show_course', compact('course', 'courseContents','student','contents','quizzes'));
     }
 
 
