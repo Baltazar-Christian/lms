@@ -81,20 +81,34 @@ class CourseController extends Controller
     }
 
 
-    public function approve($enrollmentId)
+    public function approve($courseId, $studentId)
     {
-        $enrollment=Enrollment::findOrFail($enrollmentId);
-        $enrollment->update(['approval_status' => 'approved']);
+        $course = Course::find($courseId);
 
-        return back();
+        // Check if the user is enrolled in the course
+        if (!$course->students()->where('user_id', $studentId)->exists()) {
+            abort(404); // You can handle this case based on your application's logic
+        }
+
+        // Update the enrollment status to 'approved'
+        $course->students()->updateExistingPivot($studentId, ['approval_status' => 'approved']);
+
+        return redirect()->back()->with('success', 'Enrollment approved successfully.');
     }
 
-    public function reject($enrollmentId)
+    public function reject($courseId, $studentId)
     {
-        $enrollment=Enrollment::findOrFail($enrollmentId);
-        $enrollment->update(['approval_status' => 'rejected']);
+        $course = Course::find($courseId);
 
-        return back();
+        // Check if the user is enrolled in the course
+        if (!$course->students()->where('user_id', $studentId)->exists()) {
+            abort(404); // You can handle this case based on your application's logic
+        }
+
+        // Update the enrollment status to 'rejected'
+        $course->students()->updateExistingPivot($studentId, ['approval_status' => 'rejected']);
+
+        return redirect()->back()->with('success', 'Enrollment rejected successfully.');
     }
 
     public function edit($id)

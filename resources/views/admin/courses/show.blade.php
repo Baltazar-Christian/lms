@@ -187,7 +187,22 @@
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
                                 @foreach ($enrolledStudents as $student)
-                                    <p>{{ $student->name }} - {{ $student->email }}</p>
+                                    <p>{{ $student->name }} - {{ $student->email }}
+
+                                        Status: {{ $student->pivot->approval_status }}
+
+                                        @if ($student->pivot->approval_status == 'pending')
+                                            <form action="{{ route('lms.approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success">Approve</button>
+                                            </form>
+
+                                            <form action="{{ route('lms.reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Reject</button>
+                                            </form>
+                                        @endif
+                                    </p>
                                 @endforeach
 
                             </div>
