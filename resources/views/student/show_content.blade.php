@@ -7,7 +7,7 @@
     <div class=" mt-2 mb-2 col-12">
       <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-8 col-12">
           <div class="card">
             <div class="card-header">
                 <nav aria-label="breadcrumb">
@@ -49,7 +49,7 @@
 
         </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <div class="col-xl-12">
                 <!-- Lessons -->
                 <div class="block block-rounded">
