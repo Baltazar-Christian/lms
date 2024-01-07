@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Auth;
 class TutorCoursesController extends Controller
 {
     // For View Module Courses
-    public function module_courses( $id)
+    public function module_courses($id)
     {
-        $data['module']= Module::findOrFail($id);
-        $data['courses'] = Course::where('module_id',$id)->where('user_id',Auth::user()->id)->get();
+        $data['module'] = Module::findOrFail($id);
+        $data['courses'] = Course::where('module_id', $id)->where('user_id', Auth::user()->id)->get();
         return view('tutor.modules.show', $data);
-
     }
 
     // For Create Course
@@ -32,10 +31,10 @@ class TutorCoursesController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        $contents=CourseContent::where('course_id',$course->id)->where('parent_id',0)->get();
-        $quizzes=Quiz::where('course_id',$course->id)->get();
+        $contents = CourseContent::where('course_id', $course->id)->where('parent_id', 0)->get();
+        $quizzes = Quiz::where('course_id', $course->id)->get();
 
-        return view('tutor.courses.show', compact('course','contents','quizzes'));
+        return view('tutor.courses.show', compact('course', 'contents', 'quizzes'));
     }
 
     // For Saving Course
@@ -52,8 +51,8 @@ class TutorCoursesController extends Controller
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-         // Handle cover image update
-         if ($request->hasFile('cover_image')) {
+        // Handle cover image update
+        if ($request->hasFile('cover_image')) {
 
             // Upload the new cover image
             $coverImage = $request->file('cover_image');
@@ -65,13 +64,13 @@ class TutorCoursesController extends Controller
         }
 
 
-        $request['user_id']=Auth::user()->id;
+        $request['user_id'] = Auth::user()->id;
 
         Course::create($request->all());
 
-        $module=Module::findOrFail($request->module_id)->first();;
+        $module = Module::findOrFail($request->module_id)->first();;
 
-        return redirect()->route('lms.tutor-view-module',$module->id)->with('success', 'Course created successfully.');
+        return redirect()->route('lms.tutor-view-module', $module->id)->with('success', 'Course created successfully.');
     }
 
 
@@ -83,14 +82,14 @@ class TutorCoursesController extends Controller
     }
 
 
-        // Add the following methods
-        public function createContent($courseId)
-        {
-            $course = Course::findOrFail($courseId);
-            return view('tutor.courses.create-content', compact('course'));
-        }
+    // Add the following methods
+    public function createContent($courseId)
+    {
+        $course = Course::findOrFail($courseId);
+        return view('tutor.courses.create-content', compact('course'));
+    }
 
-        public function saveContent(Request $request, $courseId)
+    public function saveContent(Request $request, $courseId)
     {
         // $this->validateContent($request);
 
@@ -98,7 +97,7 @@ class TutorCoursesController extends Controller
         // $file = $request->file('file');
         // $filePath = $file->store('course_contents');
         // Handle cover image update
-        $filePath=Null;
+        $filePath = Null;
         if ($request->hasFile('file')) {
 
             // Upload the new cover image
@@ -106,7 +105,7 @@ class TutorCoursesController extends Controller
             $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
             $coverImage->storeAs('course_contents', $imageName, 'public'); // Adjust the storage path as needed
             // Update the request data to include the new cover image name
-            $filePath=$imageName;
+            $filePath = $imageName;
         }
 
         // Create the sub-section
@@ -128,21 +127,36 @@ class TutorCoursesController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $content = CourseContent::findOrFail($contentId);
-        $subContents=CourseContent::where('parent_id',$content->id)->get();
+        $subContents = CourseContent::where('parent_id', $content->id)->get();
 
-        return view('tutor.courses.show-content', compact('course', 'content','subContents'));
+        return view('tutor.courses.show-content', compact('course', 'content', 'subContents'));
     }
 
 
 
 
     public function createSubsection($courseId, $parentId)
-{
-    // Retrieve course and parent content
-    $course = Course::findOrFail($courseId);
-    $parentContent = CourseContent::findOrFail($parentId);
+    {
+        // Retrieve course and parent content
+        $course = Course::findOrFail($courseId);
+        $parentContent = CourseContent::findOrFail($parentId);
 
-    return view('tutor.courses.create-subsection', compact('course', 'parentContent'));
-}
+        return view('tutor.courses.create-subsection', compact('course', 'parentContent'));
+    }
 
+
+    public function deleteCourseContent($courseId, $contentId)
+    {
+        $content = CourseContent::findOrFail($contentId);
+
+        if ($content->file_path != Null) {
+            // Delete the file from storage
+            Storage::delete($content->file_path);
+        }
+
+        // Delete the database record
+        $content->delete();
+
+        return redirect()->back()->with('success', 'Course content deleted successfully.');
+    }
 }
