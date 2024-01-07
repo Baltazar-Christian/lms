@@ -5,17 +5,17 @@
 
         <div class="card">
             <div class="card-body">
-                <h1>Question Details</h1>
+                <h5 class="text-warning">Question Details</h5>
 
                 <div class="card mt-3">
                     <div class="card-body">
-                        <p class="card-text"><strong>ID:</strong> {{ $question->id }}</p>
-                        <p class="card-text"><strong>Text:</strong> {{ $question->text }}</p>
+                        {{-- <p class="card-text"><strong>ID:</strong> {{ $question->id }}</p> --}}
+                        <p class="card-text"><strong> {{ $question->question }}T</strong></p>
                     </div>
                 </div>
 
                 <div class="mt-4">
-                    <h2>Answers</h2>
+                    <h5 class="text-warning">Answers</h5>
 
                     <a href="{{ route('lms.create-answer', [$course->id, $quiz->id, $question->id]) }}"
                         class="btn btn-dark btn-sm float-end">Create Answer</a>
