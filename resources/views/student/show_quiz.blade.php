@@ -18,7 +18,7 @@
                 @endforeach
             </div>
         @endforeach
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-sm btn-warning float-end">Submit</button>
     </form>
 @else
     <p>No questions available for this quiz.</p>

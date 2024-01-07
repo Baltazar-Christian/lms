@@ -48,7 +48,9 @@
                                         <td>{{ $question->id }}</td>
                                         <td>{{ $question->question }}</td>
                                         <td>
-                                            <a href="{{ route('lms.show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-info">View</a>
+                                            <a href="{{ route('lms.show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

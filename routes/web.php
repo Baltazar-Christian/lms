@@ -279,6 +279,7 @@ Route::get('student/{courseId}/quizzes/{quizId}', [QuizResultController::class, 
 
 Route::post('/quizzes/{quiz}/results', [QuizResultController::class, 'store'])->name('quiz.results.store');
 
+Route::get('/quizzes/{quiz}/results/{result}',  [QuizResultController::class, 'showResult'])->name('quizzes.result');
 
 });
 

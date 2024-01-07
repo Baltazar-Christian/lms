@@ -22,7 +22,13 @@ class QuizResultController extends Controller
         return view('student.show_quiz', compact('course', 'quiz','questions'));
     }
 
-    // app/Http/Controllers/QuizResultController.php
+    public function showResult(Quiz $quiz, QuizResult $result)
+    {
+        // Fetch additional data if needed
+        $quiz->load('questions.options');
+    
+        return view('student.result', compact('quiz', 'result'));
+    }
 public function store(Request $request, Quiz $quiz)
 {
     $request->validate([
