@@ -33,4 +33,7 @@ class TutorController extends Controller
 
         return view('tutor.dashboard',$data);
     }
+
+
+
 }

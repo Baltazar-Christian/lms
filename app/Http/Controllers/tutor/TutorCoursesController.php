@@ -5,6 +5,7 @@ namespace App\Http\Controllers\tutor;
 use App\Models\Quiz;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
@@ -158,5 +159,20 @@ class TutorCoursesController extends Controller
         $content->delete();
 
         return redirect()->back()->with('success', 'Course content deleted successfully.');
+    }
+
+
+
+    // Approval function in your EnrollmentController.php
+    public function approveEnrollment(Enrollment $enrollment)
+    {
+        $enrollment->update(['approval_status' => 'approved']);
+
+        // Notify the user about the approval
+        // You can implement this based on your notification system
+        // For example, sending an email to the user
+        event(new EnrollmentApproved($enrollment));
+
+        return redirect()->route('courses.show', $enrollment->course->id)->with('success', 'Enrollment approved.');
     }
 }
