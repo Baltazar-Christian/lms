@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
+use App\Models\Enrollment;
 use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
@@ -19,7 +20,11 @@ class StudentController extends Controller
     public function dashboard()
     {
         $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
-        $data['available']=Course::counts();
+        $data['available']=Course::count();
+        $data['incomplete']=Enrollment::where('is_completed',0)->count();
+        $data['complete']=Enrollment::where('is_completed',1)->count();
+
+
         $data['courses']=Course::get();
         $data['student']=User::with('courses')->find(Auth::user()->id);;
         return view('student.dashboard',$data);
