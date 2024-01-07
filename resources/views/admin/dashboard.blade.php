@@ -122,12 +122,14 @@
                 <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_product_edit.html">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-success">
-                            <i class="fa fa-plus"></i>
+                            <div class="fs-2 fw-semibold text-success">
+                                {{ $institutes }}
+                            </div>
                         </div>
                     </div>
                     <div class="block-content py-2 bg-body-light">
                         <p class="fw-medium fs-sm text-success mb-0">
-                            Add New
+                            Institutes
                         </p>
                     </div>
                 </a>
@@ -135,11 +137,13 @@
             <div class="col-6 col-lg-3">
                 <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
                     <div class="block-content block-content-full">
-                        <div class="fs-2 fw-semibold text-danger">24</div>
+                        <div class="fs-2 fw-semibold text-danger">
+                            {{ $announcements }}
+                        </div>
                     </div>
                     <div class="block-content py-2 bg-body-light">
                         <p class="fw-medium fs-sm text-danger mb-0">
-                            Out of stock
+                            Announcements
                         </p>
                     </div>
                 </a>
@@ -147,11 +151,13 @@
             <div class="col-6 col-lg-3">
                 <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_dashboard.html">
                     <div class="block-content block-content-full">
-                        <div class="fs-2 fw-semibold text-dark">260</div>
+                        <div class="fs-2 fw-semibold text-warning">
+                            {{ $contents }}
+                        </div>
                     </div>
                     <div class="block-content py-2 bg-body-light">
-                        <p class="fw-medium fs-sm text-muted mb-0">
-                            New
+                        <p class="fw-medium fs-sm text-warning mb-0">
+                            Contents
                         </p>
                     </div>
                 </a>
@@ -159,11 +165,11 @@
             <div class="col-6 col-lg-3">
                 <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_dashboard.html">
                     <div class="block-content block-content-full">
-                        <div class="fs-2 fw-semibold text-dark">14503</div>
+                        <div class="fs-2 fw-semibold text-info">{{ $quizzes }} </div>
                     </div>
                     <div class="block-content py-2 bg-body-light">
-                        <p class="fw-medium fs-sm text-muted mb-0">
-                            All Products
+                        <p class="fw-medium fs-sm text-info mb-0">
+                            Quizzes
                         </p>
                     </div>
                 </a>
