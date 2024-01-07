@@ -2,13 +2,15 @@
 
 @section('content')
 
-<div class="col-12 mt-2 mx-1">
+<div class="container mt-2">
 
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <h5>Students List</h5>
+                    <h5>
+                        <i class="fa fa-users text-warning"></i>
+                        Students List</h5>
                 </div>
                 <div class="col-6">
                     {{-- <a href="{{ route('lms.add-student') }}" class="btn btn-success float-end">Register Student</a> --}}
@@ -40,8 +42,12 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.tutor-activate-student', $user->id) }}" class="btn btn-success">Activate</a>
+                    <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-sm btn-dark">
+                    <i class="fa fa-eye"></i>
+                    </a>
+                    <a href="{{ route('lms.tutor-activate-student', $user->id) }}" class="btn  btn-sm btn-success">
+                    <i class="fa fa-check"></i>
+                    </a>
 
                 </td>
             </tr>

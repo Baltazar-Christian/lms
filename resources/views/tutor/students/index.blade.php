@@ -2,13 +2,15 @@
 
 @section('content')
 
-<div class="">
+<div class="container mt-2">
 
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <h5>Students List</h5>
+                    <h5>
+                        <i class="fa fa-users text-warning"></i>
+                        Students List</h5>
                 </div>
                 <div class="col-6">
                     {{-- <a href="{{ route('lms.add-student') }}" class="btn btn-success float-end">Register Student</a> --}}
@@ -40,13 +42,13 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-info">View</a>
-                    <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-danger">Block</a>
-                    {{-- <form action="{{ route('lms.tutor-delete-student', $user->id) }}" method="POST" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                    </form> --}}
+                    <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-sm btn-dark">
+                    <i class="fa fa-eye"></i>
+                    </a>
+                    <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-sm btn-danger">
+                    <i class="fa fa-x"></i>
+                    </a>
+
                 </td>
             </tr>
         @endforeach
