@@ -21,7 +21,7 @@ class UserManagementController extends Controller
     // For All System Admins
     public function systemAdmins()
     {
-        $users = User::all();
+        $users = User::where('role','admin')->get();
         return view('admin.system_admins.index', compact('users'));
     }
 

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\User;
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,7 +17,11 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $data['students']=User::where('role','student')->count();
+        $data['tutors']=User::where('role','tutor')->count();
+        $data['modules']=Module::count();
+        $data['courses']=Course::count();
+        return view('admin.dashboard',$data);
     }
 
 

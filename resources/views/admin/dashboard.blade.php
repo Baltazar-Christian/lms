@@ -53,7 +53,7 @@
                       </div>
                       <dl class="ms-3 text-end mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                          --
+                         {{ $students }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Students
@@ -70,7 +70,7 @@
                       </div>
                       <dl class="ms-3 text-end mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                        --
+                            {{ $tutors }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Tutors
@@ -84,7 +84,7 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                          --
+                            {{ $modules }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Modules
@@ -101,7 +101,7 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                          --
+                            {{ $courses }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Courses
