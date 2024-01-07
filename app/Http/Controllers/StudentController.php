@@ -21,8 +21,8 @@ class StudentController extends Controller
     {
         $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
         $data['available']=Course::count();
-        $data['incomplete']=Enrollment::where('is_completed',0)->count();
-        $data['complete']=Enrollment::where('is_completed',1)->count();
+        $data['incomplete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',0)->count();
+        $data['complete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->count();
 
 
         $data['courses']=Course::get();
@@ -57,7 +57,7 @@ class StudentController extends Controller
 
     public function completedCourses(User $user)
     {
-        $enrolledCourses = Enrollment::where('is_completed',1)->get(); // Assuming 'courses' is the relationship name
+        $enrolledCourses = Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->get(); // Assuming 'courses' is the relationship name
 
         return view('student.completed_courses', compact('enrolledCourses', 'user'));
     }

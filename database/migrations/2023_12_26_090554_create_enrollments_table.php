@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
             $table->boolean('is_completed')->default(false);
+            $table->enum('approval_status', ['pending', 'approved', 'rejected'])->default('pending');
 
             $table->timestamps();
 
