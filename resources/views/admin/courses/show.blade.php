@@ -35,12 +35,13 @@
                             class=" rounded mx-auto shadow mb-4">
                     @endif
                 </div>
-                <span><strong>Title:</strong> ${{ $course->title }}</span> <br>
-                <span><strong>Price:</strong> ${{ $course->price }}</span> <br>
-                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span> <br>
-                <span><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span> <br>
-
-                <p class="lead text-muted">{{ $course->description }}</p>
+                <div class="bg-light p-1">
+                    <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
+                    <span><strong class="text-warning">Price:</strong> Tsh{{ $course->price }}</span><br>
+                    <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }} minutes</span><br>
+                    <span><strong class="text-warning">Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
+                </div>
+                <p class=" text-muted">{!! $course->description !!}</p>
                 <hr>
                 <div class="col-lg-12">
                     <!-- Block Tabs Default Style (Right) -->
