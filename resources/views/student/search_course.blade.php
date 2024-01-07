@@ -19,7 +19,8 @@
             @forelse($courses as $course)
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ asset('public/storage/covers/' .$course->cover_image) }}" class="card-img-top" alt="{{ $course->name }}">
+                        <img src="{{ asset('public/storage/covers/' .$course->cover_image) }}" class="card-img-top" width="150px"
+                        height="150px" alt="{{ $course->name }}">
                         <div class="card-body">
                             <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
                                 <!-- ... Existing course icon or image ... -->
