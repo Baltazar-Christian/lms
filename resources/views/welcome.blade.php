@@ -20,13 +20,13 @@
             background-color: #f8f9fa;
         }
 
-        .navbar {
+        /* .navbar {
             background-color: #303341;
-        }
+        } */
 
-        .navbar-dark .navbar-brand {
+        /* .navbar-dark .navbar-brand {
             color: #ffffff;
-        }
+        } */
 
         /* .navbar-dark .navbar-toggler-icon {
             background-color: #ffffff;
@@ -83,24 +83,27 @@
 <body>
 
     <!-- Header / Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fa fa-graduation-cap text-warning"></i>
                 UPPER</a>
 
-                <div class="navbar-text mx-3">
-                    <a class="nav-link text-light" href="{{ route('about-us') }}">About Us</a>
-                </div>
-                <div class="navbar-text">
-                    <a class="nav-link text-light" href="{{ route('contact-us') }}">Contact Us</a>
-                </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+                <div class="collapse navbar-collapse navbarNav">
+                <div class="navbar-item p-1">
+                    <a class="nav-link text-light" href="{{ route('about-us') }}">About Us</a>
+                </div>
+                <div class="navbar-item p-1 ">
+                    <a class="nav-link text-light" href="{{ route('contact-us') }}">Contact Us</a>
+                </div>
+                </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+            <div class="collapse navbar-collapse justify-content-end navbarNav" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">
                         <a class=" btn btn-info" href="{{ route('login') }}">Log In</a>

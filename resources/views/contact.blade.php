@@ -83,7 +83,7 @@
 <body>
 
     <!-- Header / Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fa fa-graduation-cap text-warning"></i>
