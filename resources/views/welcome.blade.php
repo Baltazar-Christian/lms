@@ -172,10 +172,10 @@
 
             @for ($i = 0; $i < $totalSlides; $i++)
                 <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
-                    <div class="">
+                    <div class="mx-auto">
                         <div class="row">
                         @foreach ($courses->skip($i * $itemsPerSlide)->take($itemsPerSlide) as $course)
-                        <div class="col-12 col-sm-3">
+                        <div class="col-12 col-sm-3 mx-auto col-md-3">
                             <div class="card">
                                 <a href="{{ route('login') }}">
                                     <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
