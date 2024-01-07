@@ -36,15 +36,16 @@
                     <!-- Color Themes -->
                     <!-- Layout API, functionality initialized in Template._uiHandleTheme() -->
                     <a class="dropdown-item d-flex align-items-center justify-content-between fw-medium"
+                        selected
                         data-toggle="theme" data-theme="default" href="#">
                         <span>Default</span>
                         <i class="fa fa-circle text-default"></i>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center justify-content-between fw-medium"
+                    {{-- <a class="dropdown-item d-flex align-items-center justify-content-between fw-medium"
                         data-toggle="theme" data-theme="assets/css/themes/amethyst.min.css" href="#">
                         <span>Amethyst</span>
                         <i class="fa fa-circle text-amethyst"></i>
-                    </a>
+                    </a> --}}
                     <a class="dropdown-item d-flex align-items-center justify-content-between fw-medium"
                         data-toggle="theme" data-theme="assets/css/themes/city.min.css" href="#">
                         <span>City</span>

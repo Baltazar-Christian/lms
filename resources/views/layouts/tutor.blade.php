@@ -30,7 +30,7 @@
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css')}}">
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-    <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css">
+    {{-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> --}}
     <!-- END Stylesheets -->
 
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">

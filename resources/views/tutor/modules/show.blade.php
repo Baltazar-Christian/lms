@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <h4 class="mb-0">
                             <i class="fa fa-book text-warning"></i>
-                            {{ $module->name }}
+                            {{ $module->name }} COURSES
                         <a href="{{ route('lms.add-tutor-course',$module->id) }}" class="btn btn-dark float-end">
                             <i class="fa fa-plus"></i>
                             Create Course
