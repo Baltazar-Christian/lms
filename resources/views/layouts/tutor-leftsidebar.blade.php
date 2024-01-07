@@ -203,7 +203,7 @@
                 </li> --}}
 
 
-                {{-- <li class="nav-main-heading">SETTINGS MANAGEMENT</li> --}}
+                <li class="nav-main-heading">OTHERS</li>
 
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="be_pages_ecom_store_search.html">
