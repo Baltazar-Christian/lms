@@ -55,6 +55,13 @@ class StudentController extends Controller
         return view('student.enrolled_courses', compact('enrolledCourses', 'user'));
     }
 
+    public function completedCourses(User $user)
+    {
+        $enrolledCourses = Enrollment::where('is_completed',1)->get(); // Assuming 'courses' is the relationship name
+
+        return view('student.completed_courses', compact('enrolledCourses', 'user'));
+    }
+
     public function searchCourses(User $user, Request $request)
     {
         $search = $request->input('search');

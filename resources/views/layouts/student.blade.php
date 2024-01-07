@@ -243,7 +243,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_dashboard.html">
+                                    <a class="nav-main-link" href="{{ route('student.completedCourses',Auth::user()->id) }}">
                                         <i class="nav-main-link-icon fa fa-bookmark"></i>
                                         <span class="nav-main-link-name">Completed Courses</span>
                                     </a>
