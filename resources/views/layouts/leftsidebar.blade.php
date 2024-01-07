@@ -1,5 +1,5 @@
 <!-- END Side Overlay -->
-<nav id="sidebar default" aria-label="Main Navigation">
+<nav id="sidebar " aria-label="Main Navigation">
     <!-- Side Header -->
     <div class="content-header">
         <!-- Logo -->
