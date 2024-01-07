@@ -4,7 +4,14 @@
     <div class="container mt-2 mx-auto mb-5 mx-auto p-4 card rounded shadow mx-1">
 
         <h5 class="text-start text-dark">
-            <div class="fa fa-book text-warning"></div> {{ $course->title }} - Course Content</h4>
+            <div class="fa fa-book text-warning"></div> {{ $course->title }} - Course Content
+
+
+            <a href="{{ route('lms.show-tutor-course', $content->course->id) }}" class="btn btn-dark btn-sm float-end">
+                <i class="fa fa-list "></i>
+                Back
+            </a>
+        </h4>
 
             <hr>
             {{-- Display content details --}}

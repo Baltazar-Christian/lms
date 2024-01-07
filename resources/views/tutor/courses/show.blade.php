@@ -90,7 +90,7 @@
                                           <i class="fa fa-fw fa-book text-success"></i>
                                         </td>
                                         <td>
-                                          <a class="fw-medium" href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
+                                          <a class="fw-medium text-dark" href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                         </td>
                                         <td class="text-end text-muted">
                                             <div class="d-flex justify-content-end align-items-center">
