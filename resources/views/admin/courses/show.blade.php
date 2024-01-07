@@ -185,7 +185,7 @@
                             </div>
                             <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
-                                <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> QuizzesEnrolled Students</h6>
+                                <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
                                 @foreach ($enrolledStudents as $student)
                                     <p>{{ $student->name }} - {{ $student->email }}</p>
                                 @endforeach

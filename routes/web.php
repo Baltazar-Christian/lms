@@ -129,6 +129,9 @@ Route::group(['middleware' => 'role:admin'], function () {
 
         Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
 
+        Route::post('/enrollment/approve/{enrollmentId}', [CourseController::class, 'approve'])->name('lms.approve-enrollment');
+        Route::post('/enrollment/reject/{enrollmentId}', [CourseController::class, 'reject'])->name('lms.reject-enrollment');
+
         // For Courses  Quizes
         Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
         Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.save-quiz');

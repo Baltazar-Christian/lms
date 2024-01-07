@@ -32,6 +32,18 @@ class StudentController extends Controller
 
     public function enrollSelf(Request $request, User $student, Course $course)
     {
+        if ($course->price > 0) {
+            $enrollment = $student->enrollments()->create([
+                'course_id' => $course->id,
+                'approval_status' => 'pending', // Set the approval status to pending
+            ]);
+
+
+            // event(new CourseEnrollmentPending($course, $enrollment));
+
+            // return redirect()->route('courses.show', $course->id)->with('success', 'Enrollment pending approval.');
+            return back()->with('success', 'Enrolled in the course successfully');
+        }
         $student->courses()->attach($course->id);
 
         // return redirect()->route('students.show', $student->id)->with('success', 'Enrolled in the course successfully');
@@ -50,6 +62,8 @@ class StudentController extends Controller
 
     public function enrolledCourses(User $user)
     {
+
+
         $enrolledCourses = $user->courses; // Assuming 'courses' is the relationship name
 
         return view('student.enrolled_courses', compact('enrolledCourses', 'user'));
