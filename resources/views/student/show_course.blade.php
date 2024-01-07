@@ -40,8 +40,12 @@
         <div class="row">
             <div class="col-xl-8">
                 <!-- Lessons -->
-                <div class="block block-rounded">
-                    <div class="block-content fs-sm">
+                <div class="card block block-rounded">
+                    <div class="card-header p-2">
+                        <h5><i class="fa fa-list text-warning"></i> Course Contents</h5>
+
+                    </div>
+                    <div class=" card-body block-content fs-sm">
                         <!-- Introduction -->
                         <table class="table table-borderless table-vcenter">
                             <tbody>
@@ -121,23 +125,37 @@
 
                 <!-- quizzes -->
                 <div class="mt-3">
-                    @forelse ($quizzes as $quiz)
                     <div class="card mb-3">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ $quiz->title }}</h3>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                    class="btn btn-sm btn-primary ms-2">Attempt</a>
-                            </div>
+                        <div class="card-header">
+                            <h5><i class="fa fa-list text-warning"></i> Course Quizzes</h5>
+
                         </div>
-                    </div>
+                        <div class="card-body">
+                    @forelse ($quizzes as $quiz)
+
+                            <h6 class="card-title">
+                                {{-- <i class="fa fa-question text-warning"></i> --}}
+                                {{ $quiz->title }}
+
+                                    @if ($quiz->hasUserAttempted(auth()->user()))
+                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                        class="btn btn-sm btn-success float-end ms-2">View Result</a>
+                                @else
+                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                        class="btn btn-sm btn-warning float-end ms-2">Attempt</a>
+                                @endif
+
+                            </h6>
+
                 @empty
                     <p class="text-muted">No quizzes available for this course.</p>
                 @endforelse
-                
+
                 </div>
                 <!-- End of Quizzes -->
 
+            </div>
+        </div>
 
             </div>
             <div class="col-xl-4">

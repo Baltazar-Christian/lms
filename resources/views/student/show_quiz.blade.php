@@ -7,24 +7,45 @@
 
         <div class="card">
             <div class="card-header">
+                <h5 class="text-warning">
+                    @if ($result != null)
+                    {{ $quiz->title }}  Result
+                    @else
+                    {{ $quiz->title }}  Section
+
+                    @endif
+
+                    <a class="btn btn-dark btn-sm float-end"
+                    href="{{ route('student-courses.show', $quiz->course_id) }}">
+                        <i class="fa fa-list"></i>
+                        Back
+                    </a>
+                </h5>
 
             </div>
             <div class="card-body">
                 @if ($result != null)
 
-                    <h1>Quiz Result</h1>
 
-                    <p>Your score: {{ $result->score }} / {{ count($quiz->questions) }}</p>
+                    <p> <strong> Your score:</strong> {{ $result->score }} / {{ count($quiz->questions) }}</p>
 
-                    <h2>Questions and Answers:</h2>
+                    <h5 class="text-warning">Questions and Answers:</h5>
+                    <hr>
+                    @php
+                        $i=1;
+                    @endphp
                     @foreach ($questions as $question)
-                    <div class="m-1">
-                        <p class="mt-1">{{ $question->question }}</p>
+                    <div class="mb-2">
+                        <p class="mt-1"> {{$i++ }} : {{ $question->question }}</p>
                         @foreach ($question->answers as $option)
                             <label>
-                                <input type="radio" name="answers[{{ $question->id }}]"
-                                    value="{{ $option->id }}"{{ $option->is_correct ? 'checked' : '' }}   required>
+                                <input type="radio" disabled name="answers[{{ $question->id }}]"
+                                    value="{{ $option->id }}"{{ $option->is_correct ? 'checked' : '' }}   readonly>
                                 {{ $option->answer }}
+                                @if ($option->is_correct)
+                                <i class="fa fa-check text-success"></i>
+                                @endif
+
                             </label><br>
                         @endforeach
                     </div>
