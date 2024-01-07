@@ -54,9 +54,12 @@
                     @if ($questions->count() > 0)
                         <form action="{{ route('quiz.results.store', $quiz->id) }}" method="post">
                             @csrf
+                            @php
+                                $i=1;
+                            @endphp
                             @foreach ($questions as $question)
                                 <div class="m-1">
-                                    <p class="mt-2">{{ $question->question }}</p>
+                                    <p class="mt-2">{{ $i++ }} : {{ $question->question }}</p>
                                     @foreach ($question->answers as $option)
                                         <label>
                                             <input type="radio" name="answers[{{ $question->id }}]"
