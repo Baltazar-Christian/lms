@@ -155,9 +155,9 @@
                                     <div class="card mb-3">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $quiz->title }}
-                                                <div class="d-flex justify-content-end align-items-center">
+                                                {{-- <div class="d-flex justify-content-end align-items-center"> --}}
                                                     <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                        class="btn btn-sm btn-dark ms-2">View </a>
+                                                        class="btn btn-sm btn-dark float-end ms-2">View </a>
                                                     {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
                                 class="btn btn-sm btn-warning ms-2">Edit</a> --}}
                                                     <!-- Add the delete button -->
@@ -168,7 +168,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
                             </form> --}}
-                                                </div>
+                                                {{-- </div> --}}
                                             </h5>
 
                                         </div>
