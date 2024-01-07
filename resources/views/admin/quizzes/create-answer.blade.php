@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container mt-2">
-     
+
 
         <div class="card ">
 
+            <h1>Create Answer</h1>
 
             <div class="card-body">
                 <form action="{{ route('lms.store-answer', [$course->id, $quiz->id, $question->id]) }}" method="post">
