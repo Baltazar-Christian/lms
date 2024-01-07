@@ -50,7 +50,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p>No enrolled courses yet.</p>
+                    <p>No Completed courses yet.</p>
                 </div>
             @endforelse
         </div>
