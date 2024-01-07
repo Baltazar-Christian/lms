@@ -155,9 +155,10 @@
             <h2 class="text-warning">Connect with Us</h2>
             <p>
                 Follow us on social media for updates and news:
-                <a href="#" class="btn btn-primary mx-1">Facebook</a>
+                <br>
+                <a href="https://www.facebook.com/photo.php?fbid=122109562604165614&set=a.122109562634165614&type=3&mibextid=2JQ9oc" class="btn btn-primary mx-1">Facebook</a>
                 <a href="#" class="btn btn-info mx-1">Twitter</a>
-                <a href="#" class="btn btn-danger mx-1">Instagram</a>
+                <a href="https://www.instagram.com/upper_financial_consultants?utm_source=qr&igsh=MWpnMzJuaHRsNXI1Zg==" class="btn btn-danger mx-1">Instagram</a>
             </p>
         </div>
     </div>
