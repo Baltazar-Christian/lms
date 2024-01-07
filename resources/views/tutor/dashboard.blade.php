@@ -48,17 +48,18 @@
                 <div class="col-md-6 col-xl-3">
                   <a class="block block-rounded block-link-shadow bg-primary" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                      <div>
-                        <i class="fa fa-2x fa-users text-white-50"></i>
-                      </div>
-                      <dl class="ms-3 text-end mb-0">
+
+                      <dl class="ms-3 text-start mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                            --
+                            {{ $students }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Students
                         </dd>
                       </dl>
+                      <div>
+                        <i class="fa fa-2x fa-users text-white-50"></i>
+                      </div>
                     </div>
                   </a>
                 </div>
@@ -68,7 +69,7 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                        --
+                            {{ $modules }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Modules
@@ -83,17 +84,19 @@
                 <div class="col-md-6 col-xl-3">
                     <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
                       <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div>
-                          <i class="fa fa-2x fa-book text-white-50"></i>
-                        </div>
-                        <dl class="ms-3 text-end mb-0">
-                          <dt class="text-white h3 fw-extrabold mb-0">
-                            --
-                          </dt>
-                          <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                            Courses
-                          </dd>
-                        </dl>
+
+                        <dl class="me-3 mb-0">
+                            <dt class="text-white h3 fw-extrabold mb-0">
+                                {{ $courses }}
+
+                            </dt>
+                            <dd class="text-white fs-sm fw-medium text-muted mb-0">
+                              Courses
+                            </dd>
+                          </dl>
+                          <div>
+                            <i class="fa fa-2x fa-book text-white-50"></i>
+                          </div>
                       </div>
                     </a>
                   </div>
@@ -102,7 +105,8 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                        --
+                            {{ $quizzes }}
+
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Assignments
