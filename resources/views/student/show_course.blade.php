@@ -24,7 +24,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-alt">
                     <li class="breadcrumb-item">
-                        <a class="link-fx" href="be_pages_elearning_courses.html">Courses</a>
+                        <a class="link-fx text-warning" href="#">Courses</a>
                     </li>
                     <li class="breadcrumb-item" aria-current="page">
                         {{ $course->title }}
@@ -58,8 +58,18 @@
                                         </th>
                                         <th class="text-end">
                                             {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
-                                            <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-warning">
-                                                Read
+                                            <a href="{{ route('contents.show', $content) }}"
+                                                class="btn btn-sm
+
+                                            @if (auth()->user()->completedContents->contains($content->id)) btn-success
+                                            @else
+                                            btn-warning @endif
+                                            ">
+                                                @if (auth()->user()->completedContents->contains($content->id))
+                                                    Read Again
+                                                @else
+                                                    Read
+                                                @endif
                                             </a>
                                         </th>
                                     </tr>
@@ -81,8 +91,17 @@
                                                 </td>
                                                 <td class="text-end text-muted">
                                                     <a href="{{ route('contents.show', $subContent) }}"
-                                                        class="btn btn-sm btn-warning">
-                                                        Read
+                                                        class="btn btn-sm
+                                                        @if (auth()->user()->completedContents->contains($subContent->id)) btn-success
+                                                        @else
+                                                        btn-warning @endif
+
+                                                        ">
+                                                        @if (auth()->user()->completedContents->contains($subContent->id))
+                                                            Read Again
+                                                        @else
+                                                            Read
+                                                        @endif
                                                     </a>
                                                 </td>
                                             </tr>
@@ -104,7 +123,30 @@
                 <!-- Subscribe -->
                 <div class="block block-rounded">
                     <div class="block-content p-2">
+
+                        <!-- Calculate completion progress percentage -->
+                        @php
+                            $totalContents = $course->contents->count();
+                            $completedContents = auth()
+                                ->user()
+                                ->completedContents->count();
+                            $progressPercentage = $totalContents > 0 ? ($completedContents / $totalContents) * 100 : 0;
+                        @endphp
+
+                        {{-- <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: {{ $progressPercentage }}%;"
+                                aria-valuenow="{{ $progressPercentage }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ $progressPercentage }}% Complete
+                            </div>
+                        </div> --}}
+
+
                         @if ($student->courses->contains('id', $course->id))
+                            @if ($progressPercentage >= 100)
+                                <span class="badge bg-success text-center mx-auto mb-2">
+
+                                    Course Complete</span>
+                            @endif
                             <!-- Unenroll button -->
                             <form
                                 action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}"

@@ -119,8 +119,18 @@
                                             <th class="text-end">
                                                 {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
                                                 <a href="{{ route('contents.show', $content) }}"
-                                                    class="btn btn-sm btn-warning">
+                                                    class="btn btn-sm
+                                                    @if (auth()->user()->completedContents->contains($content->id))
+                                                    btn-success
+                                                    @else
+                                                    btn-warning
+                                                    @endif
+                                                    ">
+                                                    @if (auth()->user()->completedContents->contains($content->id))
+                                                    Read Again
+                                                    @else
                                                     Read
+                                                    @endif
                                                 </a>
                                             </th>
                                         </tr>
@@ -148,8 +158,18 @@
                                                     </td>
                                                     <td class="text-end text-muted">
                                                         <a href="{{ route('contents.show', $subContent) }}"
-                                                            class="btn btn-sm btn-warning">
+                                                            class="btn btn-sm
+                                                            @if (auth()->user()->completedContents->contains($subContent->id))
+                                                            btn-success
+                                                            @else
+                                                            btn-warning
+                                                            @endif
+                                                            ">
+                                                            @if (auth()->user()->completedContents->contains($subContent->id))
+                                                            Read Again
+                                                            @else
                                                             Read
+                                                            @endif
                                                         </a>
                                                     </td>
                                                 </tr>
