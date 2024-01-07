@@ -86,12 +86,12 @@ class QuizController extends Controller
             'text' => 'required|max:255',
         ]);
 
-        $quiz = new QuizQuestion([
+        $quizQuestion = new QuizQuestion([
             'quiz_id' => $quiz->id,
             'question' => $request->input('text'),
         ]);
 
-        $quiz->save();
+        $quizQuestion->save();
         return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
     }
 
