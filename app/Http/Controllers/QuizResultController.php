@@ -17,9 +17,10 @@ class QuizResultController extends Controller
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
         $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
-        // dd( $questions);
+        $result=QuizResult::where('quiz_id',$quiz->id)->first();
 
-        return view('student.show_quiz', compact('course', 'quiz','questions'));
+
+        return view('student.show_quiz', compact('course', 'quiz','questions','result'));
     }
 
     public function showResult(Quiz $quiz, QuizResult $result)
@@ -32,7 +33,7 @@ class QuizResultController extends Controller
 public function store(Request $request, Quiz $quiz)
 {
     $request->validate([
-        'answers.*' => 'required|exists:question_options,id',
+        'answers.*' => 'required|exists:quiz_answers,id',
     ]);
 
     $user = auth()->user();
@@ -56,13 +57,13 @@ public function store(Request $request, Quiz $quiz)
     }
 
     // Save the quiz result
-    QuizResult::create([
+   $result= QuizResult::create([
         'user_id' => $user->id,
         'quiz_id' => $quiz->id,
         'score' => $totalScore,
     ]);
 
-    return redirect()->route('quizzes.show', $quiz->id)->with('success', 'Quiz result recorded.');
+    return redirect()->route('quizzes.result.show', $quiz->id,$result->id)->with('success', 'Quiz result recorded.');
 }
 
 }
