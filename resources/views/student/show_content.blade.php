@@ -47,22 +47,21 @@
                         </p>
 
                         @if ($content->type != 'video')
-                        {{-- Display other file types or embed PDF viewer --}}
-                        {{-- Adjust this part based on your actual requirements --}}
-                        <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
-                            class="btn btn-dark btn-sm float-end " target="_blank">View Attachment</a>
-                    @endif
+                            {{-- Display other file types or embed PDF viewer --}}
+                            {{-- Adjust this part based on your actual requirements --}}
+                            <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
+                                class="btn btn-dark btn-sm float-end " target="_blank">View Attachment</a>
+                        @endif
                     </div>
                     @if (auth()->user()->completedContents->contains($content->id))
-                    <div class="row p-2">
-                        <div class="col-4">
-                            <span class="badge bg-success text-white">Completed</span>
+                        <div class="row p-2">
+                            <div class="col-4">
+                                <span class="badge bg-success text-white">Completed</span>
 
+                            </div>
                         </div>
-                    </div>
                     @else
-                        <form
-                            class="p-2"
+                        <form class="p-2"
                             action="{{ route('content.mark-as-complete', ['user' => auth()->user(), 'content' => $content]) }}"
                             method="post">
                             @csrf
@@ -86,6 +85,24 @@
                                     @php
                                         $i = 1;
                                     @endphp
+
+                                    <!-- Calculate completion progress percentage -->
+                                    @php
+                                        $totalContents = $content->course->contents->count();
+                                        $completedContents = auth()
+                                            ->user()
+                                            ->completedContents->count();
+                                        $progressPercentage = $totalContents > 0 ? ($completedContents / $totalContents) * 100 : 0;
+                                    @endphp
+
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar  @if( $progressPercentage==100) bg-success @else bg-warning  @endif " role="progressbar"
+                                            style="width: {{ $progressPercentage }}%;"
+                                            aria-valuenow="{{ $progressPercentage }}" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            {{ number_format($progressPercentage,2) }}% Complete
+                                        </div>
+                                    </div>
                                     @foreach ($contents as $content)
                                         <tr class="table-active mb-1">
                                             <th style="width: 50px;">{{ $i++ }}</th>
@@ -93,8 +110,10 @@
                                                 <a href="{{ route('contents.show', $content) }}" class="text-dark">
                                                     {{ $content->title }}
                                                     @if (auth()->user()->completedContents->contains($content->id))
-                                                    <i class="fa fa-check text-success"></i>
+
+                                                        <i class="fa fa-check text-success"></i>
                                                     @endif
+
                                                 </a>
                                             </th>
                                             <th class="text-end">
@@ -119,7 +138,13 @@
                                                     </td>
                                                     <td>
                                                         <a class="fw-medium text-dark"
-                                                            href="{{ route('contents.show', $subContent) }}">{{ $subContent->title }}</a>
+                                                            href="{{ route('contents.show', $subContent) }}">
+                                                            {{ $subContent->title }}
+                                                            @if (auth()->user()->completedContents->contains($subContent->id))
+
+                                                        <i class="fa fa-check text-success"></i>
+                                                    @endif
+                                                        </a>
                                                     </td>
                                                     <td class="text-end text-muted">
                                                         <a href="{{ route('contents.show', $subContent) }}"
