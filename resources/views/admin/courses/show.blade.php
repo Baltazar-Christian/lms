@@ -38,7 +38,8 @@
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
                     <span><strong class="text-warning">Price:</strong> Tsh{{ $course->price }}</span><br>
-                    <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }} minutes</span><br>
+                    <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }}
+                        minutes</span><br>
                     <span><strong class="text-warning">Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
                 </div>
                 <p class=" text-muted">{!! $course->description !!}</p>
@@ -51,8 +52,8 @@
                                 <button class="nav-link" id="btabs-static2-settings-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-settings" role="tab"
                                     aria-controls="btabs-static2-settings" aria-selected="false">
-                                    <i class="si si-settings"></i>
-                                    <span class="visually-hidden">Settings</span>
+                                    <i class="si si-user"></i>
+                                    <span class="">Students</span>
                                 </button>
                             </li>
                             <li class="nav-item">
@@ -72,47 +73,51 @@
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
-                                    <a href="{{ route('lms.courses.create-content', $course->id) }}" class="btn btn-dark float-end">Add
+                                    <a href="{{ route('lms.courses.create-content', $course->id) }}"
+                                        class="btn btn-dark float-end">Add
                                         Content</a>
                                 </h6>
 
                                 <table class="table table-borderless table-vcenter mt-2">
                                     <tbody>
 
-                                      @forelse ($contents as $content)
-                                      <tr>
-                                        <td class="table-success text-center" width="2%">
-                                          <i class="fa fa-fw fa-book text-success"></i>
-                                        </td>
-                                        <td>
-                                          <a class="fw-medium text-dark" href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
-                                        </td>
-                                        <td class="text-end text-muted">
-                                            <div class="d-flex justify-content-end align-items-center">
-                                                <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
-                                                    class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
+                                        @forelse ($contents as $content)
+                                            <tr>
+                                                <td class="table-success text-center" width="2%">
+                                                    <i class="fa fa-fw fa-book text-success"></i>
+                                                </td>
+                                                <td>
+                                                    <a class="fw-medium text-dark"
+                                                        href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
+                                                </td>
+                                                <td class="text-end text-muted">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                            class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
+                                                        <a href="{{ asset('storage/' . $content->file_path) }}"
+                                                            target="_blank" class="btn btn-sm btn-dark  ms-2"><i
+                                                                class="fa fa-download"></i></a>
 
-                                                <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
-                                                <!-- Add the delete button -->
-                                                <form
-                                                    action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    method="post" style="display: inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger ms-2"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                      </tr>
-                                      @empty
-                                      <p class="text-muted">No contents available for this course.</p>
-                                  @endforelse
+                                                        <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                            class="btn btn-sm btn-warning ms-2"><i
+                                                                class="fa fa-edit"></i></a>
+                                                        <!-- Add the delete button -->
+                                                        <form
+                                                            action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                            method="post" style="display: inline-block">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-danger ms-2"><i
+                                                                    class="fa fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <p class="text-muted">No contents available for this course.</p>
+                                        @endforelse
                                     </tbody>
-                                  </table>
+                                </table>
 
                                 {{-- @forelse ($contents as $content)
                                     <div class=" mb-3">
@@ -147,7 +152,8 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.create-quiz', $course->id) }}" class="btn btn-dark  float-end">Add Quiz</a>
+                                    <a href="{{ route('lms.create-quiz', $course->id) }}"
+                                        class="btn btn-dark  float-end">Add Quiz</a>
 
                                 </h6>
                                 <br>
@@ -156,12 +162,12 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $quiz->title }}
                                                 {{-- <div class="d-flex justify-content-end align-items-center"> --}}
-                                                    <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                        class="btn btn-sm btn-dark float-end ms-2">View </a>
-                                                    {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                    class="btn btn-sm btn-dark float-end ms-2">View </a>
+                                                {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
                                 class="btn btn-sm btn-warning ms-2">Edit</a> --}}
-                                                    <!-- Add the delete button -->
-                                                    {{-- <form
+                                                <!-- Add the delete button -->
+                                                {{-- <form
                                 action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
                                 method="post" style="display: inline-block">
                                 @csrf
@@ -179,8 +185,11 @@
                             </div>
                             <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
-                                <h4 class="fw-normal">Settings Content</h4>
-                                <p>...</p>
+                                <h4 class="fw-normal">Enrolled Students</h4>
+                                @foreach ($enrolledStudents as $student)
+                                    <p>{{ $student->name }} - {{ $student->email }}</p>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
