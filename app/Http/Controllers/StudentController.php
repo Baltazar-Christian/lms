@@ -84,8 +84,10 @@ class StudentController extends Controller
 
     public function show_content(CourseContent $content)
     {
-        return view('student.show_content', compact('content'));
+        $contents=CourseContent::where('course_id',$content->course_id)->where('parent_id',0)->get();
+
+        return view('student.show_content', compact('content','contents'));
     }
 
-    
+
 }

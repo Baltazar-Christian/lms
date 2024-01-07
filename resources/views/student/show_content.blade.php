@@ -13,11 +13,11 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
                       <li class="breadcrumb-item">
-                        <a class="link-fx" href="{{ route('student-courses.show', $content->course->id) }}"> {{ $content->course->title }}</a>
+                        <a class="link-fx text-warning" href="{{ route('student-courses.show', $content->course->id) }}"> {{ $content->course->title }}</a>
                       </li>
                       @if ($content->parent_id!=0)
                       <li class="breadcrumb-item">
-                        <a class="link-fx" href="{{ route('contents.show', $content->parent_id) }}"> {{ $content->parent->title }}</a>
+                        <a class="link-fx text-warning" href="{{ route('contents.show', $content->parent_id) }}"> {{ $content->parent->title }}</a>
                       </li>
                       @endif
                       <li class="breadcrumb-item" aria-current="page">
@@ -50,7 +50,86 @@
         </div>
         </div>
         <div class="col-4">
+            <div class="col-xl-12">
+                <!-- Lessons -->
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default text-start">
+                        <h5 class="block-title"> <i class="fa fa-book text-warning"></i> {{ $content->course->title}} CONTENTS</h5>
+                    </div>
+                    <div class="block-content fs-sm">
+                        <!-- Introduction -->
+                        <table class="table table-borderless table-vcenter">
+                            <tbody>
+                                @php
+                                    $i = 1;
+                                @endphp
+                                @foreach ($contents as $content)
+                                    <tr class="table-active mb-1">
+                                        <th style="width: 50px;">{{ $i++ }}</th>
+                                        <th>
+                                            <a href="{{ route('contents.show', $content) }}" class="text-dark">
+                                                {{ $content->title }}
+                                            </a>
+                                        </th>
+                                        <th class="text-end">
+                                            {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
+                                            <a href="{{ route('contents.show', $content) }}" class="btn btn-sm btn-warning">
+                                                Read
+                                            </a>
+                                        </th>
+                                    </tr>
+                                    @php
+                                        $count = 1;
+                                        $subContents = App\Models\CourseContent::where('parent_id', $content->id)->get();
+                                    @endphp
+                                    @if (count($subContents) > 0)
+                                        @foreach ($subContents as $subContent)
+                                            <tr>
+                                                <td class="table-success text-center">
+                                                    {{-- <i class="fa fa-fw fa-info text-success"></i> --}}
 
+                                                    {{ $count++ }}
+                                                </td>
+                                                <td>
+                                                    <a class="fw-medium text-dark"
+                                                        href="{{ route('contents.show', $subContent) }}">{{ $subContent->title }}</a>
+                                                </td>
+                                                <td class="text-end text-muted">
+                                                    <a href="{{ route('contents.show', $subContent) }}"
+                                                        class="btn btn-sm btn-warning">
+                                                        Read
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+
+
+
+                            </tbody>
+                        </table>
+                        <!-- END Introduction -->
+
+                    </div>
+                </div>
+                <!-- END Lessons -->
+            </div>
+
+                <!-- About Instructor -->
+                <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
+                    <div class="block-header block-header-default text-center">
+                        <h3 class="block-title">About The Instructor</h3>
+                    </div>
+                    <div class="block-content block-content-full text-center">
+                        <div class="push">
+                            <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
+                        </div>
+                        <div class="fw-semibold mb-1">{{ $content->course->user->name }}</div>
+                        <div class="fs-sm text-muted">Front-end Developer</div>
+                    </div>
+                </a>
+                <!-- END About Instructor -->
         </div>
       </div>
 

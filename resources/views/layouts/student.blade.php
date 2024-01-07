@@ -49,7 +49,7 @@
                 <!-- Left Section -->
                 <div class="d-flex align-items-center">
                     <!-- Logo -->
-                    <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="index.html">
+                    <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="{{ route('lms.student-dashboard') }}">
                         <i class="fa fa-graduation-cap text-warning"></i>
                         UPPER
                     </a>
@@ -112,7 +112,7 @@
                     <!-- END Open Search Section -->
 
                     <!-- Search Form (visible on larger screens) -->
-                    <form class="d-none d-md-inline-block" action="bd_search.html" method="POST">
+                    {{-- <form class="d-none d-md-inline-block" action="bd_search.html" method="POST">
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control form-control-alt" placeholder="Search.."
                                 id="page-header-search-input2" name="page-header-search-input2" />
@@ -120,7 +120,7 @@
                                 <i class="fa fa-fw fa-search"></i>
                             </span>
                         </div>
-                    </form>
+                    </form> --}}
                     <!-- END Search Form -->
 
                     <!-- User Dropdown -->
@@ -274,7 +274,7 @@
                             href="https://1.envato.market/ydb" target="_blank">pixelcave</a> --}}
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold" href="https://1.envato.market/AVD6j" target="_blank">LMS 1.0.0 </a>
+                        <a class="fw-semibold text-warning" href="https://1.envato.market/AVD6j" target="_blank">UPPER 1.0.0 </a>
                         &copy; <span data-toggle="year-copy"></span>
                     </div>
                 </div>
