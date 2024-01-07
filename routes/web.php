@@ -247,6 +247,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
 Route::group(['middleware' => 'role:student'], function () {
     // Student routes
     Route::any('student-dashboard', [StudentController::class, 'dashboard'])->name('lms.student-dashboard');
+    Route::any('/user/{user}/content/{content}/mark-as-complete', [StudentController::class, 'markAsComplete'])->name('content.mark-as-complete');
 
     Route::post('students/{student}/enroll/{course}', [StudentController::class, 'enrollSelf'])->name('students.enrollSelf');
     Route::post('students/{student}/unenroll/{course}', [StudentController::class, 'unenrollSelf'])->name('students.unenrollSelf');
