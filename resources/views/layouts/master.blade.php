@@ -39,7 +39,7 @@
   <body>
     <!-- Page Container -->
 
-    <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
+    <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow @if(Auth::user()->mode=='dark') page-header-dark dark-mode @endif">
 
 
       <!-- Sidebar -->

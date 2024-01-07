@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('institute_id')->nullable();
             $table->integer('status')->default(0);
+            $table->string('mode')->default('light');
             $table->rememberToken();
             $table->timestamps();
         });
