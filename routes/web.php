@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\admin\QuizController;
 use App\Http\Controllers\QuizAnswerController;
+use App\Http\Controllers\QuizResultController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\ModuleController;
 use App\Http\Controllers\QuizQuestionController;
@@ -17,7 +19,6 @@ use App\Http\Controllers\tutor\TutorStudentController;
 use App\Http\Controllers\admin\CompanyDetailController;
 use App\Http\Controllers\admin\UserManagementController;
 use App\Http\Controllers\admin\AdminPasswordResetController;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -234,13 +235,13 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
         Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
-        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.tutor-create-answer');
-        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.store-answer');
+        // Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.tutor-create-answer');
+        // Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.tutor-store-answer');
         // Show a single question's answers
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
+        // Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
 
         // Show a single answer in detail
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
+        // Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
     });
 });
 
@@ -273,6 +274,12 @@ Route::group(['middleware' => 'role:student'], function () {
 
 Route::get('contents/{content}', [StudentController::class, 'show_content'])
 ->name('contents.show');
+
+Route::get('student/{courseId}/quizzes/{quizId}', [QuizResultController::class, 'show'])->name('lms.student-show-quiz');
+
+Route::post('/quizzes/{quiz}/results', [QuizResultController::class, 'store'])->name('quiz.results.store');
+
+
 });
 
 Auth::routes();

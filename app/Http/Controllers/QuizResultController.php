@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quiz;
+use App\Models\Course;
 use App\Models\QuizAnswer;
 use App\Models\QuizResult;
+use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 
 class QuizResultController extends Controller
 {
 
+    public function show($courseId, $quizId)
+    {
+        $course = Course::findOrFail($courseId);
+        $quiz = Quiz::findOrFail($quizId);
+        $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
+        // dd( $questions);
 
+        return view('student.show_quiz', compact('course', 'quiz','questions'));
+    }
 
     // app/Http/Controllers/QuizResultController.php
 public function store(Request $request, Quiz $quiz)
