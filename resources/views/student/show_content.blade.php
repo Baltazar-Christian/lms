@@ -46,7 +46,11 @@
                     {!! $content->description !!}
                 </p>
             </div>
-
+            <form action="{{ route('content.mark-as-complete', ['user' => auth()->user(), 'content' => $content]) }}" method="post">
+                @csrf
+                <br>
+                <button type="submit" class="btn btn-success">Mark as Complete</button>
+            </form>
         </div>
         </div>
         <div class="col-12 col-md-4">

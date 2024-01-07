@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Course;
+use App\Models\CourseContent;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -69,5 +70,16 @@ class User extends Authenticatable
     public function courses()
     {
         return $this->belongsToMany(Course::class, 'enrollments');
+    }
+
+
+    public function completedContents() {
+        return $this->belongsToMany(CourseContent::class, 'user_course_content')
+            ->withPivot('is_completed')
+            ->withTimestamps();
+    }
+
+    public function enrolledCourses() {
+        return $this->belongsToMany(Course::class, 'user_enrolled_courses')->withPivot('is_completed');
     }
 }

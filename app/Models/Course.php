@@ -44,4 +44,9 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'enrollments');
     }
+
+
+    public function enrolledUsers() {
+        return $this->belongsToMany(User::class, 'user_enrolled_courses')->withPivot('is_completed');
+    }
 }

@@ -90,4 +90,15 @@ class StudentController extends Controller
     }
 
 
+    public function markAsComplete(User $user, CourseContent $content) {
+        $user->completedContents()->attach($content->id, ['is_completed' => true]);
+
+        // Check if all contents are completed, update course status if true
+        if ($user->completedContents->count() === $content->course->contents->count()) {
+            $user->enrolledCourses()->updateExistingPivot($content->course->id, ['is_completed' => true]);
+        }
+
+        return redirect()->back();
+    }
+
 }
