@@ -5,9 +5,11 @@
 
     <div class="container mt-2">
 
-        <div class="card mt-3">
+        <div class="card ">
             <div class="card-header">
-                <h5>Create Course Content</h5>
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Create Course Content</h5>
 
             </div>
             <div class="card-body">
@@ -26,35 +28,36 @@
                     @endif
 
                     <div class="row">
-                        <div class="form-group col-6 mb-2">
+                        <div class="form-group col-6 mb-3">
                             <label for="title">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <input type="text" name="title" id="title" placeholder="Enter Title Here .." class="form-control" required>
                         </div>
 
-                        <div class="form-group col-6 mb-2">
+                        <div class="form-group col-6 mb-3">
+                            <label for="duration">Duration (minutes)</label>
+                            <input type="number" name="duration"placeholder="Enter Duration Here .."  id="duration" class="form-control">
+                        </div>
+                        <div class="form-group col-6 mb-3">
                             <label for="type">Content Type</label>
                             <select name="type" id="type" class="form-control" required>
+                                <option value="text">Text</option>
                                 <option value="pdf">PDF</option>
                                 <option value="image">Image</option>
                                 <option value="video">Video</option>
                             </select>
                         </div>
 
-                        <div class="form-group col-6 mb-2">
-                            <label for="file">File</label>
+                        <div class="form-group col-6 mb-3">
+                            <label for="file">File</label><br>
                             <input type="file" name="file" id="file" class="form-control-file">
                         </div>
 
-                        <div class="form-group col-6 mb-2">
-                            <label for="duration">Duration (minutes)</label>
-                            <input type="number" name="duration" id="duration" class="form-control">
-                        </div>
+
 
                         <div class="form-group col-12 mb-2">
-                            <label for="description">Description</label>
-                            {{-- <textarea name="description" id="editor" class="form-control" rows="4" required></textarea> --}}
-                            {{-- <div id="">Hello classic CKEditor 5!</div> --}}
-                            <textarea class="form-control" id="content" placeholder="Enter the Description" rows="8" name="description"></textarea>
+                            <label for="description">Content</label>
+
+                            <textarea class="form-control" id="content" placeholder="Enter Content Here .." rows="8" name="description"></textarea>
 
                         </div>
 

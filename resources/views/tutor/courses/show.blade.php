@@ -8,16 +8,16 @@
 
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.tutor-view-module',$course->module->id) }}" class="btn btn-dark float-end">
+                    <a href="{{ route('lms.tutor-view-module',$course->module->id) }}" class="btn btn-dark btn-sm float-end">
                         <i class="fa fa-list "></i>
                         Back
                     </a>
-                    <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark mx-1"><i
+                    <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
                             class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
+                        <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')"><i
                                 class="fa fa-trash"></i></button>
                     </form>
 

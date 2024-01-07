@@ -98,6 +98,7 @@ class TutorCoursesController extends Controller
         // $file = $request->file('file');
         // $filePath = $file->store('course_contents');
         // Handle cover image update
+        $filePath=Null;
         if ($request->hasFile('file')) {
 
             // Upload the new cover image
@@ -118,7 +119,7 @@ class TutorCoursesController extends Controller
             'duration' => $request->input('duration'),
         ]);
 
-        return redirect()->route('lms.tutor-show-course', $courseId)->with('success', 'Course content created successfully');
+        return redirect()->route('lms.show-tutor-course', $courseId)->with('success', 'Course content created successfully');
     }
 
 

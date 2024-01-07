@@ -239,8 +239,10 @@ class CourseController extends Controller
 {
     $content = CourseContent::findOrFail($contentId);
 
-    // Delete the file from storage
+    if ($content->file_path!=Null) {
+      // Delete the file from storage
     Storage::delete($content->file_path);
+    }
 
     // Delete the database record
     $content->delete();
