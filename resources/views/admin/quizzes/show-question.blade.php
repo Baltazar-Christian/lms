@@ -10,13 +10,13 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         {{-- <p class="card-text"><strong>ID:</strong> {{ $question->id }}</p> --}}
-                        <p class="card-text"><strong> {{ $question->question }}T</strong></p>
+                        <p class="card-text"><strong> {{ $question->question }}</strong></p>
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <h5 class="text-warning">Answers</h5>
-
+                    <hr>
                     <a href="{{ route('lms.create-answer', [$course->id, $quiz->id, $question->id]) }}"
                         class="btn btn-dark btn-sm float-end">Create Answer</a>
                     <br>
