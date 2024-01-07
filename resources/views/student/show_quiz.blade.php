@@ -59,7 +59,7 @@
                             @endphp
                             @foreach ($questions as $question)
                                 <div class="m-1">
-                                    <p class="mt-2">{{ $i++ }} : {{ $question->question }}</p>
+                                    <p class="mt-3">{{ $i++ }} : {{ $question->question }}</p>
                                     @foreach ($question->answers as $option)
                                         <label class="mt-0">
                                             <input type="radio" name="answers[{{ $question->id }}]"
