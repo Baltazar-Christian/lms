@@ -56,7 +56,7 @@
                             @csrf
                             @foreach ($questions as $question)
                                 <div class="m-1">
-                                    <p>{{ $question->question }}</p>
+                                    <p class="mt-2">{{ $question->question }}</p>
                                     @foreach ($question->answers as $option)
                                         <label>
                                             <input type="radio" name="answers[{{ $question->id }}]"
