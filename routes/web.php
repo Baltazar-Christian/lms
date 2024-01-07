@@ -130,7 +130,7 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.delete-subsection');
 
         Route::post('/{courseId}/enrollments/{studentId}/approve', [CourseController::class, 'approve'])->name('lms.approve-enrollment');
-        Route::post('/{courseId}/enrollments/{studentId}/approve', [CourseController::class, 'reject'])->name('lms.reject-enrollment');
+        Route::post('/{courseId}/enrollments/{studentId}/reject', [CourseController::class, 'reject'])->name('lms.reject-enrollment');
 
         // For Courses  Quizes
         Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.create-quiz');
