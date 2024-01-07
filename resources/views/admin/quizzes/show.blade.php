@@ -50,6 +50,7 @@
                                         <td>
                                             <a href="{{ route('lms.show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
+                                                View Answers
                                             </a>
                                         </td>
                                     </tr>
