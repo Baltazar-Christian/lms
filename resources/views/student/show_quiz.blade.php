@@ -61,7 +61,7 @@
                                 <div class="m-1">
                                     <p class="mt-2">{{ $i++ }} : {{ $question->question }}</p>
                                     @foreach ($question->answers as $option)
-                                        <label>
+                                        <label class="mt-0">
                                             <input type="radio" name="answers[{{ $question->id }}]"
                                                 value="{{ $option->id }}" required>
                                             {{ $option->answer }}
