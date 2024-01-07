@@ -1,4 +1,3 @@
-<!-- resources/views/courses/create.blade.php -->
 
 @extends('layouts.tutor')
 

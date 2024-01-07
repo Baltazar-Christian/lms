@@ -8,6 +8,10 @@
 
 
                 <div class="mt-4 d-flex justify-content-end">
+                    <a href="{{ route('lms.tutor-view-module',$course->module->id) }}" class="btn btn-dark float-end">
+                        <i class="fa fa-list "></i>
+                        Back
+                    </a>
                     <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark mx-1"><i
                             class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
@@ -34,12 +38,15 @@
                     @endif
 
                 </div>
-                <span><strong>Title:</strong> ${{ $course->title }}</span> <br>
-                <span><strong>Price:</strong> ${{ $course->price }}</span><br>
-                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span><br>
-                <span><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
+                <div class="bg-light p-1">
+                    <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
+                    <span><strong class="text-warning">Price:</strong> Tsh{{ $course->price }}</span><br>
+                    <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }} minutes</span><br>
+                    <span><strong class="text-warning">Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
+                </div>
+
                 <hr>
-                <p class="lead text-muted">{{ $course->description }}</p>
+                <p class=" text-muted">{!! $course->description !!}</p>
                 <hr>
                 <div class="col-lg-12">
                     <!-- Block Tabs Default Style (Right) -->
@@ -111,34 +118,7 @@
                                     </tbody>
                                   </table>
 
-                                {{-- @forelse ($contents as $content)
-                                    <div class=" mb-3">
-                                        <div class="">
-                                            <h3 class="card-title">{{ $content->title }}</h3>
-                                            <div class="d-flex justify-content-end align-items-center">
-                                                <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
-                                                    class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
 
-                                                <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
-                                                <!-- Add the delete button -->
-                                                <form
-                                                    action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    method="post" style="display: inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger ms-2"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @empty
-                                    <p class="text-muted">No contents available for this course.</p>
-                                @endforelse --}}
                             </div>
                             <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">

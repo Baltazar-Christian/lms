@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container mt-3">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>{{ $course->id }}</td>
                                         <td>{{ $course->title }}</td>
-                                        <td>{{ number_format($course->price,2) }}</td>
+                                        <td> Tsh {{ number_format($course->price,2) }}</td>
                                         <td>
                                             {{ $course->is_published ? 'Yes' : 'No' }}
                                         </td>
