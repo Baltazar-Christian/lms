@@ -31,14 +31,14 @@
                 <div class="col-5 mx-auto mt-4">
                     @if ($course->cover_image)
                         <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}"
-                            alt="{{ $course->title }} Cover Image" width="100%"
-                            class="img-fluid rounded mx-auto shadow mb-4">
+                            alt="{{ $course->title }} Cover Image" height="150px" width="100%"
+                            class=" rounded mx-auto shadow mb-4">
                     @endif
                 </div>
-                <p><strong>Title:</strong> ${{ $course->title }}</p>
-                <p><strong>Price:</strong> ${{ $course->price }}</p>
-                <p><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</p>
-                <p><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</p>
+                <span><strong>Title:</strong> ${{ $course->title }}</span> <br>
+                <span><strong>Price:</strong> ${{ $course->price }}</span> <br>
+                <span><strong>Duration:</strong> {{ $course->duration_in_minutes }} minutes</span> <br>
+                <span><strong>Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span> <br>
 
                 <p class="lead text-muted">{{ $course->description }}</p>
                 <hr>
