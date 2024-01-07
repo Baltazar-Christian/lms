@@ -18,6 +18,8 @@ class StudentController extends Controller
 
     public function dashboard()
     {
+        $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
+        $data['available']=Course::counts();
         $data['courses']=Course::get();
         $data['student']=User::with('courses')->find(Auth::user()->id);;
         return view('student.dashboard',$data);
