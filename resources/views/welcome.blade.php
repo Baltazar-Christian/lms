@@ -94,6 +94,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
                 <div class="collapse navbar-collapse navbarNav">
+                    <div class="navbar-item p-1">
+                        <a class="nav-link text-light" href="{{ route('/') }}">Home</a>
+                    </div>
                 <div class="navbar-item p-1">
                     <a class="nav-link text-light" href="{{ route('about-us') }}">About Us</a>
                 </div>
@@ -245,7 +248,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2023 UPPER. All rights reserved.</p>
+        <p>&copy; 2024 UPPER. All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JS and any additional scripts -->
