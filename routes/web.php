@@ -42,6 +42,7 @@ Route::any('contact-us', [HomeController::class, 'contact'])->name('contact-us')
 Route::group(['middleware' => 'role:admin'], function () {
     // Admin routes
     Route::any('admin-dashboard', [AdminController::class, 'dashboard'])->name('lms.admin-dashboard');
+    Route::any('admin-mode', [AdminController::class, 'mode'])->name('lms.change-mode');
 
 
     //  System Admins routes

@@ -34,4 +34,12 @@ class AdminController extends Controller
     }
 
 
+    public function mode(Request $request){
+            $user=User::where('id',Auth::user()->id)->first();
+            $user->mode=$request->mode;
+            $user->update();
+            
+            return back();
+    }
+
 }
