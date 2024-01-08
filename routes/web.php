@@ -17,8 +17,15 @@ use App\Http\Controllers\admin\AnnouncementController;
 use App\Http\Controllers\tutor\TutorCoursesController;
 use App\Http\Controllers\tutor\TutorStudentController;
 use App\Http\Controllers\admin\CompanyDetailController;
+use App\Http\Controllers\support\SupportQuizController;
 use App\Http\Controllers\admin\UserManagementController;
+use App\Http\Controllers\support\SupportCourseController;
+use App\Http\Controllers\support\SupportModuleController;
 use App\Http\Controllers\admin\AdminPasswordResetController;
+use App\Http\Controllers\support\SupportAnnouncementController;
+use App\Http\Controllers\support\SupportCompanyDetailController;
+use App\Http\Controllers\support\SupportPasswordResetController;
+use App\Http\Controllers\support\SupportUserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -282,28 +289,27 @@ Route::group(['middleware' => 'role:support'], function () {
 
 
     // For Announcements
-    Route::get('/support-announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
-    Route::get('/support-announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
-    Route::post('/support-announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
-    Route::get('/support-announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
-    Route::delete('/support-announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
-    Route::get('/support-announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
-    Route::put('support-announcements/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
+    Route::get('/support-announcements', [SupportAnnouncementController::class, 'index'])->name('support-announcements.index');
+    Route::get('/support-announcements/create', [SupportAnnouncementController::class, 'create'])->name('support-announcements.create');
+    Route::post('/support-announcements', [SupportAnnouncementController::class, 'store'])->name('support-announcements.store');
+    Route::get('/support-announcements/{announcement}', [SupportAnnouncementController::class, 'show'])->name('support-announcements.show');
+    Route::delete('/support-announcements/{announcement}', [SupportAnnouncementController::class, 'destroy'])->name('support-announcements.destroy');
+    Route::get('/support-announcements/{announcement}/edit', [SupportAnnouncementController::class, 'edit'])->name('support-announcements.edit');
+    Route::put('support-announcements/{announcement}', [SupportAnnouncementController::class, 'update'])->name('support-announcements.update');
 
 
     // For Company Detail
-    Route::get('/support_company_details', [CompanyDetailController::class, 'index'])->name('support-company_details.index');
-    Route::get('/support_company_details/create', [CompanyDetailController::class, 'create'])->name('support-company_details.create');
-    Route::post('/support_company_details', [CompanyDetailController::class, 'store'])->name('support-company_details.store');
-    Route::get('/support_company_details/{id}/edit', [CompanyDetailController::class, 'edit'])->name('support-company_details.edit');
-    Route::put('/support_company_details/{id}', [CompanyDetailController::class, 'update'])->name('support-company_details.update');
-    Route::delete('/support_company_details/{id}', [CompanyDetailController::class, 'destroy'])->name('support-company_details.destroy');
+    Route::get('/support_company_details', [SupportCompanyDetailController::class, 'index'])->name('support-company_details.index');
+    Route::get('/support_company_details/create', [SupportCompanyDetailController::class, 'create'])->name('support-company_details.create');
+    Route::post('/support_company_details', [SupportCompanyDetailController::class, 'store'])->name('support-company_details.store');
+    Route::get('/support_company_details/{id}/edit', [SupportCompanyDetailController::class, 'edit'])->name('support-company_details.edit');
+    Route::put('/support_company_details/{id}', [SupportCompanyDetailController::class, 'update'])->name('support-company_details.update');
+    Route::delete('/support_company_details/{id}', [SupportCompanyDetailController::class, 'destroy'])->name('support-company_details.destroy');
 
     //For Password Reset
-    Route::get('/admin/reset-user-password', [AdminPasswordResetController::class, 'index'])->name('support.password.index');
-
-    Route::get('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'showResetForm'])->name('support.password.reset');
-    Route::post('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'reset'])->name('support.password.update');
+    Route::get('/support/reset-user-password', [SupportPasswordResetController::class, 'index'])->name('support.password.index');
+    Route::get('/support/reset-password/{user}', [SupportPasswordResetController::class, 'showResetForm'])->name('support.password.reset');
+    Route::post('/support/reset-password/{user}', [SupportPasswordResetController::class, 'reset'])->name('support.password.update');
 });
 // end of support
 Route::group(['middleware' => 'role:tutor'], function () {
