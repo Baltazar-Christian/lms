@@ -184,6 +184,128 @@ Route::group(['middleware' => 'role:admin'], function () {
     Route::post('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'reset'])->name('admin.password.update');
 });
 
+
+
+// start of support
+Route::group(['middleware' => 'role:support'], function () {
+    // Admin routes
+    Route::any('admin-dashboard', [SupportController::class, 'dashboard'])->name('lms.support-dashboard');
+    Route::any('support-mode', [SupportController::class, 'mode'])->name('support.change-mode');
+
+
+
+    //  Tutors routes
+    Route::any('support-tutors', [SupportUserManagementController::class, 'tutors'])->name('lms.support-tutors');
+    Route::any('support-add-tutor', [SupportUserManagementController::class, 'addTutor'])->name('lms.asupport-dd-tutor');
+    Route::any('support-save-tutor', [SupportUserManagementController::class, 'saveTutor'])->name('lms.support-save-tutor');
+    Route::any('support-show-tutor/{id}', [SupportUserManagementController::class, 'showTutor'])->name('lms.support-show-tutor');
+    Route::any('support-edit-tutor/{id}', [SupportUserManagementController::class, 'editTutor'])->name('lms.support-edit-tutor');
+    Route::any('support-update-tutor/{id}', [SupportUserManagementController::class, 'updateTutor'])->name('lms.support-update-tutor');
+    Route::any('support-delete-tutor/{id}', [SupportUserManagementController::class, 'deleteTutor'])->name('lms.support-delete-tutor');
+
+    //  Students routes
+    Route::any('support-students', [UserManagementController::class, 'students'])->name('lms.support-students');
+    Route::any('support-add-student', [UserManagementController::class, 'addStudent'])->name('lms.support-add-student');
+    Route::any('support-save-student', [UserManagementController::class, 'saveStudent'])->name('lms.support-save-student');
+    Route::any('support-show-student/{id}', [UserManagementController::class, 'showStudent'])->name('lms.support-show-student');
+    Route::any('support-edit-student/{id}', [UserManagementController::class, 'editStudent'])->name('lms.support-edit-student');
+    Route::any('support-update-student/{id}', [UserManagementController::class, 'updateStudent'])->name('lms.support-update-student');
+    Route::any('support-delete-student/{id}', [UserManagementController::class, 'deleteStudent'])->name('lms.support-delete-student');
+
+
+
+    //For Modules
+    Route::any('support-modules', [ModuleController::class, 'index'])->name('lms.support-modules');
+    Route::any('support-add-module', [ModuleController::class, 'create'])->name('lms.support-add-module');
+    Route::any('support-save-module', [ModuleController::class, 'store'])->name('lms.support-save-module');
+    Route::any('support-show-module/{id}', [ModuleController::class, 'show'])->name('lms.support-show-module');
+    Route::any('support-edit-module/{id}', [ModuleController::class, 'edit'])->name('lms.support-edit-module');
+    Route::any('support-update-module/{id}', [ModuleController::class, 'update'])->name('lms.support-update-module');
+    Route::any('support-delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.support-delete-module');
+
+    //For Courses
+    Route::any('support-courses', [CourseController::class, 'index'])->name('lms.support-courses');
+    Route::any('support-draft-courses', [CourseController::class, 'draft'])->name('lms.support-draft-courses');
+    Route::any('support-add-course', [CourseController::class, 'create'])->name('lms.support-add-course');
+    Route::any('support-save-course', [CourseController::class, 'store'])->name('lms.support-save-course');
+    Route::any('support-show-course/{id}', [CourseController::class, 'show'])->name('lms.support-show-course');
+    Route::any('support-edit-course/{id}', [CourseController::class, 'edit'])->name('lms.support-edit-course');
+    Route::any('support-update-course/{id}', [CourseController::class, 'update'])->name('lms.support-update-course');
+    Route::any('support-delete-course/{id}', [CourseController::class, 'destroy'])->name('lms.support-delete-course');
+
+    // For Course Content
+    Route::group(['prefix' => 'support-courses'], function () {
+        Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.support-courses.create-content');
+        Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
+        Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
+        Route::any('update-course/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.support-courses.update-content');
+        Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.support-show-course-content');
+        Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.support-delete-course-content');
+
+        Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.support-create-subsection');
+
+
+        Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.support-create-subsection');
+        Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.support-show-subsection');
+
+        Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.support-edit-subsection');
+
+        Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.support-delete-subsection');
+
+        Route::post('/{courseId}/enrollments/{studentId}/approve', [CourseController::class, 'approve'])->name('lms.support-approve-enrollment');
+        Route::post('/{courseId}/enrollments/{studentId}/reject', [CourseController::class, 'reject'])->name('lms.support-reject-enrollment');
+
+        // For Courses  Quizes
+        Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.support-create-quiz');
+        Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.support-save-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.support-show-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.support-create-question');
+        Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.support-store-question');
+
+        Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.support-delete-quiz');
+
+        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.support-create-answer');
+        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.support-store-answer');
+        // Show a single question's answers
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.support-show-question');
+
+        // Show a single answer in detail
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.support-show-answer');
+    });
+
+
+    Route::get('/support-quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
+    Route::post('/support-quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
+    Route::get('/support-quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
+    Route::put('/support-quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
+    Route::delete('/support-quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+
+
+    // For Announcements
+    Route::get('/support-announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
+    Route::get('/support-announcements/create', [AnnouncementController::class, 'create'])->name('announcements.create');
+    Route::post('/support-announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
+    Route::get('/support-announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
+    Route::delete('/support-announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+    Route::get('/support-announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
+    Route::put('support-announcements/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
+
+
+    // For Company Detail
+    Route::get('/support_company_details', [CompanyDetailController::class, 'index'])->name('support-company_details.index');
+    Route::get('/support_company_details/create', [CompanyDetailController::class, 'create'])->name('support-company_details.create');
+    Route::post('/support_company_details', [CompanyDetailController::class, 'store'])->name('support-company_details.store');
+    Route::get('/support_company_details/{id}/edit', [CompanyDetailController::class, 'edit'])->name('support-company_details.edit');
+    Route::put('/support_company_details/{id}', [CompanyDetailController::class, 'update'])->name('support-company_details.update');
+    Route::delete('/support_company_details/{id}', [CompanyDetailController::class, 'destroy'])->name('support-company_details.destroy');
+
+    //For Password Reset
+    Route::get('/admin/reset-user-password', [AdminPasswordResetController::class, 'index'])->name('support.password.index');
+
+    Route::get('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'showResetForm'])->name('support.password.reset');
+    Route::post('/admin/reset-password/{user}', [AdminPasswordResetController::class, 'reset'])->name('support.password.update');
+});
+// end of support
 Route::group(['middleware' => 'role:tutor'], function () {
     // Tutor routes
     Route::any('tutor-dashboard', [TutorController::class, 'dashboard'])->name('lms.tutor-dashboard');
