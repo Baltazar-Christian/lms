@@ -117,7 +117,7 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required',
         ]);
 
         User::create([
@@ -150,7 +150,7 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'role' => 'nullable|min:6',
+            // 'role' => 'nullable|min:6',
         ]);
 
         $user = User::findOrFail($id);
@@ -228,7 +228,7 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'role' => 'nullable|min:6',
+            // 'role' => 'nullable|min:6',
         ]);
 
         $user = User::findOrFail($id);
@@ -236,7 +236,7 @@ class UserManagementController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role' => $request->input('role'),
-            'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
+            // 'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
         return redirect()->route('lms.students')->with('success', 'Student was updated successfully');
