@@ -14,7 +14,7 @@ class SupportPasswordResetController extends Controller
 
     public function index()
     {
-        $users = User::get();
+        $users = User::whereNot('role','admin')->get();
         return view('support.password.index', compact('users'));
     }
 
