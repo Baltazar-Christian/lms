@@ -21,7 +21,7 @@ class UserManagementController extends Controller
     // For All System Admins
     public function systemAdmins()
     {
-        $users = User::where('role','admin')->get();
+        $users = User::where('role','admin')->orWhere('role','support')->where()->get();
         return view('admin.system_admins.index', compact('users'));
     }
 
@@ -42,7 +42,7 @@ class UserManagementController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'role'=>'administrator',
+            'role'=>'support',
             'password' => bcrypt($request->input('password')),
         ]);
 
