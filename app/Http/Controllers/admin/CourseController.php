@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // Require authentication for all admin routes
+        $this->middleware('role:admin'); // Require admin role for all admin routes
+    }
+
     public function index()
     {
         $courses = Course::where('is_published', 1)->get();
