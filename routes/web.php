@@ -204,81 +204,81 @@ Route::group(['middleware' => 'role:support'], function () {
     Route::any('support-delete-tutor/{id}', [SupportUserManagementController::class, 'deleteTutor'])->name('lms.support-delete-tutor');
 
     //  Students routes
-    Route::any('support-students', [UserManagementController::class, 'students'])->name('lms.support-students');
-    Route::any('support-add-student', [UserManagementController::class, 'addStudent'])->name('lms.support-add-student');
-    Route::any('support-save-student', [UserManagementController::class, 'saveStudent'])->name('lms.support-save-student');
-    Route::any('support-show-student/{id}', [UserManagementController::class, 'showStudent'])->name('lms.support-show-student');
-    Route::any('support-edit-student/{id}', [UserManagementController::class, 'editStudent'])->name('lms.support-edit-student');
-    Route::any('support-update-student/{id}', [UserManagementController::class, 'updateStudent'])->name('lms.support-update-student');
-    Route::any('support-delete-student/{id}', [UserManagementController::class, 'deleteStudent'])->name('lms.support-delete-student');
+    Route::any('support-students', [SupportUserManagementController::class, 'students'])->name('lms.support-students');
+    Route::any('support-add-student', [SupportUserManagementController::class, 'addStudent'])->name('lms.support-add-student');
+    Route::any('support-save-student', [SupportUserManagementController::class, 'saveStudent'])->name('lms.support-save-student');
+    Route::any('support-show-student/{id}', [SupportUserManagementController::class, 'showStudent'])->name('lms.support-show-student');
+    Route::any('support-edit-student/{id}', [SupportUserManagementController::class, 'editStudent'])->name('lms.support-edit-student');
+    Route::any('support-update-student/{id}', [SupportUserManagementController::class, 'updateStudent'])->name('lms.support-update-student');
+    Route::any('support-delete-student/{id}', [SupportUserManagementController::class, 'deleteStudent'])->name('lms.support-delete-student');
 
 
 
     //For Modules
-    Route::any('support-modules', [ModuleController::class, 'index'])->name('lms.support-modules');
-    Route::any('support-add-module', [ModuleController::class, 'create'])->name('lms.support-add-module');
-    Route::any('support-save-module', [ModuleController::class, 'store'])->name('lms.support-save-module');
-    Route::any('support-show-module/{id}', [ModuleController::class, 'show'])->name('lms.support-show-module');
-    Route::any('support-edit-module/{id}', [ModuleController::class, 'edit'])->name('lms.support-edit-module');
-    Route::any('support-update-module/{id}', [ModuleController::class, 'update'])->name('lms.support-update-module');
-    Route::any('support-delete-module/{id}', [ModuleController::class, 'destroy'])->name('lms.support-delete-module');
+    Route::any('support-modules', [SupportModuleController::class, 'index'])->name('lms.support-modules');
+    Route::any('support-add-module', [SupportModuleController::class, 'create'])->name('lms.support-add-module');
+    Route::any('support-save-module', [SupportModuleController::class, 'store'])->name('lms.support-save-module');
+    Route::any('support-show-module/{id}', [SupportModuleController::class, 'show'])->name('lms.support-show-module');
+    Route::any('support-edit-module/{id}', [SupportModuleController::class, 'edit'])->name('lms.support-edit-module');
+    Route::any('support-update-module/{id}', [SupportModuleController::class, 'update'])->name('lms.support-update-module');
+    Route::any('support-delete-module/{id}', [SupportModuleController::class, 'destroy'])->name('lms.support-delete-module');
 
     //For Courses
-    Route::any('support-courses', [CourseController::class, 'index'])->name('lms.support-courses');
-    Route::any('support-draft-courses', [CourseController::class, 'draft'])->name('lms.support-draft-courses');
-    Route::any('support-add-course', [CourseController::class, 'create'])->name('lms.support-add-course');
-    Route::any('support-save-course', [CourseController::class, 'store'])->name('lms.support-save-course');
-    Route::any('support-show-course/{id}', [CourseController::class, 'show'])->name('lms.support-show-course');
-    Route::any('support-edit-course/{id}', [CourseController::class, 'edit'])->name('lms.support-edit-course');
-    Route::any('support-update-course/{id}', [CourseController::class, 'update'])->name('lms.support-update-course');
-    Route::any('support-delete-course/{id}', [CourseController::class, 'destroy'])->name('lms.support-delete-course');
+    Route::any('support-courses', [SupportCourseController::class, 'index'])->name('lms.support-courses');
+    Route::any('support-draft-courses', [SupportCourseController::class, 'draft'])->name('lms.support-draft-courses');
+    Route::any('support-add-course', [SupportCourseController::class, 'create'])->name('lms.support-add-course');
+    Route::any('support-save-course', [SupportCourseController::class, 'store'])->name('lms.support-save-course');
+    Route::any('support-show-course/{id}', [SupportCourseController::class, 'show'])->name('lms.support-show-course');
+    Route::any('support-edit-course/{id}', [SupportCourseController::class, 'edit'])->name('lms.support-edit-course');
+    Route::any('support-update-course/{id}', [SupportCourseController::class, 'update'])->name('lms.support-update-course');
+    Route::any('support-delete-course/{id}', [SupportCourseController::class, 'destroy'])->name('lms.support-delete-course');
 
     // For Course Content
     Route::group(['prefix' => 'support-courses'], function () {
-        Route::get('/{id}/content/create', [CourseController::class, 'createContent'])->name('lms.support-courses.create-content');
-        Route::post('/{id}/content/save', [CourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
-        Route::get('/{courseId}/content/{contentId}/edit', [CourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
-        Route::any('update-course/{courseId}/content/{contentId}/update', [CourseController::class, 'updateContent'])->name('lms.support-courses.update-content');
-        Route::get('/{courseId}/content/{contentId}', [CourseController::class, 'showCourseContent'])->name('lms.support-show-course-content');
-        Route::delete('/{courseId}/content/{contentId}', [CourseController::class, 'deleteCourseContent'])->name('lms.support-delete-course-content');
+        Route::get('/{id}/content/create', [SupportCourseController::class, 'createContent'])->name('lms.support-courses.create-content');
+        Route::post('/{id}/content/save', [SupportCourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
+        Route::get('/{courseId}/content/{contentId}/edit', [SupportCourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
+        Route::any('update-course/{courseId}/content/{contentId}/update', [SupportCourseController::class, 'updateContent'])->name('lms.support-courses.update-content');
+        Route::get('/{courseId}/content/{contentId}', [SupportCourseController::class, 'showCourseContent'])->name('lms.support-show-course-content');
+        Route::delete('/{courseId}/content/{contentId}', [SupportCourseController::class, 'deleteCourseContent'])->name('lms.support-delete-course-content');
 
-        Route::get('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'createSubSection'])->name('lms.support-create-subsection');
+        Route::get('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'createSubSection'])->name('lms.support-create-subsection');
 
 
-        Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.support-create-subsection');
-        Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.support-show-subsection');
+        Route::post('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'storeSubsection'])->name('lms.support-create-subsection');
+        Route::get('/{courseId}/content/{contentId}/show-subsection', [SupportCourseController::class, 'showSubSection'])->name('lms.support-show-subsection');
 
-        Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.support-edit-subsection');
+        Route::get('/{courseId}/content/{contentId}/edit-subsection', [SupportCourseController::class, 'editSubSection'])->name('lms.support-edit-subsection');
 
-        Route::delete('/{courseId}/content/{contentId}/delete-subsection', [CourseController::class, 'deleteSubSection'])->name('lms.support-delete-subsection');
+        Route::delete('/{courseId}/content/{contentId}/delete-subsection', [SupportCourseController::class, 'deleteSubSection'])->name('lms.support-delete-subsection');
 
-        Route::post('/{courseId}/enrollments/{studentId}/approve', [CourseController::class, 'approve'])->name('lms.support-approve-enrollment');
-        Route::post('/{courseId}/enrollments/{studentId}/reject', [CourseController::class, 'reject'])->name('lms.support-reject-enrollment');
+        Route::post('/{courseId}/enrollments/{studentId}/approve', [SupportCourseController::class, 'approve'])->name('lms.support-approve-enrollment');
+        Route::post('/{courseId}/enrollments/{studentId}/reject', [SupportCourseController::class, 'reject'])->name('lms.support-reject-enrollment');
 
         // For Courses  Quizes
-        Route::get('/{courseId}/create-quiz', [QuizController::class, 'create'])->name('lms.support-create-quiz');
-        Route::post('/{courseId}/save-quiz', [QuizController::class, 'store'])->name('lms.support-save-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}', [QuizController::class, 'show'])->name('lms.support-show-quiz');
-        Route::get('/{courseId}/quizzes/{quizId}/create-question', [QuizController::class, 'createQuestion'])->name('lms.support-create-question');
-        Route::post('/{courseId}/quizzes/{quizId}/store-question', [QuizController::class, 'storeQuestion'])->name('lms.support-store-question');
+        Route::get('/{courseId}/create-quiz', [SupportQuizController::class, 'create'])->name('lms.support-create-quiz');
+        Route::post('/{courseId}/save-quiz', [SupportQuizController::class, 'store'])->name('lms.support-save-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}', [SupportQuizController::class, 'show'])->name('lms.support-show-quiz');
+        Route::get('/{courseId}/quizzes/{quizId}/create-question', [SupportQuizController::class, 'createQuestion'])->name('lms.support-create-question');
+        Route::post('/{courseId}/quizzes/{quizId}/store-question', [SupportQuizController::class, 'storeQuestion'])->name('lms.support-store-question');
 
-        Route::post('/delete/quizzes/{quizId}', [QuizController::class, 'destroy'])->name('lms.support-delete-quiz');
+        Route::post('/delete/quizzes/{quizId}', [SupportQuizController::class, 'destroy'])->name('lms.support-delete-quiz');
 
-        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [QuizController::class, 'createAnswer'])->name('lms.support-create-answer');
-        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [QuizController::class, 'storeAnswer'])->name('lms.support-store-answer');
+        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [SupportQuizController::class, 'createAnswer'])->name('lms.support-create-answer');
+        Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [SupportQuizController::class, 'storeAnswer'])->name('lms.support-store-answer');
         // Show a single question's answers
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [QuizController::class, 'showQuestionAnswers'])->name('lms.support-show-question');
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [SupportQuizController::class, 'showQuestionAnswers'])->name('lms.support-show-question');
 
         // Show a single answer in detail
-        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [QuizController::class, 'showAnswerDetail'])->name('lms.support-show-answer');
+        Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [SupportQuizController::class, 'showAnswerDetail'])->name('lms.support-show-answer');
     });
 
 
-    Route::get('/support-quizzes', [QuizController::class, 'index'])->name('lms.quizzes');
-    Route::post('/support-quizzes', [QuizController::class, 'store'])->name('lms.store-quiz');
-    Route::get('/support-quizzes/{quiz}/edit', [QuizController::class, 'edit'])->name('lms.edit-quiz');
-    Route::put('/support-quizzes/{quiz}', [QuizController::class, 'update'])->name('lms.update-quiz');
-    Route::delete('/support-quizzes/{quiz}', [QuizController::class, 'destroy'])->name('lms.delete-quiz');
+    Route::get('/support-quizzes', [SupportQuizController::class, 'index'])->name('lms.support-quizzes');
+    Route::post('/support-quizzes', [SupportQuizController::class, 'store'])->name('lms.support-store-quiz');
+    Route::get('/support-quizzes/{quiz}/edit', [SupportQuizController::class, 'edit'])->name('lms.support-edit-quiz');
+    Route::put('/support-quizzes/{quiz}', [SupportQuizController::class, 'update'])->name('lms.support-update-quiz');
+    Route::delete('/support-quizzes/{quiz}', [SupportQuizController::class, 'destroy'])->name('lms.support-delete-quiz');
 
 
     // For Announcements

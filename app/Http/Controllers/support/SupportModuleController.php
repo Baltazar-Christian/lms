@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use App\Models\Module;
 use App\Models\Instute;
@@ -8,26 +8,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class ModuleController extends Controller
+class SupportModuleController extends Controller
 {
     public function index()
     {
         $modules = Module::all();
-        return view('admin.modules.index', compact('modules'));
+        return view('support.modules.index', compact('modules'));
     }
 
-    // For Tutors modules
-    public function tutor_modules()
-    {
-        $modules = Module::all();
-        return view('tutor.modules.index', compact('modules'));
-    }
 
 
     public function create()
     {
         $institutes = Instute::all();
-        return view('admin.modules.create', compact('institutes'));
+        return view('support.modules.create', compact('institutes'));
     }
 
     public function store(Request $request)
@@ -52,21 +46,21 @@ class ModuleController extends Controller
             'created_by' => Auth::id(),
         ]);
 
-        return redirect()->route('lms.modules')->with('success', 'Module created successfully');
+        return redirect()->route('lms.support-modules')->with('success', 'Module created successfully');
     }
 
     public function edit($id)
     {
         $module = Module::findOrFail($id);
         $institutes = Instute::all();
-        return view('admin.modules.edit', compact('module', 'institutes'));
+        return view('support.modules.edit', compact('module', 'institutes'));
     }
 
     public function show($id)
     {
         $module = Module::findOrFail($id);
         $institutes = Instute::all();
-        return view('admin.modules.show', compact('module', 'institutes'));
+        return view('support.modules.show', compact('module', 'institutes'));
     }
 
     public function update(Request $request, $id)
@@ -101,6 +95,6 @@ class ModuleController extends Controller
         $module->institutes()->detach(); // Detach institutes before deleting the module
         $module->delete();
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module deleted successfully');
+        return redirect()->route('support.modules.index')->with('success', 'Module deleted successfully');
     }
 }

@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use Illuminate\Http\Request;
 use App\Models\CompanyDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class CompanyDetailController extends Controller
+class SupportCompanyDetailController extends Controller
 {
     public function index()
     {
         $companyDetails = CompanyDetail::all();
 
-        return view('admin.company_details.index', compact('companyDetails'));
+        return view('support.company_details.index', compact('companyDetails'));
     }
 
     public function create()
     {
-        return view('admin.company_details.create');
+        return view('support.company_details.create');
     }
 
     public function store(Request $request)
@@ -48,14 +48,14 @@ class CompanyDetailController extends Controller
             'website' => $request->input('website'),
         ]);
 
-        return redirect()->route('company_details.index')->with('success', 'Company details created successfully.');
+        return redirect()->route('suppoord-company_details.index')->with('success', 'Company details created successfully.');
     }
 
     public function edit($id)
     {
         $companyDetail = CompanyDetail::find($id);
 
-        return view('admin.company_details.edit', compact('companyDetail'));
+        return view('support.company_details.edit', compact('companyDetail'));
     }
 
     public function update(Request $request, $id)
@@ -92,7 +92,7 @@ class CompanyDetailController extends Controller
         $companyDetail->website = $request->input('website');
         $companyDetail->save();
 
-        return redirect()->route('company_details.index')->with('success', 'Company details updated successfully.');
+        return redirect()->route('support-company_details.index')->with('success', 'Company details updated successfully.');
     }
 
     public function destroy($id)
@@ -106,7 +106,7 @@ class CompanyDetailController extends Controller
 
         $companyDetail->delete();
 
-        return redirect()->route('company_details.index')->with('success', 'Company details deleted successfully.');
+        return redirect()->route('support-company_details.index')->with('success', 'Company details deleted successfully.');
     }
 
 }

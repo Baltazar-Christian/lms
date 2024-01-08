@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use App\Models\Quiz;
 use App\Models\Course;
@@ -9,19 +9,19 @@ use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use App\Models\QuizQuestion;
 
-class QuizController extends Controller
+class SupportQuizController extends Controller
 {
 
     public function create($courseId)
     {
         $course = Course::findOrFail($courseId); // Add this line to fetch the course
-        return view('admin.quizzes.create', compact('course'));
+        return view('support.quizzes.create', compact('course'));
     }
 
     public function createQuiz($courseContentId)
     {
         $courseContent = CourseContent::findOrFail($courseContentId);
-        return view('admin.quizzes.create', compact('courseContent'));
+        return view('support.quizzes.create', compact('courseContent'));
     }
 
     public function store(Request $request, Course $course)
@@ -39,14 +39,14 @@ class QuizController extends Controller
 
         $quiz->save();
 
-        return redirect()->route('lms.show-quiz', [$request->course_id, $quiz->id])->with('success', 'Quiz created successfully.');
+        return redirect()->route('lms.support-show-quiz', [$request->course_id, $quiz->id])->with('success', 'Quiz created successfully.');
     }
 
     public function showQuestionAnswers(Course $course, Quiz $quiz, QuizQuestion $question)
     {
         $answers = $question->answers;
 
-        return view('admin.quizzes.show-question', compact('course', 'quiz', 'question', 'answers'));
+        return view('support.quizzes.show-question', compact('course', 'quiz', 'question', 'answers'));
     }
 
     public function show($courseId, $quizId)
@@ -56,7 +56,7 @@ class QuizController extends Controller
         $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
         // dd( $questions);
 
-        return view('admin.quizzes.show', compact('course', 'quiz','questions'));
+        return view('support.quizzes.show', compact('course', 'quiz','questions'));
     }
 
     public function destroy($quizId)
@@ -72,7 +72,7 @@ class QuizController extends Controller
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
-        return view('admin.quizzes.create-question', compact('course', 'quiz'));
+        return view('support.quizzes.create-question', compact('course', 'quiz'));
     }
 
     public function storeQuestion(Request $request, $courseId, $quizId)
@@ -92,7 +92,7 @@ class QuizController extends Controller
         ]);
 
         $quizQuestion->save();
-        return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
+        return redirect()->route('lms.support-show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
     }
 
 
@@ -102,7 +102,7 @@ class QuizController extends Controller
         $quiz = Quiz::findOrFail($quizId);
         $question = QuizQuestion::findOrFail($questionId);
 
-        return view('admin.quizzes.create-answer', compact('course', 'quiz', 'question'));
+        return view('support.quizzes.create-answer', compact('course', 'quiz', 'question'));
     }
 
     public function storeAnswer(Request $request, $courseId, $quizId, $questionId)
@@ -118,14 +118,14 @@ class QuizController extends Controller
 
         $answer = $question->answers()->create($request->all());
 
-        return redirect()->route('lms.show-quiz', [$course->id, $quiz->id])->with('success', 'Answer added successfully.');
+        return redirect()->route('lms.support-show-quiz', [$course->id, $quiz->id])->with('success', 'Answer added successfully.');
     }
 
     public function showAnswerDetail(Course $course, Quiz $quiz, QuizQuestion $question, QuizAnswer $answer)
 {
     // You can retrieve additional details or perform any other logic here
 
-    return view('admin.quizzes.show-answer-detail', compact('course', 'quiz', 'question', 'answer'));
+    return view('support.quizzes.show-answer-detail', compact('course', 'quiz', 'question', 'answer'));
 }
 
 
@@ -146,7 +146,7 @@ class QuizController extends Controller
 
         $quiz->save();
 
-        return redirect()->route('lms.show-content', [$courseContent->course_id, $courseContent->id])
+        return redirect()->route('lms.support-show-content', [$courseContent->course_id, $courseContent->id])
             ->with('success', 'Quiz created successfully.');
     }
 
@@ -172,14 +172,14 @@ class QuizController extends Controller
 
         $question->save();
 
-        return redirect()->route('lms.show-quiz', $quizId)
+        return redirect()->route('lms.support-show-quiz', $quizId)
             ->with('success', 'Quiz question created successfully.');
     }
 
     public function createQuizAnswer($questionId)
     {
         $question = QuizQuestion::findOrFail($questionId);
-        return view('quiz_answers.create', compact('question'));
+        return view('support.quiz_answers.create', compact('question'));
     }
 
     public function storeQuizAnswer(Request $request, $questionId)
@@ -199,7 +199,7 @@ class QuizController extends Controller
 
         $answer->save();
 
-        return redirect()->route('lms.show-quiz', $question->quiz->id)
+        return redirect()->route('lms.support-show-quiz', $question->quiz->id)
             ->with('success', 'Quiz answer created successfully.');
     }
 

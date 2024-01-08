@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AnnouncementController extends Controller
+class SupportAnnouncementController extends Controller
 {
     public function index()
     {
         $announcements = Announcement::latest()->get();
 
-        return view('admin.announcements.index', compact('announcements'));
+        return view('support.announcements.index', compact('announcements'));
     }
 
     public function create()
     {
-        return view('admin.announcements.create');
+        return view('support.announcements.create');
     }
 
     public function store(Request $request)
@@ -38,17 +38,17 @@ class AnnouncementController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('announcements.index')->with('success', 'Announcement created successfully.');
+        return redirect()->route('support-announcements.index')->with('success', 'Announcement created successfully.');
     }
 
     public function show(Announcement $announcement)
     {
-        return view('admin.announcements.show', compact('announcement'));
+        return view('support.announcements.show', compact('announcement'));
     }
 
     public function edit(Announcement $announcement)
     {
-        return view('admin.announcements.edit', compact('announcement'));
+        return view('support.announcements.edit', compact('announcement'));
     }
 
     public function update(Request $request, Announcement $announcement)
@@ -69,13 +69,13 @@ class AnnouncementController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('announcements.index')->with('success', 'Announcement updated successfully.');
+        return redirect()->route('support-announcements.index')->with('success', 'Announcement updated successfully.');
     }
 
     public function destroy(Announcement $announcement)
     {
         $announcement->delete();
 
-        return redirect()->route('announcements.index')->with('success', 'Announcement deleted successfully.');
+        return redirect()->route('support-announcements.index')->with('success', 'Announcement deleted successfully.');
     }
 }

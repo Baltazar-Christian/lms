@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use App\Models\Quiz;
 use App\Models\Course;
@@ -14,32 +14,32 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-class CourseController extends Controller
+class SupportCourseController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth'); // Require authentication for all admin routes
-        $this->middleware('role:admin'); // Require admin role for all admin routes
+        $this->middleware('auth'); // Require authentication for all support routes
+        $this->middleware('role:support'); // Require support role for all support routes
     }
 
     public function index()
     {
         $courses = Course::where('is_published', 1)->get();
-        return view('admin.courses.index', compact('courses'));
+        return view('support.courses.index', compact('courses'));
     }
 
 
     public function draft()
     {
         $courses = Course::where('is_published', 0)->get();
-        return view('admin.courses.published', compact('courses'));
+        return view('support.courses.published', compact('courses'));
     }
 
     public function create()
     {
         $data['modules'] = Module::all();
-        return view('admin.courses.create', $data);
+        return view('support.courses.create', $data);
     }
 
     public function store(Request $request)
@@ -73,7 +73,7 @@ class CourseController extends Controller
         Course::create($request->all());
 
         $module = Module::findOrFail($request->module_id)->first();;
-        return redirect()->route('lms.courses')->with('success', 'Course created successfully.');
+        return redirect()->route('lms.support-courses')->with('success', 'Course created successfully.');
     }
 
     public function show($id)
@@ -84,7 +84,7 @@ class CourseController extends Controller
 
         $quizzes = Quiz::where('course_id', $course->id)->get();
 
-        return view('admin.courses.show', compact('course', 'contents', 'quizzes', 'enrolledStudents'));
+        return view('support.courses.show', compact('course', 'contents', 'quizzes', 'enrolledStudents'));
     }
 
 
@@ -122,7 +122,7 @@ class CourseController extends Controller
     {
         $data['modules'] = Module::all();
         $data['course'] = Course::findOrFail($id);
-        return view('admin.courses.edit', $data);
+        return view('support.courses.edit', $data);
     }
 
     public function update(Request $request, $id)
@@ -169,7 +169,7 @@ class CourseController extends Controller
         ]);
 
         // Redirect to the courses index with a success message
-        return redirect()->route('lms.courses')->with('success', 'Course updated successfully.');
+        return redirect()->route('lms.support-courses')->with('success', 'Course updated successfully.');
     }
 
     public function destroy($course)
@@ -182,7 +182,7 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('lms.courses')->with('success', 'Course deleted successfully.');
+        return redirect()->route('lms.support-courses')->with('success', 'Course deleted successfully.');
     }
 
 
@@ -191,7 +191,7 @@ class CourseController extends Controller
     public function createContent($courseId)
     {
         $course = Course::findOrFail($courseId);
-        return view('admin.courses.create-content', compact('course'));
+        return view('support.courses.create-content', compact('course'));
     }
 
     public function saveContent(Request $request, $courseId)
@@ -222,14 +222,14 @@ class CourseController extends Controller
             'duration' => $request->input('duration'),
         ]);
 
-        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content created successfully');
+        return redirect()->route('lms.support-show-course', $courseId)->with('success', 'Course content created successfully');
     }
 
     public function editContent($courseId, $contentId)
     {
         $course = Course::findOrFail($courseId);
         $content = CourseContent::findOrFail($contentId);
-        return view('admin.courses.edit-content', compact('course', 'content'));
+        return view('support.courses.edit-content', compact('course', 'content'));
     }
 
     public function updateContent(Request $request, $courseId, $contentId)
@@ -249,7 +249,7 @@ class CourseController extends Controller
             $content->save();
         }
 
-        return redirect()->route('lms.show-course', $courseId)->with('success', 'Course content updated successfully');
+        return redirect()->route('lms.support-show-course', $courseId)->with('success', 'Course content updated successfully');
     }
 
     // Additional methods...
@@ -272,7 +272,7 @@ class CourseController extends Controller
         $content = CourseContent::findOrFail($contentId);
         $subContents = CourseContent::where('parent_id', $content->id)->get();
 
-        return view('admin.courses.show-content', compact('course', 'content', 'subContents'));
+        return view('support.courses.show-content', compact('course', 'content', 'subContents'));
     }
 
     public function deleteCourseContent($courseId, $contentId)
@@ -296,7 +296,7 @@ class CourseController extends Controller
         $course = Course::findOrFail($courseId);
         $parentContent = CourseContent::findOrFail($parentId);
 
-        return view('admin.courses.create-subsection', compact('course', 'parentContent'));
+        return view('support.courses.create-subsection', compact('course', 'parentContent'));
     }
 
     public function storeSubsection(Request $request, $courseId, $parentId)
@@ -333,7 +333,7 @@ class CourseController extends Controller
         ]);
 
         // Redirect to the course content page
-        return redirect()->route('lms.show-course-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
+        return redirect()->route('lms.support-show-course-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
     }
 
     public function showSubsection($courseId, $subsectionId)
@@ -342,7 +342,7 @@ class CourseController extends Controller
         $course = Course::findOrFail($courseId);
         $subsection = CourseContent::findOrFail($subsectionId);
 
-        return view('admin.courses.show-subsection', compact('course', 'subsection'));
+        return view('support.courses.show-subsection', compact('course', 'subsection'));
     }
 
     private function validateContent(Request $request)
