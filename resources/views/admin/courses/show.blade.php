@@ -187,7 +187,7 @@
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
 
-                                <table>
+                                <table class="table table-responsive">
                                     <thead>
                                         <th>SN</th>
                                         <th>Full Name</th>
@@ -201,7 +201,7 @@
                                 @foreach ($enrolledStudents as $student)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                </tr>
+                               
                                 <td>
                                 {{ $student->name }}
                                     <br>
@@ -228,6 +228,7 @@
                             </tr>
                                 @endforeach
                             </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>

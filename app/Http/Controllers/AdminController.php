@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
-use App\Models\Course;
-use App\Models\CourseContent;
-use App\Models\Instute;
-use App\Models\User;
-use App\Models\Module;
 use App\Models\Quiz;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Module;
+use App\Models\Instute;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Models\CourseContent;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
