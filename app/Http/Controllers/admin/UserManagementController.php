@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserManagementController extends Controller
 {
@@ -21,7 +22,7 @@ class UserManagementController extends Controller
     // For All System Admins
     public function systemAdmins()
     {
-        $users = User::where('role','admin')->orWhere('role','support')->where()->get();
+        $users = User::where('role','admin')->orWhere('role','support')->whereNot('id',Auth::user()->id)->get();
         return view('admin.system_admins.index', compact('users'));
     }
 
