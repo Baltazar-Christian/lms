@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\support;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserManagementController extends Controller
+class SupportUserManagementController extends Controller
 {
     // ========================================================================
     // FOR STYSTEM ADMINS
@@ -14,21 +14,21 @@ class UserManagementController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth'); // Require authentication for all admin routes
-        $this->middleware('role:admin'); // Require admin role for all admin routes
+        $this->middleware('auth'); // Require authentication for all support routes
+        $this->middleware('role:support'); // Require support role for all support routes
     }
 
     // For All System Admins
     public function systemAdmins()
     {
-        $users = User::where('role','admin')->get();
-        return view('admin.system_admins.index', compact('users'));
+        $users = User::where('role','support')->get();
+        return view('support.system_admins.index', compact('users'));
     }
 
     // For Register System Admin
     public function addSystemAdmin()
     {
-        return view('admin.system_admins.create');
+        return view('support.system_admins.create');
     }
 
     public function saveSystemAdmin(Request $request)
@@ -53,14 +53,14 @@ class UserManagementController extends Controller
     public function showSystemAdmin($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.system_admins.show', compact('user'));
+        return view('support.system_admins.show', compact('user'));
     }
 
     // For Edit System Admin
     public function editSystemAdmin($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.system_admins.edit', compact('user'));
+        return view('support.system_admins.edit', compact('user'));
     }
 
     // For Update System Admin
@@ -102,13 +102,13 @@ class UserManagementController extends Controller
     public function tutors()
     {
         $users = User::where('role','tutor')->get();
-        return view('admin.tutors.index', compact('users'));
+        return view('support.tutors.index', compact('users'));
     }
 
     // For Register Tutor
     public function addTutor()
     {
-        return view('admin.tutors.create');
+        return view('support.tutors.create');
     }
 
     public function saveTutor(Request $request)
@@ -133,14 +133,14 @@ class UserManagementController extends Controller
     public function showTutor($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.tutors.show', compact('user'));
+        return view('support.tutors.show', compact('user'));
     }
 
     // For Edit Tutor
     public function editTutor($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.tutors.edit', compact('user'));
+        return view('support.tutors.edit', compact('user'));
     }
 
     // For Update Tutor
@@ -179,13 +179,13 @@ class UserManagementController extends Controller
     public function students()
     {
         $users = User::where('role','student')->get();
-        return view('admin.students.index', compact('users'));
+        return view('support.students.index', compact('users'));
     }
 
     // For Register Tutor
     public function addStudent()
     {
-        return view('admin.students.create');
+        return view('support.students.create');
     }
 
     // For Save Student
@@ -211,14 +211,14 @@ class UserManagementController extends Controller
     public function showStudent($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.students.show', compact('user'));
+        return view('support.students.show', compact('user'));
     }
 
     // For Edit Student
     public function editStudent($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.students.edit', compact('user'));
+        return view('support.students.edit', compact('user'));
     }
 
     // For Update Student
@@ -255,6 +255,6 @@ class UserManagementController extends Controller
         public function user_password()
         {
             $users = User::get();
-            return view('admin.password.index', compact('users'));
+            return view('support.password.index', compact('users'));
         }
 }
