@@ -1,6 +1,6 @@
 <!-- resources/views/company_details/index.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.layout')
 
 @section('content')
     <div class="container mt-2">
@@ -10,7 +10,7 @@
                 <h5>
                     <i class="fa fa-house text-warning"></i>
                     Company Details
-                    <a href="{{ route('company_details.create') }}" class="btn btn-dark float-end mb-3">Add Company Detail</a>
+                    <a href="{{ route('support-company_details.create') }}" class="btn btn-dark float-end mb-3">Add Company Detail</a>
 
                 </h5>
             </div>
@@ -37,8 +37,8 @@
                             <td>{{ $companyDetail->name }}</td>
                             <td>{!! $companyDetail->description !!}</td>
                             <td>
-                                <a href="{{ route('company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-dark "> <i class="fa fa-edit"></i> </a>
-                                <form action="{{ route('company_details.destroy', $companyDetail->id) }}" method="post" style="display:inline-block">
+                                <a href="{{ route('support-company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-dark "> <i class="fa fa-edit"></i> </a>
+                                <form action="{{ route('support-company_details.destroy', $companyDetail->id) }}" method="post" style="display:inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn  btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>

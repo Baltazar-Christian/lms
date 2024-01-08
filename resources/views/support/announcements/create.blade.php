@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                 <h5>Create Announcement</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('announcements.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('support-announcements.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Include validation errors if any --}}

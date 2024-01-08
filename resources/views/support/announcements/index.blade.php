@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class=" mt-2 m-2">
@@ -8,7 +8,7 @@
                     <i class="fa fa-bell text-warning"></i>
                     Announcements
 
-                    <a href="{{ route('announcements.create') }}" class="btn btn-secondary mt-3 mb-3 float-end">Create Announcement</a>
+                    <a href="{{ route('support-announcements.create') }}" class="btn btn-secondary mt-3 mb-3 float-end">Create Announcement</a>
 
                 </h5>
 

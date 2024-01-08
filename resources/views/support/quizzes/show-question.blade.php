@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-2">
@@ -17,7 +17,7 @@
                 <div class="mt-4">
                     <h5 class="text-warning">Answers</h5>
                     <hr>
-                    <a href="{{ route('lms.create-answer', [$course->id, $quiz->id, $question->id]) }}"
+                    <a href="{{ route('lms.support-create-answer', [$course->id, $quiz->id, $question->id]) }}"
                         class="btn btn-dark btn-sm float-end">Create Answer</a>
                     <br>
 

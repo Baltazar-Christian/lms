@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 
 
@@ -12,7 +12,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.store-quiz', $course->id) }}" method="post">
+                <form action="{{ route('lms.support-store-quiz', $course->id) }}" method="post">
                     @csrf
 
                     {{-- Include validation errors if any --}}

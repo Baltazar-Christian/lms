@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-2 mb-5 " {{-- style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);" --}}>
@@ -10,9 +10,9 @@
                     {{ $course->title }} --}}
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
+                    <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
                             class="fa fa-edit"></i></a>
-                    <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                    <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
@@ -73,7 +73,7 @@
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
-                                    <a href="{{ route('lms.courses.create-content', $course->id) }}"
+                                    <a href="{{ route('lms.support-courses.create-content', $course->id) }}"
                                         class="btn btn-dark float-end">Add
                                         Content</a>
                                 </h6>
@@ -88,22 +88,22 @@
                                                 </td>
                                                 <td>
                                                     <a class="fw-medium text-dark"
-                                                        href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
+                                                        href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                                 </td>
                                                 <td class="text-end text-muted">
                                                     <div class="d-flex justify-content-end align-items-center">
-                                                        <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                        <a href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
                                                         <a href="{{ asset('storage/' . $content->file_path) }}"
                                                             target="_blank" class="btn btn-sm btn-dark  ms-2"><i
                                                                 class="fa fa-download"></i></a>
 
-                                                        <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                        <a href="{{ route('lms.support-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-warning ms-2"><i
                                                                 class="fa fa-edit"></i></a>
                                                         <!-- Add the delete button -->
                                                         <form
-                                                            action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
+                                                            action="{{ route('lms.support-delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             method="post" style="display: inline-block">
                                                             @csrf
                                                             @method('DELETE')

@@ -1,6 +1,6 @@
 <!-- resources/views/admin/password/reset.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-5">
@@ -10,7 +10,7 @@
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.password.update', $user) }}">
+                        <form method="POST" action="{{ route('support.password.update', $user) }}">
                             @csrf
 
 

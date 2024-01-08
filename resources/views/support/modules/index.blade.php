@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
         <div class="card col-12 mt-2">
             <div class="card-header">
                 <h5 class="mb-4">Modules
-                    <a href="{{ route('lms.add-module') }}" class="btn btn-secondary float-end mb-3">Create Module</a>
+                    <a href="{{ route('lms.support-add-module') }}" class="btn btn-secondary float-end mb-3">Create Module</a>
 
                 </h5>
 
@@ -36,15 +36,15 @@
                                 </td>
                                 <td>{{ $module->user->name }}</td>
                                 <td>
-                                    <a href="{{ route('lms.show-module', $module->id) }}" class="btn btn-sm btn-secondary">
+                                    <a href="{{ route('lms.support-show-module', $module->id) }}" class="btn btn-sm btn-secondary">
                                         <i class="fas fa-eye"></i>
                                     </a>
 
-                                    <a href="{{ route('lms.edit-module', $module->id) }}" class="btn btn-sm btn-secondary">
+                                    <a href="{{ route('lms.support-edit-module', $module->id) }}" class="btn btn-sm btn-secondary">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('lms.delete-module', $module->id) }}" method="post" style="display: inline-block">
+                                    <form action="{{ route('lms.support-delete-module', $module->id) }}" method="post" style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">

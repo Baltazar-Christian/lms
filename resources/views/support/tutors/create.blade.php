@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="col-12 mt-2 mx-1">
@@ -19,7 +19,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('lms.save-tutor') }}" method="POST">
+            <form action="{{ route('lms.support-save-tutor') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>

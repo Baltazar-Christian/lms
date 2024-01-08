@@ -1,6 +1,5 @@
-<!-- resources/views/courses/edit-content.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
@@ -8,7 +7,7 @@
     <div class="container mt-4">
         <h1>Edit Course Content</h1>
 
-        <form action="{{ url('courses/update-course/' . $course->id . '/content' . '/' . $content->id . '/update') }}" method="post"
+        <form action="{{ url('support-courses/update-course/' . $course->id . '/content' . '/' . $content->id . '/update') }}" method="post"
             enctype="multipart/form-data">
             <form action="{{ route('lms.courses.save-content', $course->id) }}" method="post" enctype="multipart/form-data">
                 @csrf

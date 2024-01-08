@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form action="{{ route('lms.update-student', $user->id) }}" method="POST">
+        <form action="{{ route('lms.support-update-student', $user->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -35,7 +35,7 @@
                 <label for="password" class="form-label">Role</label>
                 <select name="role" class="form-control" id="">
                     <option value="student">Student</option>
-                    <option value="admin">Admin</option>
+                    <option value="support">Admin</option>
                     <option value="tutor">Tutor</option>
                 </select>
             </div>

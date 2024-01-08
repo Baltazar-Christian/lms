@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('company_details.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('support-company_details.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Include validation errors if any -->

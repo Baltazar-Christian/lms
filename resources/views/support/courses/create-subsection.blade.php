@@ -1,6 +1,5 @@
-<!-- resources/views/courses/create-subsection.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
@@ -11,7 +10,7 @@
             <h5>Create Sub-Section</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('lms.support-create-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Include validation errors if any --}}
@@ -33,6 +32,7 @@
                     <div class="form-group mb-3 col-6">
                         <label for="type">Content Type</label>
                         <select name="type" id="type" class="form-control" required>
+                            <option value="text">Text</option>
                             <option value="pdf">PDF</option>
                             <option value="image">Image</option>
                             <option value="video">Video</option>

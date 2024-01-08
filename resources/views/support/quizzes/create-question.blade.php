@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-4">
@@ -9,7 +9,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.store-question', [$course->id, $quiz->id]) }}" method="post">
+                <form action="{{ route('lms.support-store-question', [$course->id, $quiz->id]) }}" method="post">
                     @csrf
 
                     <div class="form-group">

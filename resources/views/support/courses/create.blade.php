@@ -1,6 +1,5 @@
-<!-- resources/views/courses/create.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-4 mb-2">
@@ -11,7 +10,7 @@
                 <h5>Create Course</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.save-course') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('lms.support-save-course') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Include validation errors if any --}}

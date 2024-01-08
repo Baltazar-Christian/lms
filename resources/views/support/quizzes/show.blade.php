@@ -6,9 +6,9 @@
         <div class="card">
             <div class="card-header">
                 <h5>Quiz Details</h5>
-                    <a href="{{ route('lms.edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark "><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('lms.support-edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark "><i class="fa fa-edit"></i></a>
 
-                    <form action="{{ route('lms.delete-quiz', [$course->id, $quiz->id]) }}" method="post" style="display: inline-block">
+                    <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" style="display: inline-block">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
@@ -30,7 +30,7 @@
                         <h5>
                             <i class="fa fa-list text-warning"></i>
                             Quiz Questions
-                        <a href="{{ route('lms.create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
+                        <a href="{{ route('lms.support-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
 
                         </h5>
 
@@ -48,7 +48,7 @@
                                         <td>{{ $question->id }}</td>
                                         <td>{{ $question->question }}</td>
                                         <td>
-                                            <a href="{{ route('lms.show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
+                                            <a href="{{ route('lms.support-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
                                                 View Answers
                                             </a>

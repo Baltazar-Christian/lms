@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.update-course', $course->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('lms.support-update-course', $course->id) }}" method="post" enctype="multipart/form-data">
 
                     @csrf
                     {{-- @method('PUT') --}}

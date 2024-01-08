@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-2 mx-auto mb-5 mx-auto p-4 card rounded shadow mx-1">
@@ -30,7 +30,7 @@
                     Sub-Sections
 
                       {{-- Add button to create a new sub-section --}}
-                <a href="{{ route('lms.create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}"
+                <a href="{{ route('lms.support-create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}"
                     class="btn btn-dark float-end "><i class="fa fa-plus"></i> Sub-Section</a>
                 </h6>
 
@@ -42,11 +42,11 @@
 
                             {{-- Add buttons to view/edit/delete sub-section --}}
                             <div class="btn-group" role="group">
-                                <a href="{{ route('lms.show-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                <a href="{{ route('lms.support-show-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                     class="btn btn-primary">View</a>
-                                <a href="{{ route('lms.edit-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                <a href="{{ route('lms.support-edit-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                     class="btn btn-warning">Edit</a>
-                                <a href="{{ route('lms.delete-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                <a href="{{ route('lms.support-delete-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                     class="btn btn-danger">Delete</a>
                             </div>
                         </li>

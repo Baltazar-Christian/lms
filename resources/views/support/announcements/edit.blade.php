@@ -1,6 +1,5 @@
-<!-- resources/views/announcements/edit.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
@@ -11,7 +10,7 @@
             <h5>Edit Announcement</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('announcements.update', $announcement->id) }}" method="post">
+            <form action="{{ route('support-announcements.update', $announcement->id) }}" method="post">
                 @csrf
                 @method('PUT')
 

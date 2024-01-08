@@ -1,6 +1,5 @@
-<!-- resources/views/courses/show-subsection.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 

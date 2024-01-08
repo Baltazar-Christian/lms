@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -40,7 +40,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('admin.password.reset', $user->id) }}" class="btn btn-dark btn-sm">
+                    <a href="{{ route('support.password.reset', $user->id) }}" class="btn btn-dark btn-sm">
                         <i class="fa fa-key"></i>
                         Reset Password
                     </a>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
@@ -11,7 +11,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.courses.save-content', $course->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('lms.support-courses.save-content', $course->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Include validation errors if any --}}
@@ -34,6 +34,7 @@
                         <div class="form-group col-6 mb-2">
                             <label for="type">Content Type</label>
                             <select name="type" id="type" class="form-control" required>
+                                <option value="text">Text</option>
                                 <option value="pdf">PDF</option>
                                 <option value="image">Image</option>
                                 <option value="video">Video</option>

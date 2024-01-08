@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="col-12 mt-2 mx-1">
@@ -19,7 +19,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('lms.save-student') }}" method="POST">
+            <form action="{{ route('lms.support-save-student') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -34,7 +34,7 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <hr>
-                <button type="submit" class="btn btn-primary float-end">Register Student</button>
+                <button type="submit" class="btn btn-dark float-end">Register Student</button>
             </form>
             </div>
 

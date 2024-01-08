@@ -1,6 +1,5 @@
-<!-- resources/views/courses/index.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-2">
@@ -8,7 +7,7 @@
             <div class="card-header">
 
                 <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published Courses
-                    <a href="{{ route('lms.add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
+                    <a href="{{ route('lms.support-add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
 
                 </h5>
 
@@ -38,15 +37,15 @@
                             <td>{{ $course->duration_in_minutes }}</td>
                             <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
                             <td>
-                                <a href="{{ route('lms.show-course', $course->id) }}" class="btn btn-sm btn-secondary">
+                                <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-secondary">
                                 <i class="fa fa-eye"></i>
                                 </a>
-                                <a href="{{ route('lms.edit-course', $course->id) }}"
+                                <a href="{{ route('lms.support-edit-course', $course->id) }}"
                                     class="btn btn-sm btn-secondary">
                                     <i class="fa fa-edit"></i>
 
                                 </a>
-                                <form action="{{ route('lms.delete-course', $course->id) }}" method="post"
+                                <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post"
                                     style="display: inline-block">
                                     @csrf
                                     @method('DELETE')

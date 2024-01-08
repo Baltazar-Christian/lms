@@ -1,6 +1,5 @@
-<!-- resources/views/courses/index.blade.php -->
 
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-4">
@@ -9,7 +8,7 @@
                 <h5 class="mb-4">
                     <i class="fa fa-book text-warning"></i>
                     Draft Courses
-                    <a href="{{ route('lms.add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
+                    <a href="{{ route('lms.support-add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
                 </h5>
             </div>
             <div class="card-body">
@@ -33,17 +32,17 @@
                             <td>{{ $course->id }}</td>
                             <td>{{ $course->title }}</td>
                             <td>{{ $course->description }}</td>
-                            <td>${{ $course->price }}</td>
+                            <td>Tsh {{ number_format($course->price,2) }}</td>
                             <td>{{ $course->duration_in_minutes }}</td>
                             <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
                             <td>
-                                <a href="{{ route('lms.show-course', $course->id) }}" class="btn btn-sm btn-secondary">
+                                <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-secondary">
                                     <i class="fa fa-eye"></i>
                                 </a>
-                                <a href="{{ route('lms.edit-course', $course->id) }}" class="btn btn-sm btn-secondary">
+                                <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-sm btn-secondary">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <form action="{{ route('lms.delete-course', $course->id) }}" method="post" style="display: inline-block">
+                                <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash"></i></button>

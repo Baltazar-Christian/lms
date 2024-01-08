@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
 
@@ -13,10 +13,10 @@
 
             <div class="row">
                 <div class="col-6">
-                    <a href="{{ route('lms.edit-tutor', $user->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('lms.support-edit-tutor', $user->id) }}" class="btn btn-warning">Edit</a>
                 </div>
                 <div class="col-6">
-                    <form action="{{ route('lms.delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
+                    <form action="{{ route('lms.support-delete-tutor', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>

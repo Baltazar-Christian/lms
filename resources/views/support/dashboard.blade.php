@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <!-- Hero -->
@@ -119,7 +119,7 @@
         <!-- Quick Overview -->
         <div class="row">
             <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_product_edit.html">
+                <a class="block block-rounded block-link-shadow text-center" href="#">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-success">
                             <div class="fs-2 fw-semibold text-success">
@@ -149,7 +149,7 @@
                 </a>
             </div>
             <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_dashboard.html">
+                <a class="block block-rounded block-link-shadow text-center" href="#">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-warning">
                             {{ $contents }}
@@ -163,7 +163,7 @@
                 </a>
             </div>
             <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="be_pages_ecom_dashboard.html">
+                <a class="block block-rounded block-link-shadow text-center" href="#">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-info">{{ $quizzes }} </div>
                     </div>

@@ -1,7 +1,7 @@
 @php
     $selectedInstitutes = $module->institutes->pluck('id')->toArray();
 @endphp
-@extends('layouts.master')
+@extends('layouts.support')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
@@ -13,12 +13,12 @@
             <div class="card-header">
                 <h5 class="mb-4">
                     Edit Module
-                    <a href="{{ route('lms.modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
+                    <a href="{{ route('lms.support-modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
 
                 </h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.update-module', $module->id) }}" method="post">
+                <form action="{{ route('lms.support-update-module', $module->id) }}" method="post">
                     @csrf
                     @method('PUT')
 

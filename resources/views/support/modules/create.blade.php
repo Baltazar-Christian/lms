@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container">
@@ -7,12 +7,12 @@
             <div class="card-header">
                 <h5 class="mb-4">
                     Create Module
-                    <a href="{{ route('lms.modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
+                    <a href="{{ route('lms.support-modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
 
                 </h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.save-module') }}" method="post">
+                <form action="{{ route('lms.support-save-module') }}" method="post">
                     @csrf
 
                     <div class="form-group mb-2">
