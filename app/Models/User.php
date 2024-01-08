@@ -47,12 +47,18 @@ class User extends Authenticatable
     ];
 
     const ROLE_ADMIN = 'admin';
+    const ROLE_SUPPORT = 'support';
     const ROLE_TUTOR = 'tutor';
     const ROLE_STUDENT = 'student';
 
     public function isAdmin()
     {
         return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isSupport()
+    {
+        return $this->role === self::ROLE_SUPPORT;
     }
 
     public function isTutor()
