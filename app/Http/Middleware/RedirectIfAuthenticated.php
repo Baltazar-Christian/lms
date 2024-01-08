@@ -24,6 +24,8 @@ class RedirectIfAuthenticated
                 switch (auth()->user()->role) {
                     case 'admin':
                         return redirect('/admin-dashboard');
+                     case 'support':
+                        return redirect('/support-dashboard');
                     case 'tutor':
                         return redirect('/tutor-dashboard');
                     case 'student':

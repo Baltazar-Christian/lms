@@ -15,12 +15,12 @@ class SupportPasswordResetController extends Controller
     public function index()
     {
         $users = User::get();
-        return view('admin.password.index', compact('users'));
+        return view('support.password.index', compact('users'));
     }
 
     public function showResetForm(User $user)
     {
-        return view('admin.password.reset', ['user' => $user]);
+        return view('support.password.reset', ['user' => $user]);
     }
 
     public function reset(Request $request, User $user)
@@ -36,6 +36,6 @@ class SupportPasswordResetController extends Controller
 
         // You can add additional logic or checks here if needed
 
-        return redirect()->route('admin.password.index')->with('success', 'Password reset successfully');
+        return redirect()->route('support.password.index')->with('success', 'Password reset successfully');
     }
 }
