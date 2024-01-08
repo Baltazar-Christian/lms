@@ -186,25 +186,48 @@
                             <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
+
+                                <table>
+                                    <thead>
+                                        <th>SN</th>
+                                        <th>Full Name</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $i=1;
+                                        @endphp
                                 @foreach ($enrolledStudents as $student)
-                                    <p>{{ $student->name }} - {{ $student->email }}
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                </tr>
+                                <td>
+                                {{ $student->name }}
+                                    <br>
+                                 {{ $student->email }}
+                                </td>
+                                <td>
+                                    {{ $student->pivot->approval_status }}
+                                </td>
 
-                                        Status: {{ $student->pivot->approval_status }}
+                                <td>
+                                    @if ($student->pivot->approval_status == 'pending')
+                                    <form action="{{ route('lms.approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Approve</button>
+                                    </form>
 
-                                        @if ($student->pivot->approval_status == 'pending')
-                                            <form action="{{ route('lms.approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
-                                                @csrf
-                                                <button type="submit" class="btn btn-success">Approve</button>
-                                            </form>
+                                    <form action="{{ route('lms.reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    </form>
+                                @endif
+                                </td>
 
-                                            <form action="{{ route('lms.reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger">Reject</button>
-                                            </form>
-                                        @endif
-                                    </p>
+                            </tr>
                                 @endforeach
-
+                            </tbody>
                             </div>
                         </div>
                     </div>
