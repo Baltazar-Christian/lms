@@ -21,7 +21,7 @@
                 data-action="dark_mode_toggle">
 
             </button> --}}
-            <form action="{{ route('lms.change-mode') }}" method="post" style="display: inline-block;">
+            <form action="{{ route('support.change-mode') }}" method="post" style="display: inline-block;">
                 @csrf
                 <input type="hidden" value="@if (Auth::user()->mode=="light")
                 dark
@@ -128,7 +128,7 @@
         <div class="content-side">
             <ul class="nav-main">
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{ route('lms.admin-dashboard') }}">
+                    <a class="nav-main-link active" href="{{ route('lms.support-dashboard') }}">
                         <i class="nav-main-link-icon si si-speedometer"></i>
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
@@ -136,7 +136,7 @@
                 <li class="nav-main-heading">USER MANAGEMENT</li>
                 {{-- Start of User Managements --}}
 
-             
+
 
                 {{-- For Tutors --}}
                 <li class="nav-main-item">
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.supporttutors') }}">
+                            <a class="nav-main-link" href="{{ route('lms.support-tutors') }}">
                                 <span class="nav-main-link-name">Active Tutors</span>
                             </a>
                         </li>
@@ -180,7 +180,7 @@
                             </a>
                         </li>
 
-                   
+
                     </ul>
                 </li>
                 {{-- ./ --}}
@@ -190,7 +190,7 @@
 
                 <li class="nav-main-heading">ACADEMIC MANAGEMENT</li>
 
-            
+
                 {{-- start of Modules Managements --}}
                 <li class="nav-main-item">
                     <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
@@ -269,7 +269,7 @@
                 </li>
 
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="{{ route('support-admin.password.index') }}">
+                    <a class="nav-main-link" href="{{ route('support.password.index') }}">
                         <i class="nav-main-link-icon fa fa-key"></i>
                         <span class="nav-main-link-name">Password Recovery</span>
                     </a>

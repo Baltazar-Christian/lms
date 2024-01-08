@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-12 mt-2 mx-1">
+    <div class="container mt-2 ">
         <!-- start of Register Admin -->
         <div class="card">
 

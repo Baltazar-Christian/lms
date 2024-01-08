@@ -70,7 +70,7 @@ class UserManagementController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'role' => 'nullable|min:6',
+            'role' => 'nullable',
         ]);
 
         $user = User::findOrFail($id);

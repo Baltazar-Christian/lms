@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SupportController;
 use App\Http\Controllers\admin\QuizController;
 use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\QuizResultController;
@@ -203,7 +204,7 @@ Route::group(['middleware' => 'role:support'], function () {
 
     //  Tutors routes
     Route::any('support-tutors', [SupportUserManagementController::class, 'tutors'])->name('lms.support-tutors');
-    Route::any('support-add-tutor', [SupportUserManagementController::class, 'addTutor'])->name('lms.asupport-dd-tutor');
+    Route::any('support-add-tutor', [SupportUserManagementController::class, 'addTutor'])->name('lms.support-add-tutor');
     Route::any('support-save-tutor', [SupportUserManagementController::class, 'saveTutor'])->name('lms.support-save-tutor');
     Route::any('support-show-tutor/{id}', [SupportUserManagementController::class, 'showTutor'])->name('lms.support-show-tutor');
     Route::any('support-edit-tutor/{id}', [SupportUserManagementController::class, 'editTutor'])->name('lms.support-edit-tutor');

@@ -24,13 +24,14 @@ class RedirectIfAuthenticated
                 switch (auth()->user()->role) {
                     case 'admin':
                         return redirect('/admin-dashboard');
-                     case 'support':
+                    case 'support':
                         return redirect('/support-dashboard');
                     case 'tutor':
                         return redirect('/tutor-dashboard');
                     case 'student':
                         return redirect('/student-dashboard');
                     default:
+
                         return redirect('/home');
                 }
             }
