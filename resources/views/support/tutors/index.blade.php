@@ -26,7 +26,7 @@
     </div>
 @endif
 
-<table class="table mt-3">
+<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
     <thead>
         <tr>
             <th>ID</th>

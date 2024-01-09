@@ -8,7 +8,11 @@
 
         <div class="card">
             <div class="card-header">
-                <h5>Create Announcement</h5>
+                <h5>Create Announcement
+
+                    <a href="{{ route('support-announcements.index') }}" class="btn btn-dark float-end mt-3">Back </a>
+
+                </h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('support-announcements.store') }}" method="post" enctype="multipart/form-data">
@@ -28,26 +32,26 @@
                 <div class="row">
 
                     <div class="mb-3 col-12">
-                        <label for="title" class="form-label">Title</label>
+                        <label for="title" class="form-label text-dark">Title</label>
                         <input type="text" name="title" id="title" placeholder="Enter Title Here" class="form-control" required>
                     </div>
 
                     <div class="mb-3 col-6">
-                        <label for="status" class="form-label">Status</label>
+                        <label for="status" class="form-label text-dark">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="draft">Draft</option>
                             <option value="published">Published</option>
                         </select>
                     </div>
                     <div class="mb-3 col-6">
-                        <label for="attachment" class="form-label">Attachment</label>
+                        <label for="attachment" class="form-label text-dark">Attachment</label>
 
                         <input type="file" name="attachment" id="attachment" class="form-control-file">
                     </div>
 
 
                     <div class="mb-3 col-12">
-                        <label for="content" class="form-label">Content</label>
+                        <label for="content" class="form-label text-dark">Content</label>
                         {{-- <textarea name="content" id="content" class="form-control" rows="4" required></textarea> --}}
                         <textarea class="form-control" id="content" placeholder="Enter the Content" rows="8" name="content"></textarea>
 

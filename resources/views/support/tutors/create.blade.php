@@ -7,7 +7,11 @@
         <div class="card">
 
             <div class="card-header">
-                <h6>Register Tutor</h6>
+                <h6>Register Tutor
+
+                    <a href="{{ route('lms.support-tutors') }}" class="btn btn-dark float-end mt-3">Back </a>
+
+                </h6>
             </div>
             <div class="card-body">
                 @if($errors->any())
