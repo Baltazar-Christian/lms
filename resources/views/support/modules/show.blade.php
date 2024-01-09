@@ -7,7 +7,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">{{ $module->name }}
+                        <h5 class="mb-0">
+                            <i class="fa fa-file text-warning"></i>
+                            {{ $module->name }}
                             <a href="{{ route('lms.support-modules') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Modules </a>
 
                         </h5>
@@ -17,7 +19,7 @@
                         {{-- <p>Status: <span class="{{ $module->status === 'active' ? 'text-success' : 'text-danger' }}">{{ $module->status }}</span></p> --}}
 
                         <h5>Associated Institutes:</h5>
-                        <ul>
+                        <ul class="text-dark">
                             @forelse ($module->institutes as $institute)
                                 <li>{{ $institute->name }}</li>
                             @empty
