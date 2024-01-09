@@ -17,7 +17,7 @@
         <div>
             <!-- Dark Mode -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <form action="{{ route('support.change-mode') }}" method="post" style="display: inline-block;">
+            <form action="{{ route('tutor.change-mode') }}" method="post" style="display: inline-block;">
                 @csrf
                 <input type="hidden" value="@if (Auth::user()->mode=="light")
                 dark

@@ -316,7 +316,7 @@ Route::group(['middleware' => 'role:support'], function () {
 Route::group(['middleware' => 'role:tutor'], function () {
     // Tutor routes
     Route::any('tutor-dashboard', [TutorController::class, 'dashboard'])->name('lms.tutor-dashboard');
-    Route::any('tutor-mode', [SupportController::class, 'mode'])->name('tutor.change-mode');
+    Route::any('tutor-mode', [TutorController::class, 'mode'])->name('tutor.change-mode');
 
     // For Students
     Route::any('tutor-students', [TutorStudentController::class, 'students'])->name('lms.tutor-students');
