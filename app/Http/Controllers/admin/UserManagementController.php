@@ -64,7 +64,7 @@ class UserManagementController extends Controller
         return view('admin.system_admins.edit', compact('user'));
     }
 
-    // For Update System Admin
+// For Update System Admin
     public function updateSystemAdmin(Request $request, $id)
     {
         $request->validate([

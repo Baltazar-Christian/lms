@@ -201,7 +201,8 @@ class SupportCourseController extends Controller
 
         // $file = $request->file('file');
         // $filePath = $file->store('course_contents');
-        // Handle cover image update
+        // Handle cover image
+        $filePath='Null';
         if ($request->hasFile('file')) {
 
             // Upload the new cover image
