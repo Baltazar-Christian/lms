@@ -30,7 +30,8 @@
                                 <td>{{ $module->id }}</td>
                                 <td>{{ $module->name }}</td>
                                 <td>
-                                    <span class="badge {{ $module->status === 'active' ? 'badge-success text-success' : 'badge-danger text-danger' }}">
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $module->status === 'active' ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+
                                         {{ $module->status }}
                                     </span>
                                 </td>

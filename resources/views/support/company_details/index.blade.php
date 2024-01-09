@@ -52,32 +52,7 @@
             </div>
 
 
-            {{-- <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-                <thead>
-                  <tr>
-                    <th class="text-center" style="width: 80px;">ID</th>
-                    <th>Name</th>
-                    <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                    <th class="d-none d-sm-table-cell" style="width: 15%;">Access</th>
-                    <th style="width: 15%;">Registered</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-center fs-sm">1</td>
-                    <td class="fw-semibold fs-sm">Jose Wagner</td>
-                    <td class="d-none d-sm-table-cell fs-sm">
-                      client1<span class="text-muted">@example.com</span>
-                    </td>
-                    <td class="d-none d-sm-table-cell">
-                      <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Disabled</span>
-                    </td>
-                    <td>
-                      <span class="text-muted fs-sm">5 days ago</span>
-                    </td>
-                  </tr>
-                </tbody>
-            </table> --}}
+
         </div>
 
 
