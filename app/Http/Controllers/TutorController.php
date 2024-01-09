@@ -10,6 +10,7 @@ use App\Models\Instute;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
+use Illuminate\Support\Facades\Auth;
 
 class TutorController extends Controller
 {
@@ -25,7 +26,7 @@ class TutorController extends Controller
         $data['students']=User::where('role','student')->count();
         $data['tutors']=User::where('role','tutor')->count();
         $data['modules']=Module::count();
-        $data['courses']=Course::count();
+        $data['courses']=Course::where('user_id',Auth::user()->id)->count();
         $data['institutes']=Instute::count();
         $data['announcements']=Announcement::count();
         $data['contents']=CourseContent::count();
@@ -33,6 +34,15 @@ class TutorController extends Controller
 
         return view('tutor.dashboard',$data);
     }
+
+
+    public function mode(Request $request){
+        $user=User::where('id',Auth::user()->id)->first();
+        $user->mode=$request->mode;
+        $user->update();
+
+        return back();
+}
 
 
 

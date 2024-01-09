@@ -17,11 +17,18 @@
         <div>
             <!-- Dark Mode -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
-                data-action="dark_mode_toggle">
-                <i class="far fa-moon"></i>
-            </button>
+            <form action="{{ route('support.change-mode') }}" method="post" style="display: inline-block;">
+                @csrf
+                <input type="hidden" value="@if (Auth::user()->mode=="light")
+                dark
+                @else
+                light
+                @endif" name="mode" />
+                <button type="submit" class="btn btn-sm btn-alt-secondary">
 
+                    <i class="far fa-moon"></i>
+                </button>
+            </form>
 
             <!-- END Dark Mode -->
 
