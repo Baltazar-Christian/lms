@@ -159,7 +159,7 @@ class SupportUserManagementController extends Controller
             'role' => $request->input('role'),
         ]);
 
-        return redirect()->route('lms.tutors')->with('success', 'Tutor was updated successfully');
+        return redirect()->route('lms.support-tutors')->with('success', 'Tutor was updated successfully');
     }
 
     // For Delete Tutor
@@ -168,7 +168,7 @@ class SupportUserManagementController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('lms.tutors')->with('success', 'Tutor was deleted successfully');
+        return redirect()->route('lms.support-tutors')->with('success', 'Tutor was deleted successfully');
     }
 
     // ========================================================================
@@ -204,7 +204,7 @@ class SupportUserManagementController extends Controller
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('lms.students')->with('success', 'Student was registered successfully');
+        return redirect()->route('lms.support-students')->with('success', 'Student was registered successfully');
     }
 
     // For View Student
@@ -238,7 +238,7 @@ class SupportUserManagementController extends Controller
             // 'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
-        return redirect()->route('lms.students')->with('success', 'Student was updated successfully');
+        return redirect()->route('lms.support-students')->with('success', 'Student was updated successfully');
     }
 
     // For Delete Student
@@ -247,7 +247,7 @@ class SupportUserManagementController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('lms.students')->with('success', 'Student was deleted successfully');
+        return redirect()->route('lms.support-students')->with('success', 'Student was deleted successfully');
     }
 
     // For All Users
