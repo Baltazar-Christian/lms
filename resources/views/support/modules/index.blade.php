@@ -7,14 +7,16 @@
 
         <div class="card col-12 mt-2">
             <div class="card-header">
-                <h5 class="mb-4">Modules
+                <h5 class="mb-4">
+                    <i class="fa fa-list text-warning"></i>
+                    Modules
                     <a href="{{ route('lms.support-add-module') }}" class="btn btn-secondary float-end mb-3">Create Module</a>
 
                 </h5>
 
             </div>
             <div class="card-body">
-                <table class="table table-hover">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
                             <th>ID</th>
