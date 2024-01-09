@@ -15,7 +15,7 @@
 
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -29,18 +29,22 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $announcement->title }}</td>
-                                <td>{{ ucfirst($announcement->status) }}</td>
                                 <td>
-                                    <a href="{{ route('announcements.show', $announcement->id) }}"
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">
+                                        {{ ucfirst($announcement->status) }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{{ route('support-announcements.show', $announcement->id) }}"
                                         class="btn btn-dark btn-sm">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('announcements.edit', $announcement->id) }}"
+                                    <a href="{{ route('support-announcements.edit', $announcement->id) }}"
                                         class="btn btn-dark btn-sm">
                                         <i class="fa fa-edit"></i>
 
                                     </a>
-                                    <form action="{{ route('announcements.destroy', $announcement->id) }}" method="post"
+                                    <form action="{{ route('support-announcements.destroy', $announcement->id) }}" method="post"
                                         style="display: inline-block">
                                         @csrf
                                         @method('DELETE')

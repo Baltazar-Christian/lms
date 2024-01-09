@@ -16,12 +16,12 @@
         </form>
             </div>
             <div class="card-body">
-                <h5>{{ $announcement->title }}</h5>
-                <p>Status: {{ ucfirst($announcement->status) }}</p>
-                <p> {!! $announcement->content !!}</p>
+                <h5 class="text-dark">{{ $announcement->title }}</h5>
+                <p class="text-dark">Status: {{ ucfirst($announcement->status) }}</p>
+                <p class="text-dark"> {!! $announcement->content !!}</p>
 
                 @if ($announcement->attachment)
-                    <p>Attachment: <a href="{{ asset('public/storage/' . $announcement->attachment) }}" target="_blank">Download</a></p>
+                    <p class="text-dark">Attachment: <a href="{{ asset('public/storage/' . $announcement->attachment) }}" class="btn btn-sm btn-dark" target="_blank">Download</a></p>
                 @endif
             </div>
         </div>
