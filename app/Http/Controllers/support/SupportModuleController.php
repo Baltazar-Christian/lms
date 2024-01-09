@@ -12,7 +12,7 @@ class SupportModuleController extends Controller
 {
     public function index()
     {
-        $modules = Module::all();
+        $modules = Module::latest()->get();
         return view('support.modules.index', compact('modules'));
     }
 
