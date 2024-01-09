@@ -57,7 +57,9 @@ class CourseController extends Controller
         ]);
 
         // Handle cover image update
-        if ($request->hasFile('cover_image')) {
+         // Handle cover image update
+         if ($request->hasFile('cover_image')) {
+
 
             // Upload the new cover image
             $coverImage = $request->file('cover_image');

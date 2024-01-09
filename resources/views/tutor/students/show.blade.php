@@ -9,6 +9,8 @@
                 <i class="fa fa-user text-warning"></i>
                 Student Details
 
+                <a href="{{ route('lms.tutor-students') }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-list"></i> Back</a>
+
 
                     {{-- <a href="{{ route('lms.edit-system-admin', $user->id) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
 
@@ -20,8 +22,8 @@
                 </h5>
         </div>
         <div class="card-body">
-            <p><strong>Name:</strong> {{ $user->name }}</p>
-            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p class="text-dark"><strong>Name:</strong> {{ $user->name }}</p>
+            <p class="text-dark"><strong>Email:</strong> {{ $user->email }}</p>
 
 
 

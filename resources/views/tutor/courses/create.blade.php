@@ -39,29 +39,29 @@
                         <input type="hidden" name="module_id" value="{{ $module->id }}" >
 
                         <div class="form-group col-6 mb-3">
-                            <label for="title">Title</label>
+                            <label for="title" class="text-dark">Title</label>
                             <input type="text" name="title" id="title" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6 mb-3">
-                            <label for="title">Slug</label>
+                            <label for="title" class="text-dark">Slug</label>
                             <input type="text" name="slug" id="slug" class="form-control" required>
                         </div>
 
 
 
                         <div class="form-group col-6 mb-3">
-                            <label for="price">Price</label>
+                            <label for="price" class="text-dark">Price</label>
                             <input type="number" name="price" id="price" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6 mb-3">
-                            <label for="duration_in_minutes">Duration (minutes)</label>
+                            <label for="duration_in_minutes" class="text-dark">Duration (minutes)</label>
                             <input type="number" name="duration_in_minutes" id="duration_in_minutes" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6 mb-3">
-                            <label for="is_published">Published</label>
+                            <label for="is_published" class="text-dark">Published</label>
                             <select name="is_published" id="is_published" class="form-control">
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
@@ -69,13 +69,13 @@
                         </div>
 
                         <div class="form-group col-6 mb-3">
-                            <label for="cover_image">Course Cover Image</label>
+                            <label for="cover_image" class="text-dark">Course Cover Image</label>
                             <input type="file" name="cover_image" id="cover_image" class="form-control-file">
                         </div>
 
-                        <div class="form-group col-12 mb-3">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="content" class="form-control" rows="4" required></textarea>
+                        <div class="form-group col-12 mb-3" >
+                            <label for="description" class="text-dark">Description</label>
+                            <textarea class="form-control" id="description" placeholder="Enter the Description" rows="8" name="description"></textarea>
                         </div>
 
                     </div>
@@ -89,7 +89,7 @@
 
     </div>
     <script>
-        ClassicEditor.create( document.querySelector( '#content' ) )
+        ClassicEditor.create( document.querySelector( '#description' ) )
             .catch( error => {
                 console.error( error );
             } );

@@ -53,7 +53,9 @@ class TutorCoursesController extends Controller
         ]);
 
         // Handle cover image update
-        if ($request->hasFile('cover_image')) {
+          // Handle cover image update
+          if ($request->hasFile('cover_image')) {
+
 
             // Upload the new cover image
             $coverImage = $request->file('cover_image');
@@ -63,7 +65,6 @@ class TutorCoursesController extends Controller
             // Update the request data to include the new cover image name
             $request->merge(['cover_image' => $imageName]);
         }
-
 
         $request['user_id'] = Auth::user()->id;
 
