@@ -86,7 +86,7 @@ class SupportModuleController extends Controller
             'created_by' => Auth::id(),
         ]);
 
-        return redirect()->route('lms.modules')->with('success', 'Module updated successfully');
+        return redirect()->route('lms.support-modules')->with('success', 'Module updated successfully');
     }
 
     public function destroy($id)
@@ -95,6 +95,6 @@ class SupportModuleController extends Controller
         $module->institutes()->detach(); // Detach institutes before deleting the module
         $module->delete();
 
-        return redirect()->route('support.modules.index')->with('success', 'Module deleted successfully');
+        return redirect()->route('lms.support-modules')->with('success', 'Module deleted successfully');
     }
 }
