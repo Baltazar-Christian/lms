@@ -150,26 +150,12 @@
 
                 {{-- For Students --}}
                 <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
+                    <a class="nav-main-link" href="{{ route('lms.support-students') }}">
                         <i class="nav-main-link-icon fa fa-users"></i>
                         <span class="nav-main-link-name">Students</span>
                     </a>
-                    <ul class="nav-main-submenu">
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.support-add-student') }}">
-                                <span class="nav-main-link-name">Register Student</span>
-                            </a>
-                        </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.support-students') }}">
-                                <span class="nav-main-link-name">Active Students</span>
-                            </a>
-                        </li>
-
-
-                    </ul>
                 </li>
+
                 {{-- ./ --}}
 
                 {{-- end of User Managements --}}

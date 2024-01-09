@@ -51,7 +51,10 @@ class TutorStudentController extends Controller
         public function showStudent($id)
         {
             $user = User::findOrFail($id);
-            return view('tutor.students.show', compact('user'));
+            $enrolledCourses = $user->courses()->get();
+            $quizResults = $user->quizResults()->with('quiz')->get();
+
+            return view('tutor.students.show', compact('user','enrolledCourses','quizResults'));
         }
 
         // For Edit Student
