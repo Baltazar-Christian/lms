@@ -6,7 +6,12 @@
         <div class="card">
 
             <div class="card-header">
-                <h6>Register Student</h6>
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Register Student
+                    <a href="{{ route('lms.support-students') }}" class="btn btn-dark float-end mt-3">Back </a>
+
+                </h6>
             </div>
             <div class="card-body">
                 @if($errors->any())

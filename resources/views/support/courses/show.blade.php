@@ -119,34 +119,6 @@
                                     </tbody>
                                 </table>
 
-                                {{-- @forelse ($contents as $content)
-                                    <div class=" mb-3">
-                                        <div class="">
-                                            <h3 class="card-title">{{ $content->title }}</h3>
-                                            <div class="d-flex justify-content-end align-items-center">
-                                                <a href="{{ route('lms.show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                <a href="{{ asset('storage/' . $content->file_path) }}" target="_blank"
-                                                    class="btn btn-sm btn-dark  ms-2"><i class="fa fa-download"></i></a>
-
-                                                <a href="{{ route('lms.courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    class="btn btn-sm btn-warning ms-2"><i class="fa fa-edit"></i></a>
-                                                <!-- Add the delete button -->
-                                                <form
-                                                    action="{{ route('lms.delete-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
-                                                    method="post" style="display: inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger ms-2"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @empty
-                                    <p class="text-muted">No contents available for this course.</p>
-                                @endforelse --}}
                             </div>
                             <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
@@ -201,7 +173,7 @@
                                 @foreach ($enrolledStudents as $student)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                               
+
                                 <td>
                                 {{ $student->name }}
                                     <br>

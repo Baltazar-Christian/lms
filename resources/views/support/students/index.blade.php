@@ -24,7 +24,8 @@
     </div>
 @endif
 
-<table class="table mt-3">
+<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+
     <thead>
         <tr>
             <th>ID</th>
@@ -34,6 +35,9 @@
         </tr>
     </thead>
     <tbody>
+        @php
+        $i=1;
+        @endp
         @foreach($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>

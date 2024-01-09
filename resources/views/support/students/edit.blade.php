@@ -5,7 +5,13 @@
 <div class="col-12 mx-1 mt-2">
     <div class="card">
         <div class="card-header">
-            <h5>Edit Student</h5>
+            <h5>
+                <i class="fa fa-edit text-warning"></i>
+                Edit Student
+
+                <a href="{{ route('lms.support-students') }}" class="btn btn-dark float-end mt-3">Back </a>
+
+            </h5>
         </div>
 
         <div class="card-body">
