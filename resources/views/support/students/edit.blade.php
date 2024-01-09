@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-12 mx-1 mt-2">
+<div class="container  mt-2">
     <div class="card">
         <div class="card-header">
             <h5>
@@ -29,16 +29,16 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label text-dark">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label text-dark">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Role</label>
+                <label for="password" class="form-label text-dark">Role</label>
                 <select name="role" class="form-control" id="">
                     <option value="student">Student</option>
                     <option value="support">Admin</option>

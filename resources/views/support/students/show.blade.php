@@ -1,7 +1,7 @@
 @extends('layouts.support')
 
 @section('content')
-    <div class="col-12 mt-2 mx-1">
+    <div class="container mt-2">
         <div class="card">
             <div class="card-header">
                 <h5> <i class="fa fa-user text-warning"></i>
@@ -11,20 +11,13 @@
                     </h5>
             </div>
             <div class="card-body">
-                <p><strong>Name:</strong> {{ $user->name }}</p>
-                <p><strong>Email:</strong> {{ $user->email }}</p>
+                <p class="text-dark"><strong>Name:</strong> {{ $user->name }}</p>
+                <p class="text-dark"><strong>Email:</strong> {{ $user->email }}</p>
 
                 <hr>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item me-auto">
-                        {{-- <button class="nav-link" id="btabs-static2-settings-tab" data-bs-toggle="tab"
-                data-bs-target="#btabs-static2-settings" role="tab"
-                aria-controls="btabs-static2-settings" aria-selected="false">
-                <i class="si si-user"></i>
-                <span class="">Courses</span>
-            </button> --}}
-                    </li>
+
                     <li class="nav-item">
                         <button class="nav-link active" id="btabs-static2-home-tab" data-bs-toggle="tab"
                             data-bs-target="#btabs-static2-home" role="tab" aria-controls="btabs-static2-home"
@@ -45,7 +38,7 @@
                         aria-labelledby="btabs-static2-home-tab" tabindex="0">
                         <h5 class="mt-2"> <i class="fa fa-book text-warning"></i> Enrolled Courses</h5>
                         @forelse ($enrolledCourses as $course)
-                            <p>  <i class="fa fa-book text-warning"></i>  {{ $course->title }}</p>
+                            <p class="text-dark">  <i class="fa fa-book text-warning"></i>  {{ $course->title }}</p>
                             <hr>
                         @empty
                             <p>No enrolled courses.</p>
