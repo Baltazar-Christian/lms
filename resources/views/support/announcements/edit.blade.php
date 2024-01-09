@@ -4,10 +4,14 @@
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 
-<div class="mt-2 m-2">
+<div class="container mt-2 ">
     <div class="card">
         <div class="card-header">
-            <h5>Edit Announcement</h5>
+            <h5>Edit Announcement
+
+                <a href="{{ route('support-announcements.index') }}" class="btn btn-dark float-end mt-3">Back </a>
+
+            </h5>
         </div>
         <div class="card-body">
             <form action="{{ route('support-announcements.update', $announcement->id) }}" method="post">
@@ -26,11 +30,11 @@
             @endif
             <div class="row">
                 <div class="form-group mb-3 col-6">
-                    <label for="title">Title</label>
+                    <label for="title" class="text-dark">Title</label>
                     <input type="text" name="title" id="title" class="form-control" value="{{ $announcement->title }}" required>
                 </div>
                 <div class="form-group mb-3 col-6">
-                    <label for="status">Status</label>
+                    <label for="status" class="text-dark">Status</label>
                     <select name="status" id="status" class="form-control">
                         <option value="published" {{ $announcement->status === 'published' ? 'selected' : '' }}>Published</option>
                         <option value="draft" {{ $announcement->status === 'draft' ? 'selected' : '' }}>Draft</option>
@@ -39,7 +43,7 @@
 
 
                 <div class="form-group mb-3 col-12">
-                    <label for="content">Content</label>
+                    <label for="content" class="text-dark">Content</label>
                     <textarea name="content" id="content" class="form-control" rows="4" required>{{ $announcement->content }}</textarea>
                 </div>
 

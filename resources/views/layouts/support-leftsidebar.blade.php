@@ -190,35 +190,12 @@
 
                 <li class="nav-main-heading">ACADEMIC MANAGEMENT</li>
 
-
-                {{-- start of Modules Managements --}}
                 <li class="nav-main-item">
-                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
-                        aria-expanded="false" href="#">
+                    <a class="nav-main-link" href="{{ route('lms.support-modules') }}">
                         <i class="nav-main-link-icon fa fa-swatchbook"></i>
-                        <span class="nav-main-link-name">Modules Management</span>
+                        <span class="nav-main-link-name">Modules</span>
                     </a>
-                    <ul class="nav-main-submenu">
-                        {{-- For Active Modules --}}
-
-
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.support-add-module') }}">
-                                        <span class="nav-main-link-name"> Register Module</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('lms.support-modules') }}">
-                                        <span class="nav-main-link-name">All Mudules</span>
-                                    </a>
-                                </li>
-
-                        {{-- ./ --}}
-
-
-                    </ul>
                 </li>
-                {{-- ./ --}}
 
                 {{-- start of Courses Management --}}
                 <li class="nav-main-item">
@@ -255,7 +232,7 @@
 
                 <li class="nav-main-heading">SETTINGS MANAGEMENT</li>
 
-            <li class="nav-main-item">
+              <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('support-announcements.index') }}">
                         <i class="nav-main-link-icon fa fa-bell"></i>
                         <span class="nav-main-link-name">Announcements</span>
