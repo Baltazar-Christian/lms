@@ -269,6 +269,7 @@ Route::group(['middleware' => 'role:support'], function () {
         Route::get('/{courseId}/quizzes/{quizId}', [SupportQuizController::class, 'show'])->name('lms.support-show-quiz');
         Route::get('/{courseId}/quizzes/{quizId}/create-question', [SupportQuizController::class, 'createQuestion'])->name('lms.support-create-question');
         Route::post('/{courseId}/quizzes/{quizId}/store-question', [SupportQuizController::class, 'storeQuestion'])->name('lms.support-store-question');
+        Route::post('/quizzes/update-question/{quizId}', [SupportQuizController::class, 'updateQuestion'])->name('lms.support-update-question');
 
         Route::post('/delete/quizzes/{quizId}', [SupportQuizController::class, 'destroy'])->name('lms.support-delete-quiz');
 

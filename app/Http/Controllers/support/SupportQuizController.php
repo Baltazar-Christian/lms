@@ -134,6 +134,21 @@ class SupportQuizController extends Controller
         return redirect()->route('lms.support-show-quiz', [$course->id, $quiz->id])->with('success', 'Question added successfully.');
     }
 
+    public function updateQuestion(Request $request, $questionId)
+    {
+
+
+        $quizQuestion = QuizQuestion::findOrFail($questionId);
+
+        $quizQuestion->update([
+            'question' => $request->input('text'),
+            // Add other fields to update as needed
+        ]);
+
+        return redirect()->route('lms.support-show-quiz', [$quizQuestion->course->id, $quizQuestion->quiz->id])->with('success', 'Question updated successfully.');
+    }
+
+
 
     public function createAnswer($courseId, $quizId, $questionId)
     {
