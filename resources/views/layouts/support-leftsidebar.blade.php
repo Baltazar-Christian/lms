@@ -179,11 +179,7 @@
                     </a>
                     <ul class="nav-main-submenu">
 
-                        <li class="nav-main-item">
-                            <a class="nav-main-link" href="{{ route('lms.support-add-course') }}">
-                                <span class="nav-main-link-name"> Register Course</span>
-                            </a>
-                        </li>
+
 
                         <li class="nav-main-item">
                             <a class="nav-main-link" href="{{ route('lms.support-draft-courses') }}">

@@ -72,8 +72,15 @@ class SupportCourseController extends Controller
 
         Course::create($request->all());
 
-        $module = Module::findOrFail($request->module_id)->first();;
-        return redirect()->route('lms.support-courses')->with('success', 'Course created successfully.');
+        $module = Module::findOrFail($request->module_id)->first();
+        if ($request->is_published) {
+            return redirect()->route('lms.support-courses')->with('success', 'Course created successfully.');
+
+        }
+        else {
+            return redirect()->route('lms.support-draft-courses')->with('success', 'Course created successfully.');
+
+        }
     }
 
     public function show($id)
