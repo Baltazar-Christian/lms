@@ -8,14 +8,17 @@
 
 
                 <div class="mt-4 d-flex justify-content-end">
+                    @if($course->is_published)
+                    <a href="{{ route('lms.support-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
+
+                    @else
+                    <a href="{{ route('lms.support-draft-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
+
+                    @endif
+
                     <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
                             class="fa fa-edit"></i></a>
-                    {{-- <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')"><i
-                                class="fa fa-trash"></i></button>
-                    </form> --}}
+
 
 
                 </div>
@@ -35,7 +38,7 @@
                 </div>
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
-                    <span><strong class="text-warning">Price:</strong> Tsh{{ $course->price }}</span><br>
+                    <span><strong class="text-warning">Price:</strong> Tsh {{ number_format($course->price,2) }}</span><br>
                     <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }}
                         minutes</span><br>
                     <span><strong class="text-warning">Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
