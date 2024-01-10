@@ -9,11 +9,11 @@
 
                     <a href="{{ route('lms.support-edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
 
-                    <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">
+                    {{-- <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm mx-1 btn-danger " onclick="return confirm('Are you sure?')"><i class="fa fa-trash "></i></button>
-                    </form>
+                    </form> --}}
 
                 </h5>
 
