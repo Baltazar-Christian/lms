@@ -57,13 +57,14 @@ class SupportCourseController extends Controller
         ]);
 
         // Handle cover image update
-            // Handle cover image update
+        $imageName = Null;
             if ($request->hasFile('cover_image')) {
                 // Delete the old cover image if it exists
 
                 // Upload the new cover image
                 $coverImage = $request->file('cover_image');
                 $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+
                 $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
                 // Update the request data to include the new cover image name
