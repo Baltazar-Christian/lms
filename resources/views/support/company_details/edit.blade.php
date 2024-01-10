@@ -21,41 +21,41 @@
                     @include('partials.errors')
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label text-dark">Name</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{ $companyDetail->name }}" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="logo" class="form-label">Logo</label>
+                        <label for="logo" class="form-label text-dark">Logo</label>
                         <input type="file" name="logo" id="logo" class="form-control">
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
+                        <label for="description" class="form-label text-dark">Description</label>
                         <textarea name="description" id="description" class="form-control" rows="4" required>{{ $companyDetail->description }}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_address" class="form-label">Contact Address</label>
+                        <label for="contact_address" class="form-label text-dark">Contact Address</label>
                         <input type="text" name="contact_address" id="contact_address" class="form-control" value="{{ $companyDetail->contact_address }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_phone" class="form-label">Contact Phone</label>
+                        <label for="contact_phone" class="form-label text-dark">Contact Phone</label>
                         <input type="text" name="contact_phone" id="contact_phone" class="form-control" value="{{ $companyDetail->contact_phone }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_email" class="form-label">Contact Email</label>
+                        <label for="contact_email" class="form-label text-dark">Contact Email</label>
                         <input type="email" name="contact_email" id="contact_email" class="form-control" value="{{ $companyDetail->contact_email }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="website" class="form-label">Website</label>
+                        <label for="website" class="form-label text-dark">Website</label>
                         <input type="text" name="website" id="website" class="form-control" value="{{ $companyDetail->website }}">
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Update Company Detail</button>
+                    <br>
+                    <button type="submit" class="btn btn-dark float-end">Update Company Detail</button>
                 </form>
             </div>
         </div>
