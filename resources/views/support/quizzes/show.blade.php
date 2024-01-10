@@ -5,21 +5,25 @@
 
         <div class="card">
             <div class="card-header">
-                <h5>Quiz Details</h5>
-                    <a href="{{ route('lms.support-edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark "><i class="fa fa-edit"></i></a>
+                <h5>Quiz Details
 
-                    <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" style="display: inline-block">
+                    <a href="{{ route('lms.support-edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
+
+                    <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger " onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                        <button type="submit" class="btn btn-sm mx-1 btn-danger " onclick="return confirm('Are you sure?')"><i class="fa fa-trash "></i></button>
                     </form>
+
+                </h5>
+
             </div>
 
             <div class="card-body">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <p class="card-text"><strong>Course:</strong> {{ $quiz->course->title }}</p>
-                        <p class="card-text"><strong>Title:</strong> {{ $quiz->title }}</p>
+                        <p class="card-text text-dark"><strong>Course:</strong> {{ $quiz->course->title }}</p>
+                        <p class="card-text text-dark "><strong>Title:</strong> {{ $quiz->title }}</p>
                         <!-- Add other quiz details as needed -->
 
                     </div>

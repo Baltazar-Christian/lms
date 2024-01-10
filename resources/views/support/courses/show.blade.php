@@ -104,7 +104,7 @@
                                                         <a href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
                                                         @if($content->type!='text')
-                                                        <a href="{{ asset('storage/' . $content->file_path) }}"
+                                                        <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
                                                             target="_blank" class="btn btn-sm btn-dark  ms-2"><i
                                                                 class="fa fa-download"></i></a>
                                                         @endif
@@ -140,31 +140,46 @@
 
                                 </h6>
                                 <br>
+                                <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
+                                    <thead hidden>
+                                        <th></th>
+                                        <th>Title</th>
+                                        <th>Option</th>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $i=1;
+                                        @endphp
                                 @forelse ($quizzes as $quiz)
-                                    <div class="card mb-3">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $quiz->title }}
-                                                {{-- <div class="d-flex justify-content-end align-items-center"> --}}
-                                                <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                    class="btn btn-sm btn-dark float-end ms-2">View </a>
-                                                {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                    class="btn btn-sm btn-warning ms-2">Edit</a> --}}
-                                                                    <!-- Add the delete button -->
-                                                                    {{-- <form
-                                                    action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
-                                                    method="post" style="display: inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
-                                                </form> --}}
-                                                {{-- </div> --}}
-                                            </h5>
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $quiz->title }}</td>
+                                        <td>
+                                            <a href="{{ route('lms.support-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                class="btn btn-sm btn-dark float-end ms-2">View </a>
+                                            {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                class="btn btn-sm btn-warning ms-2">Edit</a> --}}
+                                                                <!-- Add the delete button -->
+                                                                {{-- <form
+                                                action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
+                                                method="post" style="display: inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
+                                            </form> --}}
+                                            {{-- </div> --}}
+                                        </td>
 
-                                        </div>
-                                    </div>
+                                    </tr>
+
+
+
                                 @empty
                                     <p class="text-muted">No quizzes available for this course.</p>
                                 @endforelse
+                                </tbody>
+
+                            </table>
                             </div>
                             <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
