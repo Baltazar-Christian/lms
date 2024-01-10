@@ -280,6 +280,8 @@ Route::group(['middleware' => 'role:support'], function () {
         // Show a single question's answers
         Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [SupportQuizController::class, 'showQuestionAnswers'])->name('lms.support-show-question');
         Route::get('/{course}/quizzes/{quiz}/editquestions/{question}/answers', [SupportQuizController::class, 'editQuestion'])->name('lms.support-edit-question');
+        Route::get('/quizzes/support-editquestions/{question}/answers', [SupportQuizController::class, 'editAnswer'])->name('lms.support-edit-answer');
+
 
         // Show a single answer in detail
         Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [SupportQuizController::class, 'showAnswerDetail'])->name('lms.support-show-answer');

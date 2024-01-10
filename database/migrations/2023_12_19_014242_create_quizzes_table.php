@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->timestamps();
+
+
+            $table->foreign('quiz_id')->references('id')->on('quiz_questions')->onDelete('cascade');
+            $table->foreign('quiz_id')->references('id')->on('quiz_answers')->onDelete('cascade');
         });
     }
 

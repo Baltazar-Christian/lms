@@ -7,6 +7,7 @@ use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
+use App\Models\QuizAnswer;
 use App\Models\QuizQuestion;
 use Illuminate\Validation\Rule;
 
@@ -56,6 +57,16 @@ class SupportQuizController extends Controller
 
         return view('support.quizzes.edit-question', compact('course', 'quiz', 'question', 'answers'));
     }
+
+
+    public function editAnswer( QuizQuestion $answer)
+    {
+
+
+        return view('support.quizzes.edit-answer', compact( 'answer'));
+    }
+
+
 
     public function update(Request $request, Course $course, Quiz $quiz)
     {
@@ -158,6 +169,18 @@ class SupportQuizController extends Controller
 
         return back()->with('success', 'Question Deleted successfully.');
     }
+
+
+    public function deleteAnswer( $answerId)
+    {
+
+
+        $quizAnswer = QuizAnswer::findOrFail($answerId);
+        $quizAnswer->delete();
+
+        return back()->with('success', 'Answer Deleted successfully.');
+    }
+
 
 
 

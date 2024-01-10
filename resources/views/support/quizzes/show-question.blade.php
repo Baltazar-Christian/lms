@@ -27,7 +27,7 @@
                                 <th>ID</th>
                                 <th>Text</th>
                                 <th>Is Correct</th>
-                                {{-- <th>Actions</th> --}}
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +36,20 @@
                                     <td>{{ $answer->id }}</td>
                                     <td>{{ $answer->answer }}</td>
                                     <td>{{ $answer->is_correct ? 'Yes' : 'No' }}</td>
-                                    {{-- <td>
-                                        <a href="{{ route('lms.show-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}"
+                                    <td>
+                                        {{-- <a href="{{ route('lms.show-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}"
                                             class="btn btn-sm btn-info">
                                             <i class="fa fa-eye"></i>
+                                        </a> --}}
+
+                                        <a href="{{ route('lms.support-edit-answer',  $answer->id) }}" class="btn btn-sm btn-dark">
+                                            <i class="fa fa-edit"></i>
                                         </a>
-                                    </td> --}}
+
+                                        <a href="{{ route('lms.support-delete-answer',  $answer->id ) }}" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

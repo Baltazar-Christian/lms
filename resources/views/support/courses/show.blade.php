@@ -1,19 +1,19 @@
 @extends('layouts.support')
 
 @section('content')
-    <div class="container mt-2 mb-5 " >
+    <div class="container mt-2 mb-5 ">
 
         <div class="card">
             <div class="card-header">
 
 
                 <div class="mt-4 d-flex justify-content-end">
-                    @if($course->is_published)
-                    <a href="{{ route('lms.support-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
-
+                    @if ($course->is_published)
+                        <a href="{{ route('lms.support-courses') }}" class="btn btn-dark float-end"> <i
+                                class="fa fa-list text-warning"></i> All Courses </a>
                     @else
-                    <a href="{{ route('lms.support-draft-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
-
+                        <a href="{{ route('lms.support-draft-courses') }}" class="btn btn-dark float-end"> <i
+                                class="fa fa-list text-warning"></i> All Courses </a>
                     @endif
 
                     <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
@@ -38,7 +38,7 @@
                 </div>
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
-                    <span><strong class="text-warning">Price:</strong> Tsh {{ number_format($course->price,2) }}</span><br>
+                    <span><strong class="text-warning">Price:</strong> Tsh {{ number_format($course->price, 2) }}</span><br>
                     <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }}
                         minutes</span><br>
                     <span><strong class="text-warning">Published:</strong> {{ $course->is_published ? 'Yes' : 'No' }}</span>
@@ -103,10 +103,10 @@
                                                     <div class="d-flex justify-content-end align-items-center">
                                                         <a href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                        @if($content->type!='text')
-                                                        <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
-                                                            target="_blank" class="btn btn-sm btn-dark  ms-2"><i
-                                                                class="fa fa-download"></i></a>
+                                                        @if ($content->type != 'text')
+                                                            <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
+                                                                target="_blank" class="btn btn-sm btn-dark  ms-2"><i
+                                                                    class="fa fa-download"></i></a>
                                                         @endif
                                                         <a href="{{ route('lms.support-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-warning ms-2"><i
@@ -148,106 +148,119 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                        $i=1;
+                                            $i = 1;
                                         @endphp
-                                @forelse ($quizzes as $quiz)
-                                    <tr>
-                                        <td>{{ $i++ }}</td>
-                                        <td>{{ $quiz->title }}</td>
-                                        <td>
-                                            <a href="{{ route('lms.support-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                class="btn btn-sm btn-dark float-end ms-2">View </a>
-                                            {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                class="btn btn-sm btn-warning ms-2">Edit</a> --}}
-                                                                <!-- Add the delete button -->
-                                                                {{-- <form
-                                                action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
-                                                method="post" style="display: inline-block">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
-                                            </form> --}}
-                                            {{-- </div> --}}
-                                        </td>
-
-                                    </tr>
+                                        @forelse ($quizzes as $quiz)
+                                            <tr>
+                                                <td>{{ $i++ }}</td>
+                                                <td>{{ $quiz->title }}</td>
+                                                <td>
 
 
-
-                                @empty
-                                    <p class="text-muted">No quizzes available for this course.</p>
-                                @endforelse
-                                </tbody>
-
-                            </table>
-                            </div>
-                            <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
-                                aria-labelledby="btabs-static2-settings-tab" tabindex="0">
-                                <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
-
-                                <table class="table mt-2 table-bordereless table-stripped table-vcenter js-dataTable-responsive">
-                                    <thead>
-                                        <th>SN</th>
-                                        <th>Full Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $i=1;
-                                        @endphp
-                                @foreach ($enrolledStudents as $student)
-                                <tr>
-                                    <td>{{ $i++ }}</td>
-
-                                <td>
-                                {{ $student->name }}
-                            </td>
-                                <td>
-                                 {{ $student->email }}
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
-                                        {{ $student->pivot->approval_status }}
-
-                                    </span>
-                                </td>
-
-                                <td>
-                                    @if ($student->pivot->approval_status == 'pending')
-                                    <form action="{{ route('lms.support-approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success btn-sm"> <i class="fa fa-check"></i> Approve</button>
-                                    </form>
-
-                                    <form action="{{ route('lms.support-reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger btn-sm"> <i class="fa fa-x"></i> Reject</button>
-                                    </form>
-                                    @else
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
-                                        Done
-                                    </span>
-                                     @endif
-                                </td>
+                                                    <!-- Add the delete button -->
+                                                    <form action="{{ route('lms.support-delete-quiz', $quiz->id) }}"
+                                                        method="post" class="float-end" style="display: inline-block">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-sm float-end btn-danger ms-2"> <i
+                                                                class="fa fa-trash"></i></button>
+                                                    </form>
+                                                    <a href="{{ route('lms.support-edit-quiz', $quiz->id) }}"
+                                                        class="btn btn-sm btn-dark float-end ms-2">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                <a href="{{ route('lms.support-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                    class="btn btn-sm btn-dark float-end "> <i class="fa fa-eye"></i> </a>
+                                                </td>
 
                             </tr>
-                                @endforeach
+
+
+
+                        @empty
+                            <p class="text-muted">No quizzes available for this course.</p>
+                            @endforelse
                             </tbody>
+
                             </table>
-                            </div>
+                        </div>
+                        <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
+                            aria-labelledby="btabs-static2-settings-tab" tabindex="0">
+                            <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
+
+                            <table
+                                class="table mt-2 table-bordereless table-stripped table-vcenter js-dataTable-responsive">
+                                <thead>
+                                    <th>SN</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $i = 1;
+                                    @endphp
+                                    @foreach ($enrolledStudents as $student)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+
+                                            <td>
+                                                {{ $student->name }}
+                                            </td>
+                                            <td>
+                                                {{ $student->email }}
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                                    {{ $student->pivot->approval_status }}
+
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                @if ($student->pivot->approval_status == 'pending')
+                                                    <form
+                                                        action="{{ route('lms.support-approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
+                                                        method="post" style="display: inline-block;">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success btn-sm"> <i
+                                                                class="fa fa-check"></i> Approve</button>
+                                                    </form>
+
+                                                    <form
+                                                        action="{{ route('lms.support-reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
+                                                        method="post" style="display: inline-block;">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger btn-sm"> <i
+                                                                class="fa fa-x"></i> Reject</button>
+                                                    </form>
+                                                @else
+                                                    <span
+                                                        class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                                        Done
+                                                    </span>
+                                                @endif
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- END Block Tabs Default Style (Right) -->
-
-
                 </div>
-
-
+                <!-- END Block Tabs Default Style (Right) -->
 
 
             </div>
 
+
+
+
         </div>
-    @endsection
+
+    </div>
+@endsection
