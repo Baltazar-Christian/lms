@@ -323,12 +323,13 @@ class SupportCourseController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'type' => 'required|in:pdf,image,video',
-            'file' => 'required|mimes:pdf,jpeg,png,mp4|max:2048', // Adjust the allowed file types and size
+            'type' => 'required|in:text,pdf,image,video',
+            'file' => 'nullable|mimes:pdf,jpeg,png,mp4|max:2048', // Adjust the allowed file types and size
             'duration' => 'nullable|integer',
         ]);
 
         // Upload the file
+        $filePath=Null;
         if ($request->hasFile('file')) {
 
             // Upload the new cover image

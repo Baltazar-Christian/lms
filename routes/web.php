@@ -248,7 +248,7 @@ Route::group(['middleware' => 'role:support'], function () {
         Route::get('/{courseId}/content/{contentId}/edit', [SupportCourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
         Route::any('update-course/{courseId}/content/{contentId}/update', [SupportCourseController::class, 'updateContent'])->name('lms.support-courses.update-content');
         Route::get('/{courseId}/content/{contentId}', [SupportCourseController::class, 'showCourseContent'])->name('lms.support-show-course-content');
-        Route::delete('/{courseId}/content/{contentId}', [SupportCourseController::class, 'deleteCourseContent'])->name('lms.support-delete-course-content');
+        Route::any('/{courseId}/delete-content/{contentId}', [SupportCourseController::class, 'deleteCourseContent'])->name('lms.support-delete-course-content');
 
         Route::get('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'createSubSection'])->name('lms.support-create-subsection');
 
