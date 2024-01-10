@@ -25,14 +25,14 @@ class SupportCourseController extends Controller
 
     public function index()
     {
-        $courses = Course::where('is_published', 1)->get();
+        $courses = Course::where('is_published', 1)->latest()->get();
         return view('support.courses.index', compact('courses'));
     }
 
 
     public function draft()
     {
-        $courses = Course::where('is_published', 0)->get();
+        $courses = Course::where('is_published', 0)->get()->orderBy('created_at','desc');
         return view('support.courses.published', compact('courses'));
     }
 
