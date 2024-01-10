@@ -32,7 +32,7 @@ class SupportCourseController extends Controller
 
     public function draft()
     {
-        $courses = Course::where('is_published', 0)->get()->orderBy('created_at','desc');
+        $courses = Course::where('is_published', 0)->orderBy('created_at','desc')->get();
         return view('support.courses.published', compact('courses'));
     }
 
