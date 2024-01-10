@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use App\Models\QuizQuestion;
+use Illuminate\Validation\Rule;
 
 class SupportQuizController extends Controller
 {
@@ -49,14 +50,45 @@ class SupportQuizController extends Controller
         return view('support.quizzes.show-question', compact('course', 'quiz', 'question', 'answers'));
     }
 
+    public function update(Request $request, Course $course, Quiz $quiz)
+    {
+        $request->validate([
+            // 'title' => [
+            //     'required',
+            //     Rule::unique('quizzes')->ignore($quiz->id),
+            //     'max:255',
+            // ],
+            // Add other validation rules as needed
+        ]);
+
+        $quiz->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            // Add other fields to update as needed
+        ]);
+
+        return redirect()->route('lms.support-show-quiz', [$quiz->course_id, $quiz->id])->with('success', 'Quiz Updated successfully.');
+    }
+
     public function show($courseId, $quizId)
     {
         $course = Course::findOrFail($courseId);
         $quiz = Quiz::findOrFail($quizId);
-        $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
+        $questions = QuizQuestion::where('quiz_id', $quiz->id)->get();
         // dd( $questions);
 
-        return view('support.quizzes.show', compact('course', 'quiz','questions'));
+        return view('support.quizzes.show', compact('course', 'quiz', 'questions'));
+    }
+
+    public function edit($quizId)
+    {
+        $quiz = Quiz::findOrFail($quizId);
+
+        $course = Course::findOrFail($quiz->course_id);
+        $questions = QuizQuestion::where('quiz_id', $quiz->id)->get();
+        // dd( $questions);
+
+        return view('support.quizzes.edit', compact('course', 'quiz', 'questions'));
     }
 
     public function destroy($quizId)
@@ -122,11 +154,11 @@ class SupportQuizController extends Controller
     }
 
     public function showAnswerDetail(Course $course, Quiz $quiz, QuizQuestion $question, QuizAnswer $answer)
-{
-    // You can retrieve additional details or perform any other logic here
+    {
+        // You can retrieve additional details or perform any other logic here
 
-    return view('support.quizzes.show-answer-detail', compact('course', 'quiz', 'question', 'answer'));
-}
+        return view('support.quizzes.show-answer-detail', compact('course', 'quiz', 'question', 'answer'));
+    }
 
 
     public function storeQuiz(Request $request, $courseContentId)
@@ -202,5 +234,4 @@ class SupportQuizController extends Controller
         return redirect()->route('lms.support-show-quiz', $question->quiz->id)
             ->with('success', 'Quiz answer created successfully.');
     }
-
 }

@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h5>Quiz Details
 
-                    <a href="{{ route('lms.support-edit-quiz', [$course->id, $quiz->id]) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('lms.support-edit-quiz', $quiz->id) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
 
                     {{-- <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">
                         @csrf
@@ -22,8 +22,8 @@
             <div class="card-body">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <p class="card-text text-dark"><strong>Course:</strong> {{ $quiz->course->title }}</p>
                         <p class="card-text text-dark "><strong>Title:</strong> {{ $quiz->title }}</p>
+                        <p class="card-text text-dark"><strong>Course:</strong> {{ $quiz->course->title }}</p>
                         <!-- Add other quiz details as needed -->
 
                     </div>

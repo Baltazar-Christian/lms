@@ -285,7 +285,7 @@ Route::group(['middleware' => 'role:support'], function () {
     Route::get('/support-quizzes', [SupportQuizController::class, 'index'])->name('lms.support-quizzes');
     Route::post('/support-quizzes', [SupportQuizController::class, 'store'])->name('lms.support-store-quiz');
     Route::get('/support-quizzes/{quiz}/edit', [SupportQuizController::class, 'edit'])->name('lms.support-edit-quiz');
-    Route::put('/support-quizzes/{quiz}', [SupportQuizController::class, 'update'])->name('lms.support-update-quiz');
+    Route::any('/support-quizzes/{quiz}', [SupportQuizController::class, 'update'])->name('lms.support-update-quiz');
     Route::delete('/support-quizzes/{quiz}', [SupportQuizController::class, 'destroy'])->name('lms.support-delete-quiz');
 
 
