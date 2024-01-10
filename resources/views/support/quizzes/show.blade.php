@@ -62,6 +62,10 @@
                                             <a href="{{ route('lms.support-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-edit"></i>
                                             </a>
+
+                                            <a href="{{ route('lms.support-delete-question',  $question->id ) }}" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

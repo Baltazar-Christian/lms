@@ -145,7 +145,18 @@ class SupportQuizController extends Controller
             // Add other fields to update as needed
         ]);
 
-        return redirect()->route('lms.support-show-quiz', [$quizQuestion->course->id, $quizQuestion->quiz->id])->with('success', 'Question updated successfully.');
+        return redirect()->route('lms.support-show-quiz', [$quizQuestion->quiz->course->id, $quizQuestion->quiz->id])->with('success', 'Question updated successfully.');
+    }
+
+    public function deleteQuestion( $questionId)
+    {
+
+
+        $quizQuestion = QuizQuestion::findOrFail($questionId);
+
+        $quizQuestion->delete();
+
+        return back()->with('success', 'Question Deleted successfully.');
     }
 
 

@@ -9,7 +9,7 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.support-store-question',  $question->id) }}" method="post">
+                <form action="{{ route('lms.support-store-question',  $quiz->id) }}" method="post">
                     @csrf
 
                     <div class="form-group">
