@@ -21,12 +21,12 @@
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
 
                     <div class="mb-3">
-                        <label for="title" class="form-label">Quiz Title</label>
+                        <label for="title " class="form-label text-dark" >Quiz Title</label>
                         <input type="text" name="title" id="title" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
+                        <label for="description" class="form-label text-dark">Description</label>
                         <textarea name="description" id="description" class="form-control" rows="4"></textarea>
                     </div>
 

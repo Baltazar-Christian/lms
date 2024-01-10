@@ -135,7 +135,7 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.create-quiz', $course->id) }}"
+                                    <a href="{{ route('lms.support-create-quiz', $course->id) }}"
                                         class="btn btn-dark  float-end">Add Quiz</a>
 
                                 </h6>
