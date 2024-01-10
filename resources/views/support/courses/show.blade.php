@@ -70,6 +70,7 @@
 
                         </ul>
                         <div class="block-content tab-content">
+                            {{-- For Contents --}}
                             <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
@@ -79,7 +80,7 @@
                                         Content</a>
                                 </h6>
 
-                                <table class="table mt-2 table-bordereless table-striped table-vcenter js-dataTable-responsive">
+                                <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
                                     <thead hidden>
                                         <th></th>
                                         <th>Title</th>
@@ -129,6 +130,7 @@
                                 </table>
 
                             </div>
+                            {{-- For Quizzes --}}
                             <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
@@ -146,15 +148,15 @@
                                                 <a href="{{ route('lms.show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
                                                     class="btn btn-sm btn-dark float-end ms-2">View </a>
                                                 {{-- <a href="{{ route('lms.edit-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                class="btn btn-sm btn-warning ms-2">Edit</a> --}}
-                                                <!-- Add the delete button -->
-                                                {{-- <form
-                                action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
-                                method="post" style="display: inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
-                            </form> --}}
+                                                    class="btn btn-sm btn-warning ms-2">Edit</a> --}}
+                                                                    <!-- Add the delete button -->
+                                                                    {{-- <form
+                                                    action="{{ route('lms.delete-quiz', ['quizId' => $quiz->id]) }}"
+                                                    method="post" style="display: inline-block">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
+                                                </form> --}}
                                                 {{-- </div> --}}
                                             </h5>
 
@@ -168,10 +170,11 @@
                                 aria-labelledby="btabs-static2-settings-tab" tabindex="0">
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
 
-                                <table class="table table-responsive">
+                                <table class="table mt-2 table-bordereless table-stripped table-vcenter js-dataTable-responsive">
                                     <thead>
                                         <th>SN</th>
                                         <th>Full Name</th>
+                                        <th>Email</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </thead>
@@ -185,25 +188,33 @@
 
                                 <td>
                                 {{ $student->name }}
-                                    <br>
+                            </td>
+                                <td>
                                  {{ $student->email }}
                                 </td>
                                 <td>
-                                    {{ $student->pivot->approval_status }}
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                        {{ $student->pivot->approval_status }}
+
+                                    </span>
                                 </td>
 
                                 <td>
                                     @if ($student->pivot->approval_status == 'pending')
-                                    <form action="{{ route('lms.approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                    <form action="{{ route('lms.support-approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
                                         @csrf
-                                        <button type="submit" class="btn btn-success">Approve</button>
+                                        <button type="submit" class="btn btn-success btn-sm"> <i class="fa fa-check"></i> Approve</button>
                                     </form>
 
-                                    <form action="{{ route('lms.reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
+                                    <form action="{{ route('lms.support-reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}" method="post" style="display: inline-block;">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"> <i class="fa fa-x"></i> Reject</button>
                                     </form>
-                                @endif
+                                    @else
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                        Done
+                                    </span>
+                                     @endif
                                 </td>
 
                             </tr>
