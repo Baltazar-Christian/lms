@@ -58,6 +58,10 @@
                                                 <i class="fa fa-eye"></i>
                                                 View Answers
                                             </a>
+
+                                            <a href="{{ route('lms.support-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

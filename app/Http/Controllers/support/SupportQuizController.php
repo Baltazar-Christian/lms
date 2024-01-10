@@ -50,6 +50,13 @@ class SupportQuizController extends Controller
         return view('support.quizzes.show-question', compact('course', 'quiz', 'question', 'answers'));
     }
 
+    public function editQuestion(Course $course, Quiz $quiz, QuizQuestion $question)
+    {
+        $answers = $question->answers;
+
+        return view('support.quizzes.edit-question', compact('course', 'quiz', 'question', 'answers'));
+    }
+
     public function update(Request $request, Course $course, Quiz $quiz)
     {
         $request->validate([
