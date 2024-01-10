@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.support')
 
 @section('content')
     <div class="container mt-4">
@@ -37,19 +37,21 @@
                         <a href="{{ route('lms.support-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
 
                         </h5>
+                        <div>
 
-                        <table class="table mt-3">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Text</th>
-                                    <th>Actions</th>
-                                </tr>
+                        <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
+                            <thead >
+                                <th></th>
+                                <th>Title</th>
+                                <th>Option</th>
                             </thead>
                             <tbody>
+                                @php
+                                $i=1;
+                                @endphp
                                 @foreach ($quiz->questions as $question)
                                     <tr>
-                                        <td>{{ $question->id }}</td>
+                                        <td>{{ $i++ }}</td>
                                         <td>{{ $question->question }}</td>
                                         <td>
                                             <a href="{{ route('lms.support-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
@@ -61,6 +63,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.support')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-2">
 
         <div class="card ">
             <div class="card-header">
@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="text">Question Text</label>
+                        <label for="text" class="text-dark">Question Text</label>
                         <input type="text" name="text" id="text" class="form-control" required>
                     </div>
 
