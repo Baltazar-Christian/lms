@@ -4,9 +4,19 @@
 @section('content')
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 
-    <div class="container mt-4">
-        <h1>Edit Course Content</h1>
+    <div class="container mt-2">
 
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Edit Course Content
+                    <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+
+                </h5>
+
+            </div>
+            <div class="card-body">
         <form action="{{ url('support-courses/update-course/' . $course->id . '/content' . '/' . $content->id . '/update') }}" method="post"
             enctype="multipart/form-data">
             <form action="{{ route('lms.courses.save-content', $course->id) }}" method="post" enctype="multipart/form-data">
@@ -34,6 +44,7 @@
                     <div class="form-group col-6 mb-2">
                         <label for="type">Content Type</label>
                         <select name="type" id="type" class="form-control" required>
+                            <option value="text" {{ $content->type === 'text' ? 'selected' : '' }}>Text</option>
                             <option value="pdf" {{ $content->type === 'pdf' ? 'selected' : '' }}>PDF</option>
                             <option value="image" {{ $content->type === 'image' ? 'selected' : '' }}>Image</option>
                             <option value="video" {{ $content->type === 'video' ? 'selected' : '' }}>Video</option>
@@ -62,7 +73,7 @@
             </form>
     </div>
 
-
+</div>
     <script>
         ClassicEditor.create( document.querySelector( '#content' ) )
             .catch( error => {
