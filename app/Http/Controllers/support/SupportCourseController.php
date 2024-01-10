@@ -53,7 +53,7 @@ class SupportCourseController extends Controller
             'duration_in_minutes' => 'required|integer',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
-            'cover_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Handle cover image update
@@ -69,7 +69,7 @@ class SupportCourseController extends Controller
                 // Update the request data to include the new cover image name
                 $request->merge(['cover_image' => $imageName]);
             }
-
+        $request['cover_image']=$imageName;
         $request['user_id'] = Auth::user()->id;
 
         Course::create($request->all());
