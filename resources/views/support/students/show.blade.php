@@ -41,7 +41,7 @@
                             <p class="text-dark">  <i class="fa fa-book text-warning"></i>  {{ $course->title }}</p>
                             <hr>
                         @empty
-                            <p>No enrolled courses.</p>
+                            <p class="text-dark">No enrolled courses.</p>
                         @endforelse
                     </div>
 
@@ -50,9 +50,9 @@
                     aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                         <h5 class="mt-3">  <i class="fa fa-question text-warning"></i> Quiz Results</h5>
                         @forelse ($quizResults as $result)
-                            <p>Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
+                            <p  class="text-dark">Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
                         @empty
-                            <p>No quiz results.</p>
+                            <p class="text-dark">No quiz results.</p>
                         @endforelse
                     </div>
                 </div>

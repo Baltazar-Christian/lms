@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\support;
 
 use App\Models\User;
+use App\Models\QuizResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -212,7 +213,7 @@ class SupportUserManagementController extends Controller
     {
         $user = User::findOrFail($id);
         $enrolledCourses = $user->courses()->get();
-        $quizResults = $user->quizResults()->with('quiz')->get();
+        $quizResults =QuizResult::where('user_id',$id)->latest()->get();
 
         return view('support.students.show', compact('user','enrolledCourses','quizResults'));
     }

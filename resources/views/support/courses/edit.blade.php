@@ -10,7 +10,15 @@
             <div class="card-header">
                 <h5 >
                     <i class="fa fa-edit text-warning"></i>
-                    Edit Course</h1>
+                    Edit Course
+                    @if($course->is_published)
+                    <a href="{{ route('lms.support-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
+
+                    @else
+                    <a href="{{ route('lms.support-draft-courses') }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> All Courses </a>
+
+                    @endif
+                </h5>
 
             </div>
             <div class="card-body">
@@ -51,8 +59,8 @@
                         <div class="form-group col-6 mb-2">
                             <label for="price" class="text-dark">Price</label>
                             <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="number" name="price" id="price" class="form-control" value="{{ old('price', $course->price ?? '') }}" required>
+                                <span class="input-group-text">Tsh</span>
+                                <input type="number" name="price" id="price" step="any" min="0" class="form-control" value="{{ old('price', $course->price ?? '') }}" required>
                             </div>
                         </div>
 
@@ -80,7 +88,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-secondary float-end">Update Course</button>
+                    <button type="submit" class="btn btn-secondary float-end mt-3">Update Course</button>
                 </form>
 
             </div>
