@@ -1,23 +1,21 @@
 @extends('layouts.support')
 
 @section('content')
-    <div class="container mt-2 mb-5 " {{-- style="border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);" --}}>
+    <div class="container mt-2 mb-5 " >
 
         <div class="card">
             <div class="card-header">
-                {{-- <h5 class="text-start text-dark"> --}}
-                {{-- <i class="fa fa-book text-warning"></i>
-                    {{ $course->title }} --}}
+
 
                 <div class="mt-4 d-flex justify-content-end">
-                    <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-dark mx-1"><i
+                    <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
                             class="fa fa-edit"></i></a>
-                    <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block;">
+                    {{-- <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Are you sure?')"><i
+                        <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')"><i
                                 class="fa fa-trash"></i></button>
-                    </form>
+                    </form> --}}
 
 
                 </div>

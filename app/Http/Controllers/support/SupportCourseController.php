@@ -57,16 +57,18 @@ class SupportCourseController extends Controller
         ]);
 
         // Handle cover image update
-        if ($request->hasFile('cover_image')) {
+            // Handle cover image update
+            if ($request->hasFile('cover_image')) {
+                // Delete the old cover image if it exists
 
-            // Upload the new cover image
-            $coverImage = $request->file('cover_image');
-            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
+                // Upload the new cover image
+                $coverImage = $request->file('cover_image');
+                $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+                $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
-            // Update the request data to include the new cover image name
-            $request->merge(['cover_image' => $imageName]);
-        }
+                // Update the request data to include the new cover image name
+                $request->merge(['cover_image' => $imageName]);
+            }
 
         $request['user_id'] = Auth::user()->id;
 
@@ -176,8 +178,15 @@ class SupportCourseController extends Controller
         ]);
 
         // Redirect to the courses index with a success message
-        return redirect()->route('lms.support-courses')->with('success', 'Course updated successfully.');
-    }
+        if ($request->is_published) {
+            return redirect()->route('lms.support-courses')->with('success', 'Course created successfully.');
+
+        }
+        else {
+            return redirect()->route('lms.support-draft-courses')->with('success', 'Course created successfully.');
+
+        }
+        }
 
     public function destroy($course)
     {
@@ -189,7 +198,7 @@ class SupportCourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('lms.support-courses')->with('success', 'Course deleted successfully.');
+        return back()->with('success', 'Course deleted successfully.');
     }
 
 
