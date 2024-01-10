@@ -79,8 +79,14 @@
                                         Content</a>
                                 </h6>
 
-                                <table class="table table-borderless table-vcenter mt-2">
+                                <table class="table mt-2 table-bordereless table-striped table-vcenter js-dataTable-responsive">
+                                    <thead hidden>
+                                        <th></th>
+                                        <th>Title</th>
+                                        <th>Option</th>
+                                    </thead>
                                     <tbody>
+
 
                                         @forelse ($contents as $content)
                                             <tr>
@@ -91,14 +97,16 @@
                                                     <a class="fw-medium text-dark"
                                                         href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}">{{ $content->title }}</a>
                                                 </td>
+
                                                 <td class="text-end text-muted">
                                                     <div class="d-flex justify-content-end align-items-center">
                                                         <a href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
+                                                        @if($content->type!='text')
                                                         <a href="{{ asset('storage/' . $content->file_path) }}"
                                                             target="_blank" class="btn btn-sm btn-dark  ms-2"><i
                                                                 class="fa fa-download"></i></a>
-
+                                                        @endif
                                                         <a href="{{ route('lms.support-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-warning ms-2"><i
                                                                 class="fa fa-edit"></i></a>

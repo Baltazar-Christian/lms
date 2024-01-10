@@ -7,7 +7,12 @@
 
         <div class="card mt-3">
             <div class="card-header">
-                <h5>Create Course Content</h5>
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Create Course Content
+                    <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+
+                </h5>
 
             </div>
             <div class="card-body">
@@ -27,12 +32,12 @@
 
                     <div class="row">
                         <div class="form-group col-6 mb-2">
-                            <label for="title">Title</label>
+                            <label for="title " class="text-dark">Title</label>
                             <input type="text" name="title" id="title" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6 mb-2">
-                            <label for="type">Content Type</label>
+                            <label for="type" class="text-dark">Content Type</label>
                             <select name="type" id="type" class="form-control" required>
                                 <option value="text">Text</option>
                                 <option value="pdf">PDF</option>
@@ -42,17 +47,17 @@
                         </div>
 
                         <div class="form-group col-6 mb-2">
-                            <label for="file">File</label>
+                            <label for="file" class="text-dark">File</label>
                             <input type="file" name="file" id="file" class="form-control-file">
                         </div>
 
                         <div class="form-group col-6 mb-2">
-                            <label for="duration">Duration (minutes)</label>
+                            <label for="duration" class="text-dark">Duration (minutes)</label>
                             <input type="number" name="duration" id="duration" class="form-control">
                         </div>
 
                         <div class="form-group col-12 mb-2">
-                            <label for="description">Description</label>
+                            <label for="description" class="text-dark">Description</label>
                             {{-- <textarea name="description" id="editor" class="form-control" rows="4" required></textarea> --}}
                             {{-- <div id="">Hello classic CKEditor 5!</div> --}}
                             <textarea class="form-control" id="content" placeholder="Enter the Description" rows="8" name="description"></textarea>
