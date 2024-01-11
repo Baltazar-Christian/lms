@@ -158,6 +158,27 @@ class TutorCoursesController extends Controller
     }
 
 
+    public function updateContent(Request $request, $courseId, $contentId)
+    {
+        // $this->validateContent($request);
+
+        $content = CourseContent::findOrFail($contentId);
+        $content->update($request->all());
+
+        // Handle file update if needed...
+        if ($request->hasFile('file_path')) {
+            // Delete the old file
+            Storage::delete('public/' . $content->file_path);
+
+            // Upload the new file
+            $content->file_path = $this->uploadFile($request, 'file_path', 'course_contents');
+            $content->save();
+        }
+
+        return redirect()->route('lms.show-tutor-course', $courseId)->with('success', 'Course content updated successfully');
+    }
+
+
     public function destroy($course)
     {
         $course = Course::where('id', $course)->first();
