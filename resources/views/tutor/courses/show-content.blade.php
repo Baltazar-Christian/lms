@@ -50,7 +50,7 @@
                         Sub-Sections
 
                         {{-- Add button to create a new sub-section --}}
-                        <a href="{{ route('lms.support-create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}"
+                        <a href="{{ route('lms.tutor-create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}"
                             class="btn btn-dark float-end "><i class="fa fa-plus"></i> Sub-Section</a>
                     </h6>
 

@@ -8,7 +8,14 @@
 <div class="container mt-2">
     <div class="card">
         <div class="card-header">
-            <h5>Create Sub-Section</h5>
+            <h5>
+
+                Create Sub-Section
+
+                <a href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $parentContent->id]) }}" class="btn btn-sm btn-dark float-end">
+                    <i class="fa fa-list"></i> Back
+                </a>
+            </h5>
         </div>
         <div class="card-body">
             <form action="{{ route('lms.tutor-create-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
