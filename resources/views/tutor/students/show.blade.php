@@ -49,6 +49,8 @@
                                     $i=1;
                                 @endphp
                                 @forelse ($enrolledCourses as $course)
+
+                                @if($course->user_id==Auth::user()->id)
                                 <tr>
                                     <td>{{ $i++}}</td>
                                     <td>{{ $course->title }}</td>
@@ -56,7 +58,9 @@
                                         <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_complete ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
                                             {{  $course->is_complete?'Completed':'Incomplete' }}</span>
                                     </td>
+
                                 </tr>
+                                @endif
                                 @empty
                                 <p class="text-dark">No enrolled courses.</p>
                             @endforelse
