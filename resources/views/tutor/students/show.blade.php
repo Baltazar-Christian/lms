@@ -1,69 +1,98 @@
 @extends('layouts.tutor')
 
 @section('content')
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">
+                <h5> <i class="fa fa-user text-warning"></i>
+                     Student Details
+                     <a href="{{ route('lms.tutor-students') }}" class="btn btn-dark float-end mt-3">Back </a>
 
-<div class="container mt-2">
-    <div class="card">
-        <div class="card-header">
-            <h5>
-                <i class="fa fa-user text-warning"></i>
-                Student Details
+                    </h5>
+            </div>
+            <div class="card-body">
+                <p class="text-dark"><strong>Name:</strong> {{ $user->name }}</p>
+                <p class="text-dark"><strong>Email:</strong> {{ $user->email }}</p>
 
-                <a href="{{ route('lms.tutor-students') }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-list"></i> Back</a>
+                <hr>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
 
+                    <li class="nav-item">
+                        <button class="nav-link active" id="btabs-static2-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#btabs-static2-home" role="tab" aria-controls="btabs-static2-home"
+                            aria-selected="true">Enrolled Courses</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="btabs-static2-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#btabs-static2-profile" role="tab" aria-controls="btabs-static2-profile"
+                            aria-selected="false"> Quizes Result</button>
+                    </li>
 
-                    {{-- <a href="{{ route('lms.edit-system-admin', $user->id) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
+                </ul>
 
-                    <form action="{{ route('lms.delete-system-admin', $user->id) }}" class="float-end mx-1" method="POST" style="display: inline-block;">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!-- Enrolled Courses Tab -->
+                    <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
+                        aria-labelledby="btabs-static2-home-tab" tabindex="0">
+                        <h5 class="mt-2"> <i class="fa fa-book text-warning"></i> Enrolled Courses</h5>
+                        <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+
+                            <thead hidden>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $i=1;
+                                @endphp
+                                @forelse ($enrolledCourses as $course)
+                                <tr>
+                                    <td>{{ $i++}}</td>
+                                    <td>{{ $course->title }}</td>
+                                    <td>
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_complete ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                            {{  $course->is_complete?'Completed':'Incomplete' }}</span>
+                                    </td>
+                                </tr>
+                                @empty
+                                <p class="text-dark">No enrolled courses.</p>
+                            @endforelse
+                            </tbody>
+
+                        </table>
+                            <hr>
+
+                    </div>
+
+                    <!-- Quiz Results Tab -->
+                    <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
+                    aria-labelledby="btabs-static2-profile-tab" tabindex="0">
+                        <h5 class="mt-3">  <i class="fa fa-question text-warning"></i> Quiz Results</h5>
+                        @forelse ($quizResults as $result)
+                            <p  class="text-dark">Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
+                        @empty
+                            <p class="text-dark">No quiz results.</p>
+                        @endforelse
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        {{-- <a href="{{ route('lms.support-edit-system-admin', $user->id) }}" class="btn btn-warning">Edit</a> --}}
+                    </div>
+                    <div class="col-6">
+                        {{-- <form action="{{ route('lms.support-delete-system-admin', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm float-end" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                     </form> --}}
-                </h5>
-        </div>
-        <div class="card-body">
-            <p class="text-dark"><strong>Name:</strong> {{ $user->name }}</p>
-            <p class="text-dark"><strong>Email:</strong> {{ $user->email }}</p>
+                    </div>
+                </div>
 
-            <hr>
-             <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="courses-tab" data-toggle="tab" href="#courses" role="tab">Enrolled Courses</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="results-tab" data-toggle="tab" href="#results" role="tab">Quiz Results</a>
-            </li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Enrolled Courses Tab -->
-            <div class="tab-pane active" id="courses" role="tabpanel">
-                <h3 class="mt-3">Enrolled Courses</h3>
-                @forelse ($enrolledCourses as $course)
-                    <p>{{ $course->title }}</p>
-                @empty
-                    <p>No enrolled courses.</p>
-                @endforelse
-            </div>
-
-            <!-- Quiz Results Tab -->
-            <div class="tab-pane" id="results" role="tabpanel">
-                <h3 class="mt-3">Quiz Results</h3>
-                @forelse ($quizResults as $result)
-                    <p>Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
-                @empty
-                    <p>No quiz results.</p>
-                @endforelse
             </div>
         </div>
     </div>
-
-        </div>
-    </div>
-</div>
-
-
-
 @endsection
