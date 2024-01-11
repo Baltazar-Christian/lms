@@ -14,13 +14,7 @@
                     </a>
                     <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
                             class="fa fa-edit"></i></a>
-                    {{-- <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')"><i
-                                class="fa fa-trash"></i></button>
-                    </form>
- --}}
+
 
                 </div>
                 {{-- </h5> --}}
@@ -137,7 +131,7 @@
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
-                                    <a href="{{ route('lms.support-create-quiz', $course->id) }}"
+                                    <a href="{{ route('lms.tutor-create-quiz', $course->id) }}"
                                         class="btn btn-dark  float-end">Add Quiz</a>
 
                                 </h6>
