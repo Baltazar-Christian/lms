@@ -55,7 +55,7 @@
                                 @foreach ($quiz->questions as $question)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $question->question }}</td>
+                                        <td width="70%">{!! $question->question !!}</td>
                                         <td>
                                             <a href="{{ route('lms.support-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
