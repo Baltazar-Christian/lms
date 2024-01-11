@@ -154,7 +154,7 @@
 
 
                                                     <!-- Add the delete button -->
-                                                    <form action="{{ route('lms.support-delete-quiz', $quiz->id) }}"
+                                                    <form action="{{ route('lms.tutor-delete-quiz', $quiz->id) }}"
                                                         method="post" class="float-end" style="display: inline-block">
                                                         @csrf
                                                         @method('DELETE')
@@ -162,11 +162,11 @@
                                                             class="btn btn-sm float-end btn-danger ms-2"> <i
                                                                 class="fa fa-trash"></i></button>
                                                     </form>
-                                                    <a href="{{ route('lms.support-edit-quiz', $quiz->id) }}"
+                                                    <a href="{{ route('lms.tutor-edit-quiz', $quiz->id) }}"
                                                         class="btn btn-sm btn-dark float-end ms-2">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                <a href="{{ route('lms.support-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                                <a href="{{ route('lms.tutor-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
                                                     class="btn btn-sm btn-dark float-end "> <i class="fa fa-eye"></i> </a>
                                                 </td>
 

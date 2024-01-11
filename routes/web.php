@@ -380,6 +380,11 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::post('/delete/quizzes/{quizId}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
     });
+
+    Route::get('/tutor-quizzes/{quiz}/edit', [TutorQuizController::class, 'edit'])->name('lms.tutor-edit-quiz');
+    Route::any('/tutor-quizzes/{quiz}', [TutorQuizController::class, 'update'])->name('lms.tutor-update-quiz');
+    Route::delete('/tutor-quizzes/{quiz}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
+
 });
 
 Route::group(['middleware' => 'role:student'], function () {
