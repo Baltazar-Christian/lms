@@ -11,13 +11,13 @@
                 <h5>
                     <i class="fa fa-plus text-warning"></i>
                     Edit Course Content
-                    <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
+                    <a href="{{ route('lms.tutor-show-course', $course->id) }}" class="btn btn-dark float-end"> <i class="fa fa-list text-warning"></i> Back </a>
 
                 </h5>
 
             </div>
             <div class="card-body">
-        <form action="{{ url('support-courses/update-course/' . $course->id . '/content' . '/' . $content->id . '/update') }}" method="post"
+        <form action="{{ url('tutor-courses/update-course/' . $course->id . '/content' . '/' . $content->id . '/update') }}" method="post"
             enctype="multipart/form-data">
                 @csrf
                 @method('PUT') {{-- Assuming you are updating content --}}

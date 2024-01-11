@@ -95,6 +95,12 @@ class TutorCoursesController extends Controller
         return redirect()->route('lms.tutor-view-module', $module->id)->with('success', 'Course created successfully.');
     }
 
+    public function editContent($courseId, $contentId)
+    {
+        $course = Course::findOrFail($courseId);
+        $content = CourseContent::findOrFail($contentId);
+        return view('tutor.courses.edit-content', compact('course', 'content'));
+    }
 
     public function edit($id)
     {
