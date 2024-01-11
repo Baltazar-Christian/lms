@@ -10,7 +10,7 @@
                 <div class="col-6">
                     <h5>
                         <i class="fa fa-users text-warning"></i>
-                        Students List</h5>
+                       Blocked Students List</h5>
                 </div>
                 <div class="col-6">
                     {{-- <a href="{{ route('lms.add-student') }}" class="btn btn-success float-end">Register Student</a> --}}
