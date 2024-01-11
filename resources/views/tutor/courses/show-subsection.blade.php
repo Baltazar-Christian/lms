@@ -16,23 +16,37 @@
     </div>
     <div class="card-body">
 
-        <h2>{{ $subsection->title }}</h2>
-        <p> {!! $subsection->description !!}</p>
-        <p>Type: {{ $subsection->type }}</p>
-        <p>Duration: {{ $subsection->duration }} minutes</p>
-
         @if ($subsection->type === 'video')
-            <video width="100%" controls>
-                <source src="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        @else
-            {{-- Display other file types or embed PDF viewer --}}
-            {{-- Adjust this part based on your actual requirements --}}
-            <a href="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" target="_blank">View File</a>
-        @endif
+        <video width="100%" controls>
+            <source src="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    @endif
+    <hr>
+    <h2>{{ $subsection->title }}</h2>
+    <p> {!! $subsection->description !!}</p>
+    <p>Type: {{ $subsection->type }}</p>
+    <p>Duration: {{ $subsection->duration }} minutes</p>
+    {{-- Display content details --}}
+    <p>
+        {!! $subsection->description !!}
+    </p>
 
-        {{-- Add more details or customize the display based on your requirements --}}
+
+    @if ($subsection->type != 'video' || $subsection->type!='text')
+    <div class="col-12">
+    <hr>
+        {{-- Display other file types or embed PDF viewer --}}
+        <a href="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}" target="_blank"
+            type="button" class="btn btn-sm btn-dark float-end mt-2 mb-3">
+        <i class="fa fa-download"></i>
+        Download Attachment
+        </a>
+        <br>
+    </div>
+    @endif
+
+
     </div>
 </div>
 </div>
