@@ -5,7 +5,15 @@
 
         <div class="card ">
             <div class="card-header">
-                <h5>Create Question</h5>
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Create Question
+
+
+                    <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
+                </h5>
 
             </div>
             <div class="card-body">
@@ -14,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="text" class="text-dark">Question Text</label>
-                        <input type="text" name="text" id="text" class="form-control" required>
+                        <textarea name="text" placeholder="Enter Question Here.." class="form-control"  required rows="5"></textarea>
                     </div>
 
                     <br>

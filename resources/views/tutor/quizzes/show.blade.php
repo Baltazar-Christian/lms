@@ -37,7 +37,7 @@
                         <h5>
                             <i class="fa fa-list text-warning"></i>
                             Quiz Questions
-                        <a href="{{ route('lms.support-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
+                        <a href="{{ route('lms.tutor-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
 
                         </h5>
                         <div>
