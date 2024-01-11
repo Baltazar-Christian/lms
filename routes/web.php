@@ -362,7 +362,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::get('/{courseId}/content/{parentId}/create-subsection', [TutorCoursesController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
 
 
-        Route::post('/{courseId}/content/{parentId}/create-subsection', [CourseController::class, 'storeSubsection'])->name('lms.tutor-create-subsection');
+        Route::post('/{courseId}/content/{parentId}/create-subsection', [TutorCoursesController::class, 'storeSubsection'])->name('lms.tutor-create-subsection');
         Route::get('/{courseId}/content/{contentId}/show-subsection', [CourseController::class, 'showSubSection'])->name('lms.tutor-show-subsection');
 
         Route::get('/{courseId}/content/{contentId}/edit-subsection', [CourseController::class, 'editSubSection'])->name('lms.tutor-edit-subsection');

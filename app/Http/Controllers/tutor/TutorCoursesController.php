@@ -178,6 +178,44 @@ class TutorCoursesController extends Controller
         return redirect()->route('lms.show-tutor-course', $courseId)->with('success', 'Course content updated successfully');
     }
 
+    public function storeSubsection(Request $request, $courseId, $parentId)
+    {
+        // Validate the request
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'type' => 'required|in:text,pdf,image,video',
+            'file' => 'nullable|mimes:pdf,jpeg,png,mp4|max:2048', // Adjust the allowed file types and size
+            'duration' => 'nullable|integer',
+        ]);
+
+        // Upload the file
+        $filePath=Null;
+        if ($request->hasFile('file')) {
+
+            // Upload the new cover image
+            $coverImage = $request->file('file');
+            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->storeAs('course_contents', $imageName, 'public'); // Adjust the storage path as needed
+            // Update the request data to include the new cover image name
+            $filePath = $imageName;
+        }
+
+        // Create the sub-section
+        $subSection = CourseContent::create([
+            'course_id' => $courseId,
+            'parent_id' => $parentId,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'type' => $request->input('type'),
+            'file_path' => $filePath,
+            'duration' => $request->input('duration'),
+        ]);
+
+        // Redirect to the course content page
+        return redirect()->route('lms.tutor-show-course-content', ['courseId' => $courseId, 'contentId' => $parentId]);
+    }
+
 
     public function destroy($course)
     {
