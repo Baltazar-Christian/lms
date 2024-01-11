@@ -53,18 +53,20 @@ class TutorCoursesController extends Controller
         ]);
 
         // Handle cover image update
-          // Handle cover image update
-          if ($request->hasFile('cover_image')) {
-
+        $imageName = Null;
+        if ($request->hasFile('cover_image')) {
+            // Delete the old cover image if it exists
 
             // Upload the new cover image
             $coverImage = $request->file('cover_image');
             $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
+
             $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
             // Update the request data to include the new cover image name
             $request->merge(['cover_image' => $imageName]);
         }
+        $request['cover_image']=$imageName;
 
         $request['user_id'] = Auth::user()->id;
 

@@ -37,7 +37,10 @@
                                         <td>{{ $course->title }}</td>
                                         <td> Tsh {{ number_format($course->price,2) }}</td>
                                         <td>
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+
                                             {{ $course->is_published ? 'Yes' : 'No' }}
+                                            </span>
                                         </td>
                                         <td>
                                             <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark">
