@@ -12,7 +12,7 @@
 
                 Create Sub-Section
 
-                <a href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $parentContent->id]) }}" class="btn btn-sm btn-dark float-end">
+                <a href="{{ route('lms.tutor-show-subsection', ['courseId' => $course->id, 'contentId' => $parentContent->id]) }}" class="btn btn-sm btn-dark float-end">
                     <i class="fa fa-list"></i> Back
                 </a>
             </h5>

@@ -158,6 +158,15 @@ class TutorCoursesController extends Controller
     }
 
 
+    public function showSubsection($courseId, $subsectionId)
+    {
+        // Retrieve course and sub-section content
+        $course = Course::findOrFail($courseId);
+        $subsection = CourseContent::findOrFail($subsectionId);
+
+        return view('tutor.courses.show-subsection', compact('course', 'subsection'));
+    }
+
     public function updateContent(Request $request, $courseId, $contentId)
     {
         // $this->validateContent($request);

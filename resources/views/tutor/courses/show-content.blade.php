@@ -72,15 +72,15 @@
                                     <td>
                                         {{-- Add buttons to view/edit/delete sub-section --}}
 
-                                        <a href="{{ route('lms.support-show-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                        <a href="{{ route('lms.tutor-show-subsection', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                             class="btn btn-dark btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('lms.support-courses.edit-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                        <a href="{{ route('lms.tutor-courses.edit-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                             class="btn btn-dark btn-sm">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('lms.support-delete-course-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
+                                        <a href="{{ route('lms.tutor-delete-course-content', ['courseId' => $course->id, 'contentId' => $subContent->id]) }}"
                                             class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"></i>
                                         </a>

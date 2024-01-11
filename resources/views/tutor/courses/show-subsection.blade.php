@@ -7,7 +7,11 @@
 <div class="container mt-2">
 <div class="card">
     <div class="card-header">
-        <h5>Sub-Section Details</h5>
+        <h5>Sub-Section Details
+
+            <a href="{{ route('lms.tutor-show-course-content', ['courseId' => $subsection->course->id, 'contentId' => $subsection->parent_id]) }}" class="btn btn-sm btn-dark float-end">
+                <i class="fa fa-list"></i> Back
+            </a>        </h5>
 
     </div>
     <div class="card-body">
