@@ -127,7 +127,7 @@ class SupportUserManagementController extends Controller
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('lms.tutors')->with('success', 'Tutor was registered successfully');
+        return redirect()->route('lms.support-tutors')->with('success', 'Tutor was registered successfully');
     }
 
     // For View Tutor

@@ -37,9 +37,9 @@
             <div class="mb-3">
                 <label for="password" class="form-label text-dark">Role</label>
                 <select name="role" class="form-control" id="">
-                    <option value="student">Student</option>
-                    <option value="support">Admin</option>
-                    <option value="tutor">Tutor</option>
+                    <option value="student" {{ $user->role==='student' ? 'selected' : '' }}>Student</option>
+                    <option value="tutor" {{ $user->role==='tutor' ? 'selected' : '' }}>Tutor</option>
+                    <option value="support" {{ $user->role==='support' ? 'selected' : '' }}>Admin</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-dark float-end">Update </button>
