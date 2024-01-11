@@ -13,8 +13,11 @@
 
                     Edit Quiz
 
-                    <a href="{{ route('lms.support-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">
-                        Create Question</a>
+
+                    <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
+
 
                 </h5>
 
