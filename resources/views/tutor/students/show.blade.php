@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h5> <i class="fa fa-user text-warning"></i>
                      Student Details
-                     @if ($user->where('status',0))
+                     @if ($user->status==0)
                      <a href="{{ route('lms.tutor-students') }}" class="btn btn-dark float-end mt-3">Back </a>
 
                  @else
