@@ -19,7 +19,7 @@ class TutorCoursesController extends Controller
     public function module_courses($id)
     {
         $data['module'] = Module::findOrFail($id);
-        $data['courses'] = Course::where('module_id', $id)->where('user_id', Auth::user()->id)->get();
+        $data['courses'] = Course::where('module_id', $id)->where('user_id', Auth::user()->id)->latest()->get();
         return view('tutor.modules.show', $data);
     }
 
