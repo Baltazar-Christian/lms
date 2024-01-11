@@ -35,9 +35,11 @@ class TutorCoursesController extends Controller
     {
         $course = Course::findOrFail($id);
         $contents = CourseContent::where('course_id', $course->id)->where('parent_id', 0)->get();
+        $enrolledStudents = $course->students;
+
         $quizzes = Quiz::where('course_id', $course->id)->get();
 
-        return view('tutor.courses.show', compact('course', 'contents', 'quizzes'));
+        return view('tutor.courses.show', compact('course', 'contents', 'quizzes', 'enrolledStudents'));
     }
 
     // For Saving Course
