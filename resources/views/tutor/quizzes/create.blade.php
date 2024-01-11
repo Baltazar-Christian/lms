@@ -1,4 +1,4 @@
-@extends('layouts.support')
+@extends('layouts.tutor')
 
 
 
@@ -8,11 +8,18 @@
     <div class="col-12 p-2">
         <div class="card">
             <div class="card-header">
-                <h6>Create Quiz</h6>
+                <h5>
+                    <i class="fa fa-plus text-warning"></i>
+                    Create Quiz
+
+                    <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
+                </h5>
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.support-store-quiz', $course->id) }}" method="post">
+                <form action="{{ route('lms.tutor-store-quiz', $course->id) }}" method="post">
                     @csrf
 
                     {{-- Include validation errors if any --}}

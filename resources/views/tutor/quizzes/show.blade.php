@@ -7,6 +7,9 @@
             <div class="card-header">
                 <h5>Quiz Details
 
+                    <a href="{{ route('lms.show-tutor-course', $quiz->course->id) }}" class="btn mx-1 btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
                     <a href="{{ route('lms.support-edit-quiz', $quiz->id) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
 
                     {{-- <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">

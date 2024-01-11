@@ -372,7 +372,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
         // For Courses  Quizes
         Route::get('/{courseId}/create-quiz', [TutorQuizController::class, 'create'])->name('lms.tutor-create-quiz');
-        Route::post('/{courseId}/save-quiz', [TutorQuizController::class, 'store'])->name('lms.tutor-save-quiz');
+        Route::post('/{courseId}/save-quiz', [TutorQuizController::class, 'store'])->name('lms.tutor-store-quiz');
         Route::get('/{courseId}/quizzes/{quizId}', [TutorQuizController::class, 'show'])->name('lms.tutor-show-quiz');
         Route::get('/{courseId}/quizzes/{quizId}/create-question', [TutorQuizController::class, 'createQuestion'])->name('lms.tutor-create-question');
         Route::post('/{courseId}/quizzes/{quizId}/store-question', [TutorQuizController::class, 'storeQuestion'])->name('lms.tutor-store-question');
