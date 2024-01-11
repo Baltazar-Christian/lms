@@ -80,7 +80,7 @@ class TutorCoursesController extends Controller
             'slug' => $request->input('slug'),
             'price' => $request->input('price'),
             'module_id' => $module,
-
+            'user_id'=>Auth::user()->id,
             'duration_in_minutes' => $request->input('duration_in_minutes'),
             'is_published' => $request->input('is_published'),
             'published_at' => $request->input('published_at'),

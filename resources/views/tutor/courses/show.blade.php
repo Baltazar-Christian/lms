@@ -14,13 +14,13 @@
                     </a>
                     <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-dark btn-sm mx-1"><i
                             class="fa fa-edit"></i></a>
-                    <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
+                    {{-- <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="post" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm mx-1" onclick="return confirm('Are you sure?')"><i
                                 class="fa fa-trash"></i></button>
                     </form>
-
+ --}}
 
                 </div>
                 {{-- </h5> --}}

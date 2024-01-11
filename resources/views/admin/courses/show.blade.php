@@ -34,6 +34,7 @@
                             alt="{{ $course->title }} Cover Image" height="150px" width="100%"
                             class=" rounded mx-auto shadow mb-4">
                     @endif
+
                 </div>
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
@@ -201,7 +202,7 @@
                                 @foreach ($enrolledStudents as $student)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                               
+
                                 <td>
                                 {{ $student->name }}
                                     <br>
