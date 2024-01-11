@@ -31,9 +31,12 @@
                                     <th>Actions</th>
                             </thead>
                             <tbody>
+                                @php
+                                    $i=1;
+                                @endphp
                                 @foreach($courses as $course)
                                     <tr>
-                                        <td>{{ $course->id }}</td>
+                                        <td>{{ $i++ }}</td>
                                         <td>{{ $course->title }}</td>
                                         <td> Tsh {{ number_format($course->price,2) }}</td>
                                         <td>
