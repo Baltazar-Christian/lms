@@ -51,27 +51,42 @@ class TutorCoursesController extends Controller
             'duration_in_minutes' => 'required|integer',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:20480',
         ]);
 
         // Handle cover image update
         $imageName = Null;
+
+
             if ($request->hasFile('cover_image')) {
-                // Delete the old cover image if it exists
 
                 // Upload the new cover image
                 $coverImage = $request->file('cover_image');
-                $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
 
+
+                $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
                 $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
-                // Update the request data to include the new cover image name
-                $request->merge(['cover_image' => $imageName]);
             }
-        $request['cover_image']=$imageName;
+        // $request['cover_image']=$imageName;
+
         $request['user_id'] = Auth::user()->id;
 
-        Course::create($request->all());
+        $module=$request->module_id;
+        $course=new Course();
+        $course->create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'slug' => $request->input('slug'),
+            'price' => $request->input('price'),
+            'module_id' => $module,
+
+            'duration_in_minutes' => $request->input('duration_in_minutes'),
+            'is_published' => $request->input('is_published'),
+            'published_at' => $request->input('published_at'),
+            'cover_image' => $imageName, // keep the existing value if not provided
+        ]);
+        // Course::create($request->all());
 
         $module = Module::findOrFail($request->module_id)->first();;
 

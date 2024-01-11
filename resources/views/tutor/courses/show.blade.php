@@ -37,6 +37,8 @@
                             class="rounded mx-auto shadow mb-4">
                     @endif
 
+                    {{ $course->cover_image }}
+
                 </div>
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
