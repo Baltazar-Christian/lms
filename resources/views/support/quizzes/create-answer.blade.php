@@ -14,24 +14,25 @@
 
 
             <div class="card-body">
-                <form action="{{ route('lms.support-store-answer', [$course->id, $quiz->id, $question->id]) }}" method="post">
+                <form action="{{ route('lms.support-update-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}" method="post">
                     @csrf
 
                     <div class="form-group mb-3">
                         <label for="text" class="text-dark">Answer Text</label>
-                        <input type="text" name="answer" id="text" class="form-control" required>
+                        <input type="text" name="answer" id="text" class="form-control" value="{{ $answer->answer ?? old('answer') }}" required>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="is_correct" class="text-dark">Is Correct?</label>
                         <select name="is_correct" id="is_correct" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1" {{ $answer->is_correct == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ $answer->is_correct == 0 ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-dark float-end">Add Answer</button>
+                    <button type="submit" class="btn btn-dark float-end">Update Answer</button>
                 </form>
+
             </div>
         </div>
     </div>

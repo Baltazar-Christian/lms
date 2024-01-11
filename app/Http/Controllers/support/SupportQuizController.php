@@ -59,8 +59,10 @@ class SupportQuizController extends Controller
     }
 
 
-    public function editAnswer( QuizQuestion $answer)
+    public function editAnswer(  $id)
     {
+
+        $answer=QuizAnswer::where('id',$id)->first();
 
 
         return view('support.quizzes.edit-answer', compact( 'answer'));
@@ -157,6 +159,26 @@ class SupportQuizController extends Controller
         ]);
 
         return redirect()->route('lms.support-show-quiz', [$quizQuestion->quiz->course->id, $quizQuestion->quiz->id])->with('success', 'Question updated successfully.');
+    }
+
+
+    public function updateAnswer(Request $request)
+    {
+
+
+
+
+        $answer = QuizAnswer::findOrFail($request->answer_id);
+
+        $answer->answer=$request->answer;
+        $answer->is_correct= $request->has('is_correct');
+        $answer->update();
+
+        $quizQuestion = QuizQuestion::where('id',$answer->quiz_question_id)->first();
+
+
+        // return back();
+        return redirect()->route('lms.support-show-quiz', [$quizQuestion->quiz->course->id, $quizQuestion->quiz->id])->with('success', 'Answer updated successfully.');
     }
 
     public function deleteQuestion( $questionId)

@@ -277,16 +277,19 @@ Route::group(['middleware' => 'role:support'], function () {
 
         Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [SupportQuizController::class, 'createAnswer'])->name('lms.support-create-answer');
         Route::post('/{courseId}/quizzes/{quizId}/questions/{questionId}/store-answer', [SupportQuizController::class, 'storeAnswer'])->name('lms.support-store-answer');
+
         // Show a single question's answers
         Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers', [SupportQuizController::class, 'showQuestionAnswers'])->name('lms.support-show-question');
         Route::get('/{course}/quizzes/{quiz}/editquestions/{question}/answers', [SupportQuizController::class, 'editQuestion'])->name('lms.support-edit-question');
         Route::get('/quizzes/support-editquestions/{question}/answers', [SupportQuizController::class, 'editAnswer'])->name('lms.support-edit-answer');
 
 
+
         // Show a single answer in detail
         Route::get('/{course}/quizzes/{quiz}/questions/{question}/answers/{answer}', [SupportQuizController::class, 'showAnswerDetail'])->name('lms.support-show-answer');
     });
 
+    Route::post('/support-quiz-answer/update', [SupportQuizController::class, 'updateAnswer'])->name('lms.support-updated-quiz-answer');
 
     Route::get('/support-quizzes', [SupportQuizController::class, 'index'])->name('lms.support-quizzes');
     Route::post('/support-quizzes', [SupportQuizController::class, 'store'])->name('lms.support-store-quiz');
