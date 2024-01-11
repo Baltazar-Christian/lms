@@ -73,7 +73,22 @@ class SupportCourseController extends Controller
         $request['cover_image']=$imageName;
         $request['user_id'] = Auth::user()->id;
 
-        Course::create($request->all());
+        $request['user_id'] = Auth::user()->id;
+
+        $module=$request->module_id;
+        $course=new Course();
+        $course->create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'slug' => $request->input('slug'),
+            'price' => $request->input('price'),
+            'module_id' => $module,
+            'user_id'=>Auth::user()->id,
+            'duration_in_minutes' => $request->input('duration_in_minutes'),
+            'is_published' => $request->input('is_published'),
+            'published_at' => $request->input('published_at'),
+            'cover_image' => $imageName, // keep the existing value if not provided
+        ]);
 
         $module = Module::findOrFail($request->module_id)->first();
         if ($request->is_published) {
