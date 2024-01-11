@@ -73,7 +73,6 @@ class SupportCourseController extends Controller
         $request['cover_image']=$imageName;
         $request['user_id'] = Auth::user()->id;
 
-        $request['user_id'] = Auth::user()->id;
 
         $module=$request->module_id;
         $course=new Course();
