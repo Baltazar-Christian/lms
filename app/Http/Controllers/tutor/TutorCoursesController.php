@@ -51,23 +51,24 @@ class TutorCoursesController extends Controller
             'duration_in_minutes' => 'required|integer',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
-            'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Handle cover image update
-          // Handle cover image update
-          if ($request->hasFile('cover_image')) {
+        $imageName = Null;
+            if ($request->hasFile('cover_image')) {
+                // Delete the old cover image if it exists
 
+                // Upload the new cover image
+                $coverImage = $request->file('cover_image');
+                $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
 
-            // Upload the new cover image
-            $coverImage = $request->file('cover_image');
-            $imageName = time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
+                $coverImage->storeAs('covers', $imageName, 'public'); // Adjust the storage path as needed
 
-            // Update the request data to include the new cover image name
-            $request->merge(['cover_image' => $imageName]);
-        }
-
+                // Update the request data to include the new cover image name
+                $request->merge(['cover_image' => $imageName]);
+            }
+        $request['cover_image']=$imageName;
         $request['user_id'] = Auth::user()->id;
 
         Course::create($request->all());
