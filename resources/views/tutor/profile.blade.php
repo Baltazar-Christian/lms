@@ -58,7 +58,7 @@
                     </div>
                   </div>
                   <div class="mb-4">
-                    <button type="submit" class="btn btn-alt-dark float-end">
+                    <button type="submit" class="btn btn-dark float-end">
                       Update Profile
                     </button>
                   </div>
@@ -101,7 +101,7 @@
                   </div>
                   <div class="mb-4">
                     <button type="submit" class="btn btn-alt-primary">
-                      Update
+                      Change Password
                     </button>
                   </div>
                 </div>
