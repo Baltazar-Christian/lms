@@ -23,27 +23,32 @@ class TutorController extends Controller
     public function dashboard()
     {
 
-        $data['students']=User::where('role','student')->count();
-        $data['tutors']=User::where('role','tutor')->count();
-        $data['modules']=Module::count();
-        $data['courses']=Course::where('user_id',Auth::user()->id)->count();
-        $data['institutes']=Instute::count();
-        $data['announcements']=Announcement::count();
-        $data['contents']=CourseContent::count();
-        $data['quizzes']=Quiz::count();
+        $data['students'] = User::where('role', 'student')->count();
+        $data['tutors'] = User::where('role', 'tutor')->count();
+        $data['modules'] = Module::count();
+        $data['courses'] = Course::where('user_id', Auth::user()->id)->count();
+        $data['institutes'] = Instute::count();
+        $data['announcements'] = Announcement::count();
+        $data['contents'] = CourseContent::count();
+        $data['quizzes'] = Quiz::count();
 
-        return view('tutor.dashboard',$data);
+        return view('tutor.dashboard', $data);
     }
 
 
-    public function mode(Request $request){
-        $user=User::where('id',Auth::user()->id)->first();
-        $user->mode=$request->mode;
+    public function profile( )
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+
+        return view("tutor.profile");
+    }
+
+    public function mode(Request $request)
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->mode = $request->mode;
         $user->update();
 
         return back();
-}
-
-
-
+    }
 }
