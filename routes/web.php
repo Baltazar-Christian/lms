@@ -49,6 +49,7 @@ Route::any('about-us', [HomeController::class, 'about'])->name('about-us');
 Route::any('contact-us', [HomeController::class, 'contact'])->name('contact-us');
 
 Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
+Route::post('/change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
 
 
 Route::group(['middleware' => 'role:admin'], function () {

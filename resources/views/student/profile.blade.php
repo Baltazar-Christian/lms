@@ -8,7 +8,7 @@
         <div class="bg-primary-dark-op">
           <div class="content content-full text-center">
             <div class="my-3">
-              <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar13.jpg" alt="">
+              <img class="img-avatar img-avatar-thumb" src="{{ asset('storage/'.Auth::user()->avatar.'') }}" alt="">
             </div>
             {{-- <h1 class="h2 text-white mb-0">Edit Account</h1> --}}
             <h2 class="h4 fw-normal text-white-75">
@@ -51,7 +51,8 @@
                   <div class="mb-4">
                     <label class="form-label">Your Avatar</label>
                     <div class="mb-4 mx-auto">
-                      <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar13.jpg')}}" alt="">
+                      <img class="img-avatar" src="{{ asset('storage/'.Auth::user()->avatar.'') }}" alt="Avatar">
+                    
                     </div>
                     <div class="mb-4">
                       <label for="one-profile-edit-avatar" class="form-label">Choose a new avatar</label>
@@ -76,7 +77,8 @@
             <h3 class="block-title">Change Password</h3>
           </div>
           <div class="block-content">
-            <form action="#" method="POST" onsubmit="return false;">
+            <form action="{{ route('changePassword') }}" method="POST" >
+                @csrf
               <div class="row push">
                 <div class="col-lg-12">
                   <p class="fs-sm text-muted">
@@ -84,6 +86,11 @@
                   </p>
                 </div>
                 <div class="col-lg-12 col-xl-12">
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                   <div class="mb-4">
                     <label class="form-label" for="one-profile-edit-password">Current Password</label>
                     <input type="password" class="form-control" id="one-profile-edit-password" name="one-profile-edit-password">
