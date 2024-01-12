@@ -47,11 +47,11 @@
                                             <i class="fa fa-eye"></i>
                                         </a> --}}
 
-                                        <a href="{{ route('lms.support-edit-answer',  $answer->id) }}" class="btn btn-sm btn-dark">
+                                        <a href="{{ route('lms.tutor-edit-answer',  $answer->id) }}" class="btn btn-sm btn-dark">
                                             <i class="fa fa-edit"></i>
                                         </a>
 
-                                        <a href="{{ route('lms.support-delete-answer',  $answer->id ) }}" class="btn btn-sm btn-danger">
+                                        <a href="{{ route('lms.tutor-delete-answer',  $answer->id ) }}" class="btn btn-sm btn-danger">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
