@@ -61,20 +61,26 @@
                                             </a>
                                         </th>
                                         <th class="text-end">
-                                            {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
-                                            <a href="{{ route('contents.show', $content) }}"
-                                                class="btn btn-sm
 
-                                            @if (auth()->user()->completedContents->contains($content->id)) btn-success
+                                            {{-- @if (  Auth::user()->courses->course_id == $course->id ) --}}
+                                                      {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
+                                            <a href="{{ route('contents.show', $content) }}"
+                                            class="btn btn-sm
+
+                                        @if (auth()->user()->completedContents->contains($content->id)) btn-success
+                                        @else
+                                        btn-warning @endif
+                                        ">
+                                            @if (auth()->user()->completedContents->contains($content->id))
+                                                Read Again
                                             @else
-                                            btn-warning @endif
-                                            ">
-                                                @if (auth()->user()->completedContents->contains($content->id))
-                                                    Read Again
-                                                @else
-                                                    Read
-                                                @endif
-                                            </a>
+                                                Read
+                                            @endif
+                                        </a>
+                                            {{-- @else
+
+                                            @endif
+                                       --}}
                                         </th>
                                     </tr>
                                     @php
