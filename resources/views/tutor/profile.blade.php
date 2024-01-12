@@ -10,20 +10,20 @@
             <div class="my-3">
               <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar13.jpg" alt="">
             </div>
-            <h1 class="h2 text-white mb-0">Edit Account</h1>
+            {{-- <h1 class="h2 text-white mb-0">Edit Account</h1> --}}
             <h2 class="h4 fw-normal text-white-75">
-              John Parker
+              {{ Auth::user()->name }}
             </h2>
-            <a class="btn btn-alt-secondary" href="be_pages_generic_profile.html">
+            {{-- <a class="btn btn-alt-secondary" href="be_pages_generic_profile.html">
               <i class="fa fa-fw fa-arrow-left text-danger"></i> Back to Profile
-            </a>
+            </a> --}}
           </div>
         </div>
       </div>
       <!-- END Hero -->
 
       <!-- Page Content -->
-      <div class="content content-boxed">
+      <div class="content ">
         <!-- User Profile -->
         <div class="block block-rounded">
           <div class="block-header block-header-default">

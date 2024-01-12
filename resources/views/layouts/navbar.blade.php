@@ -153,7 +153,16 @@
                     <div class="p-2">
 
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="{{ route('lms.tutor-profile') }}">
+
+                        @if (Auth::user()->role=='tutor')
+                        href="{{ route('lms.tutor-profile') }}"
+
+                        @elseif (Auth::user()->role=='admin')
+                        href="{{ route('lms.admin-profile') }}"
+
+                        @endif
+
+                            >
                             <span class="fs-sm fw-medium">Profile</span>
                         </a>
                         {{-- <a class="dropdown-item d-flex align-items-center justify-content-between"
