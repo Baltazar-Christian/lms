@@ -213,7 +213,7 @@
                 <li class="nav-main-heading">OTHERS</li>
 
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_pages_ecom_store_search.html">
+                    <a class="nav-main-link" href="{{ route('notifications.index') }}">
                         <i class="nav-main-link-icon fa fa-bell"></i>
                         <span class="nav-main-link-name">Notifications</span>
                     </a>

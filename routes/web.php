@@ -11,6 +11,7 @@ use App\Http\Controllers\QuizAnswerController;
 use App\Http\Controllers\QuizResultController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\ModuleController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
 use App\Http\Controllers\admin\InstituteController;
@@ -389,7 +390,6 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
 
         Route::post('/delete/quizzes/{quizId}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
-
     });
 
     Route::get('/tutor-quizzes/{quiz}/edit', [TutorQuizController::class, 'edit'])->name('lms.tutor-edit-quiz');
@@ -397,17 +397,23 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::delete('/tutor-quizzes/{quiz}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
 
-     // Show a single question's answers
-     Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers', [TutorQuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
-     Route::get('/{course}/tutor-quizzes/{quiz}/editquestions/{question}/answers', [TutorQuizController::class, 'editQuestion'])->name('lms.tutor-edit-question');
-     Route::get('/quizzes/tutor-editquestions/{question}/answers', [TutorQuizController::class, 'editAnswer'])->name('lms.tutor-edit-answer');
+    // Show a single question's answers
+    Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers', [TutorQuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
+    Route::get('/{course}/tutor-quizzes/{quiz}/editquestions/{question}/answers', [TutorQuizController::class, 'editQuestion'])->name('lms.tutor-edit-question');
+    Route::get('/quizzes/tutor-editquestions/{question}/answers', [TutorQuizController::class, 'editAnswer'])->name('lms.tutor-edit-answer');
 
-     Route::post('/tutor-quiz-answer/update', [TutorQuizController::class, 'updateAnswer'])->name('lms.tutor-updated-quiz-answer');
+    Route::post('/tutor-quiz-answer/update', [TutorQuizController::class, 'updateAnswer'])->name('lms.tutor-updated-quiz-answer');
 
 
 
-     // Show a single answer in detail
-     Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers/{answer}', [TutorQuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
+    // Show a single answer in detail
+    Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers/{answer}', [TutorQuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
+
+
+
+    Route::get('/notifications/index', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('/notifications/store', [NotificationController::class, 'store'])->name('notifications.store');
 });
 
 Route::group(['middleware' => 'role:student'], function () {
@@ -427,25 +433,24 @@ Route::group(['middleware' => 'role:student'], function () {
         ->name('students.searchCourses');
 
     Route::get('student0courses', [StudentController::class, 'allCourses'])
-    ->name('courses.allCourses');
+        ->name('courses.allCourses');
 
     Route::get('student-courses/search', [StudentController::class, 'searchCourses1'])
-    ->name('student-courses.search');
+        ->name('student-courses.search');
 
 
     Route::get('student-courses/{course}', [StudentController::class, 'show'])
-    ->name('student-courses.show');
+        ->name('student-courses.show');
 
 
-Route::get('contents/{content}', [StudentController::class, 'show_content'])
-->name('contents.show');
+    Route::get('contents/{content}', [StudentController::class, 'show_content'])
+        ->name('contents.show');
 
-Route::get('student/{courseId}/quizzes/{quizId}', [QuizResultController::class, 'show'])->name('lms.student-show-quiz');
+    Route::get('student/{courseId}/quizzes/{quizId}', [QuizResultController::class, 'show'])->name('lms.student-show-quiz');
 
-Route::post('/quizzes/{quiz}/results', [QuizResultController::class, 'store'])->name('quiz.results.store');
+    Route::post('/quizzes/{quiz}/results', [QuizResultController::class, 'store'])->name('quiz.results.store');
 
-Route::get('quizzes-results/{quiz}/results/{result}',  [QuizResultController::class, 'showResult'])->name('quizzes.result.show');
-
+    Route::get('quizzes-results/{quiz}/results/{result}',  [QuizResultController::class, 'showResult'])->name('quizzes.result.show');
 });
 
 Auth::routes();
