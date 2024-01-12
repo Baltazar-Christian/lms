@@ -21,10 +21,12 @@
                 <form action="{{ route('lms.tutor-store-question',  [$course->id,$quiz->id]) }}" method="post">
                     @csrf
 
+                         {{-- Include validation errors if any --}}
+                         @include('partials.errors')
+
                     <div class="form-group">
                         <label for="text" class="text-dark">Question Text</label>
-                        {{-- <textarea name="text" id="description" placeholder="Enter Question Here.." class="form-control"  required rows="5"></textarea> --}}
-                        {{-- <textarea name="description" id="description" class="form-control" required rows="4"></textarea> --}}
+                        <textarea name="text" id="description" class="form-control" rows="4"></textarea>
 
                     </div>
 

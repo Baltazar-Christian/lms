@@ -1,11 +1,13 @@
-@extends('layouts.support')
+@extends('layouts.tutor')
 
 @section('content')
     <div class="container mt-4">
 
         <div class="card">
             <div class="card-header">
-                <h5>Quiz Details
+                <h5>
+                    <i class="fa fa-file text-warning"></i>
+                    Quiz Details
 
                     <a href="{{ route('lms.show-tutor-course', $quiz->course->id) }}" class="btn mx-1 btn-sm btn-dark float-end">
                         <i class="fa fa-list"></i> Back
@@ -57,16 +59,16 @@
                                         <td>{{ $i++ }}</td>
                                         <td width="70%">{!! $question->question !!}</td>
                                         <td>
-                                            <a href="{{ route('lms.support-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
+                                            <a href="{{ route('lms.tutor-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
                                                 View Answers
                                             </a>
 
-                                            <a href="{{ route('lms.support-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
+                                            <a href="{{ route('lms.tutor-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
-                                            <a href="{{ route('lms.support-delete-question',  $question->id ) }}" class="btn btn-sm btn-danger">
+                                            <a href="{{ route('lms.tutor-delete-question',  $question->id ) }}" class="btn btn-sm btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
