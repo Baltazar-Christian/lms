@@ -72,8 +72,8 @@
                         @else
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="{{ route('student-courses.show', $course) }}" class="btn btn-block btn-sm btn-success">
-                                    View 
+                                <a href="{{ route('student-unenrolled-courses.show', $course) }}" class="btn btn-block btn-sm btn-success">
+                                    View
                                 </a>
                             </div>
                             <div class="col-md-6">
@@ -98,9 +98,9 @@
             </div>
 
             <div class="col-md-3">
-                
+
             </div>
         </div>
-     
+
     </div>
 @endsection
