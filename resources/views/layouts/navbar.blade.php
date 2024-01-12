@@ -148,7 +148,14 @@
                         <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('assets/media/avatars/avatar10.jpg') }}"
                             alt="">
                         <p class="mt-2 mb-0 fw-medium">{{ Auth::user()->name }}</p>
-                        <p class="mb-0 text-muted fs-sm fw-medium">{{ Auth::user()->role }}</p>
+                        <p class="mb-0 text-muted fs-sm fw-medium">
+                            @if (Auth::user()->role=='support')
+                            Admin
+                            @else
+                            {{ Auth::user()->role }}
+
+                            @endif
+                        </p>
                     </div>
                     <div class="p-2">
 
