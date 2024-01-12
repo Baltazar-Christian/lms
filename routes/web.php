@@ -376,6 +376,9 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::get('/{courseId}/quizzes/{quizId}', [TutorQuizController::class, 'show'])->name('lms.tutor-show-quiz');
         Route::get('/{courseId}/quizzes/{quizId}/create-question', [TutorQuizController::class, 'createQuestion'])->name('lms.tutor-create-question');
         Route::post('/{courseId}/quizzes/{quizId}/store-question', [TutorQuizController::class, 'storeQuestion'])->name('lms.tutor-store-question');
+        Route::post('/tutor-quizzes/update-question/{quizId}', [TutorQuizController::class, 'updateQuestion'])->name('lms.tutor-update-question');
+        Route::any('/tutor-quizzes/delete-question/{quizId}', [TutorQuizController::class, 'deleteQuestion'])->name('lms.tutor-delete-question');
+        Route::any('/tutor-quizzes/delete-answer/{quizId}', [TutorQuizController::class, 'deleteAnswer'])->name('lms.tutor-delete-answer');
 
         Route::post('/delete/quizzes/{quizId}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
@@ -385,6 +388,16 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::any('/update-tutor-quizzes/{quiz}', [TutorQuizController::class, 'update'])->name('lms.tutor-update-quiz');
     Route::delete('/tutor-quizzes/{quiz}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
+
+     // Show a single question's answers
+     Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers', [TutorQuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
+     Route::get('/{course}/tutor-quizzes/{quiz}/editquestions/{question}/answers', [TutorQuizController::class, 'editQuestion'])->name('lms.tutor-edit-question');
+     Route::get('/quizzes/tutor-editquestions/{question}/answers', [TutorQuizController::class, 'editAnswer'])->name('lms.tutor-edit-answer');
+
+
+
+     // Show a single answer in detail
+     Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers/{answer}', [TutorQuizController::class, 'showAnswerDetail'])->name('lms.tutor-show-answer');
 });
 
 Route::group(['middleware' => 'role:student'], function () {
