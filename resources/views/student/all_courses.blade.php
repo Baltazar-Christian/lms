@@ -20,7 +20,6 @@
                     @forelse($courses as $course)
                         <div class="col-md-4 mb-4">
                             <div class="card">
-                                <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
                                     <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
                                         height="150px" class="card-img-top" alt="{{ $course->name }}">
@@ -31,14 +30,51 @@
                                             <!-- Add more course details as needed -->
 
                                             <!-- Enroll button -->
+                                            @if (Auth::user()->courses->contains('id', $course->id))
+                                      
+                                            <!-- Unenroll button -->
                                             <form
-                                                action="{{ route('students.enrollSelf', ['student' => auth()->user(), 'course' => $course]) }}"
+                                                action="{{ route('students.unenrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
                                                 method="post">
                                                 @csrf
-                                                <button type="submit" class="btn btn-success form-control">Enroll</button>
+                                                {{-- <div class="col-12"> --}}
+                                                <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
+                                                {{-- </div> --}}
                                             </form>
+                                        @else
+
+                                        @if ($course->price<=0)
+           
+                                        <!-- Enroll button -->
+                                        <form action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
+                                            method="post">
+                                            @csrf
+                                            {{-- <div class="col-12"> --}}
+                                            <button type="submit" class="btn btn-success form-control ">
+                                                <i class="fa fa-book"></i>
+                                                Enroll
+                                            </button>
+                                            {{-- </div> --}}
+                                        </form>
+                                        @else
+                                    
+                                    <!-- Enroll button -->
+                                    <form action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
+                                        method="post">
+                                        @csrf
+                                        {{-- <div class="col-12"> --}}
+                                        <button type="submit" class=" form-control btn btn-warning  btn-block">
+
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Purchase
+                                        </button>
+                                        {{-- </div> --}}
+                                    </form>
+                                        @endif
+                                            
+                                        @endif
                                     </div>
-                                </a>
+                           
                             </div>
                         </div>
                     @empty
