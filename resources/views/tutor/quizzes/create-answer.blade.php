@@ -11,7 +11,12 @@
             <div class="card-header">
                 <h5>
                     <i class="fa fa-question text-warning"></i>
-                    Create Answer</h5>
+                    Create Answer
+                
+                    <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
+                </h5>
             </div>
 
 

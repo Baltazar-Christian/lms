@@ -39,7 +39,7 @@
                             @foreach ($question->answers as $answer)
                                 <tr>
                                     <td>{{ $answer->id }}</td>
-                                    <td>{{ $answer->answer }}</td>
+                                    <td width="60%">{!! $answer->answer !!}</td>
                                     <td>{{ $answer->is_correct ? 'Yes' : 'No' }}</td>
                                     <td>
                                         {{-- <a href="{{ route('lms.show-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}"
