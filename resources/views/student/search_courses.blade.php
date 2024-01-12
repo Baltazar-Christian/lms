@@ -5,7 +5,7 @@
         <form action="{{ route('students.searchCourses', $user) }}" method="get" class="mb-4">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search for a course">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-warning">Search</button>
             </div>
         </form>
         <h6 class="mb-4">Search Results for "{{ $search }}"</h6>
@@ -23,7 +23,7 @@
                                 <i class="fab fa-html5 fa-2x text-white-75"></i>
                             </div>
                             <h5 class="card-title">{{ $course->title }}</h5>
-                            <p class="card-text">{{ $course->description }}</p>
+                            {{-- <p class="card-text">{{ $course->description }}</p> --}}
                             <!-- Add more course details as needed -->
 
                             @if ($user->courses->contains('id', $course->id))
