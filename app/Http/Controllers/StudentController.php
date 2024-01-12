@@ -25,7 +25,7 @@ class StudentController extends Controller
         $data['incomplete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',0)->count();
         $data['complete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->count();
 
-        $data['courses']=Course::get();
+        $data['courses']=Course::latest()->limit(4)->get();
         $data['student']=User::with('courses')->find(Auth::user()->id);;
         return view('student.dashboard',$data);
     }

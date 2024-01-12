@@ -4,7 +4,7 @@
                 <!-- Stats -->
                 <div class="row">
                     <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-                        <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-pop" href="{{ route('courses.allCourses') }}">
                             <div class="block-content block-content-full">
                                 <div class="fs-sm fw-semibold text-uppercase text-muted">Available Courses </div>
                                 <div class="fs-2 fw-normal text-dark">{{ $available }}</div>
@@ -12,7 +12,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-                        <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-pop" href="{{ route('student.enrolledCourses',Auth::user()->id)}}">
                             <div class="block-content block-content-full">
                                 <div class="fs-sm fw-semibold text-uppercase text-muted">Enrolled Courses</div>
                                 <div class="fs-2 fw-normal text-dark">{{ $enrolled }}</div>
@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-                        <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-pop" href="{{ route('student.enrolledCourses',Auth::user()->id)}}">
                             <div class="block-content block-content-full">
                                 <div class="fs-sm fw-semibold text-uppercase text-muted">INCOMPLETE COURSES</div>
                                 <div class="fs-2 fw-normal text-dark">{{ $complete }}</div>
@@ -28,7 +28,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-                        <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+                        <a class="block block-rounded block-link-pop" href="{{ route('student.completedCourses',Auth::user()->id) }}">
                             <div class="block-content block-content-full">
                                 <div class="fs-sm fw-semibold text-uppercase text-muted">COMPLETE COURSES</div>
                                 <div class="fs-2 fw-normal text-dark">{{  $incomplete }}</div>
