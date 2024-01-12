@@ -55,7 +55,7 @@
                     </div>
                     <div class="mb-4">
                       <label for="one-profile-edit-avatar" class="form-label">Choose a new avatar</label>
-                      <input class="form-control" type="file" id="one-profile-edit-avatar">
+                      <input class="form-control" name="avatar" type="file" id="one-profile-edit-avatar">
                     </div>
                   </div>
                   <div class="mb-4">

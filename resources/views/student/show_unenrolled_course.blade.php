@@ -117,13 +117,10 @@
                                 {{-- <i class="fa fa-question text-warning"></i> --}}
                                 {{ $quiz->title }}
 
-                                    @if ($quiz->hasUserAttempted(auth()->user()))
-                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                        class="btn btn-sm btn-success float-end ms-2">View Result</a>
-                                @else
-                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                        class="btn btn-sm btn-warning float-end ms-2">Attempt</a>
-                                @endif
+                                <a href="#" class="btn btn-sm btn-danger float-end disabled">
+
+                                    <i class="fa fa-lock"></i> Take Quiz
+                                </a>
 
                             </h6>
 
