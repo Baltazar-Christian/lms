@@ -8,7 +8,7 @@
         <div class="bg-primary-dark-op">
           <div class="content content-full text-center">
             <div class="my-3">
-              <img class="img-avatar img-avatar-thumb" src="{{ asset('storage/'.Auth::user()->avatar.'') }}" alt="">
+              <img class="img-avatar img-avatar-thumb" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="">
             </div>
             {{-- <h1 class="h2 text-white mb-0">Edit Account</h1> --}}
             <h2 class="h4 fw-normal text-white-75">
@@ -51,7 +51,7 @@
                   <div class="mb-4">
                     <label class="form-label">Your Avatar</label>
                     <div class="mb-4 mx-auto">
-                      <img class="img-avatar" src="{{ asset('storage/'.Auth::user()->avatar.'') }}" alt="Avatar">
+                      <img class="img-avatar" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="Avatar">
                     
                     </div>
                     <div class="mb-4">
