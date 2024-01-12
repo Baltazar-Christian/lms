@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TutorController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\admin\QuizController;
@@ -47,6 +48,7 @@ Route::get('/', function () {
 Route::any('about-us', [HomeController::class, 'about'])->name('about-us');
 Route::any('contact-us', [HomeController::class, 'contact'])->name('contact-us');
 
+Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
 
 
 Route::group(['middleware' => 'role:admin'], function () {

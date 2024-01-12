@@ -30,7 +30,8 @@
             <h3 class="block-title">User Profile</h3>
           </div>
           <div class="block-content">
-            <form action="#" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+            <form action="{{ route('updateProfile') }}" method="POST" enctype="multipart/form-data" >
+                @csrf
               <div class="row push">
                 <div class="col-lg-12">
                   <p class="fs-sm text-muted">
