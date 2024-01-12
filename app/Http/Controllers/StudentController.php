@@ -40,11 +40,12 @@ class StudentController extends Controller
     public function enrollSelf(Request $request, User $student, Course $course)
     {
         if ($course->price > 0) {
-            $enrollment = $student->enrollments()->create([
-                'course_id' => $course->id,
-                'approval_status' => 'pending', // Set the approval status to pending
-            ]);
-
+            $enrollment=new Enrollment();
+            $enrollment->user_id =Auth::user()->id;
+            $enrollment->course_id=$course->id;
+            $enrollment->approval_status='pending';
+            $enrollment->save();
+     
 
             // event(new CourseEnrollmentPending($course, $enrollment));
 

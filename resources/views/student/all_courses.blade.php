@@ -35,6 +35,20 @@
                                         @if (Auth::user()->courses->contains('id', $course->id))
                                             <div class="row">
                                                 <div class="col-6">
+                                                    @php
+                                                        $enrollment=App\Models\Enrollment::where('user_id',Auth::user()->id)->where('course_id',$course->id)->where('approval_status','approved')->latest()->first();
+                                                    @endphp
+                                                    @if ($enrollment)
+                                                        <a href="{{ route('student-courses.show', $course) }}"
+                                                            class="btn form-control btn-sm  btn-success mb-2">
+                                                            View
+                                                        </a>
+                                                    @else
+                                                        <a href="{{ route('student-unenrolled-courses.show', $course) }}"
+                                                            class="btn form-control btn-sm  btn-success mb-2">
+                                                            View
+                                                        </a>
+                                                    @endif
 
                                                 </div>
                                                 <div class="col-6">
@@ -45,7 +59,7 @@
                                                         @csrf
                                                         {{-- <div class="col-12"> --}}
                                                         <button type="submit"
-                                                            class=" form-control btn btn-danger btn-block">Unenroll</button>
+                                                            class=" form-control btn btn-danger btn-sm btn-block">Unenroll</button>
                                                         {{-- </div> --}}
                                                     </form>
                                                 </div>
@@ -66,7 +80,8 @@
                                                             method="post">
                                                             @csrf
                                                             {{-- <div class="col-12"> --}}
-                                                            <button type="submit" class="btn btn-success btn-sm form-control ">
+                                                            <button type="submit"
+                                                                class="btn btn-success btn-sm form-control ">
                                                                 <i class="fa fa-book"></i>
                                                                 Enroll
                                                             </button>
