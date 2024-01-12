@@ -43,7 +43,12 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td width="60%">{!! $answer->answer !!}</td>
-                                    <td>{{ $answer->is_correct ? 'Yes' : 'No' }}</td>
+                                    <td>
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $answer->is_correct ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+
+                                        {{ $answer->is_correct ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
                                     <td>
                                         {{-- <a href="{{ route('lms.show-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}"
                                             class="btn btn-sm btn-info">
