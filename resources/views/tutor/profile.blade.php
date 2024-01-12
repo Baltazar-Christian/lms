@@ -100,7 +100,7 @@
                     </div>
                   </div>
                   <div class="mb-4">
-                    <button type="submit" class="btn btn-alt-primary">
+                    <button type="submit" class="btn btn-dark float-end">
                       Change Password
                     </button>
                   </div>

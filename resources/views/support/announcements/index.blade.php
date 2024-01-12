@@ -15,6 +15,8 @@
 
             </div>
             <div class="card-body">
+
+                @if ( count($announcements) == 0 )
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
@@ -57,12 +59,15 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr>
-                                <td colspan="4">No announcements available.</td>
-                            </tr>
+
                         @endforelse
                     </tbody>
                 </table>
+                @else
+
+                    <p class="text-dark">No announcements available.</p>
+
+                @endif
             </div>
         </div>
 
