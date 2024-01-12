@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>LMS|Dashboard</title>
+    <title>UPPER|Dashboard</title>
 
     <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -68,7 +68,7 @@
               {{-- Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://1.envato.market/ydb" target="_blank">pixelcave</a> --}}
             </div>
             <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <a class="fw-semibold text-warning" href="https://1.envato.market/AVD6j" target="_blank">UPPER</a> &copy; <span data-toggle="year-copy"></span>
+              <a class="fw-semibold text-warning" href="{{ route('lms.tutor-dashboard') }}" target="_blank">UPPER</a> &copy; <span data-toggle="year-copy"></span>
             </div>
           </div>
         </div>
