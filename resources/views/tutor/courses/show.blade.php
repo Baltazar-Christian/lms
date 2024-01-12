@@ -219,7 +219,7 @@
                                             <td>
                                                 @if ($student->pivot->approval_status == 'pending')
                                                     <form
-                                                        action="{{ route('lms.support-approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
+                                                        action="{{ route('lms.tutor-approve-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
                                                         method="post" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-success btn-sm"> <i
@@ -227,7 +227,7 @@
                                                     </form>
 
                                                     <form
-                                                        action="{{ route('lms.support-reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
+                                                        action="{{ route('lms.tutor-reject-enrollment', ['courseId' => $course->id, 'studentId' => $student->id]) }}"
                                                         method="post" style="display: inline-block;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-sm"> <i

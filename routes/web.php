@@ -247,6 +247,7 @@ Route::group(['middleware' => 'role:support'], function () {
 
     // For Course Content
     Route::group(['prefix' => 'support-courses'], function () {
+
         Route::get('/{id}/content/create', [SupportCourseController::class, 'createContent'])->name('lms.support-courses.create-content');
         Route::post('/{id}/content/save', [SupportCourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
         Route::get('/{courseId}/content/{contentId}/edit', [SupportCourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
@@ -366,6 +367,9 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::any('/{courseId}/delete-content/{contentId}', [TutorCoursesController::class, 'deleteCourseContent'])->name('lms.tutor-delete-course-content');
 
         Route::get('/{courseId}/content/{parentId}/create-subsection', [TutorCoursesController::class, 'createSubSection'])->name('lms.tutor-create-subsection');
+
+        Route::post('/{courseId}/enrollments/{studentId}/approve', [TutorCoursesController::class, 'approve'])->name('lms.tutor-approve-enrollment');
+        Route::post('/{courseId}/enrollments/{studentId}/reject', [TutorCoursesController::class, 'reject'])->name('lms.tutor-reject-enrollment');
 
 
         Route::post('/{courseId}/content/{parentId}/create-subsection', [TutorCoursesController::class, 'storeSubsection'])->name('lms.tutor-create-subsection');
