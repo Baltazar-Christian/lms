@@ -50,20 +50,27 @@
             </div>
 
             <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    <h5>
-                        <i class="fa fa-list text-warning"></i>
-                        CATEGORIES
-                    </h5>
-                </div>
-                <div class="card-body">
-                    @php
-                        $modules = App\Models\Module::get();
-                    @endphp
+                <div class="card">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fa fa-list text-warning"></i>
+                            CATEGORIES
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        @php
+                            $modules = App\Models\Module::get();
+                        @endphp
+                        <ul>
+                            @foreach ($modules as $module)
+                                <li class="nav-link bg-light mt-1"> <a href="" class="text-dark"> <i
+                                            class="fa fa-book text-warning"></i> <strong> {{ $module->name }}</strong> </a>
+                                </li>
+                            @endforeach
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
