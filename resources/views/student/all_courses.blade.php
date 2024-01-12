@@ -54,8 +54,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <a href="{{ route('student-unenrolled-courses.show', $course) }}"
-                                                    type="button"
-                                                        class="btn form-control  btn-success">
+                                                        class="btn form-control btn-sm  btn-success mb-2">
                                                         View
                                                     </a>
                                                 </div>
@@ -81,7 +80,7 @@
                                                             @csrf
                                                             {{-- <div class="col-12"> --}}
                                                             <button type="submit"
-                                                                class=" form-control btn btn-warning  btn-block">
+                                                                class=" form-control btn btn-warning  btn-sm btn-block">
 
                                                                 <i class="fa fa-shopping-cart"></i>
                                                                 Purchase
