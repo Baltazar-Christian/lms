@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> All Courses</h5>
+        <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> {{ $module->name }} Courses</h5>
 
         <!-- Search Form -->
         <form action="{{ route('student-courses.search') }}" method="get" class="mb-4">

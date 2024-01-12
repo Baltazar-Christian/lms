@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quiz;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Module;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
@@ -75,6 +76,17 @@ class StudentController extends Controller
         $enrolledCourses = $user->courses; // Assuming 'courses' is the relationship name
 
         return view('student.enrolled_courses', compact('enrolledCourses', 'user'));
+    }
+
+
+    public function moduleCourses( $id)
+    {
+
+        $user=Auth::user();
+        $courses = Course::where('module_id',$id)->where('is_published',1)->get();
+        $module = Module::where('id',$id)->first();
+
+        return view('student.module_courses', compact('courses', 'user','module'));
     }
 
     public function completedCourses(User $user)

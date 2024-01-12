@@ -441,11 +441,13 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('students/{user}/search-courses', [StudentController::class, 'searchCourses'])
         ->name('students.searchCourses');
 
-    Route::get('student0courses', [StudentController::class, 'allCourses'])
+    Route::get('student-courses', [StudentController::class, 'allCourses'])
         ->name('courses.allCourses');
 
     Route::get('student-courses/search', [StudentController::class, 'searchCourses1'])
         ->name('student-courses.search');
+    Route::get('student-module-courses/{id}', [StudentController::class, 'moduleCourses'])
+        ->name('student-courses.module');
 
 
     Route::get('student-courses/{course}', [StudentController::class, 'show'])
