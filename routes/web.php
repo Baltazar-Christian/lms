@@ -326,6 +326,8 @@ Route::group(['middleware' => 'role:support'], function () {
 Route::group(['middleware' => 'role:tutor'], function () {
     // Tutor routes
     Route::any('tutor-dashboard', [TutorController::class, 'dashboard'])->name('lms.tutor-dashboard');
+    Route::any('tutor-profile', [TutorController::class, 'profile'])->name('lms.tutor-profile');
+
     Route::any('tutor-mode', [TutorController::class, 'mode'])->name('tutor.change-mode');
 
     // For Students
