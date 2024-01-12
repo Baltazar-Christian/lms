@@ -1,23 +1,28 @@
-@extends('layouts.support')
+@extends('layouts.tutor')
 
 @section('content')
     <div class="container mt-2">
 
         <div class="card">
             <div class="card-body">
-                <h5 class="text-warning">Question Details</h5>
+                <h5 > <i class="fa fa-file text-warning"></i> Question Details
+                
+                    <a href="{{ route('lms.tutor-show-quiz', ['courseId' => $question->quiz->course->id, 'quizId' => $question->quiz->id]) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
+                </h5>
 
                 <div class="card mt-3">
                     <div class="card-body">
                         {{-- <p class="card-text"><strong>ID:</strong> {{ $question->id }}</p> --}}
-                        <p class="card-text"><strong> {{ $question->question }}</strong></p>
+                        <p class="card-text"><strong> {!! $question->question !!}</strong></p>
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <h5 class="text-warning">Answers</h5>
                     <hr>
-                    <a href="{{ route('lms.support-create-answer', [$course->id, $quiz->id, $question->id]) }}"
+                    <a href="{{ route('lms.tutor-create-answer', [$course->id, $quiz->id, $question->id]) }}"
                         class="btn btn-dark btn-sm float-end">Create Answer</a>
                     <br>
 

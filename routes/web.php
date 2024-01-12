@@ -380,6 +380,12 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::any('/tutor-quizzes/delete-question/{quizId}', [TutorQuizController::class, 'deleteQuestion'])->name('lms.tutor-delete-question');
         Route::any('/tutor-quizzes/delete-answer/{quizId}', [TutorQuizController::class, 'deleteAnswer'])->name('lms.tutor-delete-answer');
 
+
+        
+        Route::get('/{courseId}/tutor-quizzes/{quizId}/questions/{questionId}/create-answer', [TutorQuizController::class, 'createAnswer'])->name('lms.tutor-create-answer');
+        Route::post('/{courseId}/tutor-quizzes/{quizId}/questions/{questionId}/store-answer', [TutorQuizController::class, 'storeAnswer'])->name('lms.tutor-store-answer');
+
+
         Route::post('/delete/quizzes/{quizId}', [TutorQuizController::class, 'destroy'])->name('lms.tutor-delete-quiz');
 
     });
