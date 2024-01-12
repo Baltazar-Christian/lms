@@ -30,6 +30,13 @@ class StudentController extends Controller
         return view('student.dashboard',$data);
     }
 
+    public function profile( )
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+
+        return view("student.profile");
+    }
+
     public function enrollSelf(Request $request, User $student, Course $course)
     {
         if ($course->price > 0) {

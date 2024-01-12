@@ -79,7 +79,7 @@
                                                     {{ $count++ }}
                                                 </td>
                                                 <td>
-                                                    <p class="fw-medium text-dark">{{ $subContent->title }}</p>
+                                                    <a class="fw-medium text-dark">{{ $subContent->title }}</a>
                                                 </td>
                                                 <td class="text-end text-muted">
 
