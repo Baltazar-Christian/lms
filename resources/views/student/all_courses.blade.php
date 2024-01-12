@@ -21,60 +21,79 @@
                         <div class="col-md-4 mb-4">
                             <div class="card">
 
-                                    <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
-                                        height="150px" class="card-img-top" alt="{{ $course->name }}">
-                                    <div class="card-body">
+                                <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
+                                    height="150px" class="card-img-top" alt="{{ $course->name }}">
+                                <div class="card-body">
 
-                                        <h6 class="card-title text-dark">{{ $course->title }}</h5>
-                                            <p class="card-text text-dark">{{ $course->price }}</p>
-                                            <!-- Add more course details as needed -->
+                                    <h6 class="card-title text-dark">{{ $course->title }}</h5>
+                                        <p class="card-text text-dark">Tsh {{ number_format($course->price, 2) }}</p>
+                                        <!-- Add more course details as needed -->
 
-                                            <!-- Enroll button -->
-                                            @if (Auth::user()->courses->contains('id', $course->id))
-                                      
-                                            <!-- Unenroll button -->
-                                            <form
-                                                action="{{ route('students.unenrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                                method="post">
-                                                @csrf
-                                                {{-- <div class="col-12"> --}}
-                                                <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
-                                                {{-- </div> --}}
-                                            </form>
-                                        @else
 
-                                        @if ($course->price<=0)
-           
+
                                         <!-- Enroll button -->
-                                        <form action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                            method="post">
-                                            @csrf
-                                            {{-- <div class="col-12"> --}}
-                                            <button type="submit" class="btn btn-success form-control ">
-                                                <i class="fa fa-book"></i>
-                                                Enroll
-                                            </button>
-                                            {{-- </div> --}}
-                                        </form>
-                                        @else
-                                    
-                                    <!-- Enroll button -->
-                                    <form action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                        method="post">
-                                        @csrf
-                                        {{-- <div class="col-12"> --}}
-                                        <button type="submit" class=" form-control btn btn-warning  btn-block">
+                                        @if (Auth::user()->courses->contains('id', $course->id))
+                                            <div class="row">
+                                                <div class="col-6">
 
-                                            <i class="fa fa-shopping-cart"></i>
-                                            Purchase
-                                        </button>
-                                        {{-- </div> --}}
-                                    </form>
+                                                </div>
+                                                <div class="col-6">
+                                                    <!-- Unenroll button -->
+                                                    <form
+                                                        action="{{ route('students.unenrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
+                                                        method="post">
+                                                        @csrf
+                                                        {{-- <div class="col-12"> --}}
+                                                        <button type="submit"
+                                                            class=" form-control btn btn-danger btn-block">Unenroll</button>
+                                                        {{-- </div> --}}
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <a href="{{ route('student-unenrolled-courses.show', $course) }}"
+                                                    type="button"
+                                                        class="btn form-control  btn-success">
+                                                        View
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    @if ($course->price <= 0)
+                                                        <!-- Enroll button -->
+                                                        <form
+                                                            action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            {{-- <div class="col-12"> --}}
+                                                            <button type="submit" class="btn btn-success btn-sm form-control ">
+                                                                <i class="fa fa-book"></i>
+                                                                Enroll
+                                                            </button>
+                                                            {{-- </div> --}}
+                                                        </form>
+                                                    @else
+                                                        <!-- Enroll button -->
+                                                        <form
+                                                            action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            {{-- <div class="col-12"> --}}
+                                                            <button type="submit"
+                                                                class=" form-control btn btn-warning  btn-block">
+
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                                Purchase
+                                                            </button>
+                                                            {{-- </div> --}}
+                                                        </form>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         @endif
-                                            
-                                        @endif
-                                    </div>
-                           
+                                </div>
+
                             </div>
                         </div>
                     @empty

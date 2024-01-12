@@ -204,11 +204,11 @@
                                         <i class="fa fa-fw fa-clock me-1"></i> {{ $course->duration_in_minutes }} Minutes
                                     </td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td>
                                         <i class="fa fa-fw fa-heart me-1"></i> 0 Favorites
                                     </td>
-                                </tr>
+                                </tr> --}}
                                 {{-- <tr>
                   <td>
                     <i class="fa fa-fw fa-calendar me-1"></i> 3 weeks ago
@@ -238,8 +238,8 @@
                         <div class="push">
                             <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
                         </div>
-                        <div class="fw-semibold mb-1">{{ $course->user->name }}</div>
-                        <div class="fs-sm text-muted">Front-end Developer</div>
+                        <div class="fw-semibold mb-1">{{ $course->user->name??'Tutor' }}</div>
+                        {{-- <div class="fs-sm text-muted">Front-end Developer</div> --}}
                     </div>
                 </a>
                 <!-- END About Instructor -->
