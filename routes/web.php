@@ -381,7 +381,7 @@ Route::group(['middleware' => 'role:tutor'], function () {
         Route::any('/tutor-quizzes/delete-answer/{quizId}', [TutorQuizController::class, 'deleteAnswer'])->name('lms.tutor-delete-answer');
 
 
-        
+
         Route::get('/{courseId}/tutor-quizzes/{quizId}/questions/{questionId}/create-answer', [TutorQuizController::class, 'createAnswer'])->name('lms.tutor-create-answer');
         Route::post('/{courseId}/tutor-quizzes/{quizId}/questions/{questionId}/store-answer', [TutorQuizController::class, 'storeAnswer'])->name('lms.tutor-store-answer');
 
@@ -399,6 +399,8 @@ Route::group(['middleware' => 'role:tutor'], function () {
      Route::get('/{course}/tutor-quizzes/{quiz}/questions/{question}/answers', [TutorQuizController::class, 'showQuestionAnswers'])->name('lms.tutor-show-question');
      Route::get('/{course}/tutor-quizzes/{quiz}/editquestions/{question}/answers', [TutorQuizController::class, 'editQuestion'])->name('lms.tutor-edit-question');
      Route::get('/quizzes/tutor-editquestions/{question}/answers', [TutorQuizController::class, 'editAnswer'])->name('lms.tutor-edit-answer');
+
+     Route::post('/tutor-quiz-answer/update', [TutorQuizController::class, 'updateAnswer'])->name('lms.tutor-updated-quiz-answer');
 
 
 

@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 > <i class="fa fa-file text-warning"></i> Question Details
-                
+
                     <a href="{{ route('lms.tutor-show-quiz', ['courseId' => $question->quiz->course->id, 'quizId' => $question->quiz->id]) }}" class="btn btn-sm btn-dark float-end">
                         <i class="fa fa-list"></i> Back
                     </a>
@@ -36,9 +36,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $i=1;
+                            @endphp
                             @foreach ($question->answers as $answer)
                                 <tr>
-                                    <td>{{ $answer->id }}</td>
+                                    <td>{{ $i++ }}</td>
                                     <td width="60%">{!! $answer->answer !!}</td>
                                     <td>{{ $answer->is_correct ? 'Yes' : 'No' }}</td>
                                     <td>

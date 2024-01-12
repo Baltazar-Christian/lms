@@ -164,10 +164,10 @@ class TutorQuizController extends Controller
     {
 
 
-        $quizQuestion = QuizQuestion::findOrFail($questionId);
+        $quizQuestion = QuizQuestion::where('id',$request->question_id)->first();
 
         $quizQuestion->update([
-            'question' => $request->input('text'),
+            'question' => $request->input('question'),
             // Add other fields to update as needed
         ]);
 
@@ -199,6 +199,9 @@ class TutorQuizController extends Controller
 
 
         $quizQuestion = QuizQuestion::findOrFail($questionId);
+
+        // Check for and delete any related records first
+        QuizAnswer::where('quiz_question_id', $questionId)->delete();
 
         $quizQuestion->delete();
 
