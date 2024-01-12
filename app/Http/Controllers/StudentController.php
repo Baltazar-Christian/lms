@@ -21,11 +21,11 @@ class StudentController extends Controller
     public function dashboard()
     {
         $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
-        $data['available']=Course::count();
+        $data['available']=Course::where('is_published',1)->count();
         $data['incomplete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',0)->count();
         $data['complete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->count();
 
-        $data['courses']=Course::latest()->limit(4)->get();
+        $data['courses']=Course::latest()->where('is_published',1)->limit(4)->get();
         $data['student']=User::with('courses')->find(Auth::user()->id);;
         return view('student.dashboard',$data);
     }
@@ -86,14 +86,14 @@ class StudentController extends Controller
     public function searchCourses(User $user, Request $request)
     {
         $search = $request->input('search');
-        $courses = Course::where('title', 'like', "%$search%")->get();
+        $courses = Course::where('title', 'like', "%$search%")->where('is_published',1)->get();
 
         return view('student.search_courses', compact('courses', 'user', 'search'));
     }
 
     public function allCourses()
     {
-        $courses = Course::all();
+        $courses = Course::where('is_published',1)->get();
 
         return view('student.all_courses', compact('courses'));
     }
@@ -101,7 +101,7 @@ class StudentController extends Controller
     public function searchCourses1(Request $request)
     {
         $search = $request->input('search');
-        $courses = Course::where('title', 'like', "%$search%")->get();
+        $courses = Course::where('title', 'like', "%$search%")->where('is_published',1)->get();
 
         return view('student.search_course', compact('courses', 'search'));
     }

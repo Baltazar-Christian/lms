@@ -20,6 +20,9 @@ return new class extends Migration
             $table->integer('institute_id')->nullable();
             $table->integer('status')->default(0);
             $table->string('mode')->default('light');
+            $table->string('avatars')->default('avatar.jpg');
+
+            
             $table->rememberToken();
             $table->timestamps();
         });

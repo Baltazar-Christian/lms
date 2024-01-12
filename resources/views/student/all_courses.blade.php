@@ -58,6 +58,9 @@
                     </h5>
                 </div>
                 <div class="card-body">
+                    @php
+                        $modules = App\Models\Module::get();
+                    @endphp
 
                 </div>
             </div>
