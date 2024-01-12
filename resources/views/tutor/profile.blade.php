@@ -4,7 +4,7 @@
 
 @section('content')
      <!-- Hero -->
-     <div class="bg-image" style="background-image: url('assets/media/photos/photo10@2x.jpg');">
+     <div class="bg-image" style="background-image: url('');">
         <div class="bg-primary-dark-op">
           <div class="content content-full text-center">
             <div class="my-3">
@@ -30,30 +30,27 @@
             <h3 class="block-title">User Profile</h3>
           </div>
           <div class="block-content">
-            <form action="be_pages_projects_edit.html" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+            <form action="#" method="POST" enctype="multipart/form-data" onsubmit="return false;">
               <div class="row push">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                   <p class="fs-sm text-muted">
                     Your account’s vital info. Your username will be publicly visible.
                   </p>
                 </div>
-                <div class="col-lg-8 col-xl-5">
-                  <div class="mb-4">
-                    <label class="form-label" for="one-profile-edit-username">Username</label>
-                    <input type="text" class="form-control" id="one-profile-edit-username" name="one-profile-edit-username" placeholder="Enter your username.." value="john.parker">
-                  </div>
+                <div class="col-lg-12 col-xl-12">
+
                   <div class="mb-4">
                     <label class="form-label" for="one-profile-edit-name">Name</label>
-                    <input type="text" class="form-control" id="one-profile-edit-name" name="one-profile-edit-name" placeholder="Enter your name.." value="John Parker">
+                    <input type="text" class="form-control" id="one-profile-edit-name" name="one-profile-edit-name" placeholder="Enter your name.." value="{{ Auth::user()->name }}">
                   </div>
                   <div class="mb-4">
                     <label class="form-label" for="one-profile-edit-email">Email Address</label>
-                    <input type="email" class="form-control" id="one-profile-edit-email" name="one-profile-edit-email" placeholder="Enter your email.." value="john.parker@example.com">
+                    <input type="email" class="form-control" id="one-profile-edit-email" name="one-profile-edit-email" placeholder="Enter your email.." value="{{ Auth::user()->email }}">
                   </div>
                   <div class="mb-4">
                     <label class="form-label">Your Avatar</label>
-                    <div class="mb-4">
-                      <img class="img-avatar" src="assets/media/avatars/avatar13.jpg" alt="">
+                    <div class="mb-4 mx-auto">
+                      <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar13.jpg')}}" alt="">
                     </div>
                     <div class="mb-4">
                       <label for="one-profile-edit-avatar" class="form-label">Choose a new avatar</label>
@@ -61,8 +58,8 @@
                     </div>
                   </div>
                   <div class="mb-4">
-                    <button type="submit" class="btn btn-alt-primary">
-                      Update
+                    <button type="submit" class="btn btn-alt-dark float-end">
+                      Update Profile
                     </button>
                   </div>
                 </div>
@@ -78,14 +75,14 @@
             <h3 class="block-title">Change Password</h3>
           </div>
           <div class="block-content">
-            <form action="be_pages_projects_edit.html" method="POST" onsubmit="return false;">
+            <form action="#" method="POST" onsubmit="return false;">
               <div class="row push">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                   <p class="fs-sm text-muted">
                     Changing your sign in password is an easy way to keep your account secure.
                   </p>
                 </div>
-                <div class="col-lg-8 col-xl-5">
+                <div class="col-lg-12 col-xl-12">
                   <div class="mb-4">
                     <label class="form-label" for="one-profile-edit-password">Current Password</label>
                     <input type="password" class="form-control" id="one-profile-edit-password" name="one-profile-edit-password">
