@@ -9,6 +9,7 @@ use App\Models\CourseContent;
 use App\Http\Controllers\Controller;
 use App\Models\QuizAnswer;
 use App\Models\QuizQuestion;
+use App\Models\QuizResult;
 use Illuminate\Validation\Rule;
 
 class TutorQuizController extends Controller
@@ -114,6 +115,18 @@ class TutorQuizController extends Controller
     public function destroy($quizId)
     {
         $quiz = Quiz::findOrFail($quizId);
+        $questions=QuizQuestion::where('quiz_id',$quiz->id)->get();
+        foreach( $questions as $question)
+        {
+            $answers=QuizResult::where('quiz_question_id',$question->id)->get();
+            foreach( $answers as $answer)
+            {
+                $answer->delete();
+            }
+
+            $question->delete();
+        }
+
         $quiz->delete();
 
         return back();

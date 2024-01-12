@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Storage;
 
 class TutorCoursesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // Require authentication for all tutor routes
+        $this->middleware('role:tutor'); // Require tutor role for all tutor routes
+    }
+
     // For View Module Courses
     public function module_courses($id)
     {

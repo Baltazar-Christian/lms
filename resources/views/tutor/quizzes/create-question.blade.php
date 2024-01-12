@@ -23,7 +23,9 @@
 
                     <div class="form-group">
                         <label for="text" class="text-dark">Question Text</label>
-                        <textarea name="text" id="description" placeholder="Enter Question Here.." class="form-control"  required rows="5"></textarea>
+                        {{-- <textarea name="text" id="description" placeholder="Enter Question Here.." class="form-control"  required rows="5"></textarea> --}}
+                        {{-- <textarea name="description" id="description" class="form-control" required rows="4"></textarea> --}}
+
                     </div>
 
                     <br>
