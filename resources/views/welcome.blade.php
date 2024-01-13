@@ -248,7 +248,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 UPPER. All rights reserved.</p>
+        <p> <strong class="text-warning"> UPPER</strong>&copy; 2024 . All rights reserved.</p>
     </footer>
 
     <!-- Bootstrap JS and any additional scripts -->

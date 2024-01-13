@@ -429,7 +429,6 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::post('/notifications/store', [NotificationController::class, 'store'])->name('notifications.store');
 
     // View all notifications
-Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 
 // View a single notification
 Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
@@ -486,6 +485,10 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::post('/quizzes/{quiz}/results', [QuizResultController::class, 'store'])->name('quiz.results.store');
 
     Route::get('quizzes-results/{quiz}/results/{result}',  [QuizResultController::class, 'showResult'])->name('quizzes.result.show');
+
+    Route::get('/student-notifications/{notification}', [StudentController::class, 'show_notification'])->name('student-notifications.show');
+    Route::post('/notifications/{notification}/mark-as-seen', [StudentController::class, 'markAsSeen'])
+    ->name('notifications.markAsSeen');
 });
 
 Auth::routes();

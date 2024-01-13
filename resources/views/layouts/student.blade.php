@@ -70,7 +70,7 @@
                             </div>
                             <ul class="nav-items mb-0">
                             @php
-                                $notifications = App\Models\Notification::get();
+                                $notifications = App\Models\Notification::latest()->get()->limit(8);
                             @endphp
 
                             @foreach ( $notifications as $notification )

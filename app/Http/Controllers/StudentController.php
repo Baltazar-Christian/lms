@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Module;
 use App\Models\Enrollment;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,19 @@ class StudentController extends Controller
         return view("student.profile");
     }
 
+    public function show_notification(Notification $notification)
+    {
+        return view('student.show_notification', compact('notification'));
+    }
+
+    public function markAsSeen(Notification $notification)
+    {
+        Auth::user()->notifications()->attach($notification->id);
+
+        return redirect()->route('notifications.show', $notification)
+            ->with('success', 'Notification marked as seen');
+    }
+
     public function enrollSelf(Request $request, User $student, Course $course)
     {
         if ($course->price > 0) {
@@ -46,7 +60,7 @@ class StudentController extends Controller
             $enrollment->course_id=$course->id;
             $enrollment->approval_status='pending';
             $enrollment->save();
-     
+
 
             // event(new CourseEnrollmentPending($course, $enrollment));
 
