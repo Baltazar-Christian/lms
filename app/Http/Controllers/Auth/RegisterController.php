@@ -54,8 +54,16 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone_number' => ['nullable', 'string', 'max:14', 'unique:users'],
             'address' => ['nullable'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'password' => [
+                'required',
+                'string',
+                'min:8',              // Minimum length of 8 characters
+                'confirmed',          // Requires a matching password confirmation field
+                'regex:/^(?=.*[A-Z])/', // Requires at least one uppercase letter
+                'regex:/^(?=.*[a-z])/', // Requires at least one lowercase letter
+                'regex:/^(?=.*\d)/',    // Requires at least one digit
+                'regex:/^(?=.*\W)/',    // Requires at least one special character
+            ],        ]);
     }
 
     /**
