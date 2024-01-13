@@ -89,6 +89,8 @@ class SupportCompanyDetailController extends Controller
         $companyDetail->contact_address = $request->input('contact_address');
         $companyDetail->contact_phone = $request->input('contact_phone');
         $companyDetail->contact_email = $request->input('contact_email');
+        $companyDetail->contact_phone2 = $request->input('contact_phone2');
+        $companyDetail->contact_email2 = $request->input('contact_email2');
         $companyDetail->website = $request->input('website');
         $companyDetail->save();
 

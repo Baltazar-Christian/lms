@@ -265,7 +265,7 @@
                     </div>
                     <div class="block-content block-content-full text-center">
                         <div class="push">
-                            <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
+                            <img class="img-avatar" src="{{ asset('public/storage/'. $course->user->avatar.'') }}" alt="">
                         </div>
                         <div class="fw-semibold mb-1">{{ $course->user->name??'Tutor' }}</div>
                         {{-- <div class="fs-sm text-muted">Front-end Developer</div> --}}

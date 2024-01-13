@@ -16,6 +16,8 @@ class CompanyDetail extends Model
         'contact_address',
         'contact_phone',
         'contact_email',
+        'contact_phone2',
+        'contact_email2',
         'website',
     ];
 }

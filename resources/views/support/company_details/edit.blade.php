@@ -41,13 +41,23 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_phone" class="form-label text-dark">Contact Phone</label>
+                        <label for="contact_phone" class="form-label text-dark">Contact Phone 1</label>
                         <input type="text" name="contact_phone" id="contact_phone" class="form-control" value="{{ $companyDetail->contact_phone }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_email" class="form-label text-dark">Contact Email</label>
+                        <label for="contact_phone2" class="form-label text-dark">Contact Phone 2</label>
+                        <input type="text" name="contact_phone2" id="contact_phone2" class="form-control" value="{{ $companyDetail->contact_phone2 }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contact_email" class="form-label text-dark">Contact Email 1</label>
                         <input type="email" name="contact_email" id="contact_email" class="form-control" value="{{ $companyDetail->contact_email }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contact_email2" class="form-label text-dark">Contact Email 2</label>
+                        <input type="email" name="contact_email2" id="contact_email2" class="form-control" value="{{ $companyDetail->contact_email2 }}">
                     </div>
 
                     <div class="mb-3">
