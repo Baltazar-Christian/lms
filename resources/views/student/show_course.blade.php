@@ -61,26 +61,36 @@
                                             </a>
                                         </th>
                                         <th class="text-end">
-
-                                            {{-- @if (  Auth::user()->courses->course_id == $course->id ) --}}
-                                                      {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
-                                            <a href="{{ route('contents.show', $content) }}"
-                                            class="btn btn-sm
+                                            @php
+                                                $enrollment = App\Models\Enrollment::where('user_id', Auth::user()->id)
+                                                    ->where('course_id', $course->id)
+                                                    ->where('approval_status', 'approved')
+                                                    ->latest()
+                                                    ->first();
+                                            @endphp
+                                            @if ($enrollment)
+                                                {{-- @if (Auth::user()->courses->course_id == $course->id) --}}
+                                                {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
+                                                <a href="{{ route('contents.show', $content) }}"
+                                                    class="btn btn-sm
 
                                         @if (auth()->user()->completedContents->contains($content->id)) btn-success
                                         @else
                                         btn-warning @endif
                                         ">
-                                            @if (auth()->user()->completedContents->contains($content->id))
-                                                Read Again
+                                                    @if (auth()->user()->completedContents->contains($content->id))
+                                                        Read Again
+                                                    @else
+                                                        Read
+                                                    @endif
+                                                </a>
                                             @else
-                                                Read
-                                            @endif
-                                        </a>
-                                            {{-- @else
+                                                <a href="#" class="btn btn-sm btn-danger disabled">
 
+                                                    <i class="fa fa-lock"></i>
+                                                </a>
                                             @endif
-                                       --}}
+
                                         </th>
                                     </tr>
                                     @php
@@ -97,22 +107,36 @@
                                                 </td>
                                                 <td>
                                                     <a class="fw-medium text-dark"
-                                                        href="{{ route('contents.show', $subContent) }}">{{ $subContent->title }}</a>
+                                                        href="#">{{ $subContent->title }}</a>
                                                 </td>
                                                 <td class="text-end text-muted">
-                                                    <a href="{{ route('contents.show', $subContent) }}"
-                                                        class="btn btn-sm
+                                                    @php
+                                                        $enrollment = App\Models\Enrollment::where('user_id', Auth::user()->id)
+                                                            ->where('course_id', $course->id)
+                                                            ->where('approval_status', 'approved')
+                                                            ->latest()
+                                                            ->first();
+                                                    @endphp
+                                                    @if ($enrollment)
+                                                        <a href="{{ route('contents.show', $subContent) }}"
+                                                            class="btn btn-sm
                                                         @if (auth()->user()->completedContents->contains($subContent->id)) btn-success
                                                         @else
                                                         btn-warning @endif
 
                                                         ">
-                                                        @if (auth()->user()->completedContents->contains($subContent->id))
-                                                            Read Again
-                                                        @else
-                                                            Read
-                                                        @endif
-                                                    </a>
+                                                            @if (auth()->user()->completedContents->contains($subContent->id))
+                                                                Read Again
+                                                            @else
+                                                                Read
+                                                            @endif
+                                                        </a>
+                                                    @else
+                                                        <a href="#" class="btn btn-sm btn-danger disabled">
+
+                                                            <i class="fa fa-lock"></i>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -137,31 +161,45 @@
 
                         </div>
                         <div class="card-body">
-                    @forelse ($quizzes as $quiz)
+                            @forelse ($quizzes as $quiz)
+                                <h6 class="card-title">
+                                    {{-- <i class="fa fa-question text-warning"></i> --}}
+                                    {{ $quiz->title }}
 
-                            <h6 class="card-title">
-                                {{-- <i class="fa fa-question text-warning"></i> --}}
-                                {{ $quiz->title }}
-
+                                    @php
+                                    $enrollment = App\Models\Enrollment::where('user_id', Auth::user()->id)
+                                        ->where('course_id', $course->id)
+                                        ->where('approval_status', 'approved')
+                                        ->latest()
+                                        ->first();
+                                @endphp
+                                @if ($enrollment)
                                     @if ($quiz->hasUserAttempted(auth()->user()))
-                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                        class="btn btn-sm btn-success float-end ms-2">View Result</a>
+                                        <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                            class="btn btn-sm btn-success float-end ms-2">View Result</a>
+                                    @else
+                                        <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
+                                            class="btn btn-sm btn-warning float-end ms-2">Take Quiz</a>
+                                    @endif
                                 @else
-                                    <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                        class="btn btn-sm btn-warning float-end ms-2">Take Quiz</a>
+                                <a href="#" class="btn btn-sm btn-danger float-end disabled">
+
+                                    <i class="fa fa-lock"></i> Take Quiz
+                                </a>
+
+
                                 @endif
+                                </h6>
 
-                            </h6>
+                            @empty
+                                <p class="text-muted">No quizzes available for this course.</p>
+                            @endforelse
 
-                @empty
-                    <p class="text-muted">No quizzes available for this course.</p>
-                @endforelse
+                        </div>
+                        <!-- End of Quizzes -->
 
+                    </div>
                 </div>
-                <!-- End of Quizzes -->
-
-            </div>
-        </div>
 
             </div>
             <div class="col-xl-4">
@@ -265,9 +303,10 @@
                     </div>
                     <div class="block-content block-content-full text-center">
                         <div class="push">
-                            <img class="img-avatar" src="{{ asset('public/storage/'. $course->user->avatar.'') }}" alt="">
+                            <img class="img-avatar" src="{{ asset('public/storage/' . $course->user->avatar . '') }}"
+                                alt="">
                         </div>
-                        <div class="fw-semibold mb-1">{{ $course->user->name??'Tutor' }}</div>
+                        <div class="fw-semibold mb-1">{{ $course->user->name ?? 'Tutor' }}</div>
                         {{-- <div class="fs-sm text-muted">Front-end Developer</div> --}}
                     </div>
                 </a>
