@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact_address" class="form-label text-dark">Contact Address</label>
+                        <label for="contact_address" class="form-label text-dark">Location</label>
                         <input type="text" name="contact_address" id="contact_address" class="form-control" value="{{ $companyDetail->contact_address }}">
                     </div>
 

@@ -16,15 +16,13 @@
 
 
                             <div class="form-group row mb-2">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-dark text-md-right">{{ __('Password') }}</label>
 
-                                <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
-                                </div>
                             </div>
 
                             <div class="form-group row mb-3">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-4  text-dark col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
@@ -33,7 +31,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6  float-end">
-                                    <button type="submit" class="btn btn-secondary">
+                                    <button type="submit" class="btn btn-dark">
                                         {{ __('Reset Password') }}
                                     </button>
                                 </div>
