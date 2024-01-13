@@ -89,20 +89,26 @@
 
                       <form class="js-validation-signup" action="{{ route('register') }}" method="POST">
                         @csrf
-                        <div class="py-3">
-                          <div class="mb-4">
+                        <div class="row py-3">
+                          <div class="mb-4 col-6">
                             <input type="text" class="form-control form-control-lg form-control-alt" id="signup-username" name="name" placeholder="Username">
                           </div>
-                          <div class="mb-4">
+                          <div class="mb-4 col-6">
                             <input type="email" class="form-control form-control-lg form-control-alt" id="signup-email" name="email" placeholder="Email">
                           </div>
-                          <div class="mb-4">
+                          <div class="mb-4 col-6">
+                            <input type="text" class="form-control form-control-lg form-control-alt" id="signup-phone" name="phone_number" placeholder="Phone Number">
+                          </div>
+                          <div class="mb-4 col-6">
+                            <input type="text" class="form-control form-control-lg form-control-alt" id="signup-address" name="address" placeholder="Address">
+                          </div>
+                          <div class="mb-4 col-6">
                             <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
                           </div>
-                          <div class="mb-4">
+                          <div class="mb-4 col-6">
                             <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
                           </div>
-                          <div class="mb-4">
+                          <div class="mb-4 ">
                             <div class="form-check">
                               <input class="form-check-input" type="checkbox" value="" id="signup-terms" name="signup-terms">
                               <label class="form-check-label" for="signup-terms">I agree to Terms &amp; Conditions</label>
