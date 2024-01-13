@@ -13,7 +13,7 @@
                     Welcome <a class="fw-semibold" href="be_pages_generic_profile.html">{{ Auth::user()->name }}</a>, everything looks great.
                 </h2>
             </div>
-            <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
+            {{-- <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
                 <a class="btn btn-sm btn-alt-secondary space-x-1" href="be_pages_generic_profile_edit.html">
                     <i class="fa fa-cogs opacity-50"></i>
                     <span>Settings</span>
@@ -40,7 +40,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
              {{-- Dasboard Statistics --}}
