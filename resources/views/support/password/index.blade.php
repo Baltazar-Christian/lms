@@ -26,12 +26,10 @@
 
 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
     <thead>
-        <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Actions</th>
-        </tr>
     </thead>
     <tbody>
         @php
