@@ -33,10 +33,9 @@ class LoginController extends Controller
             Auth::logout();
 
             // Redirect or respond as needed
-            // $msg=('msg,Sorry, your account is blocked.');
-            // return '/login';
-            ob_clean(); // Clean the output buffer
-            return redirect('/login')->with('msg', 'Sorry, your account is blocked.');
+            $msg=('msg,Sorry, your account is blocked.');
+            return '/login';
+
         } else {
             switch (auth()->user()->role) {
                 case 'admin':
