@@ -7,7 +7,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
+                    <div class="card-header">  
+                        
+                        <h5> <i class="fa fa-key text-warning"></i> {{ __('Reset Password') }}</h5>
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('support.password.update', $user) }}">
