@@ -26,19 +26,26 @@ class LoginController extends Controller
      *
      * @var string
      */
-     protected function redirectTo()
+    protected function redirectTo()
     {
-        switch (auth()->user()->role) {
-            case 'admin':
-                return '/admin-dashboard';
-            case 'tutor':
-                return '/tutor-dashboard';
-            case 'support':
+        if (Auth::user()->status == '1') {
+            Auth::logout();
+
+            // Redirect or respond as needed
+            return redirect()->route('login')->with('msg', 'Sorry, your Account is blocked !.');
+        } else {
+            switch (auth()->user()->role) {
+                case 'admin':
+                    return '/admin-dashboard';
+                case 'tutor':
+                    return '/tutor-dashboard';
+                case 'support':
                     return '/support-dashboard';
-            case 'student':
-                return '/student-dashboard';
-            default:
-                return '/home';
+                case 'student':
+                    return '/student-dashboard';
+                default:
+                    return '/home';
+            }
         }
     }
 

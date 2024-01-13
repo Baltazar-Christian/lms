@@ -20,6 +20,8 @@ class StudentController extends Controller
         $this->middleware('role:student'); // Require student role for all student routes
     }
 
+
+
     public function dashboard()
     {
         $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
