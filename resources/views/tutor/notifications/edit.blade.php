@@ -17,9 +17,12 @@
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title" class="form-control"
-                            value="{{ $notification->title }}" required>
+                        <label for="course_id" class="text-dark">Select Course</label>
+                        <select name="course_id" id="course_id" class="form-control" required>
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
