@@ -53,7 +53,7 @@ class SupportCourseController extends Controller
             'duration_in_minutes' => 'required|integer',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:20480',
         ]);
 
         // Handle cover image update

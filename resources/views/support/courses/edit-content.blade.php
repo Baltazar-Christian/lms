@@ -52,6 +52,14 @@
 
                     <div class="form-group col-6 mb-2">
                         <label for="file">File</label>
+                        <span class="text-muted fs-sm">
+                            Please upload an file with the following conditions:
+                            <ul>
+                                <li>'pdf'</li>
+                                <li>'image' (Accepted formats: jpg, png, webp)</li>
+                                <li>'video' (Accepted formats: mp4)</li>
+                            </ul>
+                        </span>
                         <input type="file" name="file" id="file" class="form-control-file">
                     </div>
 
