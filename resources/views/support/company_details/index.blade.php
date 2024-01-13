@@ -27,7 +27,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Details</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -36,7 +36,20 @@
                         <tr>
                             <td>{{ $companyDetail->id }}</td>
                             <td>{{ $companyDetail->name }}</td>
-                            <td>{!! $companyDetail->description !!}</td>
+                            <td>
+                                <p><strong>About</strong></p>
+                                <hr>
+                                {!! $companyDetail->description !!}
+                                
+                                <hr>
+                                <p class="text-dark">Location: {{ $companyDetail->contact_address }}</p>
+                                <p class="text-dark">Phone 1: {{ $companyDetail->contact_phone }}</p>
+    
+                                <p class="text-dark">Phone 2: {{ $companyDetail->contact_phone2 }}</p>
+                                <p class="text-dark">Email 1: {{ $companyDetail->contact_email }} </p>
+                                <p class="text-dark">Email 2:{{ $companyDetail->contact_email2 }}</p>
+                                
+                            </td>
                             <td>
                                 <a href="{{ route('support-company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-dark "> <i class="fa fa-edit"></i> </a>
 
