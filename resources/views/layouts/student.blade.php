@@ -75,7 +75,7 @@
 
                             @foreach ( $notifications as $notification )
                             <li>
-                                <a class="text-dark d-flex py-2" href="javascript:void(0)">
+                                <a class="text-dark d-flex py-2" href="{{ route('student-notifications.show',$notification->id) }}">
                                     <div class="flex-shrink-0 me-2 ms-3">
                                         <i class="fa fa-fw fa-check-circle text-success"></i>
                                     </div>
