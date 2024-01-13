@@ -33,7 +33,7 @@ class LoginController extends Controller
             Auth::logout();
 
             // Redirect or respond as needed
-            return redirect('/login')->with('msg', 'Sorry, your Account is blocked');
+            return redirect('/login')->with('msg', 'Sorry, your account is blocked.');
         } else {
             switch (auth()->user()->role) {
                 case 'admin':
