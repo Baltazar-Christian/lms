@@ -13,7 +13,7 @@
                     Welcome <a class="fw-semibold" href="be_pages_generic_profile.html"> {{ Auth::user()->name }} </a>, everything looks great.
                 </h2>
             </div>
-            <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
+            {{-- <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
                 <a class="btn btn-sm btn-alt-secondary space-x-1" href="be_pages_generic_profile_edit.html">
                     <i class="fa fa-cogs opacity-50"></i>
                     <span>Settings</span>
@@ -40,7 +40,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
              {{-- Dasboard Statistics --}}
@@ -118,23 +118,8 @@
 
         <!-- Quick Overview -->
         <div class="row">
-            <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="#">
-                    <div class="block-content block-content-full">
-                        <div class="fs-2 fw-semibold text-success">
-                            <div class="fs-2 fw-semibold text-success">
-                                {{ $institutes }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-content py-2 bg-body-light">
-                        <p class="fw-medium fs-sm text-success mb-0">
-                            Institutes
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-lg-3">
+    
+            <div class="col-6 col-lg-4">
                 <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-danger">
@@ -148,7 +133,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-4">
                 <a class="block block-rounded block-link-shadow text-center" href="#">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-warning">
@@ -162,7 +147,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-4">
                 <a class="block block-rounded block-link-shadow text-center" href="#">
                     <div class="block-content block-content-full">
                         <div class="fs-2 fw-semibold text-info">{{ $quizzes }} </div>
