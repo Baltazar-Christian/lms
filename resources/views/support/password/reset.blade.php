@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">  
                         
-                        <h5> <i class="fa fa-key text-warning"></i> {{ __('Reset Password') }}</h5>
+                        <h5> <i class="fa fa-key text-warning"></i> {{ $user->name }} {{ __('Reset Password') }}</h5>
                     </div>
 
                     <div class="card-body">
