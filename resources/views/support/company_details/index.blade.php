@@ -51,14 +51,12 @@
                                 
                             </td>
                             <td>
-                                <a href="{{ route('support-company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-dark "> <i class="fa fa-edit"></i> </a>
+                                <a href="{{ route('support-company_details.edit', $companyDetail->id) }}" class="btn btn-sm btn-warning "> <i class="fa fa-edit"></i> </a>
 
                             </td>
                         </tr>
                     @empty
-                        <tr>
-                            <td colspan="4">No company details available</td>
-                        </tr>
+                     
                     @endforelse
                 </tbody>
             </table>

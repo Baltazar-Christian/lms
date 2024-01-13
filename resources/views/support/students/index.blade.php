@@ -47,7 +47,7 @@
                 <td>{{ $user->email }}</td>
                 <td>
                     <a href="{{ route('lms.support-show-student', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-eye"></i></a>
-                    <a href="{{ route('lms.support-edit-student', $user->id) }}" class="btn btn-dark btn-sm"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('lms.support-edit-student', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                     <form action="{{ route('lms.support-delete-student', $user->id) }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')

@@ -42,7 +42,7 @@
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="{{ route('support-announcements.edit', $announcement->id) }}"
-                                        class="btn btn-dark btn-sm">
+                                        class="btn btn-warning btn-sm">
                                         <i class="fa fa-edit"></i>
 
                                     </a>

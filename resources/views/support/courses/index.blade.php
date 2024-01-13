@@ -42,11 +42,11 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-secondary">
+                                <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-dark">
                                 <i class="fa fa-eye"></i>
                                 </a>
                                 <a href="{{ route('lms.support-edit-course', $course->id) }}"
-                                    class="btn btn-sm btn-secondary">
+                                    class="btn btn-sm btn-warning">
                                     <i class="fa fa-edit"></i>
 
                                 </a>
