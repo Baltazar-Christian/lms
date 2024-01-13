@@ -79,6 +79,14 @@
 
                         <div class="form-group col-6 mb-2">
                             <label for="cover_image" class="text-dark">Course Cover Image</label>
+                            <span class="text-muted fs-sm">
+                                Please upload an image with the following conditions:
+                                <ul>
+                                    <li>File type: jpeg, png, jpg, gif, webp</li>
+                                    <li>Maximum file size: 20MB (20480 KB)</li>
+                                </ul>
+                            </span>
+
                             <input type="file" name="cover_image" id="cover_image" class="form-control-file">
                         </div>
 

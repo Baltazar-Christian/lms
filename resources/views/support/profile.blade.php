@@ -39,7 +39,11 @@
                   </p>
                 </div>
                 <div class="col-lg-12 col-xl-12">
-
+                    @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                   <div class="mb-4">
                     <label class="form-label" for="one-profile-edit-name">Name</label>
                     <input type="text" class="form-control" id="one-profile-edit-name" name="one-profile-edit-name" placeholder="Enter your name.." value="{{ Auth::user()->name }}">
@@ -51,6 +55,14 @@
                   <div class="mb-4">
                     <label class="form-label">Your Avatar</label>
                     <div class="mb-4 mx-auto">
+                        <span class="text-muted fs-sm">
+                            Please upload an image with the following conditions:
+                            <ul>
+                                <li>File type: jpeg, png, jpg, gif, webp</li>
+                                <li>Maximum file size: 20MB (20480 KB)</li>
+                            </ul>
+                        </span>
+
                       <img class="img-avatar" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="Avatar">
 
                     </div>
@@ -86,7 +98,7 @@
                   </p>
                 </div>
                 <div class="col-lg-12 col-xl-12">
-                    @if(session('error'))
+                @if(session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
                     </div>
