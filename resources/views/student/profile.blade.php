@@ -51,8 +51,15 @@
                   <div class="mb-4">
                     <label class="form-label">Your Avatar</label>
                     <div class="mb-4 mx-auto">
+                        <span class="text-muted fs-sm">
+                            Please upload an image with the following conditions:
+                            <ul>
+                                <li>File type: jpeg, png, jpg, gif, webp</li>
+                                <li>Maximum file size: 20MB (20480 KB)</li>
+                            </ul>
+                        </span>
                       <img class="img-avatar" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="Avatar">
-                    
+
                     </div>
                     <div class="mb-4">
                       <label for="one-profile-edit-avatar" class="form-label">Choose a new avatar</label>
