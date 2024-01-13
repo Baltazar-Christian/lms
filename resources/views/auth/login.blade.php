@@ -116,7 +116,7 @@
                                @endif
                                {{-- Alert Messages --}}
                                @if (session('msg'))
-                               <div class="alert alert-success mt-1 mb-1 col-12 mx-auto" role="alert">
+                               <div class="alert alert-danger mt-1 mb-1 col-12 mx-auto" role="alert">
                                    {{ session('msg') }}
                                </div>
                                @endif

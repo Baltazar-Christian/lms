@@ -21,19 +21,28 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                switch (auth()->user()->role) {
-                    case 'admin':
-                        return redirect('/admin-dashboard');
-                    case 'support':
-                        return redirect('/support-dashboard');
-                    case 'tutor':
-                        return redirect('/tutor-dashboard');
-                    case 'student':
-                        return redirect('/student-dashboard');
-                    default:
+                if (Auth::user()->status=='1') {
+                    Auth::logout();
 
-                        return redirect('/home');
+                // Redirect or respond as needed
+                return redirect()->route('login')->with('msg', 'Sorry, your Account is blocked !.');
                 }
+                else{
+                    switch (auth()->user()->role) {
+                        case 'admin':
+                            return redirect('/admin-dashboard');
+                        case 'support':
+                            return redirect('/support-dashboard');
+                        case 'tutor':
+                            return redirect('/tutor-dashboard');
+                        case 'student':
+                            return redirect('/student-dashboard');
+                        default:
+
+                            return redirect('/home');
+                    }
+                }
+
             }
         }
 
