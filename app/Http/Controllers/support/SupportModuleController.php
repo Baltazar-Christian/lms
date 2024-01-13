@@ -28,7 +28,7 @@ class SupportModuleController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:modules',
-            'institutes' => 'required|array',
+            'institutes' => 'nullable|array',
             'institutes.*' => 'exists:instutes,id',
         ]);
 
@@ -67,7 +67,7 @@ class SupportModuleController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:modules,name,' . $id,
-            'institutes' => 'required|array',
+            'institutes' => 'nullable|array',
             'institutes.*' => 'exists:instutes,id',
         ]);
 
