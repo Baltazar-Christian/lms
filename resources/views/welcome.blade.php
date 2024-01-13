@@ -167,7 +167,7 @@
     <div id="courses-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @php
-                $courses = App\Models\Course::where('is_published',1)->get();
+                $courses = App\Models\Course::where('is_published',1)->latest()->get();
                 $totalCourses = count($courses);
                 $itemsPerSlide = 4;
                 $totalSlides = ceil($totalCourses / $itemsPerSlide);
