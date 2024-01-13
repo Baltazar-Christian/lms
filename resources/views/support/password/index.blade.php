@@ -8,7 +8,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <h5>Tutors List</h5>
+                    <h5><i class="fa fa-users text-warning"></i> Users List</h5>
                 </div>
                 <div class="col-6">
                     {{-- <a href="{{ route('lms.add-tutor') }}" class="btn btn-success float-end">Register Tutor</a> --}}
@@ -34,9 +34,12 @@
         </tr>
     </thead>
     <tbody>
+        @php
+        $i=1;
+        @endphp
         @foreach($users as $user)
             <tr>
-                <td>{{ $user->id }}</td>
+                <td>{{ $i++ }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
