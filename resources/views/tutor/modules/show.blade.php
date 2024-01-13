@@ -50,7 +50,7 @@
                                             <i class="fa fa-eye"></i>
                                             </a>
 
-                                            <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-sm btn-dark">
+                                            <a href="{{ route('lms.edit-tutor-course', $course->id) }}" class="btn btn-sm btn-warning">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <form action="{{ route('lms.delete-tutor-course', $course->id) }}" method="POST" class="d-inline">
