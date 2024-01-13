@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-12 mt-2 mx-1">
+<div class="col-12 mt-2 mb-2">
 
     <div class="card">
         <div class="card-header">
@@ -24,7 +24,7 @@
     </div>
 @endif
 
-<table class="table mt-3">
+<table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
     <thead>
         <tr>
             <th>ID</th>
