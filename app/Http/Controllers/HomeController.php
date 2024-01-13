@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CompanyDetail;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
+use App\Models\CompanyDetail;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -41,8 +45,15 @@ class HomeController extends Controller
     public function index()
     {
         $this->middleware('auth');
+        $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
+        $data['available']=Course::where('is_published',1)->count();
+        $data['incomplete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',0)->count();
+        $data['complete']=Enrollment::where('user_id',Auth::user()->id)->where('is_completed',1)->count();
 
-        return view('home');
+        $data['courses']=Course::latest()->where('is_published',1)->limit(4)->get();
+        $data['student']=User::with('courses')->find(Auth::user()->id);;
+        return view('student.dashboard',$data); $data['enrolled'] = Auth::user()->courses->count(); // Assuming 'courses' is the relationship name
+
     }
 
 
