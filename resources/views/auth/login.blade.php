@@ -100,8 +100,9 @@
                           </div>
                           <div class="mb-4">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="login-remember" name="login-remember">
-                              <label class="form-check-label" for="login-remember">Remember Me</label>
+                                <a href="{{ route('forgotPasswordForm') }}" class="text-dark">
+                                    <i class="fa fa-key text-warning"></i> Forgot Password
+                                </a>
                             </div>
                           </div>
                         </div>
@@ -140,7 +141,7 @@
               </div>
             </div>
             <div class="fs-sm text-muted text-center">
-              <strong>TazarChriss</strong> &copy; <span data-toggle="year-copy"></span>
+              <strong class="text-warning">UPPER</strong> &copy; <span data-toggle="year-copy"></span>
             </div>
           </div>
         </div>

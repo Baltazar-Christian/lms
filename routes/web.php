@@ -15,6 +15,7 @@ use App\Http\Controllers\admin\ModuleController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\admin\CoursesController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\tutor\TutorQuizController;
 use App\Http\Controllers\admin\AnnouncementController;
@@ -51,6 +52,9 @@ Route::any('contact-us', [HomeController::class, 'contact'])->name('contact-us')
 Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
 
+
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgotPasswordForm');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendPasswordResetLink'])->name('sendPasswordResetLink');
 
 Route::group(['middleware' => 'role:admin'], function () {
     // Admin routes
