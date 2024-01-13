@@ -27,9 +27,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $i=1;
+                        @endphp
                         @foreach ($modules as $module)
                             <tr>
-                                <td>{{ $module->id }}</td>
+                                <td>{{ $i++ }}</td>
                                 <td>{{ $module->name }}</td>
                                 <td>
                                     <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $module->status === 'active' ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
@@ -39,11 +42,11 @@
                                 </td>
                                 <td>{{ $module->user->name }}</td>
                                 <td>
-                                    <a href="{{ route('lms.support-show-module', $module->id) }}" class="btn btn-sm btn-secondary">
+                                    <a href="{{ route('lms.support-show-module', $module->id) }}" class="btn btn-sm btn-dark">
                                         <i class="fas fa-eye"></i>
                                     </a>
 
-                                    <a href="{{ route('lms.support-edit-module', $module->id) }}" class="btn btn-sm btn-secondary">
+                                    <a href="{{ route('lms.support-edit-module', $module->id) }}" class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
