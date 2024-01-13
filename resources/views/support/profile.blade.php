@@ -1,6 +1,6 @@
 
 
-@extends('layouts.tutor')
+@extends('layouts.support')
 
 @section('content')
      <!-- Hero -->

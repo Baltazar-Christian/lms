@@ -166,6 +166,8 @@
 
                         @elseif (Auth::user()->role=='admin')
                         href="{{ route('lms.admin-profile') }}"
+                        @else
+                        href="{{ route('lms.support-profile') }}"
 
                         @endif
 

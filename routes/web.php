@@ -203,6 +203,8 @@ Route::group(['middleware' => 'role:admin'], function () {
 Route::group(['middleware' => 'role:support'], function () {
     // Admin routes
     Route::any('support-dashboard', [SupportController::class, 'dashboard'])->name('lms.support-dashboard');
+    Route::any('support-profile', [SupportController::class, 'profile'])->name('lms.support-profile');
+
     Route::any('support-mode', [SupportController::class, 'mode'])->name('support.change-mode');
 
 

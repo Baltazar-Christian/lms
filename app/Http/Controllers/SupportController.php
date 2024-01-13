@@ -35,11 +35,18 @@ class SupportController extends Controller
     }
 
 
+    public function profile( )
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+
+        return view("support.profile");
+    }
+
     public function mode(Request $request){
             $user=User::where('id',Auth::user()->id)->first();
             $user->mode=$request->mode;
             $user->update();
-            
+
             return back();
     }
 
