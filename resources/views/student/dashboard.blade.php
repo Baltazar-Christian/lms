@@ -23,7 +23,7 @@
             <a class="block block-rounded block-link-pop" href="{{ route('student.enrolledCourses', Auth::user()->id) }}">
                 <div class="block-content block-content-full">
                     <div class="fs-sm fw-semibold text-warning text-uppercase ">INCOMPLETE COURSES</div>
-                    <div class="fs-2 fw-normal text-dark">{{ $complete }}</div>
+                    <div class="fs-2 fw-normal text-dark">{{ $incomplete }}</div>
                 </div>
             </a>
         </div>
@@ -31,7 +31,7 @@
             <a class="block block-rounded block-link-pop" href="{{ route('student.completedCourses', Auth::user()->id) }}">
                 <div class="block-content block-content-full">
                     <div class="fs-sm fw-semibold text-warning text-uppercase ">COMPLETE COURSES</div>
-                    <div class="fs-2 fw-normal text-dark">{{ $incomplete }}</div>
+                    <div class="fs-2 fw-normal text-dark">{{ $complete }}</div>
                 </div>
             </a>
         </div>
