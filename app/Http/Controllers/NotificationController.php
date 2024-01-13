@@ -25,21 +25,17 @@ class NotificationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'course_id' => 'required|exists:courses,id',
+            // 'user_id' => 'required|exists:users,id',
+            'course_id' => 'nullable|exists:courses,id',
             'message' => 'required|string',
+            // 'read' => 'boolean',
         ]);
 
-        $course = Course::find($request->course_id);
-        $message = $request->message;
+        Notification::create($request->all());
 
-        // Notify enrolled students
-        $enrolledStudents = $course->students;
+        return redirect()->route('notifications.index')->with('success', 'Notification created successfully');
 
-        foreach ($enrolledStudents as $student) {
-            $student->notify(new CourseNotification($course, $message));
-        }
-
-        return redirect()->route('notifications.create')->with('success', 'Notification sent successfully.');
+        // return redirect()->route('notifications.create')->with('success', 'Notification sent successfully.');
     }
     // View a single notification
     public function show(Notification $notification)
@@ -56,9 +52,16 @@ class NotificationController extends Controller
     // Update a notification (if needed)
     public function update(Request $request, Notification $notification)
     {
-        // Add logic to update the notification
+        $request->validate([
+            // 'user_id' => 'required|exists:users,id',
+            'course_id' => 'nullable|exists:courses,id',
+            'message' => 'required|string',
+            // 'read' => 'boolean',
+        ]);
 
-        return redirect()->route('tutor.notifications.index')->with('success', 'Notification updated successfully.');
+        $notification->update($request->all());
+
+        return redirect()->route('notifications.index')->with('success', 'Notification updated successfully');
     }
 
     // Delete a notification
@@ -67,6 +70,19 @@ class NotificationController extends Controller
         $notification->delete();
 
         return redirect()->route('tutor.notifications.index')->with('success', 'Notification deleted successfully.');
+    }
+
+
+
+    public function openNotification(Notification $notification)
+    {
+        // Attach the authenticated user to the notification
+        Auth::user()->notifications()->syncWithoutDetaching([$notification->id]);
+
+        // Optionally mark the notification as "read" or perform other actions
+
+        return redirect()->route('notifications.show', $notification)
+            ->with('success', 'Notification opened successfully');
     }
 
 }
