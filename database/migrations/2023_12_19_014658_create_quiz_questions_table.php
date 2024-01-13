@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('quiz_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quiz_id')->constrained();
+            $table->foreignId('quiz_id');
             $table->text('question');
             $table->timestamps();
 
 
-            $table->foreign('quiz_question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
+            // $table->foreign('quiz_question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
 
         });
 

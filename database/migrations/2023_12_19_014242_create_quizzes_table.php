@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_content_id')->nullable()->constrained();
-            $table->foreignId('course_id')->constrained();
+            $table->foreignId('course_content_id')->nullable();
+            $table->foreignId('course_id');
             $table->string('title');
             $table->string('description');
             $table->timestamps();
 
 
-            $table->foreign('quiz_id')->references('id')->on('quiz_questions')->onDelete('cascade');
-            $table->foreign('quiz_id')->references('id')->on('quiz_answers')->onDelete('cascade');
+            // $table->foreign('quiz_id')->references('id')->on('quiz_questions')->onDelete('cascade');
+            // $table->foreign('quiz_id')->references('id')->on('quiz_answers')->onDelete('cascade');
         });
     }
 
