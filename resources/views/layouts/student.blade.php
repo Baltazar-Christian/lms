@@ -69,28 +69,25 @@
                                 <h5 class="dropdown-header text-uppercase">Notifications</h5>
                             </div>
                             <ul class="nav-items mb-0">
-                                <li>
-                                    <a class="text-dark d-flex py-2" href="javascript:void(0)">
-                                        <div class="flex-shrink-0 me-2 ms-3">
-                                            <i class="fa fa-fw fa-check-circle text-success"></i>
-                                        </div>
-                                        <div class="flex-grow-1 pe-2">
-                                            <div class="fw-semibold">You have a new follower</div>
-                                            <span class="fw-medium text-muted">15 min ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="text-dark d-flex py-2" href="javascript:void(0)">
-                                        <div class="flex-shrink-0 me-2 ms-3">
-                                            <i class="fa fa-fw fa-plus-circle text-primary"></i>
-                                        </div>
-                                        <div class="flex-grow-1 pe-2">
-                                            <div class="fw-semibold">1 new sale, keep it up</div>
-                                            <span class="fw-medium text-muted">22 min ago</span>
-                                        </div>
-                                    </a>
-                                </li>
+                            @php
+                                $notifications = App\Models\Notification::get();
+                            @endphp
+
+                            @foreach ( $notifications as $notification )
+                            <li>
+                                <a class="text-dark d-flex py-2" href="javascript:void(0)">
+                                    <div class="flex-shrink-0 me-2 ms-3">
+                                        <i class="fa fa-fw fa-check-circle text-success"></i>
+                                    </div>
+                                    <div class="flex-grow-1 pe-2">
+                                        <div class="fw-semibold text-dark">{{ $notification->message }}</div>
+                                        <span class="fw-medium text-muted">{{ $notification->course->title }}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            @endforeach
+
+
 
 
                             </ul>

@@ -427,6 +427,21 @@ Route::group(['middleware' => 'role:tutor'], function () {
     Route::get('/notifications/index', [NotificationController::class, 'index'])->name('notifications.index');
     Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
     Route::post('/notifications/store', [NotificationController::class, 'store'])->name('notifications.store');
+
+    // View all notifications
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+
+// View a single notification
+Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
+
+// Edit a notification (if needed)
+Route::get('/notifications/{notification}/edit', [NotificationController::class, 'edit'])->name('notifications.edit');
+
+// Update a notification (if needed)
+Route::put('/notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
+
+// Delete a notification
+Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
 });
 
 Route::group(['middleware' => 'role:student'], function () {

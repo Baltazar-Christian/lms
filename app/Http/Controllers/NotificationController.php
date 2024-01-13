@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class NotificationController extends Controller
@@ -31,6 +32,7 @@ class NotificationController extends Controller
             // 'read' => 'boolean',
         ]);
 
+        $request['user_id']=Auth::user()->id;
         Notification::create($request->all());
 
         return redirect()->route('notifications.index')->with('success', 'Notification created successfully');
@@ -69,7 +71,7 @@ class NotificationController extends Controller
     {
         $notification->delete();
 
-        return redirect()->route('tutor.notifications.index')->with('success', 'Notification deleted successfully.');
+        return redirect()->route('notifications.index')->with('success', 'Notification deleted successfully.');
     }
 
 

@@ -21,7 +21,7 @@
     <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
         <thead>
                 <th>ID</th>
-                <th>Title</th>
+                <th>Course</th>
                 <th>Content</th>
                 <th>Actions</th>
         </thead>
@@ -29,8 +29,8 @@
             @foreach ($notifications as $notification)
                 <tr>
                     <td>{{ $notification->id }}</td>
-                    <td>{{ $notification->title }}</td>
-                    <td>{{ $notification->content }}</td>
+                    <td>{{ $notification->course->title }}</td>
+                    <td>{{ $notification->message }}</td>
                     <td>
                         <a href="{{ route('notifications.show', $notification->id) }}" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i></a>
                         <a href="{{ route('notifications.edit', $notification->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>

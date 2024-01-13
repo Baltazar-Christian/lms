@@ -47,11 +47,11 @@
 
             <!-- Notifications Dropdown -->
             <div class="dropdown d-inline-block ms-2">
-                <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-notifications-dropdown"
+                {{-- <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-notifications-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-bell"></i>
                     <span class="text-primary">•</span>
-                </button>
+                </button> --}}
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 border-0 fs-sm"
                     aria-labelledby="page-header-notifications-dropdown">
                     <div class="p-2 bg-body-light border-bottom text-center rounded-top">

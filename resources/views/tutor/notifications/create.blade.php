@@ -32,7 +32,7 @@
                         <textarea name="message" id="message" class="form-control" rows="4" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-dark btn-sm float-end">Send Notification</button>
+                    <button type="submit" class="btn btn-dark btn-sm mt-2 float-end">Save Notification</button>
                 </form>
             </div>
         </div>
