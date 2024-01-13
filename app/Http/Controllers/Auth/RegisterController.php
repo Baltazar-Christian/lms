@@ -49,32 +49,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $validator =  Validator::make($data, [
+        return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone_number' => ['required', 'string', 'max:14', 'unique:users'],
-            'address' => ['required'],
+            'phone_number' => ['reques', 'string', 'max:14', 'unique:users'],
+            'address' => ['nullable'],
             'password' => [
                 'required',
                 'string',
                 'min:8',              // Minimum length of 8 characters
                 'confirmed',          // Requires a matching password confirmation field
-                'regex:/^(?=.*[A-Z])/', // Requires at least one uppercase letter
-                'regex:/^(?=.*[a-z])/', // Requires at least one lowercase letter
-                'regex:/^(?=.*\d)/',    // Requires at least one digit
-                'regex:/^(?=.*\W)/',    // Requires at least one special character
+                // 'regex:/^(?=.*[A-Z])/', // Requires at least one uppercase letter
+                // 'regex:/^(?=.*[a-z])/', // Requires at least one lowercase letter
+                // 'regex:/^(?=.*\d)/',    // Requires at least one digit
+                // 'regex:/^(?=.*\W)/',    // Requires at least one special character
             ]
          ]);
-           // Check if the validation fails
-        if ($validator->fails()) {
-            return redirect('/your-form-route')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        else
-        {
-            return $data;
-        }
     }
 
     /**
