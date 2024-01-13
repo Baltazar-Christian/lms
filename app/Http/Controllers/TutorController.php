@@ -23,7 +23,8 @@ class TutorController extends Controller
     public function dashboard()
     {
 
-        $data['students'] = User::where('role', 'student')->count();
+        $data['active_students'] = User::where('role', 'student')->where('status',0)->count();
+        $data['blocked_students'] = User::where('role', 'student')->where('status',1)->count();
         $data['tutors'] = User::where('role', 'tutor')->count();
         $data['modules'] = Module::count();
         $data['courses'] = Course::where('user_id', Auth::user()->id)->count();

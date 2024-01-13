@@ -51,10 +51,10 @@
 
                       <dl class="ms-3 text-start mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                            {{ $students }}
+                            {{ $active_students }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Students
+                         Active Students
                         </dd>
                       </dl>
                       <div>
@@ -69,14 +69,14 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                            {{ $modules }}
+                            {{ $blocked_students }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                          Modules
+                          Blocked Students
                         </dd>
                       </dl>
                       <div>
-                        <i class="fa fa-2x fa-clipboard text-white-50"></i>
+                        <i class="fa fa-2x fa-users text-white-50"></i>
                       </div>
                     </div>
                   </a>
