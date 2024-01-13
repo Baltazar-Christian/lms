@@ -141,14 +141,26 @@
 
         <h5>
             We would love to hear from you! If you have any questions, suggestions, or just want to say hello,
-            feel free to reach out to us at <strong>{{ $company_detail->contact_email }}</strong>.
+            feel free to reach out to us at <strong>{{ $company_detail->contact_email }}           @if ($company_detail->contact_email2!=NULL)
+                Or {{ $company_detail->contact_email2 }}
+         @endif</strong>.
         </h5>
 
         <div class="my-4">
             <h2 class="text-warning">Visit Us</h2>
-            <p>Address: {{ $company_detail->contact_address }}</p>
-            <p>Phone: {{ $company_detail->contact_phone }}</p>
-            <p>Email: {{ $company_detail->contact_email }}</p>
+            <p>Location: {{ $company_detail->contact_address }}</p>
+            <p>Phone: {{ $company_detail->contact_phone }}
+
+            @if ($company_detail->contact_phone2!=NULL)
+                   Or {{ $company_detail->contact_phone2 }}
+            @endif
+            </p>
+            <p>Email: {{ $company_detail->contact_email }}
+
+             @if ($company_detail->contact_email2!=NULL)
+                   Or {{ $company_detail->contact_email2 }}
+            @endif
+            </p>
         </div>
 
         <div class="my-4">
