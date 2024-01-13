@@ -263,7 +263,7 @@
                             href="https://1.envato.market/ydb" target="_blank">pixelcave</a> --}}
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold text-warning" href="{{ route('lms.student-dashboard') }}" target="_blank">UPPER 1.0.0 </a>
+                        <a class="fw-semibold text-warning" href="{{ route('lms.student-dashboard') }}" target="_blank">UPPER </a>
                         &copy; <span data-toggle="year-copy"></span>
                     </div>
                 </div>
