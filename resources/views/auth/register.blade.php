@@ -131,8 +131,8 @@
               </div>
             </div>
             <div class="fs-sm text-muted text-center">
-              <strong>LMS 1.0.0</strong> &copy; <span data-toggle="year-copy"></span>
-            </div>
+                <strong class="text-warning">UPPER</strong> &copy; <span data-toggle="year-copy"></span>
+              </div>
           </div>
 
           <!-- Terms Modal -->
