@@ -19,7 +19,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="course_id">Select Course</label>
+                        <label for="course_id" class="text-dark">Select Course</label>
                         <select name="course_id" id="course_id" class="form-control" required>
                             @foreach ($courses as $course)
                                 <option value="{{ $course->id }}">{{ $course->title }}</option>
@@ -28,11 +28,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Notification Message</label>
+                        <label for="message" class="text-dark">Notification Message</label>
                         <textarea name="message" id="message" class="form-control" rows="4" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Send Notification</button>
+                    <button type="submit" class="btn btn-dark btn-sm float-end">Send Notification</button>
                 </form>
             </div>
         </div>

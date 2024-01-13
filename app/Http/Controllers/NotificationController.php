@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,31 @@ class NotificationController extends Controller
 
         return view('tutor.notifications.index', compact('notifications'));
     }
+    public function create()
+    {
+        $courses = Course::all();
+        return view('tutor.notifications.create', compact('courses'));
+    }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'course_id' => 'required|exists:courses,id',
+            'message' => 'required|string',
+        ]);
+
+        $course = Course::find($request->course_id);
+        $message = $request->message;
+
+        // Notify enrolled students
+        $enrolledStudents = $course->students;
+
+        foreach ($enrolledStudents as $student) {
+            $student->notify(new CourseNotification($course, $message));
+        }
+
+        return redirect()->route('notifications.create')->with('success', 'Notification sent successfully.');
+    }
     // View a single notification
     public function show(Notification $notification)
     {

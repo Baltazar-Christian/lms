@@ -4,14 +4,19 @@
 @section('content')
 <div class="container mt-2">
 
-    <h5>
-        <i class="fa fa-bell text-warning"></i>
-        Notifications
-        <a href="{{ route('notifications.create') }}" class="btn btn-dark float-end">
-            <i class="fa fa-plus"></i>
-            Create New
-        </a>
-    </h5>
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                <i class="fa fa-bell text-warning"></i>
+                Notifications
+                <a href="{{ route('notifications.create') }}" class="btn btn-dark float-end">
+                    <i class="fa fa-plus"></i>
+                    Create New
+                </a>
+            </h5>
+        </div>
+
+        <div class="card-body">
 
     <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
         <thead>
@@ -39,6 +44,10 @@
             @endforeach
         </tbody>
     </table>
+        </div>
+    </div>
+
+
 </div>
 
 @endsection
