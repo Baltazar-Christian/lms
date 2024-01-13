@@ -19,7 +19,7 @@ class NotificationController extends Controller
     }
     public function create()
     {
-        $courses = Course::all();
+        $courses = Course::where('user_id',Auth::user()->id)->get();
         return view('tutor.notifications.create', compact('courses'));
     }
 
@@ -48,7 +48,9 @@ class NotificationController extends Controller
     // Edit a notification (if needed)
     public function edit(Notification $notification)
     {
-        return view('tutor.notifications.edit', compact('notification'));
+        $courses = Course::where('user_id',Auth::user()->id)->get();
+
+        return view('tutor.notifications.edit', compact('notification','courses'));
     }
 
     // Update a notification (if needed)

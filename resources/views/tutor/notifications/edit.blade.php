@@ -23,8 +23,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea name="content" id="content" class="form-control" rows="4" required>{{ $notification->content }}</textarea>
+                        <label for="content">Message</label>
+                        <textarea name="message" id="content" class="form-control" rows="4" required>{{ $notification->message }}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-dark float-end mt-2">Update Notification</button>
