@@ -93,4 +93,9 @@ class User extends Authenticatable
         return $this->belongsTo(QuizResult::class, 'user_id','id');
 
     }
+
+    public function seenNotifications()
+    {
+        return $this->belongsToMany(Notifiícation::class, 'notification_user')->withPivot('seen')->withTimestamps();
+    }
 }
