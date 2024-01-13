@@ -59,6 +59,8 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'sendPasswordR
 Route::group(['middleware' => 'role:admin'], function () {
     // Admin routes
     Route::any('admin-dashboard', [AdminController::class, 'dashboard'])->name('lms.admin-dashboard');
+    Route::any('admin-profile', [AdminController::class, 'profile'])->name('lms.admin-profile');
+
     Route::any('admin-mode', [AdminController::class, 'mode'])->name('lms.change-mode');
 
 
