@@ -55,7 +55,7 @@
                             Please upload an image with the following conditions:
                             <ul>
                                 <li>File type: jpeg, png, jpg, gif, webp</li>
-                                <li>Maximum file size: 20MB (20480 KB)</li>
+                                <li>Maximum file size: 2MB (2048 KB)</li>
                             </ul>
                         </span>
                       <img class="img-avatar" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="Avatar">

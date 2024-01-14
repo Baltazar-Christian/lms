@@ -15,7 +15,7 @@ class ProfileController extends Controller
         $request->validate([
             'one-profile-edit-name' => 'required|string|max:255',
             'one-profile-edit-email' => 'required|email|max:255',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,webp|max:20480', // Add appropriate image validation rules
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Add appropriate image validation rules
         ]);
 
         // Update user profile
