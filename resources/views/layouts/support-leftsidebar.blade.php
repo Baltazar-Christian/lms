@@ -201,12 +201,12 @@
 
                 <li class="nav-main-heading">SETTINGS MANAGEMENT</li>
 
-              <li class="nav-main-item">
+              {{-- <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('support-announcements.index') }}">
                         <i class="nav-main-link-icon fa fa-bell"></i>
                         <span class="nav-main-link-name">Announcements</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('support-company_details.index') }}">
                         <i class="nav-main-link-icon fa fa-building"></i>
