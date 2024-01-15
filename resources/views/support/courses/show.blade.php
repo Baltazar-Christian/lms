@@ -50,7 +50,7 @@
                     <div class="block block-rounded">
                         <ul class="nav nav-tabs nav-tabs-block justify-content-end" role="tablist">
                             <li class="nav-item me-auto">
-                                <button class="nav-link" id="btabs-static2-settings-tab" data-bs-toggle="tab"
+                                <button class="nav-link btn btn-dark btn-sm" id="btabs-static2-settings-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-settings" role="tab"
                                     aria-controls="btabs-static2-settings" aria-selected="false">
                                     <i class="si si-user"></i>
@@ -58,12 +58,12 @@
                                 </button>
                             </li>
                             <li class="nav-item">
-                                <button class="nav-link active" id="btabs-static2-home-tab" data-bs-toggle="tab"
+                                <button class="nav-link btn btn-dark btn-sm  active" id="btabs-static2-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-home" role="tab" aria-controls="btabs-static2-home"
                                     aria-selected="true">Contents</button>
                             </li>
                             <li class="nav-item">
-                                <button class="nav-link" id="btabs-static2-profile-tab" data-bs-toggle="tab"
+                                <button class="nav-link btn btn-dark btn-sm" id="btabs-static2-profile-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-profile" role="tab"
                                     aria-controls="btabs-static2-profile" aria-selected="false">Quizes</button>
                             </li>
