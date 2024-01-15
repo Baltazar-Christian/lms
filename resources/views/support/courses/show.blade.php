@@ -50,7 +50,7 @@
                     <div class="block block-rounded">
                         <ul class="nav nav-tabs nav-tabs-block justify-content-end" role="tablist">
                             <li class="nav-item me-auto">
-                                <button class="nav-link btn btn-dark btn-sm" id="btabs-static2-settings-tab" data-bs-toggle="tab"
+                                <button class=" btn btn-dark btn-sm" id="btabs-static2-settings-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-settings" role="tab"
                                     aria-controls="btabs-static2-settings" aria-selected="false">
                                     <i class="si si-user"></i>
