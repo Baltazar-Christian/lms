@@ -29,7 +29,7 @@ class SupportQuizController extends Controller
     public function store(Request $request, Course $course)
     {
         $request->validate([
-            'title' => 'required|unique:quizzes|max:255',
+            'title' => 'required|max:255',
             // Add other validation rules as needed
         ]);
 
