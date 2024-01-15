@@ -35,6 +35,15 @@
     </div>
     <!-- END Navigation -->
 
+
+    {{-- course description --}}
+    <div class="content content-boxed">
+        <h6><strong>Description</strong></h6>
+        <hr>
+        {!! $course->description !!}
+    </div>
+
+
     <!-- Page Content -->
     <div class="content content-boxed">
         <div class="row">
@@ -111,28 +120,27 @@
 
                         </div>
                         <div class="card-body">
-                    @forelse ($quizzes as $quiz)
+                            @forelse ($quizzes as $quiz)
+                                <h6 class="card-title">
+                                    {{-- <i class="fa fa-question text-warning"></i> --}}
+                                    {{ $quiz->title }}
 
-                            <h6 class="card-title">
-                                {{-- <i class="fa fa-question text-warning"></i> --}}
-                                {{ $quiz->title }}
+                                    <a href="#" class="btn btn-sm btn-danger float-end disabled">
 
-                                <a href="#" class="btn btn-sm btn-danger float-end disabled">
+                                        <i class="fa fa-lock"></i> Take Quiz
+                                    </a>
 
-                                    <i class="fa fa-lock"></i> Take Quiz
-                                </a>
+                                </h6>
 
-                            </h6>
+                            @empty
+                                <p class="text-muted">No quizzes available for this course.</p>
+                            @endforelse
 
-                @empty
-                    <p class="text-muted">No quizzes available for this course.</p>
-                @endforelse
+                        </div>
+                        <!-- End of Quizzes -->
 
+                    </div>
                 </div>
-                <!-- End of Quizzes -->
-
-            </div>
-        </div>
 
             </div>
             <div class="col-xl-4">
@@ -236,12 +244,12 @@
                     </div>
                     <div class="block-content block-content-full text-center">
                         <div class="push">
-                            @if ($course->user != NULL)
-                            <img class="img-avatar" src="{{ asset('public/storage/'. $course->user->avatar.'') }}" alt="">
-
+                            @if ($course->user != null)
+                                <img class="img-avatar" src="{{ asset('public/storage/' . $course->user->avatar . '') }}"
+                                    alt="">
                             @endif
                         </div>
-                        <div class="fw-semibold mb-1">{{ $course->user->name??'Tutor' }}</div>
+                        <div class="fw-semibold mb-1">{{ $course->user->name ?? 'Tutor' }}</div>
                         {{-- <div class="fs-sm text-muted">Front-end Developer</div> --}}
                     </div>
                 </a>

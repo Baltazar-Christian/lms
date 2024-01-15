@@ -35,6 +35,13 @@
     </div>
     <!-- END Navigation -->
 
+    {{-- course description --}}
+    <div class="content content-boxed">
+    <h6><strong>Description</strong></h6>
+    <hr>
+    {!! $course->description !!}
+    </div>
+
     <!-- Page Content -->
     <div class="content content-boxed">
         <div class="row">
