@@ -6,6 +6,10 @@
             <div class="card-header">
                 <h5 class="text-start text-dark">
                     <div class="fa fa-book text-warning"></div> {{ $course->title }} - Course Content
+
+                    <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
                 </h5>
 
             </div>
