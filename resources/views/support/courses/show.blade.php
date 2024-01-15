@@ -58,7 +58,7 @@
                                 </button>
                             </li>
                             <li class="nav-item">
-                                <button class="btn btn-dark btn-sm  active" id="btabs-static2-home-tab" data-bs-toggle="tab"
+                                <button class="btn btn-dark btn-sm mx-1  active" id="btabs-static2-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-home" role="tab" aria-controls="btabs-static2-home"
                                     aria-selected="true"> <i class="fa fa-list text-warning"></i> Contents</button>
                             </li>
