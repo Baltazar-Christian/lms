@@ -258,7 +258,7 @@ Route::group(['middleware' => 'role:support'], function () {
     Route::group(['prefix' => 'support-courses'], function () {
 
         Route::get('/{id}/content/create', [SupportCourseController::class, 'createContent'])->name('lms.support-courses.create-content');
-        Route::post('/{id}/content/save', [SupportCourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
+        Route::any('/{id}/content/save', [SupportCourseController::class, 'saveContent'])->name('lms.support-courses.save-content');
         Route::get('/{courseId}/content/{contentId}/edit', [SupportCourseController::class, 'editContent'])->name('lms.support-courses.edit-content');
         Route::any('update-course/{courseId}/content/{contentId}/update', [SupportCourseController::class, 'updateContent'])->name('lms.support-courses.update-content');
         Route::get('/{courseId}/content/{contentId}', [SupportCourseController::class, 'showCourseContent'])->name('lms.support-show-course-content');
@@ -267,7 +267,7 @@ Route::group(['middleware' => 'role:support'], function () {
         Route::get('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'createSubSection'])->name('lms.support-create-subsection');
 
 
-        Route::post('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'storeSubsection'])->name('lms.support-create-subsection');
+        Route::any('/{courseId}/content/{parentId}/create-subsection', [SupportCourseController::class, 'storeSubsection'])->name('lms.support-create-subsection');
         Route::get('/{courseId}/content/{contentId}/show-subsection', [SupportCourseController::class, 'showSubSection'])->name('lms.support-show-subsection');
 
         Route::get('/{courseId}/content/{contentId}/edit-subsection', [SupportCourseController::class, 'editSubSection'])->name('lms.support-edit-subsection');
