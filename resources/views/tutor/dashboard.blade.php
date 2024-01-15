@@ -10,7 +10,7 @@
                     Dashboard
                 </h1> --}}
                 <h2 class="h6 fw-medium fw-medium text-muted mb-0">
-                    Welcome <a class="fw-semibold" href="be_pages_generic_profile.html">{{ Auth::user()->name }}</a>, everything looks great.
+                    Welcome <a class="fw-semibold text-warning" href="{{ route('lms.tutor-profile') }}">{{ Auth::user()->name }}</a>, everything looks great.
                 </h2>
             </div>
             {{-- <div class="mt-3 mt-md-0 ms-md-3 space-x-1">

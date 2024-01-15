@@ -77,6 +77,8 @@ class SupportUserManagementController extends Controller
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'address' => $request->input('address'),
             'role' => $request->input('role'),
         ]);
 
@@ -102,7 +104,7 @@ class SupportUserManagementController extends Controller
     // For All Tutors
     public function tutors()
     {
-        $users = User::where('role','tutor')->get();
+        $users = User::where('role','tutor')->latest()->get();
         return view('support.tutors.index', compact('users'));
     }
 
@@ -124,6 +126,8 @@ class SupportUserManagementController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role'=>'tutor',
+            'phone_number' => $request->input('phone_number'),
+            'address' => $request->input('address'),
             'password' => bcrypt($request->input('password')),
         ]);
 
@@ -157,6 +161,8 @@ class SupportUserManagementController extends Controller
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'address' => $request->input('address'),
             'role' => $request->input('role'),
         ]);
 
@@ -179,7 +185,7 @@ class SupportUserManagementController extends Controller
     // For All Students
     public function students()
     {
-        $users = User::where('role','student')->get();
+        $users = User::where('role','student')->latest()->get();
         return view('support.students.index', compact('users'));
     }
 
@@ -202,6 +208,8 @@ class SupportUserManagementController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role'=>'student',
+            'phone_number' => $request->input('phone_number'),
+            'address' => $request->input('address'),
             'password' => bcrypt($request->input('password')),
         ]);
 
@@ -239,6 +247,8 @@ class SupportUserManagementController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'role' => $request->input('role'),
+            'phone_number' => $request->input('phone_number'),
+            'address' => $request->input('address'),
             // 'password' => $request->has('password') ? bcrypt($request->input('password')) : $user->password,
         ]);
 
