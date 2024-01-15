@@ -42,7 +42,7 @@
                         <a href="{{ route('lms.tutor-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
 
                         </h5>
-                        <div>
+                        <div class="table-responsive">
 
                         <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
                             <thead >

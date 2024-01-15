@@ -39,7 +39,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <!-- Enrolled Courses Tab -->
-                    <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
+                    <div class="tab-pane active table-responsive" id="btabs-static2-home" role="tabpanel"
                         aria-labelledby="btabs-static2-home-tab" tabindex="0">
                         <h5 class="mt-2"> <i class="fa fa-book text-warning"></i> Enrolled Courses</h5>
                         <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
@@ -77,7 +77,7 @@
                     </div>
 
                     <!-- Quiz Results Tab -->
-                    <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
+                    <div class="tab-pane table-responsive" id="btabs-static2-profile" role="tabpanel"
                     aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                         <h5 class="mt-3">  <i class="fa fa-question text-warning"></i> Quiz Results</h5>
                         @forelse ($quizResults as $result)

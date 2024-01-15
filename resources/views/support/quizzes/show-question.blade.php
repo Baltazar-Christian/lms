@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 table-responsive">
                     <h5 class="text-warning">Answers</h5>
                     <hr>
                     <a href="{{ route('lms.support-create-answer', [$course->id, $quiz->id, $question->id]) }}"

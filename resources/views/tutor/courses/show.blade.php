@@ -67,7 +67,7 @@
                         </ul>
                         <div class="block-content tab-content">
                             {{-- For Contents --}}
-                            <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
+                            <div class="tab-pane table-responsive active" id="btabs-static2-home" role="tabpanel"
                                 aria-labelledby="btabs-static2-home-tab" tabindex="0">
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
@@ -127,7 +127,7 @@
 
                             </div>
                             {{-- For Quizzes --}}
-                            <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
+                            <div class="tab-pane table-responsive" id="btabs-static2-profile" role="tabpanel"
                                 aria-labelledby="btabs-static2-profile-tab" tabindex="0">
                                 {{-- For Quizzes --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Quizzes
@@ -181,7 +181,7 @@
 
                             </table>
                         </div>
-                        <div class="tab-pane" id="btabs-static2-settings" role="tabpanel"
+                        <div class="tab-pane table-responsive" id="btabs-static2-settings" role="tabpanel"
                             aria-labelledby="btabs-static2-settings-tab" tabindex="0">
                             <h6 class="mt-4 mb-3"> <i class="fa fa-users text-warning"></i> Enrolled Students</h6>
 

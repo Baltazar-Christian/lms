@@ -43,7 +43,7 @@
                 @endif
 
 
-                <div class="col-12 mt-4">
+                <div class="col-12 mt-4 table-responsive">
                     <hr>
                     <h6>
                         <i class="fa fa-list text-warning"></i>

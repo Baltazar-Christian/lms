@@ -9,11 +9,9 @@
 
                     <a href="{{ route('lms.support-edit-quiz', $quiz->id) }}" class="btn btn-dark btn-sm float-end"><i class="fa fa-edit"></i></a>
 
-                    {{-- <form action="{{ route('lms.support-delete-quiz', [$course->id, $quiz->id]) }}" method="post" class="float-end" style="display: inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm mx-1 btn-danger " onclick="return confirm('Are you sure?')"><i class="fa fa-trash "></i></button>
-                    </form> --}}
+                    <a href="{{ route('lms.support-show-course', $quiz->course->id) }}" class="btn mx-1 btn-sm btn-dark float-end">
+                        <i class="fa fa-list"></i> Back
+                    </a>
 
                 </h5>
 
@@ -37,7 +35,7 @@
                         <a href="{{ route('lms.support-create-question', [$course->id, $quiz->id]) }}" class="btn btn-sm btn-dark float-end">Create Question</a>
 
                         </h5>
-                        <div>
+                        <div class="table-responsive">
 
                         <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
                             <thead >
@@ -56,7 +54,7 @@
                                         <td>
                                             <a href="{{ route('lms.support-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
-                                                View Answers
+                                                {{-- View Answers --}}
                                             </a>
 
                                             <a href="{{ route('lms.support-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">

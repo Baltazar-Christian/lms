@@ -18,7 +18,7 @@
 
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
 
                         <h4>List Of Courses:</h4>
                         <hr>
