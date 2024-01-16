@@ -39,7 +39,7 @@
                         @php
                             $i=1;
                         @endphp
-                        @forelse ($Courses as $course)
+                        @forelse ($courses as $course)
 
                         <tr>
                             <td>{{ $i++}}</td>
