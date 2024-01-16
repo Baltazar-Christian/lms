@@ -36,7 +36,7 @@
                             <td>
                                 {{ $course->title }}
                                 <br>
-                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-success-light text-success ">
+                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-warning text-success ">
                                 {{ $course->module->name }}
                                 </span>
                             </td>
