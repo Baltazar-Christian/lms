@@ -16,6 +16,9 @@
                     </div>
 
                     <div class="card-body">
+
+                        <h6>Description:</h6>
+                        <p>{{ $module->description }}</p>
                         {{-- <p>Status: <span class="{{ $module->status === 'active' ? 'text-success' : 'text-danger' }}">{{ $module->status }}</span></p> --}}
 
                         <h5>Associated Institutes:</h5>
