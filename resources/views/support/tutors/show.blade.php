@@ -55,7 +55,7 @@
                             </td>
 
                         </tr>
-                        @endif
+
                         @empty
                         <p class="text-dark">No Created courses.</p>
                     @endforelse
