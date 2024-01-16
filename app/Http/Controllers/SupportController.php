@@ -25,7 +25,8 @@ class SupportController extends Controller
         $data['students']=User::where('role','student')->count();
         $data['tutors']=User::where('role','tutor')->count();
         $data['modules']=Module::count();
-        $data['courses']=Course::count();
+        $data['published_courses']=Course::where('is_published',1)->count();
+        $data['draft_courses']=Course::where('is_published',0)->count();
         $data['institutes']=Instute::count();
         $data['announcements']=Announcement::count();
         $data['contents']=CourseContent::count();

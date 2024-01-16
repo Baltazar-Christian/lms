@@ -45,7 +45,7 @@
 
              {{-- Dasboard Statistics --}}
              <div class="row">
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                   <a class="block block-rounded block-link-shadow bg-primary" href="{{ route('lms.support-students') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
@@ -62,7 +62,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                   <a class="block block-rounded block-link-shadow bg-success" href="{{ route('lms.support-tutors') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
@@ -79,7 +79,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                   <a class="block block-rounded block-link-shadow bg-danger" href="{{ route('lms.support-modules') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
@@ -96,12 +96,13 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-md-6 col-xl-3">
+
+                <div class="col-md-6 col-xl-6">
                   <a class="block block-rounded block-link-shadow bg-warning" href="{{ route('lms.support-draft-courses') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                            {{ $courses }}
+                            {{ $draft_courses }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Courses
@@ -113,6 +114,24 @@
                     </div>
                   </a>
                 </div>
+
+                <div class="col-md-6 col-xl-6">
+                    <a class="block block-rounded block-link-shadow bg-info" href="{{ route('lms.support-courses') }}">
+                      <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                        <dl class="me-3 mb-0">
+                          <dt class="text-white h3 fw-extrabold mb-0">
+                              {{ $published_courses }}
+                          </dt>
+                          <dd class="text-white fs-sm fw-medium text-muted mb-0">
+                            Published Courses
+                          </dd>
+                        </dl>
+                        <div>
+                          <i class="fa fa-2x fa-book text-white-50"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
               </div>
               {{-- ./ --}}
 
