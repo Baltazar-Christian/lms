@@ -33,7 +33,13 @@
                     @foreach ($courses as $course)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $course->title }}</td>
+                            <td>
+                                {{ $course->title }}
+                                <br>
+                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-success-light text-success ">
+                                {{ $course->module->name }}
+                                </span>
+                            </td>
                             {{-- <td>{{ $course->description }}</td> --}}
                             <td>Tsh {{ number_format($course->price,2) }}</td>
                             <td>

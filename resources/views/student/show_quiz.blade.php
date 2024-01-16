@@ -36,12 +36,12 @@
                     @endphp
                     @foreach ($questions as $question)
                     <div class="mb-2">
-                        <p class="mt-1"> {{$i++ }} : {!! $question->question !!}</p>
+                        <p class="mt-1"> {{$i++ }} : {{ $question->question }}</p>
                         @foreach ($question->answers as $option)
                             <label>
                                 <input type="radio" disabled name="answers[{{ $question->id }}]"
                                     value="{{ $option->id }}"{{ $option->is_correct ? 'checked' : '' }}   readonly>
-                                {!! $option->answer !!}
+                                {{ $option->answer }}
                                 @if ($option->is_correct)
                                 <i class="fa fa-check text-success"></i>
                                 @endif
