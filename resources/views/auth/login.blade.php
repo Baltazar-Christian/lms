@@ -97,12 +97,12 @@
                           </div>
                           <div class="input-group">
                             <input type="password" class="form-control form-control-alt form-control-lg" name="password" id="login-password" placeholder="Password">
-                            <button class="btn btn-outline-secondary" type="button" id="toggle-password">
+                            <button class="btn btn-alt-info" type="button" id="toggle-password">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
 
-                          <div class="mb-4">
+                          <div class="mb-4 mt-1">
                             <div class="form-check">
                                 <a href="{{ route('forgotPasswordForm') }}" class="text-dark">
                                     <i class="fa fa-key text-warning"></i> Forgot Password
