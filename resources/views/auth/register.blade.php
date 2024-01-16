@@ -124,7 +124,7 @@
                                                 <div class="mb-4 col-6">
                                                     <div class="input-group">
                                                         <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
-                                                        <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password">
+                                                        <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
                                                             <i class="fas fa-eye"></i>
                                                         </button>
                                                     </div>
@@ -133,7 +133,7 @@
                                                 <div class="mb-4 col-6">
                                                     <div class="input-group">
                                                         <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
-                                                        <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password-confirm">
+                                                        <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
                                                             <i class="fas fa-eye"></i>
                                                         </button>
                                                     </div>
@@ -146,8 +146,8 @@
                                                             <li>Minimum length of 8 characters</li>
                                                             <li>At least one uppercase letter</li>
                                                             <li>At least one lowercase letter</li>
-                                                            <li>At least one digit</li>
-                                                            <li>At least one special character</li>
+                                                            {{-- <li>At least one digit</li>
+                                                            <li>At least one special character</li> --}}
                                                             <li>Must match the confirmation</li>
                                                         </ul>
                                                     </span>
