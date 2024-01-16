@@ -13,6 +13,12 @@
             </div>
 
             <div class="card-body">
+
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="table-responsive col-12">
                     <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                         <thead class="thead-dark">
