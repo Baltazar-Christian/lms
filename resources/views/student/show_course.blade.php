@@ -36,7 +36,7 @@
     <!-- END Navigation -->
 
     {{-- course description --}}
-    <div class="content content-boxed">
+    <div class="content content-boxed card p-2">
         <h6><strong>Description</strong></h6>
         <hr>
         {!! $course->description !!}
