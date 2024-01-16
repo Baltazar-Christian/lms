@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Module extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'status', 'created_by'];
+    protected $fillable = ['name', 'status','description', 'created_by'];
 
 
     public function institutes()

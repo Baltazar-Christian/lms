@@ -28,12 +28,14 @@ class SupportModuleController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:modules',
+            'description' => 'required',
             'institutes' => 'nullable|array',
             'institutes.*' => 'exists:instutes,id',
         ]);
 
         $moduleData = [
             'name' => $request->input('name'),
+            'description' => $request->input('description'),
             'status' => 'active',
             'created_by' => Auth::id(),
         ];
