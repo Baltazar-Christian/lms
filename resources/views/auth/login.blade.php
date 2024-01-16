@@ -95,9 +95,13 @@
                           <div class="mb-4">
                             <input type="email" class="form-control form-control-alt form-control-lg" name="email" id="login-username" name="login-username" placeholder="Email">
                           </div>
-                          <div class="mb-4">
-                            <input type="password" class="form-control form-control-alt form-control-lg" name="password" id="login-password" name="login-password" placeholder="Password">
-                          </div>
+                          <div class="input-group">
+                            <input type="password" class="form-control form-control-alt form-control-lg" name="password" id="login-password" placeholder="Password">
+                            <button class="btn btn-outline-secondary" type="button" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
                           <div class="mb-4">
                             <div class="form-check">
                                 <a href="{{ route('forgotPasswordForm') }}" class="text-dark">
@@ -164,6 +168,16 @@
 
     <!-- Page JS Plugins -->
     <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('login-password');
+            const showPasswordCheckbox = document.getElementById('show-password');
+
+            showPasswordCheckbox.addEventListener('change', function () {
+                passwordInput.type = this.checked ? 'text' : 'password';
+            });
+        });
+    </script>
 
     <!-- Page JS Code -->
     <script src="{{ asset('assets/js/pages/op_auth_signin.min.js') }}"></script>
