@@ -68,13 +68,13 @@
                                             </div>
                                         @else
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-4">
                                                     <a href="{{ route('student-unenrolled-courses.show', $course) }}"
                                                         class="btn form-control btn-sm  btn-success mb-2">
                                                         View
                                                     </a>
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-8">
                                                     @if ($course->price <= 0)
                                                         <!-- Enroll button -->
                                                         <form
