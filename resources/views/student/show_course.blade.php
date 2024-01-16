@@ -241,9 +241,9 @@
 
                         @if ($student->courses->contains('id', $course->id))
                             @if ($progressPercentage >= 100)
-                                <span class="badge bg-success text-center mx-auto mb-2">
-
-                                    Course Complete</span>
+                                <a href="btn btn-success btn-block disabled " class="">
+                                    Course Complete
+                                </a>
                             @else
                                 <!-- Unenroll button -->
                                 <form
