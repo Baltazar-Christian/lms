@@ -16,6 +16,12 @@
 
             </div>
             <div class="card-body">
+
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
@@ -28,32 +34,37 @@
                     </thead>
                     <tbody>
                         @php
-                        $i=1;
+                            $i = 1;
                         @endphp
                         @foreach ($modules as $module)
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $module->name }}</td>
                                 <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $module->status === 'active' ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                    <span
+                                        class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $module->status === 'active' ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
 
                                         {{ $module->status }}
                                     </span>
                                 </td>
                                 <td>{{ $module->user->name }}</td>
                                 <td>
-                                    <a href="{{ route('lms.support-show-module', $module->id) }}" class="btn btn-sm btn-dark">
+                                    <a href="{{ route('lms.support-show-module', $module->id) }}"
+                                        class="btn btn-sm btn-dark">
                                         <i class="fas fa-eye"></i>
                                     </a>
 
-                                    <a href="{{ route('lms.support-edit-module', $module->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('lms.support-edit-module', $module->id) }}"
+                                        class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('lms.support-delete-module', $module->id) }}" method="post" style="display: inline-block">
+                                    <form action="{{ route('lms.support-delete-module', $module->id) }}" method="post"
+                                        style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Are you sure?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
