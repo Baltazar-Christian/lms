@@ -22,7 +22,7 @@
 
                 <!-- Display All Courses -->
                 <div class="row">
-                    @forelse($enrolledCourses- as $enrollement)
+                    @forelse($enrolledCourses as $enrollement)
                         <div class="col-md-4 mb-4">
                             <div class="card">
 
