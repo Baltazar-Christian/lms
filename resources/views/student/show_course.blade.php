@@ -10,6 +10,8 @@
                 <h1 class="h2 text-white mb-2">
                     {{ $course->title }}
                 </h1>
+                <br>
+                <small class="h2 text-white mb-2">{{ $course->module->name}}</small>
                 <h2 class="h4 fw-normal text-white-75">
                     {{ count($contents) }} Lessons &bull; {{ $course->duration / 60 }} hours
                 </h2>
@@ -28,6 +30,7 @@
                     </li>
                     <li class="breadcrumb-item" aria-current="page">
                         {{ $course->title }}
+
                     </li>
                 </ol>
             </nav>
@@ -37,7 +40,7 @@
 
     {{-- course description --}}
     <div class="content content-boxed card p-2">
-        <h6><strong>Description</strong></h6>
+        <h6> <i class="fa fa-list text-warning "></i> <strong>Description</strong></h6>
         <hr>
         {!! $course->description !!}
     </div>
