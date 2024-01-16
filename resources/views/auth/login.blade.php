@@ -161,23 +161,28 @@
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
+
+    <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('login-password');
+            const togglePasswordButton = document.getElementById('toggle-password');
+
+            togglePasswordButton.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
     <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
 
     <!-- jQuery (required for jQuery Validation plugin) -->
     <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
 
     <!-- Page JS Plugins -->
-    <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const passwordInput = document.getElementById('login-password');
-            const showPasswordCheckbox = document.getElementById('show-password');
 
-            showPasswordCheckbox.addEventListener('change', function () {
-                passwordInput.type = this.checked ? 'text' : 'password';
-            });
-        });
-    </script>
+
 
     <!-- Page JS Code -->
     <script src="{{ asset('assets/js/pages/op_auth_signin.min.js') }}"></script>
