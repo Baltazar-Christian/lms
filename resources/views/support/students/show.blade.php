@@ -13,6 +13,8 @@
             <div class="card-body">
                 <p class="text-dark"><strong>Name:</strong> {{ $user->name }}</p>
                 <p class="text-dark"><strong>Email:</strong> {{ $user->email }}</p>
+                <p classs="text-dark"><strong>Phone:</strong> {{ $user->phone_number }} </p>
+                <p classs="text-dark"><strong>Address:</strong> {{ $user->address }} </p>
 
                 <hr>
                 <!-- Nav tabs -->
@@ -34,23 +36,49 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <!-- Enrolled Courses Tab -->
-                    <div class="tab-pane active" id="btabs-static2-home" role="tabpanel"
+                    <div class="tab-pane active table-responsive" id="btabs-static2-home" role="tabpanel"
                         aria-labelledby="btabs-static2-home-tab" tabindex="0">
                         <h5 class="mt-2"> <i class="fa fa-book text-warning"></i> Enrolled Courses</h5>
-                        @forelse ($enrolledCourses as $course)
-                            <p class="text-dark">  <i class="fa fa-book text-warning"></i>  {{ $course->title }}</p>
-                            <hr>
-                        @empty
-                            <p class="text-dark">No enrolled courses.</p>
-                        @endforelse
+                        <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+
+                            <thead hidden>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $i = 1;
+                                @endphp
+                                @forelse ($enrolledCourses as $course)
+                                    @if ($course->user_id == Auth::user()->id)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $course->title }}</td>
+                                            <td>
+                                                <span
+                                                    class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_complete ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                                    {{ $course->is_complete ? 'Completed' : 'Incomplete' }}</span>
+                                            </td>
+
+                                        </tr>
+                                    @endif
+                                @empty
+                                    <p class="text-dark">No enrolled courses.</p>
+                                @endforelse
+                            </tbody>
+
+                        </table>
+                        <hr>
+
                     </div>
 
                     <!-- Quiz Results Tab -->
-                    <div class="tab-pane" id="btabs-static2-profile" role="tabpanel"
-                    aria-labelledby="btabs-static2-profile-tab" tabindex="0">
-                        <h5 class="mt-3">  <i class="fa fa-question text-warning"></i> Quiz Results</h5>
+                    <div class="tab-pane table-responsive" id="btabs-static2-profile" role="tabpanel"
+                        aria-labelledby="btabs-static2-profile-tab" tabindex="0">
+                        <h5 class="mt-3"> <i class="fa fa-question text-warning"></i> Quiz Results</h5>
                         @forelse ($quizResults as $result)
-                            <p  class="text-dark">Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
+                            <p class="text-dark">Quiz: {{ $result->quiz->title }}, Score: {{ $result->score }}</p>
                         @empty
                             <p class="text-dark">No quiz results.</p>
                         @endforelse
