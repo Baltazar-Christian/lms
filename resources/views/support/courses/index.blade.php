@@ -20,6 +20,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
+                        <th>Module</th>
                         <th>Price</th>
                         <th>Published</th>
                         <th>Author</th>
@@ -35,12 +36,13 @@
                             <td>{{ $i++ }}</td>
                             <td>
                                 {{ $course->title }}
-                                <br>
-                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-warning text-success ">
-                                {{ $course->module->name }}
+
+                            </td>
+                            <td>
+                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-warning text-light ">
+                                    {{ $course->module->name }}
                                 </span>
                             </td>
-                            {{-- <td>{{ $course->description }}</td> --}}
                             <td>Tsh {{ number_format($course->price,2) }}</td>
                             <td>
                                 <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
