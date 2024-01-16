@@ -117,7 +117,7 @@
               {{-- ./ --}}
 
         <!-- Quick Overview -->
-        <div class="row">
+        <div class="row" hidden>
 
             <div class="col-6 col-lg-4">
                 <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
