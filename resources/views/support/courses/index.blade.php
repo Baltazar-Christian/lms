@@ -21,7 +21,7 @@
                                 <th>Title</th>
                                 <th>Module</th>
                                 <th>Price</th>
-                                <th>Published</th>
+                                {{-- <th>Published</th> --}}
                                 <th>Author</th>
                                 <th>Actions</th>
                             </tr>
@@ -42,13 +42,13 @@
 
                                     </td>
                                     <td>Tsh {{ number_format($course->price, 2) }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <span
                                             class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
 
                                             {{ $course->is_published ? 'Yes' : 'No' }}
                                         </span>
-                                    </td>
+                                    </td> --}}
                                     <td>{{ $course->user->name }}</td>
 
                                     <td>

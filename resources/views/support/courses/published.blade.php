@@ -20,7 +20,7 @@
                                 <th>Title</th>
                                 <th>Module</th>
                                 <th>Price</th>
-                                <th>Published</th>
+                                {{-- <th>Published</th> --}}
                                 <th>Author</th>
                                 <th>Actions</th>
                             </tr>
@@ -40,7 +40,7 @@
                                         {{ $course->module->name }}
                                     </td>
                                     <td>Tsh {{ number_format($course->price, 2) }}</td>
-                                    <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
+                                    {{-- <td>{{ $course->is_published ? 'Yes' : 'No' }}</td> --}}
                                     <td>{{ $course->user->name }}</td>
                                     <td>
                                         <a href="{{ route('lms.support-show-course', $course->id) }}"
