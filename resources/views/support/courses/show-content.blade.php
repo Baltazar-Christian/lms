@@ -22,6 +22,9 @@
                         Your browser does not support the video tag.
                     </video>
                 @endif
+                @if ($content->type === 'image')
+                    <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" alt="{{$content->title}}" width="200px" height="200px">
+                @endif
                 <hr>
                 {{-- Display content details --}}
                 <p>
@@ -29,21 +32,19 @@
                 </p>
 
 
-                @if ($content->type != 'video' || $content->type!='text')
+                @if ($content->type != 'video' || $content->type!='text' || $content->type!='image')
                 <div class="col-12">
-                <hr>
+                    <hr>
                     {{-- Display other file types or embed PDF viewer --}}
                     <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank"
                         type="button" class="btn btn-sm btn-dark float-end mt-2 mb-3">
                     <i class="fa fa-download"></i>
-                    Download Attachment
+                    View Attachment
                     </a>
                     <br>
                 </div>
                 @endif
-
-
-                <div class="col-12 mt-4">
+                <div class="col-12 mt-4 table-responsive">
                     <hr>
                     <h6>
                         <i class="fa fa-list text-warning"></i>
@@ -51,7 +52,7 @@
 
                         {{-- Add button to create a new sub-section --}}
                         <a href="{{ route('lms.support-create-subsection', ['courseId' => $course->id, 'parentId' => $content->id]) }}"
-                            class="btn btn-dark float-end "><i class="fa fa-plus"></i> Sub-Section</a>
+                            class="btn btn-dark btn-sm float-end "><i class="fa fa-plus"></i> Sub-Section</a>
                     </h6>
 
                     <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
