@@ -78,7 +78,7 @@
                                 {{-- Display course contents --}}
                                 <h6 class="mt-4 mb-3"> <i class="fa fa-list text-warning"></i> Course Contents
                                     <a href="{{ route('lms.support-courses.create-content', $course->id) }}"
-                                        class="btn btn-dark float-end">Add
+                                        class="btn btn-dark btn-sm mb-3 float-end">Add
                                         Content</a>
                                 </h6>
 
@@ -105,11 +105,11 @@
                                                     <div class="d-flex justify-content-end align-items-center">
                                                         <a href="{{ route('lms.support-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                        @if ($content->type != 'text')
+                                                        {{-- @if ($content->type != 'text')
                                                             <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
                                                                 target="_blank" class="btn btn-sm btn-dark  ms-2"><i
                                                                     class="fa fa-download"></i></a>
-                                                        @endif
+                                                        @endif --}}
                                                         <a href="{{ route('lms.support-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-warning ms-2"><i
                                                                 class="fa fa-edit"></i></a>
