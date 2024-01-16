@@ -31,7 +31,9 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
+                        <label for="description" class="text-dark">Description</label>
+
                         <textarea class="form-control" name="description" value="{{ $module->description }}" row="4"
                             placeholder="Enter Description..">{{ $module->description }}</textarea>
                     </div>

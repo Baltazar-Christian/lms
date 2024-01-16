@@ -21,10 +21,11 @@
                         <input type="text" name="name" id="name" placeholder="Enter Module Name" class="form-control" required>
                     </div>
 
-                    <div class="form-group" >
+                    <div class="form-group mb-2" >
+                        <label for="name" class="text-dark">Description</label>
                         <textarea  class="form-control" name="description" row="4"  placeholder="Enter Description.." ></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label class="text-dark">Select Institutes</label>
                         <div>
                             @foreach ($institutes as $institute)
