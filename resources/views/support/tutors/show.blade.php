@@ -27,11 +27,12 @@
                 <h5><i class="fa fa-book text-warning"></i> Created Courses</h5>
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
 
-                    <thead hidden>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                    <thead >
+                        <th>SN</th>
+                        <th>Title</th>
+                        <th>Module</th>
+                        <th>Status</th>
+                        <th>Option</th>
                     </thead>
                     <tbody>
                         @php
@@ -42,6 +43,8 @@
                         <tr>
                             <td>{{ $i++}}</td>
                             <td>{{ $course->title }}</td>
+                            <td>{{ $course->module->name }}</td>
+
                             <td>
                                 <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
                                     {{  $course->is_published?'Published':'Not Published' }}</span>
