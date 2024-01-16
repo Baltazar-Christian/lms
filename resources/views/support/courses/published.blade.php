@@ -1,4 +1,3 @@
-
 @extends('layouts.support')
 
 @section('content')
@@ -13,56 +12,59 @@
             </div>
             <div class="card-body">
 
-        <div class="table-responsive col-12">
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Module</th>
-                        <th>Price</th>
-                        <th>Published</th>
-                        <th>Author</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $i=1;
-                    @endphp
-                    @foreach ($courses as $course)
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>
-                                {{ $course->title }}
+                <div class="table-responsive col-12">
+                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Module</th>
+                                <th>Price</th>
+                                <th>Published</th>
+                                <th>Author</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $i = 1;
+                            @endphp
+                            @foreach ($courses as $course)
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>
+                                        {{ $course->title }}
 
-                            </td>
-                            <td>
-                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   bg-warning text-light ">
-                                    {{ $course->module->name }}
-                                </span>
-                            </td>
-                            <td>Tsh {{ number_format($course->price,2) }}</td>
-                            <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
-                            <td>{{ $course->user->name }}</td>
-                            <td>
-                                <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-dark">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                                <a href="{{ route('lms.support-edit-course', $course->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post" style="display: inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"> <i class="fa fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                                    </td>
+                                    <td>
+                                        {{ $course->module->name }}
+                                    </td>
+                                    <td>Tsh {{ number_format($course->price, 2) }}</td>
+                                    <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
+                                    <td>{{ $course->user->name }}</td>
+                                    <td>
+                                        <a href="{{ route('lms.support-show-course', $course->id) }}"
+                                            class="btn btn-sm btn-dark">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route('lms.support-edit-course', $course->id) }}"
+                                            class="btn btn-sm btn-warning">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('lms.support-delete-course', $course->id) }}" method="post"
+                                            style="display: inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Are you sure?')"> <i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
