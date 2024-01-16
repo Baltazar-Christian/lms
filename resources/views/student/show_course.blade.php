@@ -244,7 +244,7 @@
 
                         @if ($student->courses->contains('id', $course->id))
                             @if ($progressPercentage >= 100)
-                                <a class="btn btn-success btn-block disabled " >
+                                <a class="btn btn-success btn-block col-12 disabled " >
                                     Course Complete
                                 </a>
                             @else
