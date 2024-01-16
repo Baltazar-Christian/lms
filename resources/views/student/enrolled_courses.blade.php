@@ -22,7 +22,7 @@
                 <!-- Display All Courses -->
                 <div class="row">
                     @forelse($enrolledCourses as $course)
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 col-6 mb-4">
                             <div class="card">
 
                                 <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
