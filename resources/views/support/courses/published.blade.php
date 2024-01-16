@@ -19,7 +19,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
-                        {{-- <th>Description</th> --}}
                         <th>Price</th>
                         <th>Published</th>
                         <th>Author</th>
@@ -34,7 +33,6 @@
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{ $course->title }}</td>
-                            {{-- <td>{{ $course->description }}</td> --}}
                             <td>Tsh {{ number_format($course->price,2) }}</td>
                             <td>{{ $course->is_published ? 'Yes' : 'No' }}</td>
                             <td>{{ $course->user->name }}</td>
