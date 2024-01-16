@@ -33,8 +33,6 @@
                                         <p class="card-text text-dark">Tsh {{ number_format($course->price, 2) }}</p>
                                         <!-- Add more course details as needed -->
 
-
-
                                         <!-- Enroll button -->
                                         @if (Auth::user()->courses->contains('id', $course->id))
                                             <div class="row">

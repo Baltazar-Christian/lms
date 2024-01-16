@@ -26,6 +26,7 @@
                         <div class="col-md-4 mb-4">
                             <div class="card">
 
+
                                 <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
                                     height="150px" class="card-img-top" alt="{{ $course->name }}">
                                 <div class="card-body">
@@ -35,11 +36,10 @@
                                         <!-- Add more course details as needed -->
 
 
-
                                         <!-- Enroll button -->
                                         @if (Auth::user()->courses->contains('id', $course->id))
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     @php
                                                         $enrollment=App\Models\Enrollment::where('user_id',Auth::user()->id)->where('course_id',$course->id)->where('approval_status','approved')->latest()->first();
                                                     @endphp
@@ -56,18 +56,7 @@
                                                     @endif
 
                                                 </div>
-                                                <div class="col-6">
-                                                    <!-- Unenroll button -->
-                                                    <form
-                                                        action="{{ route('students.unenrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                                        method="post">
-                                                        @csrf
-                                                        {{-- <div class="col-12"> --}}
-                                                        <button type="submit"
-                                                            class=" form-control btn btn-danger btn-sm btn-block">Unenroll</button>
-                                                        {{-- </div> --}}
-                                                    </form>
-                                                </div>
+
                                             </div>
                                         @else
                                             <div class="row">

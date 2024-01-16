@@ -102,7 +102,7 @@
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
-                            {{ $draft_courses }}
+                        {{ $draft_courses }}
                         </dt>
                         <dd class="text-white fs-sm fw-medium text-muted mb-0">
                           Courses
