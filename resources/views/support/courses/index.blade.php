@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
 
-                <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published Courses
+                <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published 
                     <a href="{{ route('lms.support-add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
 
                 </h5>

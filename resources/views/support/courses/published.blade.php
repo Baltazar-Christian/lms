@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h5 class="mb-4">
                     <i class="fa fa-book text-warning"></i>
-                    Draft Courses
+                    Draft
                     <a href="{{ route('lms.support-add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
                 </h5>
             </div>
@@ -24,7 +24,6 @@
                                 <th>Title</th>
                                 <th>Module</th>
                                 <th>Price</th>
-                                {{-- <th>Published</th> --}}
                                 <th>Author</th>
                                 <th>Actions</th>
                             </tr>
@@ -44,7 +43,6 @@
                                         {{ $course->module->name }}
                                     </td>
                                     <td>Tsh {{ number_format($course->price, 2) }}</td>
-                                    {{-- <td>{{ $course->is_published ? 'Yes' : 'No' }}</td> --}}
                                     <td>{{ $course->user->name }}</td>
                                     <td>
                                         <a href="{{ route('lms.support-show-course', $course->id) }}"
