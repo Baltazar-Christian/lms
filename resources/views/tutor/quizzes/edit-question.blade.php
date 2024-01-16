@@ -21,7 +21,7 @@
                         <label for="text" class="text-dark">Question Text</label>
                         <input type="hidden" name="question_id" value="{{ $question->id }}">
 
-                    <textarea name="question" id="description" class="form-control" value="{{ $question->question ?? old('answer') }}"  rows="4">{{ $question->question }}</textarea>
+                    <textarea name="question" id="description1" class="form-control" value="{{ $question->question ?? old('answer') }}"  rows="4">{{ $question->question }}</textarea>
 
                     </div>
 

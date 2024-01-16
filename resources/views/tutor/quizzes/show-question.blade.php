@@ -42,7 +42,7 @@
                             @foreach ($question->answers as $answer)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td width="60%">{!! $answer->answer !!}</td>
+                                    <td width="60%">{{ $answer->answer }}</td>
                                     <td>
                                         <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $answer->is_correct ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
 

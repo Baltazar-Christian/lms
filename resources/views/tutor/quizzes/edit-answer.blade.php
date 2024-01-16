@@ -19,7 +19,7 @@
 
                     <div class="form-group mb-3">
                         <label for="text" class="text-dark">Answer Text</label>
-                        <textarea name="answer" id="description" class="form-control" value="{{ $answer->answer ?? old('answer') }}"  rows="4">{{ $answer->answer }}</textarea>
+                        <textarea name="answer" id="description1" class="form-control" value="{{ $answer->answer ?? old('answer') }}"  rows="4">{{ $answer->answer }}</textarea>
 
 
                         <input type="hidden" name="answer_id" value="{{ $answer->id }}">

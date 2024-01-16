@@ -12,7 +12,7 @@
                 <h5>
                     <i class="fa fa-question text-warning"></i>
                     Create Answer
-                
+
                     <a href="{{ route('lms.show-tutor-course', $course->id) }}" class="btn btn-sm btn-dark float-end">
                         <i class="fa fa-list"></i> Back
                     </a>
@@ -27,7 +27,7 @@
                     <div class="form-group mb-3">
                         <label for="text" class="text-dark">Answer Text</label>
                         {{-- <input type="text" name="answer" id="text" class="form-control"  required> --}}
-                        <textarea name="answer" id="description" class="form-control" rows="4"></textarea>
+                        <textarea name="answer" id="description1" class="form-control" rows="4"></textarea>
 
                     </div>
 
