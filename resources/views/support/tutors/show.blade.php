@@ -9,6 +9,10 @@
                 {{-- <div class="col-6"> --}}
                     <a href="{{ route('lms.support-edit-tutor', $user->id) }}" class="btn btn-sm btn-dark float-end"><i class="fa fa-edit"></i></a>
 
+                    <a href="{{ route('lms.support-tutors')}}" class="btn btn-sm btn-dark mx-1 float-end">
+                        <i class="fa fa-list"></i>
+                        Back
+                    </a>
 
             </h5>
         </div>
