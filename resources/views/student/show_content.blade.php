@@ -198,7 +198,7 @@
                             <img class="img-avatar" src="{{ asset('assets/media/avatars/avatar16.jpg') }}" alt="">
                         </div>
                         <div class="fw-semibold mb-1">{{ $content->course->user->name }}</div>
-                        <div class="fs-sm text-muted">Front-end Developer</div>
+                        {{-- <div class="fs-sm text-muted">Front-end Developer</div> --}}
                     </div>
                 </a>
                 <!-- END About Instructor -->

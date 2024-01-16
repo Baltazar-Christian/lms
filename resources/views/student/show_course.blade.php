@@ -37,9 +37,9 @@
 
     {{-- course description --}}
     <div class="content content-boxed">
-    <h6><strong>Description</strong></h6>
-    <hr>
-    {!! $course->description !!}
+        <h6><strong>Description</strong></h6>
+        <hr>
+        {!! $course->description !!}
     </div>
 
     <!-- Page Content -->
@@ -244,16 +244,17 @@
                                 <span class="badge bg-success text-center mx-auto mb-2">
 
                                     Course Complete</span>
+                            @else
+                                <!-- Unenroll button -->
+                                <form
+                                    action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}"
+                                    method="post">
+                                    @csrf
+                                    {{-- <div class="col-12"> --}}
+                                    <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
+                                    {{-- </div> --}}
+                                </form>
                             @endif
-                            <!-- Unenroll button -->
-                            <form
-                                action="{{ route('students.unenrollSelf', ['student' => $student, 'course' => $course]) }}"
-                                method="post">
-                                @csrf
-                                {{-- <div class="col-12"> --}}
-                                <button type="submit" class=" form-control btn btn-danger btn-block">Unenroll</button>
-                                {{-- </div> --}}
-                            </form>
                         @else
                             <!-- Enroll button -->
                             <form action="{{ route('students.enrollSelf', ['student' => $student, 'course' => $course]) }}"
