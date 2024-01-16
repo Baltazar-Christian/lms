@@ -15,7 +15,7 @@
                             Create Course
                         </a>
                     </h4>
-                    <p class="text-muted">{{$module->description}}</p>
+                    <p class="text-muted">{{$module->description??'NULL'}}</p>
 
                     </div>
 
