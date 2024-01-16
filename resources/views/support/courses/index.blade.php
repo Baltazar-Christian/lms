@@ -20,10 +20,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
-                        {{-- <th>Description</th> --}}
                         <th>Price</th>
-                        <th>Duration (minutes)</th>
                         <th>Published</th>
+                        <th>Author</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -37,13 +36,14 @@
                             <td>{{ $course->title }}</td>
                             {{-- <td>{{ $course->description }}</td> --}}
                             <td>Tsh {{ number_format($course->price,2) }}</td>
-                            <td>{{ $course->duration_in_minutes }}</td>
                             <td>
                                 <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
 
                                 {{ $course->is_published ? 'Yes' : 'No' }}
                                 </span>
                             </td>
+                            <td>{{ $course->user->name }}</td>
+
                             <td>
                                 <a href="{{ route('lms.support-show-course', $course->id) }}" class="btn btn-sm btn-dark">
                                 <i class="fa fa-eye"></i>
