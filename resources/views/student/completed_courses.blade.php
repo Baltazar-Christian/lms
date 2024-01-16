@@ -22,84 +22,44 @@
 
                 <!-- Display All Courses -->
                 <div class="row">
-                    @forelse($enrolledCourses as $course)
+                    @forelse($enrolledCourses- as $enrollement)
                         <div class="col-md-4 mb-4">
                             <div class="card">
 
-
-                                <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
-                                    height="150px" class="card-img-top" alt="{{ $course->name }}">
+                                <img src="{{ asset('public/storage/covers/' . $enrollement->course->cover_image) }}"
+                                    width="150px" height="150px" class="card-img-top"
+                                    alt="{{ $enrollement->course->name }}">
                                 <div class="card-body">
 
-                                    <h6 class="card-title text-dark">{{ $course->title }}</h5>
-                                        <p class="card-text text-dark">Tsh {{ number_format($course->price, 2) }}</p>
+                                    <h6 class="card-title text-dark">{{ $enrollement->course->title }}</h5>
+                                        <p class="card-text text-dark">Tsh
+                                            {{ number_format($enrollement->course->price, 2) }}</p>
                                         <!-- Add more course details as needed -->
 
-
                                         <!-- Enroll button -->
-                                        @if (Auth::user()->courses->contains('id', $course->id))
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    @php
-                                                        $enrollment=App\Models\Enrollment::where('user_id',Auth::user()->id)->where('course_id',$course->id)->where('approval_status','approved')->latest()->first();
-                                                    @endphp
-                                                    @if ($enrollment)
-                                                        <a href="{{ route('student-courses.show', $course) }}"
-                                                            class="btn form-control btn-sm  btn-success mb-2">
-                                                            View
-                                                        </a>
-                                                    @else
-                                                        <a href="{{ route('student-unenrolled-courses.show', $course) }}"
-                                                            class="btn form-control btn-sm  btn-success mb-2">
-                                                            View
-                                                        </a>
-                                                    @endif
-
-                                                </div>
-
-                                            </div>
-                                        @else
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <a href="{{ route('student-unenrolled-courses.show', $course) }}"
+                                        <div class="row">
+                                            <div class="col-12">
+                                                @php
+                                                    $enrollment = App\Models\Enrollment::where('user_id', Auth::user()->id)
+                                                        ->where('course_id', $enrollement->course->id)
+                                                        ->where('approval_status', 'approved')
+                                                        ->latest()
+                                                        ->first();
+                                                @endphp
+                                                @if ($enrollmenta)
+                                                    <a href="{{ route('student-courses.show', $enrollement->course) }}"
                                                         class="btn form-control btn-sm  btn-success mb-2">
                                                         View
                                                     </a>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    @if ($course->price <= 0)
-                                                        <!-- Enroll button -->
-                                                        <form
-                                                            action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            {{-- <div class="col-12"> --}}
-                                                            <button type="submit"
-                                                                class="btn btn-success btn-sm form-control ">
-                                                                <i class="fa fa-book"></i>
-                                                                Enroll
-                                                            </button>
-                                                            {{-- </div> --}}
-                                                        </form>
-                                                    @else
-                                                        <!-- Enroll button -->
-                                                        <form
-                                                            action="{{ route('students.enrollSelf', ['student' => Auth::user(), 'course' => $course]) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            {{-- <div class="col-12"> --}}
-                                                            <button type="submit"
-                                                                class=" form-control btn btn-warning  btn-sm btn-block">
+                                                @else
+                                                    <a href="{{ route('student-unenrolled-courses.show', $enrollement->course) }}"
+                                                        class="btn form-control btn-sm  btn-success mb-2">
+                                                        View
+                                                    </a>
+                                                @endif
 
-                                                                <i class="fa fa-shopping-cart"></i>
-                                                                Purchase
-                                                            </button>
-                                                            {{-- </div> --}}
-                                                        </form>
-                                                    @endif
-                                                </div>
                                             </div>
-                                        @endif
+                                        </div>
                                 </div>
 
                             </div>
@@ -126,7 +86,8 @@
                         @endphp
                         <ul>
                             @foreach ($modules as $module)
-                                <li class="nav-link bg-light mt-1"> <a href="{{ route('student-courses.module',$module->id) }}" class="text-dark"> <i
+                                <li class="nav-link bg-light mt-1"> <a
+                                        href="{{ route('student-courses.module', $module->id) }}" class="text-dark"> <i
                                             class="fa fa-book text-warning"></i> <strong> {{ $module->name }}</strong> </a>
                                 </li>
                             @endforeach
