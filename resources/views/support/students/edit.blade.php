@@ -29,27 +29,27 @@
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-md-6">
                             <label for="name" class="form-label text-dark">Name</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 value="{{ $user->name }}" required>
                         </div>
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-md-6">
                             <label for="email" class="form-label text-dark">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
                                 value="{{ $user->email }}" required>
                         </div>
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-md-6">
                             <label for="phone_number" class="form-label text-dark">Phone Number</label>
                             <input type="tel" class="form-control" id="phone_number" value="{{ $user->phone_number }}"
                                 name="phone_number" required>
                         </div>
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-md-6">
                             <label for="address" class="form-label text-dark">Address</label>
                             <input type="text" class="form-control" id="address" value="{{ $user->address }}"
                                 name="address" required>
                         </div>
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-md-6">
                             <label for="password" class="form-label text-dark">Role</label>
                             <select name="role" class="form-control" id="">
                                 <option value="student" {{ $user->role === 'student' ? 'selected' : '' }}>Student</option>
@@ -57,7 +57,9 @@
                                 <option value="support" {{ $user->role === 'support' ? 'selected' : '' }}>Admin</option>
                             </select>
                         </div>
-                    </div> <button type="submit" class="btn btn-dark float-end">Update </button>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-dark float-end">Update </button>
                 </form>
             </div>
         </div>
