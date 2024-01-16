@@ -122,16 +122,23 @@
                                                         id="signup-address" name="address" placeholder="Address">
                                                 </div>
                                                 <div class="mb-4 col-6">
-                                                    <input type="password"
-                                                        class="form-control form-control-lg form-control-alt"
-                                                        id="signup-password" name="password" placeholder="Password">
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
+                                                        <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
+
                                                 <div class="mb-4 col-6">
-                                                    <input type="password"
-                                                        class="form-control form-control-lg form-control-alt"
-                                                        id="signup-password-confirm" name="password_confirmation"
-                                                        placeholder="Confirm Password">
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
+                                                        <button class="btn btn-outline-secondary" type="button" id="toggle-signup-password-confirm">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
+
                                                 <div class="mb-4 ">
                                                     <span class="text-muted fs-sm">
                                                         Password requirements:
@@ -144,13 +151,13 @@
                                                             <li>Must match the confirmation</li>
                                                         </ul>
                                                     </span>
-                                                    <div class="form-check">
+                                                    {{-- <div class="form-check">
                                                         <input class="form-check-input" type="checkbox"
                                                             value="" id="signup-terms" name="signup-terms">
 
                                                         <label class="form-check-label" for="signup-terms">I agree to
                                                             Terms &amp; Conditions</label>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
@@ -240,6 +247,33 @@
     </div>
     <!-- END Page Container -->
 
+    <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function togglePasswordVisibility(passwordInput, toggleButton) {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                toggleButton.querySelector('i').classList.toggle('fa-eye-slash');
+            }
+
+            const signupPasswordInput = document.getElementById('signup-password');
+            const toggleSignupPasswordButton = document.getElementById('toggle-signup-password');
+
+            toggleSignupPasswordButton.addEventListener('click', function () {
+                togglePasswordVisibility(signupPasswordInput, this);
+            });
+
+            const signupPasswordConfirmInput = document.getElementById('signup-password-confirm');
+            const toggleSignupPasswordConfirmButton = document.getElementById('toggle-signup-password-confirm');
+
+            toggleSignupPasswordConfirmButton.addEventListener('click', function () {
+                togglePasswordVisibility(signupPasswordConfirmInput, this);
+            });
+        });
+    </script>
+
     <!--
         OneUI JS
 
@@ -252,7 +286,6 @@
     <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
 
     <!-- Page JS Plugins -->
-    <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 
     <!-- Page JS Code -->
     <script src="{{ asset('assets/js/pages/op_auth_signup.min.js') }}"></script>
