@@ -23,7 +23,36 @@
             <p class="text-dark" ><strong>Email:</strong> {{ $user->email }}</p>
 
             <div class="row">
+                <h5><i class="fa fa-book text-warning"></i> Created Courses</h5>
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
 
+                    <thead hidden>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        @php
+                            $i=1;
+                        @endphp
+                        @forelse ($Courses as $course)
+
+                        <tr>
+                            <td>{{ $i++}}</td>
+                            <td>{{ $course->title }}</td>
+                            <td>
+                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{  $course->is_published ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
+                                    {{  $course->is_published?'Published':'Not Published' }}</span>
+                            </td>
+
+                        </tr>
+                        @endif
+                        @empty
+                        <p class="text-dark">No Created courses.</p>
+                    @endforelse
+                    </tbody>
+
+                </table>
             </div>
 
         </div>

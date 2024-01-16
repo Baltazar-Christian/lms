@@ -138,6 +138,7 @@ class SupportUserManagementController extends Controller
     public function showTutor($id)
     {
         $user = User::findOrFail($id);
+        $courses=Course::where('user_id',$id)->latest()->get();
         return view('support.tutors.show', compact('user'));
     }
 
