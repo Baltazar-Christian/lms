@@ -40,7 +40,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 @php
-                                                    $enrollment = App\Models\Enrollment::where('user_id', Auth::user()->id)
+                                                    $enrollmenta = App\Models\Enrollment::where('user_id', Auth::user()->id)
                                                         ->where('course_id', $enrollement->course->id)
                                                         ->where('approval_status', 'approved')
                                                         ->latest()
