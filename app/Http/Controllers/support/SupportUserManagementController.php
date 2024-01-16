@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\support;
 
 use App\Models\User;
+use App\Models\Course;
 use App\Models\QuizResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
