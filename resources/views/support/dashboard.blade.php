@@ -46,7 +46,7 @@
              {{-- Dasboard Statistics --}}
              <div class="row">
                 <div class="col-md-6 col-xl-3">
-                  <a class="block block-rounded block-link-shadow bg-primary" href="javascript:void(0)">
+                  <a class="block block-rounded block-link-shadow bg-primary" href="{{ route('lms.support-students') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
                         <i class="fa fa-2x fa-users text-white-50"></i>
@@ -63,7 +63,7 @@
                   </a>
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
+                  <a class="block block-rounded block-link-shadow bg-success" href="{{ route('lms.support-tutors') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <div>
                         <i class="fa fa-2x fa-user-tie text-white-50"></i>
@@ -80,7 +80,7 @@
                   </a>
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <a class="block block-rounded block-link-shadow bg-danger" href="javascript:void(0)">
+                  <a class="block block-rounded block-link-shadow bg-danger" href="{{ route('lms.support-modules') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
@@ -97,7 +97,7 @@
                   </a>
                 </div>
                 <div class="col-md-6 col-xl-3">
-                  <a class="block block-rounded block-link-shadow bg-warning" href="javascript:void(0)">
+                  <a class="block block-rounded block-link-shadow bg-warning" href="{{ route('lms.support-draft-courses') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
                         <dt class="text-white h3 fw-extrabold mb-0">
