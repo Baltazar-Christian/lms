@@ -21,6 +21,9 @@
                         <input type="text" name="name" id="name" placeholder="Enter Module Name" class="form-control" required>
                     </div>
 
+                    <div class="form-group" >
+                        <textarea  class="form-control" name="description" row="4"  placeholder="Enter Description.." ></textarea>
+                    </div>
                     <div class="form-group">
                         <label class="text-dark">Select Institutes</label>
                         <div>
@@ -32,6 +35,9 @@
                             @endforeach
                         </div>
                     </div>
+
+
+
 
                     <button type="submit" class="btn btn-secondary mt-2 float-end">Create Module</button>
                 </form>

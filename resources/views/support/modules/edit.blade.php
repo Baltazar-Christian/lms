@@ -28,6 +28,11 @@
                         <input type="text" name="name" id="name" class="form-control" value="{{ $module->name }}" required>
                     </div>
 
+
+                    <div class="form-group" >
+                        <textarea  class="form-control" name="description" value="{{ $module->description }}" row="4"  placeholder="Enter Description.." >{{ $module->description }}</textarea>
+                    </div>
+
                     <div class="form-group mb-2">
                         <label>Select Institutes</label>
                         <div>
