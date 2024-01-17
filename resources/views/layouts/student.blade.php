@@ -82,7 +82,8 @@
                                             ->where('notification_id', $notification->id)
                                             ->first();
                                     @endphp
-                                    @if ($read == null)
+                                    @if ($read)
+                                    @else
                                         <li>
                                             <a class="text-dark d-flex py-2"
                                                 href="{{ route('student-notifications.show', $notification->id) }}">
