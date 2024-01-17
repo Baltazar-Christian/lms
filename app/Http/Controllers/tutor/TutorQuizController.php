@@ -73,6 +73,8 @@ class TutorQuizController extends Controller
 
     public function update(Request $request, Course $course, Quiz $quiz)
     {
+
+
         $request->validate([
             // 'title' => [
             //     'required',
@@ -82,10 +84,10 @@ class TutorQuizController extends Controller
             // Add other validation rules as needed
         ]);
 
+        $quiz=Quiz::where('id',$request->input('quiz_id'))->first();
         $quiz->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            // Add other fields to update as needed
         ]);
 
         return redirect()->route('lms.tutor-show-quiz', [$quiz->course_id, $quiz->id])->with('success', 'Quiz Updated successfully.');
@@ -168,7 +170,6 @@ class TutorQuizController extends Controller
 
         $quizQuestion->update([
             'question' => $request->input('question'),
-            // Add other fields to update as needed
         ]);
 
         return redirect()->route('lms.tutor-show-quiz', [$quizQuestion->quiz->course->id, $quizQuestion->quiz->id])->with('success', 'Question updated successfully.');

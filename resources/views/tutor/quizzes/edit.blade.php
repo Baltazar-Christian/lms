@@ -23,11 +23,13 @@
 
             </div>
             <div class="card-body">
-                <form action="{{ route('lms.tutor-update-quiz', $course->id) }}" method="post">
+                <form action="{{ route('lms.tutor-update-quiz') }}" method="post">
                     @csrf
 
                     {{-- Include validation errors if any --}}
                     @include('partials.errors')
+
+                    <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
 
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
 
