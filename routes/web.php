@@ -487,7 +487,7 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('quizzes-results/{quiz}/results/{result}',  [QuizResultController::class, 'showResult'])->name('quizzes.result.show');
 
     Route::get('/student-notifications/{notification}', [StudentController::class, 'show_notification'])->name('student-notifications.show');
-    Route::get('/student-notifications/all', [StudentController::class, 'all_notifications'])->name('student-notifications.all');
+    Route::get('/all-student-notifications/all', [StudentController::class, 'all_notifications'])->name('student-notifications.all');
 
     Route::post('/notifications/{notification}/mark-as-seen', [StudentController::class, 'markAsSeen'])
     ->name('notifications.markAsSeen');

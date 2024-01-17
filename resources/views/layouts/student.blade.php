@@ -108,7 +108,7 @@
                                             <a class="text-dark d-flex py-2"
                                                 href="{{ route('student-notifications.show', $notification->id) }}">
                                                 <div class="flex-shrink-0 me-2 ms-3">
-                                                    <i class="fa fa-fw fa-cbell text-warning"></i>
+                                                    <i class="fa fa-fw fa-bell text-warning"></i>
                                                 </div>
                                                 <div class="flex-grow-1 pe-2">
                                                     <div class="fw-semibold text-dark">{{ $notification->message }}
