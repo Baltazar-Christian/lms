@@ -52,7 +52,11 @@
                     <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-sm btn-danger">
                     <i class="fa fa-x"></i>
                     </a>
-
+                    <form action="{{ route('lms.tutor-delete-student', $user->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach
