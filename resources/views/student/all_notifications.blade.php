@@ -20,6 +20,9 @@
                         <th>Option</th>
                     </thead>
                     <tbody>
+                        @php
+                            $i=1;
+                        @endphp
                         @foreach ($notifications as $notification )
                         <tr>
                             <td>{{ $i++ }}</td>
