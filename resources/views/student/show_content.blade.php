@@ -32,7 +32,13 @@
                     </div>
                     <div class="card-body ">
 
-
+                        @if ($content->url != null)
+                            <video width="100%" controls>
+                                <source src="{{ $content->url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <hr>
+                        @endif
                         @if ($content->type === 'video')
                             <video width="100%" controls>
                                 <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
@@ -96,11 +102,11 @@
                                     @endphp
 
                                     <div class="progress mb-4">
-                                        <div class="progress-bar  @if( $progressPercentage==100) bg-success @else bg-warning  @endif " role="progressbar"
-                                            style="width: {{ $progressPercentage }}%;"
+                                        <div class="progress-bar  @if ($progressPercentage == 100) bg-success @else bg-warning @endif "
+                                            role="progressbar" style="width: {{ $progressPercentage }}%;"
                                             aria-valuenow="{{ $progressPercentage }}" aria-valuemin="0"
                                             aria-valuemax="100">
-                                            {{ number_format($progressPercentage,2) }}% Complete
+                                            {{ number_format($progressPercentage, 2) }}% Complete
                                         </div>
                                     </div>
                                     @foreach ($contents as $content)
@@ -110,7 +116,6 @@
                                                 <a href="{{ route('contents.show', $content) }}" class="text-dark">
                                                     {{ $content->title }}
                                                     @if (auth()->user()->completedContents->contains($content->id))
-
                                                         <i class="fa fa-check text-success"></i>
                                                     @endif
 
@@ -120,16 +125,14 @@
                                                 {{-- <span class="text-muted">{{ $content->duration }} MINUTES</span> --}}
                                                 <a href="{{ route('contents.show', $content) }}"
                                                     class="btn btn-sm
-                                                    @if (auth()->user()->completedContents->contains($content->id))
-                                                    btn-success
+                                                    @if (auth()->user()->completedContents->contains($content->id)) btn-success
                                                     @else
-                                                    btn-warning
-                                                    @endif
+                                                    btn-warning @endif
                                                     ">
                                                     @if (auth()->user()->completedContents->contains($content->id))
-                                                    Read Again
+                                                        Read Again
                                                     @else
-                                                    Read
+                                                        Read
                                                     @endif
                                                 </a>
                                             </th>
@@ -151,24 +154,21 @@
                                                             href="{{ route('contents.show', $subContent) }}">
                                                             {{ $subContent->title }}
                                                             @if (auth()->user()->completedContents->contains($subContent->id))
-
-                                                        <i class="fa fa-check text-success"></i>
-                                                    @endif
+                                                                <i class="fa fa-check text-success"></i>
+                                                            @endif
                                                         </a>
                                                     </td>
                                                     <td class="text-end text-muted">
                                                         <a href="{{ route('contents.show', $subContent) }}"
                                                             class="btn btn-sm
-                                                            @if (auth()->user()->completedContents->contains($subContent->id))
-                                                            btn-success
+                                                            @if (auth()->user()->completedContents->contains($subContent->id)) btn-success
                                                             @else
-                                                            btn-warning
-                                                            @endif
+                                                            btn-warning @endif
                                                             ">
                                                             @if (auth()->user()->completedContents->contains($subContent->id))
-                                                            Read Again
+                                                                Read Again
                                                             @else
-                                                            Read
+                                                                Read
                                                             @endif
                                                         </a>
                                                     </td>
