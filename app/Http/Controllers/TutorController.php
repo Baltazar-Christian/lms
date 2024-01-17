@@ -27,7 +27,7 @@ class TutorController extends Controller
         $data['blocked_students'] = User::where('role', 'student')->where('status',1)->count();
         $data['tutors'] = User::where('role', 'tutor')->count();
         $data['modules'] = Module::count();
-        $data['courses'] = Course::where('user_id', Auth::user()->id)->count();
+        $data['courses'] = Course::count();
         $data['institutes'] = Instute::count();
         $data['announcements'] = Announcement::count();
         $data['contents'] = CourseContent::count();
