@@ -16,8 +16,12 @@
             </h5>
         </div>
 
-        <div class="card-body">
-
+        <div class="card-body table-responsive">
+            @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
     <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
         <thead>
                 <th>ID</th>
