@@ -45,7 +45,7 @@ class StudentController extends Controller
     public function show_notification(Notification $notification)
     {
 
-        $user_notifiaction=NotificationUser::where('user_id',Auth::user()->id)->where('notification_id',$notification->id)->first();
+        $user_notifiaction=UserNotification::where('user_id',Auth::user()->id)->where('notification_id',$notification->id)->first();
 
         if($user_notifiaction!=NULL)
         {
