@@ -22,8 +22,16 @@
                         Your browser does not support the video tag.
                     </video>
                 @endif
+
+                @if ($content->url != null)
+                    <video width="100%" controls>
+                        <source src="{{ $content->url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @endif
                 @if ($content->type === 'image')
-                    <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" alt="{{$content->title}}" width="200px" height="200px">
+                    <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
+                        alt="{{ $content->title }}" width="200px" height="200px">
                 @endif
                 <hr>
                 {{-- Display content details --}}
@@ -32,18 +40,20 @@
                 </p>
 
 
-                @if ($content->type != 'video' || $content->type!='text' || $content->type!='image')
-                <div class="col-12">
-                    <hr>
-                    {{-- Display other file types or embed PDF viewer --}}
-                    <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank"
-                        type="button" class="btn btn-sm btn-dark float-end mt-2 mb-3">
-                    <i class="fa fa-download"></i>
-                    View Attachment
-                    </a>
-                    <br>
-                </div>
+                @if ($content->type != 'video' && $content->type != 'text' && $content->type != 'image')
+                    <div class="col-12">
+                        <hr>
+                        {{-- Display other file types or embed PDF viewer --}}
+                        <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank"
+                            type="button" class="btn btn-sm btn-dark float-end mt-2 mb-3">
+                            <i class="fa fa-download"></i>
+                            View Attachment
+                        </a>
+                        <br>
+                    </div>
                 @endif
+
+
                 <div class="col-12 mt-4 table-responsive">
                     <hr>
                     <h6>
