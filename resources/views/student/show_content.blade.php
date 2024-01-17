@@ -33,14 +33,14 @@
                     <div class="card-body ">
 
                         @if ($content->type === 'video')
-                        <video width="100%" height="360" controls>
+                        <video width="100%" height="360px" controls>
                             <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     @endif
 
                     @if ($content->url != null)
-                    <iframe width="100%" height="360" src="{{ $content->url }}" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="360px" src="{{ $content->url }}" frameborder="0" allowfullscreen></iframe>
 
                     @endif
                     @if ($content->type === 'image')
