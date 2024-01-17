@@ -250,6 +250,7 @@ class SupportCourseController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),
+            'url' => $request->input('url'),
             'file_path' => $filePath,
             'duration' => $request->input('duration'),
         ]);
@@ -361,6 +362,7 @@ class SupportCourseController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),
+            'url' => $request->input('url'),
             'file_path' => $filePath,
             'duration' => $request->input('duration'),
         ]);

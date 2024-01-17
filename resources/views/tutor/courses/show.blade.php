@@ -104,11 +104,11 @@
                                                     <div class="d-flex justify-content-end align-items-center">
                                                         <a href="{{ route('lms.tutor-show-course-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-dark ms-2"><i class="fa fa-eye"></i> </a>
-                                                        @if ($content->type != 'text')
+                                                        {{-- @if ($content->type != 'text')
                                                             <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
                                                                 target="_blank" class="btn btn-sm btn-dark  ms-2"><i
                                                                     class="fa fa-download"></i></a>
-                                                        @endif
+                                                        @endif --}}
                                                         <a href="{{ route('lms.tutor-courses.edit-content', ['courseId' => $course->id, 'contentId' => $content->id]) }}"
                                                             class="btn btn-sm btn-warning ms-2"><i
                                                                 class="fa fa-edit"></i></a>

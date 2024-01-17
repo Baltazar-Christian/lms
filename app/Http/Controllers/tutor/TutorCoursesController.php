@@ -202,8 +202,10 @@ class TutorCoursesController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'type' => 'required|in:text,pdf,image,video',
-            'file' => 'nullable|mimes:pdf,jpeg,png,mp4|max:2048', // Adjust the allowed file types and size
+            'file' => 'nullable|mimes:pdf,jpeg,png,mp4|max:20480000', // Adjust the allowed file types and size
             'duration' => 'nullable|integer',
+            'url' => 'nullable|string',
+
         ]);
 
         // Upload the file
@@ -225,6 +227,7 @@ class TutorCoursesController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),
+            'url' => $request->input('url'),
             'file_path' => $filePath,
             'duration' => $request->input('duration'),
         ]);
@@ -280,6 +283,7 @@ class TutorCoursesController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'type' => $request->input('type'),
+            'url' => $request->input('url'),
             'file_path' => $filePath,
             'duration' => $request->input('duration'),
         ]);

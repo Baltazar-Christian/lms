@@ -22,6 +22,13 @@
                         Your browser does not support the video tag.
                     </video>
                 @endif
+
+                @if ($content->url != NULL)
+                <video width="100%" controls>
+                    <source src="{{  $content->url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                @endif
                 @if ($content->type === 'image')
                     <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" alt="{{$content->title}}" width="200px" height="200px">
                 @endif
@@ -32,7 +39,7 @@
                 </p>
 
 
-                @if ($content->type != 'video' || $content->type!='text' || $content->type!='image')
+                @if ( ($content->type != 'video') && ($content->type!='text') && ($content->type!='image'))
                 <div class="col-12">
                     <hr>
                     {{-- Display other file types or embed PDF viewer --}}
