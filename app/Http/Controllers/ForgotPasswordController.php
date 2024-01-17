@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\PasswordResetMail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
 
@@ -15,23 +17,24 @@ class ForgotPasswordController extends Controller
 
     public function sendPasswordResetLink(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-        ]);
+        $user = User::where('email', $request->email)->first();
 
-        Log::info('Before sendResetLink', ['email' => $request->input('email')]);
+        if ($user) {
+            // Generate a unique reset token (you can use Str::random or any other method)
+            $resetToken = Str::random(60);
 
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+            // Save the token to the user's record in the database
+            $user->update(['reset_token' => $resetToken]);
 
-        Log::info('After sendResetLink', ['status' => $status]);
+            // Send the password reset email
+            Mail::to($user->email)->send(new PasswordResetMail($user, $resetToken));
 
+            return back()->with('message','Password reset email sent.');
+        }
 
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with('status', __($status))
-            : back()->withErrors(['email' => __($status)]);
+        return back()->with('message', 'User not found.');
     }
+
 
     public function sendResetLinkEmail(Request $request)
     {
