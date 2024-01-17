@@ -11,7 +11,7 @@
 
             </div>
             <div class="card-body">
-                <table>
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
                     <thead>
                         <th>SN</th>
                         <th>Date</th>
