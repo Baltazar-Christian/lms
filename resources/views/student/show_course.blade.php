@@ -170,8 +170,8 @@
                             <h5><i class="fa fa-list text-warning"></i> Course Quizzes</h5>
 
                         </div>
-                        <div class="card-body">
-                            <table>
+                        <div class="card-body table-responsive">
+                            <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
                                 <tbody>
                                     @php
                                         $i = 1;

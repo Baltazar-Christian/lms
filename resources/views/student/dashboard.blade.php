@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="col-6 col-md-3 col-lg-6 col-xl-3">
-            <a class="block block-rounded block-link-pop" href="{{ route('student.enrolledCourses', Auth::user()->id) }}">
+            <a class="block block-rounded block-link-pop" href="{{ route('student.incompleteCourses', Auth::user()->id) }}">
                 <div class="block-content block-content-full">
                     <div class="fs-sm fw-semibold text-warning text-uppercase ">INCOMPLETE COURSES</div>
                     <div class="fs-2 fw-normal text-dark">{{ $incomplete }}</div>

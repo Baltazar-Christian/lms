@@ -36,11 +36,13 @@
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/amethyst.min.css"> -->
     <!-- END Stylesheets -->
 
-        <!-- OneUI framework -->
-        <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css')}}">
-        <link rel="stylesheet" href="{{  asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-        <link rel="stylesheet" href="{{  asset('assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
-        <link rel="stylesheet" href="{{  asset('assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
+    <!-- OneUI framework -->
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
 
 </head>
 
@@ -90,20 +92,21 @@
                                             ->first();
                                     @endphp
                                     @if ($read)
-                                    <li>
-                                        <a class="text-dark d-flex py-2"
-                                            href="{{ route('student-notifications.show', $notification->id) }}">
-                                            <div class="flex-shrink-0 me-2 ms-3">
-                                                <i class="fa fa-fw fa-check-circle text-success"></i>
-                                            </div>
-                                            <div class="flex-grow-1 pe-2">
-                                                <div class="text-success fw-semibold text-dark">{{ $notification->message }}
+                                        <li>
+                                            <a class="text-dark d-flex py-2"
+                                                href="{{ route('student-notifications.show', $notification->id) }}">
+                                                <div class="flex-shrink-0 me-2 ms-3">
+                                                    <i class="fa fa-fw fa-check-circle text-success"></i>
                                                 </div>
-                                                <span
-                                                    class="text-success fw-medium text-muted">{{ $notification->course->title }}</span>
-                                            </div>
-                                        </a>
-                                    @else
+                                                <div class="flex-grow-1 pe-2">
+                                                    <div class="text-success fw-semibold text-dark">
+                                                        {{ $notification->message }}
+                                                    </div>
+                                                    <span
+                                                        class="text-success fw-medium text-muted">{{ $notification->course->title }}</span>
+                                                </div>
+                                            </a>
+                                        @else
                                         <li>
                                             <a class="text-dark d-flex py-2"
                                                 href="{{ route('student-notifications.show', $notification->id) }}">
@@ -122,12 +125,15 @@
                                 @endforeach
 
 
-                                            <li>
-                                                <a href="{{ route('student-notifications.all') }}" class="text-dark">
-                                                    <span class="text-warning">  View All..</span>
+                                <li>
+                                    <a href="{{ route('student-notifications.all') }}" class="text-dark d-flex py-2">
 
-                                                </a>
-                                            </li>
+                                        <div class="flex-grow-1 pe-2">
+                                            <span class="text-warning"> View All..</span>
+
+                                        </div>
+                                    </a>
+                                </li>
 
                             </ul>
 
@@ -141,10 +147,10 @@
                 <div class="d-flex align-items-center">
                     <!-- Open Search Section (visible on smaller screens) -->
                     <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <button type="button" class="btn btn-sm btn-alt-secondary d-md-none" data-toggle="layout"
+                    {{-- <button type="button" class="btn btn-sm btn-alt-secondary d-md-none" data-toggle="layout"
                         data-action="header_search_on">
                         <i class="fa fa-fw fa-search"></i>
-                    </button>
+                    </button> --}}
                     <!-- END Open Search Section -->
 
                     <!-- Search Form (visible on larger screens) -->
@@ -164,8 +170,9 @@
                         <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle" src="{{ asset('public/storage/' . Auth::user()->avatar . '') }}"
-                                alt="Header Avatar" style="width: 21px;" />
+                            <img class="rounded-circle"
+                                src="{{ asset('public/storage/' . Auth::user()->avatar . '') }}" alt="Header Avatar"
+                                style="width: 21px;" />
                             <span class="d-none d-sm-inline-block ms-2">{{ Auth::user()->name }}</span>
                             <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1"></i>
                         </button>
@@ -272,6 +279,14 @@
                                         <span class="nav-main-link-name"> &nbsp; Enrolled Courses</span>
                                     </a>
                                 </li>
+
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link"
+                                        href="{{ route('student.incompleteCourses', Auth::user()->id) }}">
+                                        <i class="nav-main-link-icon fa fa-bookmark"></i>
+                                        <span class="nav-main-link-name">Incomplete Courses</span>
+                                    </a>
+                                </li>
                                 <li class="nav-main-item">
                                     <a class="nav-main-link"
                                         href="{{ route('student.completedCourses', Auth::user()->id) }}">
@@ -279,6 +294,8 @@
                                         <span class="nav-main-link-name">Completed Courses</span>
                                     </a>
                                 </li>
+
+
 
                             </ul>
                         </div>
@@ -288,9 +305,9 @@
             </div>
             <!-- END Navigation -->
             <!-- Page Content -->
-            <div class="content">
+            {{-- <div class="content"> --}}
                 @yield('content')
-            </div>
+            {{-- </div> --}}
             <!-- END Page Content -->
         </main>
         <!-- END Main Container -->
@@ -331,24 +348,24 @@
     <script src="{{ asset('assets/js/pages/be_pages_dashboard_v1.min.js') }}"></script>
 
 
-       <!-- jQuery (required for DataTables plugin) -->
-       <script src="{{ asset('assets/js/lib/jquery.min.js')  }}"></script>
+    <!-- jQuery (required for DataTables plugin) -->
+    <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
 
-       <!-- Page JS Plugins -->
-       <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons/dataTables.buttons.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons-jszip/jszip.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons/buttons.print.min.js')  }}"></script>
-       <script src="{{ asset('assets/js/plugins/datatables-buttons/buttons.html5.min.js')  }}"></script>
+    <!-- Page JS Plugins -->
+    <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
 
-       <!-- Page JS Code -->
-       <script src="{{ asset('assets/js/pages/be_tables_datatables.min.js')  }}"></script>
+    <!-- Page JS Code -->
+    <script src="{{ asset('assets/js/pages/be_tables_datatables.min.js') }}"></script>
 
 </body>
 

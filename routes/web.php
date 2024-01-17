@@ -430,17 +430,17 @@ Route::group(['middleware' => 'role:tutor'], function () {
 
     // View all notifications
 
-// View a single notification
-Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
+    // View a single notification
+    Route::get('/notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
 
-// Edit a notification (if needed)
-Route::get('/notifications/{notification}/edit', [NotificationController::class, 'edit'])->name('notifications.edit');
+    // Edit a notification (if needed)
+    Route::get('/notifications/{notification}/edit', [NotificationController::class, 'edit'])->name('notifications.edit');
 
-// Update a notification (if needed)
-Route::put('/notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
+    // Update a notification (if needed)
+    Route::put('/notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
 
-// Delete a notification
-Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    // Delete a notification
+    Route::delete('/notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
 });
 
 Route::group(['middleware' => 'role:student'], function () {
@@ -458,6 +458,9 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('students/{user}/completed-courses', [StudentController::class, 'completedCourses'])
         ->name('student.completedCourses');
 
+    Route::get('students/{user}/incomplete-courses', [StudentController::class, 'incompleteCourses'])
+        ->name('student.incompleteCourses');
+
     Route::get('students/{user}/search-courses', [StudentController::class, 'searchCourses'])
         ->name('students.searchCourses');
 
@@ -473,7 +476,7 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('student-courses/{course}', [StudentController::class, 'show'])
         ->name('student-courses.show');
 
-        Route::get('student-unenrolled-courses/{course}', [StudentController::class, 'show_unenrolled'])
+    Route::get('student-unenrolled-courses/{course}', [StudentController::class, 'show_unenrolled'])
         ->name('student-unenrolled-courses.show');
 
 
@@ -490,7 +493,7 @@ Route::group(['middleware' => 'role:student'], function () {
     Route::get('/all-student-notifications/all', [StudentController::class, 'all_notifications'])->name('student-notifications.all');
 
     Route::post('/notifications/{notification}/mark-as-seen', [StudentController::class, 'markAsSeen'])
-    ->name('notifications.markAsSeen');
+        ->name('notifications.markAsSeen');
 });
 
 Auth::routes();
