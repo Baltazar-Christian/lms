@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Module;
 use App\Models\Instute;
 use App\Models\Announcement;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,7 @@ class TutorController extends Controller
         $data['modules'] = Module::count();
         $data['courses'] = Course::count();
         $data['institutes'] = Instute::count();
-        $data['announcements'] = Announcement::count();
+        $data['notifications'] = Notification::count();
         $data['contents'] = CourseContent::count();
         $data['quizzes'] = Quiz::count();
 

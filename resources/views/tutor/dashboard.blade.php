@@ -55,16 +55,16 @@
                   </a>
                 </div>
                 <div class="col-md-6 col-xl-4">
-                    <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
+                    <a class="block block-rounded block-link-shadow bg-success" href="{{ route('notifications.index') }}">
                       <div class="block-content block-content-full d-flex align-items-center justify-content-between">
 
                         <dl class="me-3 mb-0">
                             <dt class="text-white h3 fw-extrabold mb-0">
-                                {{ $courses }}
+                                {{ $notifications }}
 
                             </dt>
                             <dd class="text-white fs-sm fw-medium text-muted mb-0">
-                              Courses
+                              Notifications
                             </dd>
                           </dl>
                           <div>
