@@ -26,7 +26,8 @@
                         class="btn btn-dark btn-sm float-end">Create Answer</a>
                     <br>
 
-                    <table class="table mt-3">
+
+                        <table class="table mt-2 table-bordereless  table-vcenter js-dataTable-responsive">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -50,10 +51,6 @@
                                         </span>
                                     </td>
                                     <td>
-                                        {{-- <a href="{{ route('lms.show-answer', [$course->id, $quiz->id, $question->id, $answer->id]) }}"
-                                            class="btn btn-sm btn-info">
-                                            <i class="fa fa-eye"></i>
-                                        </a> --}}
 
                                         <a href="{{ route('lms.tutor-edit-answer',  $answer->id) }}" class="btn btn-sm btn-dark">
                                             <i class="fa fa-edit"></i>

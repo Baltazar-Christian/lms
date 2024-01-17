@@ -61,7 +61,6 @@
                                         <td>
                                             <a href="{{ route('lms.tutor-show-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
                                                 <i class="fa fa-eye"></i>
-                                                View Answers
                                             </a>
 
                                             <a href="{{ route('lms.tutor-edit-question', [$course->id, $quiz->id, $question->id]) }}" class="btn btn-sm btn-dark">
