@@ -18,7 +18,7 @@
 
         </div>
         <div class="card-body">
-            <h3 class="card-title">{{ $notification->course }}</h3>
+            <h3 class="card-title">{{ $notification->course->title }}</h3>
             <p class="card-text">{!! $notification->message!!}</p>
 
             <small class="text-muted">Author: {{ $notification->user->name }}</small>
