@@ -26,12 +26,8 @@
                 @endif
 
                 @if ($subsection->url != null)
-                    <video width="100%" controls>
-                        <source src="{{ $subsection->url }}"
-                            {{-- type="video/mp4" --}}
-                            >
-                        Your browser does not support the video tag.
-                    </video>
+                <iframe width="100%" height="360" src="{{ $subsection->url }}" frameborder="0" allowfullscreen></iframe>
+
                 @endif
                 @if ($subsection->type === 'image')
                     <img src="{{ asset('public/storage/course_contents/' . $subsection->file_path) }}"
