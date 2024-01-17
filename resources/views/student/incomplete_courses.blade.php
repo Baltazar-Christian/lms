@@ -30,6 +30,8 @@
                                 <div class="card-body">
 
                                     <h6 class="card-title text-dark">{{ $course1->course->title }}</h5>
+                                        <span class="badge bg-warning text-white m-1">{{ $course1->course->module->name }}</span>
+
                                         <p class="card-text text-dark">Tsh {{ number_format($course1->course->price, 2) }}</p>
                                         <!-- Add more course details as needed -->
 
@@ -68,13 +70,13 @@
                                             </div>
                                         @else
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div class="col-md-4">
                                                     <a href="{{ route('student-unenrolled-courses.show', $course) }}"
                                                         class="btn form-control btn-sm  btn-success mb-2">
                                                         View
                                                     </a>
                                                 </div>
-                                                <div class="col-8">
+                                                <div class="col-md-8">
                                                     @if ($course->price <= 0)
                                                         <!-- Enroll button -->
                                                         <form

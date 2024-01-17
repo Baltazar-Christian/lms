@@ -23,7 +23,7 @@
                 <!-- Display All Courses -->
                 <div class="row">
                     @forelse($enrolledCourses as $enrollement)
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 col-6 mb-4">
                             <div class="card">
 
                                 <img src="{{ asset('public/storage/covers/' . $enrollement->course->cover_image) }}"
@@ -32,6 +32,8 @@
                                 <div class="card-body">
 
                                     <h6 class="card-title text-dark">{{ $enrollement->course->title }}</h5>
+                                        <span class="badge bg-warning text-white m-1">{{ $enrollement->course->module->name }}</span>
+
                                         <p class="card-text text-dark">Tsh
                                             {{ number_format($enrollement->course->price, 2) }}</p>
                                         <!-- Add more course details as needed -->

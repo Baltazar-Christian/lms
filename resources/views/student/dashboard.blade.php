@@ -48,23 +48,19 @@
         <hr>
         <div class="row items-push py-4">
             @foreach ($courses as $course)
-                <div class="col-md-3 mb-4">
+                <div class="col-md-3 col-6 mb-4">
                     <div class="card">
                         <a href="{{ route('student-courses.show', $course) }}"> <!-- Updated link -->
 
                             <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" width="150px"
                                 height="150px" class="card-img-top" alt="{{ $course->name }}">
                             <div class="card-body">
-                                {{-- <div class="item item-2x item-circle bg-white-10 py-3 my-3 mx-auto">
-                        <!-- ... Existing course icon or image ... -->
-                        <i class="fab fa-html5 fa-2x text-white-75"></i>
-                    </div> --}}
-                                {{-- <div class="fs-sm text-white-75">
-                        {{ $course->lessons_count }} lessons &bull; {{ $course->duration }}
-                    </div> --}}
+
                             </div>
                             <div class="block-content block-content-full">
                                 <h6 class="text-dark">{{ $course->title }}</h6>
+                                <span class="badge bg-warning text-white m-1">{{ $course->module->name }}</span>
+
                                 <p class="text-muted">
                                     <!-- ... Existing course content ... -->
                                     Price: {{ number_format($course->price, 2) }}

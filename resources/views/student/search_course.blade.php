@@ -14,21 +14,23 @@
         </form>
         <h6 class="mb-4">Search Results for "{{ $search }}"</h6>
         <div class="row">
-           
+
             <div class="col-md-9">
 
                 <!-- Display Search Results -->
-   
+
                 <div class="row">
                     @forelse($courses as $course)
-                        <div class="col-md-4 mb-4">
+                        <div class="col-md-4 col-6 mb-4">
                             <div class="card">
                                 <img src="{{ asset('public/storage/covers/' . $course->cover_image) }}" class="card-img-top"
                                     width="150px" height="150px" alt="{{ $course->name }}">
                                 <div class="card-body">
 
                                     <h5 class="card-title">{{ $course->title }}</h5>
-                                    {{-- <p class="card-text">{{ $course->description }}</p> --}}
+                                    <span class="badge bg-warning text-white m-1">{{ $course->module->name }}</span>
+
+                                    <p class="card-text text-dark">{{ $course->price }}</p>
                                     <!-- Add more course details as needed -->
                                     <!-- Enroll button -->
                                     @if (Auth::user()->courses->contains('id', $course->id))
