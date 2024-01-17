@@ -28,7 +28,7 @@ class ForgotPasswordController extends Controller
        
             $user->update(['reset_token' => $resetToken]);
             $data['token']=$resetToken;
-            return view('auth.passwords.reset',$user);
+            return view('auth.passwords.reset',$data);
         }
 
         return back()->with('error', 'Password reset email not sent.');

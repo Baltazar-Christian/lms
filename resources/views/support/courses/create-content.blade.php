@@ -63,7 +63,7 @@
                             <label for="duration" class="text-dark">Duration (minutes)</label>
                             <input type="number" name="duration" id="duration" class="form-control">
                         </div>
-
+                        
                         <div class="form-group col-12 mb-2">
                             <label for="description" class="text-dark">Description</label>
                             {{-- <textarea name="description" id="editor" class="form-control" rows="4" required></textarea> --}}

@@ -56,6 +56,10 @@
                         <label for="duration">Duration (minutes)</label>
                         <input type="number" name="duration" id="duration" class="form-control">
                     </div>
+                    <div class="form-group mb-3 col-6">
+                        <label for="title">Video Link <span class="text-muted">For Youtube Videos</span> </label>
+                        <input type="text" name="url" id="title" class="form-control" >
+                    </div>
                 </div>
 
 
