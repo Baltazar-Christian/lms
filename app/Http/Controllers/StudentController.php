@@ -47,8 +47,11 @@ class StudentController extends Controller
 
         $user_notifiaction=UserNotification::where('user_id',Auth::user()->id)->where('notification_id',$notification->id)->first();
 
-        if($user_notifiaction!=NULL)
+        if($user_notifiaction)
         {
+            $read=1;
+        }
+        else{
             $user_notification=new UserNotification();
             $user_notifiaction->user_id=Auth::user()->id;
             $user_notifiaction->notification_id=$notification->id;
