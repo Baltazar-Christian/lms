@@ -12,7 +12,7 @@
 
 
             <div class="card-body">
-                <form action="{{ route('lms.support-store-answer', [$course->id, $quiz->id, $question->id]) }}" method="post">
+                <form action="{{ route('lms.store-answer', [$course->id, $quiz->id, $question->id]) }}" method="post">
                     @csrf
 
                     <div class="form-group mb-3">
