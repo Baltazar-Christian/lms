@@ -76,6 +76,7 @@ class SupportModuleController extends Controller
         $moduleData = [
             'name' => $request->input('name'),
             'status' => 'active', // You can adjust this based on your logic
+            'description'=>$request->input('description'),
             'created_by' => Auth::id(),
         ];
 

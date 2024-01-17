@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
 
-                <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published 
+                <h5 class="mb-2"> <i class="fa fa-book text-warning"></i> Published
                     <a href="{{ route('lms.support-add-course') }}" class="btn btn-secondary float-end mb-3">Create Course</a>
 
                 </h5>
@@ -48,7 +48,7 @@
                                     </td>
                                     <td>Tsh {{ number_format($course->price, 2) }}</td>
 
-                                    <td>{{ $course->user->name }}</td>
+                                    <td>{{ $course->user->name??'Null' }}</td>
 
                                     <td>
                                         <a href="{{ route('lms.support-show-course', $course->id) }}"
