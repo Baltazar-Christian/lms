@@ -18,7 +18,7 @@
 
              {{-- Dasboard Statistics --}}
              <div class="row">
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                   <a class="block block-rounded block-link-shadow bg-primary" href="{{ route('lms.tutor-students') }}">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
 
@@ -37,7 +37,7 @@
                   </a>
                 </div>
 
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                   <a class="block block-rounded block-link-shadow bg-danger" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
@@ -54,7 +54,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-4">
                     <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
                       <div class="block-content block-content-full d-flex align-items-center justify-content-between">
 
@@ -73,7 +73,7 @@
                       </div>
                     </a>
                   </div>
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-6 col-xl-3" hidden>
                   <a class="block block-rounded block-link-shadow bg-warning" href="javascript:void(0)">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                       <dl class="me-3 mb-0">
