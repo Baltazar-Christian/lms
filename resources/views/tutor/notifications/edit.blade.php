@@ -7,7 +7,11 @@
 
         <div class="card">
             <div class="card-header">
-                <h5>Edit Notification</h5>
+                <h5>Edit Notification
+
+                    <a href="{{ route('notifications.index') }}" class="btn btn-dark float-end mt-3"> <i class="fa fa-list"></i> Back </a>
+
+                </h5>
 
             </div>
             <div class="card-body">
