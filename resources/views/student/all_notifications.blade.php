@@ -42,7 +42,11 @@
 
                                 @endif
                             </td>
-                            <td>Option</td>
+                            <td>
+                                <a class="btn btn-dark btn-sm"  href="{{ route('student-notifications.show', $notification->id) }}">
+                                    <i class="fa fa-eye" ></i>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
 

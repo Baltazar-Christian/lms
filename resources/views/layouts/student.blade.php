@@ -108,8 +108,7 @@
                                             </a>
                                         @else
                                         <li>
-                                            <a class="text-dark d-flex py-2"
-                                                href="{{ route('student-notifications.show', $notification->id) }}">
+                                            <a class="text-dark d-flex py-2"  href="{{ route('student-notifications.show', $notification->id) }}">
                                                 <div class="flex-shrink-0 me-2 ms-3">
                                                     <i class="fa fa-fw fa-bell text-warning"></i>
                                                 </div>
@@ -128,9 +127,13 @@
                                 <li>
                                     <a href="{{ route('student-notifications.all') }}" class="text-dark d-flex py-2">
 
+                                        <div class="flex-shrink-0 me-2 ms-3">
+                                            <i class="fa fa-fw fa-list text-warning"></i>
+                                        </div>
                                         <div class="flex-grow-1 pe-2">
-                                            <span class="text-warning"> View All..</span>
-
+                                            <div class="fw-semibold text-dark">
+                                                All Notifications
+                                            </div>
                                         </div>
                                     </a>
                                 </li>
@@ -145,25 +148,6 @@
 
                 <!-- Right Section -->
                 <div class="d-flex align-items-center">
-                    <!-- Open Search Section (visible on smaller screens) -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    {{-- <button type="button" class="btn btn-sm btn-alt-secondary d-md-none" data-toggle="layout"
-                        data-action="header_search_on">
-                        <i class="fa fa-fw fa-search"></i>
-                    </button> --}}
-                    <!-- END Open Search Section -->
-
-                    <!-- Search Form (visible on larger screens) -->
-                    {{-- <form class="d-none d-md-inline-block" action="bd_search.html" method="POST">
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control form-control-alt" placeholder="Search.."
-                                id="page-header-search-input2" name="page-header-search-input2" />
-                            <span class="input-group-text bg-body border-0">
-                                <i class="fa fa-fw fa-search"></i>
-                            </span>
-                        </div>
-                    </form> --}}
-                    <!-- END Search Form -->
 
                     <!-- User Dropdown -->
                     <div class="dropdown d-inline-block ms-2">
@@ -305,9 +289,9 @@
             </div>
             <!-- END Navigation -->
             <!-- Page Content -->
-            {{-- <div class="content"> --}}
+            <div class="content">
                 @yield('content')
-            {{-- </div> --}}
+            </div>
             <!-- END Page Content -->
         </main>
         <!-- END Main Container -->
