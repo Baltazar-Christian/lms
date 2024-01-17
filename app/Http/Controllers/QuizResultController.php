@@ -27,7 +27,7 @@ class QuizResultController extends Controller
     {
         // Fetch additional data if needed
         $quiz->load('questions.options');
-    
+
         return view('student.result', compact('quiz', 'result'));
     }
 public function store(Request $request, Quiz $quiz)
@@ -63,7 +63,7 @@ public function store(Request $request, Quiz $quiz)
         'score' => $totalScore,
     ]);
 
-    return redirect()->route('quizzes.result.show', $quiz->id,$result->id)->with('success', 'Quiz result recorded.');
+    return back()->with('success', 'Quiz result recorded.');
 }
 
 }
