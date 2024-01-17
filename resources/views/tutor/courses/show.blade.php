@@ -196,6 +196,7 @@
                                     <th>SN</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </thead>
@@ -212,6 +213,9 @@
                                             </td>
                                             <td>
                                                 {{ $student->email }}
+                                            </td>
+                                            <td>
+                                                {{ $student->created_at->format('d/m/Y') }}
                                             </td>
                                             <td>
                                                 <span
