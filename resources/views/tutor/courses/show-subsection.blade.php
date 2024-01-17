@@ -25,7 +25,7 @@
                     </video>
                 @endif
 
-                @if ($content->url != null)
+                @if ($subsection->url != null)
                     <video width="100%" controls>
                         <source src="{{ $subsection->url }}" type="video/mp4">
                         Your browser does not support the video tag.
