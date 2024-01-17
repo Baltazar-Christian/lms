@@ -69,7 +69,7 @@
             <div class="hero-static d-flex align-items-center">
                 <div class="content">
                     <div class="row justify-content-center push">
-                        <div class="col-md-8 col-lg-8 col-xl-8 col-12">
+                        <div class="col-md-6 col-lg-6 col-xl-6 col-12">
                             <!-- Sign In Block -->
                             <div class="block block-rounded mb-0">
                                 <div class="block-header block-header-default">
@@ -114,28 +114,38 @@
                                                 </div>
                                             </div>
 
+                                            <div class="row">
 
-                                            <div class="mb-4 col-6">
-                                                <div class="input-group">
-                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
-                                                    <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                                <div class="mb-4 col-12">
+                                                    <label for="email" class="">{{ __('New Password') }}</label>
 
-                                            <div class="mb-4 col-6">
-                                                <div class="input-group">
-                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
-                                                    <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
+                                                    <div class="input-group">
+
+                                                        <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
+                                                        <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
+
+                                                <div class="mb-4 col-12">
+                                                    <label for="email"
+                                                        class="">{{ __('Confirm Password') }}</label><br>
+                                                    <div class="input-group">
+
+
+                                                        <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
+                                                        <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                             <div class="row mb-0">
-                                                <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <div class="col-md-12 offset-md-4">
+                                                    <button type="submit" class="btn btn-dark btn-block">
                                                         {{ __('Reset Password') }}
                                                     </button>
                                                 </div>
