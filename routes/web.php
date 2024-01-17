@@ -287,7 +287,7 @@ Route::group(['middleware' => 'role:support'], function () {
 
         Route::post('/support-delete/quizzes/{quizId}', [SupportQuizController::class, 'destroy'])->name('lms.support-delete-quiz');
 
-        Route::get('/{courseId}/quizzes/{quizId}/questions/{questionId}/create-answer', [SupportQuizController::class, 'createAnswer'])->name('lms.support-create-answer');
+        Route::get('/{courseId}/quizzes/{quizId}/answers/{questionId}/create-answer', [SupportQuizController::class, 'createAnswer'])->name('lms.support-create-answer');
         Route::post('/{courseId}/quizzes/{quizId}/save-answer/{questionId}/store-answer', [SupportQuizController::class, 'storeAnswer'])->name('lms.support-store-answer');
 
         // Show a single question's answers
