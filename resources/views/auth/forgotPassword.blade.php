@@ -88,8 +88,7 @@
                                             UPPER
                                         </h1>
                                         <p class="fw-medium text-muted text-center ">
-                                            Forgot your password? No worries! Enter your email below, and
-                                            we'll send you a reset link.                                        </p>
+                                            Forgot your password? No worries! Enter your details below.                                        </p>
                                         <form action="{{ route('sendPasswordResetLink') }}" method="POST">
                                             @csrf
                                             <div class="row push">
@@ -105,16 +104,16 @@
                                             </div>
                                         @endif
                                                 <div class="col-lg-6 col-xl-6">
-                                              
+
                                                     <div class="mb-4">
                                                         <label class="form-label" for="email">Name</label>
                                                         <input type="text" class="form-control" id="text"
                                                             name="name" required>
                                                     </div>
-                                                 
+
                                                 </div>
                                                 <div class="col-lg-6 col-xl-6">
-                                              
+
 
                                                     <div class="mb-4">
                                                         <label class="form-label" for="email">Email Address</label>
@@ -123,7 +122,7 @@
                                                     </div>
                                                     <div class="mb-4">
                                                         <button type="submit" class="btn btn-dark float-end">
-                                                            Reset Password 
+                                                            Reset Password
                                                         </button>
                                                     </div>
                                                 </div>

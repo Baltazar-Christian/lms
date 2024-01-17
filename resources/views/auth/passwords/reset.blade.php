@@ -114,31 +114,22 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label for="password"
-                                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
-                                                <div class="col-md-6">
-                                                    <input id="password" type="password"
-                                                        class="form-control @error('password') is-invalid @enderror"
-                                                        name="password" required autocomplete="new-password">
-
-                                                    @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
+                                            <div class="mb-4 col-6">
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="password" placeholder="Password">
+                                                    <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label for="password-confirm"
-                                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                                <div class="col-md-6">
-                                                    <input id="password-confirm" type="password" class="form-control"
-                                                        name="password_confirmation" required
-                                                        autocomplete="new-password">
+                                            <div class="mb-4 col-6">
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="password_confirmation" placeholder="Confirm Password">
+                                                    <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
@@ -168,8 +159,37 @@
     </div>
     <!-- END Page Container -->
 
+
+    <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function togglePasswordVisibility(passwordInput, toggleButton) {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                toggleButton.querySelector('i').classList.toggle('fa-eye-slash');
+            }
+
+            const signupPasswordInput = document.getElementById('signup-password');
+            const toggleSignupPasswordButton = document.getElementById('toggle-signup-password');
+
+            toggleSignupPasswordButton.addEventListener('click', function () {
+                togglePasswordVisibility(signupPasswordInput, this);
+            });
+
+            const signupPasswordConfirmInput = document.getElementById('signup-password-confirm');
+            const toggleSignupPasswordConfirmButton = document.getElementById('toggle-signup-password-confirm');
+
+            toggleSignupPasswordConfirmButton.addEventListener('click', function () {
+                togglePasswordVisibility(signupPasswordConfirmInput, this);
+            });
+        });
+    </script>
     <!--
 OneUI JS
+
+
 
 Core libraries and functionality
 webpack is putting everything together at assets/_js/main/app.js
