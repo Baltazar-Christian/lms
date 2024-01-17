@@ -62,7 +62,7 @@ class StudentController extends Controller
         return view('student.show_notification', compact('notification'));
     }
 
-    public function all_notification( )
+    public function all_notifications( )
     {
         $notifications= Notification::latest()->get();
         return view('student.all_notifications', compact('notifications'));
