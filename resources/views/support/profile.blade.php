@@ -103,22 +103,47 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                  <div class="mb-4">
-                    <label class="form-label" for="one-profile-edit-password">Current Password</label>
-                    <input type="password" class="form-control" id="one-profile-edit-password" name="one-profile-edit-password">
-                  </div>
-                  <div class="row mb-4">
-                    <div class="col-12">
-                      <label class="form-label" for="one-profile-edit-password-new">New Password</label>
-                      <input type="password" class="form-control" id="one-profile-edit-password-new" name="one-profile-edit-password-new">
+
+                  <div class="mb-4 col-12">
+                    <label class="form-label" for="one-profile-edit-password-new">New Password</label>
+                    <div class="input-group">
+
+                        <input type="password" class="form-control form-control-lg form-control-alt" id="old-password" name="one-profile-edit-password" placeholder="Password">
+                        <button class="btn btn btn-alt-info" type="button" id="toggle-old-password">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
-                  </div>
-                  <div class="row mb-4">
-                    <div class="col-12">
-                      <label class="form-label" for="one-profile-edit-password-new-confirm">Confirm New Password</label>
-                      <input type="password" class="form-control" id="one-profile-edit-password-new-confirm" name="one-profile-edit-password-new-confirm">
+                </div>
+
+
+                  <div class="row">
+
+                    <div class="mb-4 col-12">
+                        <label class="form-label" for="one-profile-edit-password-new">New Password</label>
+                        <div class="input-group">
+
+                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="one-profile-edit-password-new" placeholder="Password">
+                            <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
-                  </div>
+
+                    <div class="mb-4 col-12">
+                        <label class="form-label" for="one-profile-edit-password-new-confirm">Confirm New Password</label>
+
+                        <div class="input-group">
+
+
+                            <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="one-profile-edit-password-new-confirm" placeholder="Confirm Password">
+                            <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
                   <div class="mb-4">
                     <button type="submit" class="btn btn-dark float-end">
                       Change Password
@@ -134,4 +159,40 @@
 
 
       </div>
+
+      <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+
+
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              function togglePasswordVisibility(passwordInput, toggleButton) {
+                  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                  passwordInput.setAttribute('type', type);
+                  toggleButton.querySelector('i').classList.toggle('fa-eye-slash');
+              }
+
+              const signupPasswordInput = document.getElementById('signup-password');
+              const toggleSignupPasswordButton = document.getElementById('toggle-signup-password');
+
+              toggleSignupPasswordButton.addEventListener('click', function () {
+                  togglePasswordVisibility(signupPasswordInput, this);
+              });
+
+              const oldPasswordInput = document.getElementById('old-password');
+              const toggleOldPasswordButton = document.getElementById('toggle-old-password');
+
+              toggleOldPasswordButton.addEventListener('click', function () {
+                  togglePasswordVisibility(oldPasswordInput, this);
+              });
+
+
+
+              const signupPasswordConfirmInput = document.getElementById('signup-password-confirm');
+              const toggleSignupPasswordConfirmButton = document.getElementById('toggle-signup-password-confirm');
+
+              toggleSignupPasswordConfirmButton.addEventListener('click', function () {
+                  togglePasswordVisibility(signupPasswordConfirmInput, this);
+              });
+          });
+      </script>
       @endsection

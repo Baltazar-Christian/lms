@@ -89,53 +89,74 @@
         <!-- Change Password -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Change Password</h3>
+              <h3 class="block-title">Change Password</h3>
             </div>
             <div class="block-content">
-                <form action="{{ route('changePassword') }}" method="POST">
-                    @csrf
-                    <div class="row push">
-                        <div class="col-lg-12">
-                            <p class="fs-sm text-muted">
-                                Changing your sign in password is an easy way to keep your account secure.
-                            </p>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            @if (session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
-                            <div class="mb-4">
-                                <label class="form-label" for="one-profile-edit-password">Current Password</label>
-                                <input type="password" class="form-control" id="one-profile-edit-password"
-                                    name="one-profile-edit-password">
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <label class="form-label" for="one-profile-edit-password-new">New Password</label>
-                                    <input type="password" class="form-control" id="one-profile-edit-password-new"
-                                        name="one-profile-edit-password-new">
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <label class="form-label" for="one-profile-edit-password-new-confirm">Confirm New
-                                        Password</label>
-                                    <input type="password" class="form-control" id="one-profile-edit-password-new-confirm"
-                                        name="one-profile-edit-password-new-confirm">
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <button type="submit" class="btn btn-dark float-end">
-                                    Change Password
-                                </button>
-                            </div>
-                        </div>
+              <form action="{{ route('changePassword') }}" method="POST" >
+                  @csrf
+                <div class="row push">
+                  <div class="col-lg-12">
+                    <p class="fs-sm text-muted">
+                      Changing your sign in password is an easy way to keep your account secure.
+                    </p>
+                  </div>
+                  <div class="col-lg-12 col-xl-12">
+                  @if(session('error'))
+                      <div class="alert alert-danger">
+                          {{ session('error') }}
+                      </div>
+                  @endif
+
+                    <div class="mb-4 col-12">
+                      <label class="form-label" for="one-profile-edit-password-new">New Password</label>
+                      <div class="input-group">
+
+                          <input type="password" class="form-control form-control-lg form-control-alt" id="old-password" name="one-profile-edit-password" placeholder="Password">
+                          <button class="btn btn btn-alt-info" type="button" id="toggle-old-password">
+                              <i class="fas fa-eye"></i>
+                          </button>
+                      </div>
+                  </div>
+
+
+                    <div class="row">
+
+                      <div class="mb-4 col-12">
+                          <label class="form-label" for="one-profile-edit-password-new">New Password</label>
+                          <div class="input-group">
+
+                              <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password" name="one-profile-edit-password-new" placeholder="Password">
+                              <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password">
+                                  <i class="fas fa-eye"></i>
+                              </button>
+                          </div>
+                      </div>
+
+                      <div class="mb-4 col-12">
+                          <label class="form-label" for="one-profile-edit-password-new-confirm">Confirm New Password</label>
+
+                          <div class="input-group">
+
+
+                              <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="one-profile-edit-password-new-confirm" placeholder="Confirm Password">
+                              <button class="btn btn btn-alt-info" type="button" id="toggle-signup-password-confirm">
+                                  <i class="fas fa-eye"></i>
+                              </button>
+                          </div>
+                      </div>
+
+                  </div>
+
+                    <div class="mb-4">
+                      <button type="submit" class="btn btn-dark float-end">
+                        Change Password
+                      </button>
                     </div>
-                </form>
+                  </div>
+                </div>
+              </form>
             </div>
-        </div>
+          </div>
         <!-- END Change Password -->
 
 
