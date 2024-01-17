@@ -56,12 +56,25 @@
                     <div class="form-group col-6 mb-2">
                         <label for="file">File</label>
                         <input type="file" name="file" id="file" class="form-control-file">
+                        <span class="text-muted fs-sm">
+                            Please upload an file with the following conditions:
+                            <ul>
+                                <li>'pdf'</li>
+                                <li>'image' (Accepted formats: jpg, png, webp)</li>
+                                <li>'video' (Accepted formats: mp4)</li>
+                            </ul>
+                        </span>
                     </div>
 
                     <div class="form-group col-6 mb-2">
                         <label for="duration">Duration (minutes)</label>
                         <input type="number" name="duration" id="duration" class="form-control"
                             value="{{ $content->duration }}">
+                    </div>
+
+                    <div class="form-group mb-3 col-6">
+                        <label for="title">Video Link <span class="text-muted">For Youtube Videos</span> </label>
+                        <input type="text" name="url" id="title" value="{{ $content->url }}" class="form-control">
                     </div>
 
                     <div class="form-group col-12 mb-2">

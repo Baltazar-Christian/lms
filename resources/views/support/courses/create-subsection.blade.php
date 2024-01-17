@@ -48,6 +48,8 @@
 
                         <div class="form-group mb-3 col-6">
                             <label for="file">File</label>
+
+                            <input type="file" name="file" id="file" class="form-control-file">
                             <span class="text-muted fs-sm">
                                 Please upload an file with the following conditions:
                                 <ul>
@@ -56,7 +58,6 @@
                                     <li>'video' (Accepted formats: mp4)</li>
                                 </ul>
                             </span>
-                            <input type="file" name="file" id="file" class="form-control-file">
                         </div>
 
                         <div class="form-group mb-3 col-6">
