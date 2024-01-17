@@ -14,6 +14,7 @@ class CreateCourseContentsTable extends Migration
             $table->text('description');
             $table->enum('type', ['text','pdf', 'image', 'video']);
             $table->string('file_path')->nullable();
+            $table->string('url')->nullable();
             $table->unsignedInteger('duration')->nullable();
             $table->unsignedBigInteger('parent_id')->default(0);
             $table->timestamps();
