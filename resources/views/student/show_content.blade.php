@@ -140,7 +140,7 @@
                                                     btn-warning @endif
                                                     ">
                                                     @if (auth()->user()->completedContents->contains($content->id))
-                                                        Read Again
+                                                        Read
                                                     @else
                                                         Read
                                                     @endif
@@ -176,7 +176,7 @@
                                                             btn-warning @endif
                                                             ">
                                                             @if (auth()->user()->completedContents->contains($subContent->id))
-                                                                Read Again
+                                                                Read
                                                             @else
                                                                 Read
                                                             @endif
