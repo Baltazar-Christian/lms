@@ -172,6 +172,11 @@
                         </div>
                         <div class="card-body table-responsive">
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full mt-3">
+                                <thead hidden>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </thead>
                                 <tbody>
                                     @php
                                         $i = 1;
@@ -195,19 +200,18 @@
                                                             class="btn btn-sm btn-success float-end ms-2">View Result</a>
                                                     @else
                                                         <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                            class="btn btn-sm btn-warning float-end ms-2">Take Quiz</a>
+                                                            class="btn btn-sm btn-warning float-end ms-2">Attempt</a>
                                                     @endif
                                                 @else
                                                     <a href="#" class="btn btn-sm btn-danger float-end disabled">
 
-                                                        <i class="fa fa-lock"></i> Take Quiz
+                                                        <i class="fa fa-lock"></i> Attempt
                                                     </a>
                                                 @endif
                                             </td>
                                         </tr>
 
                                     @empty
-                                        <p class="text-muted">No quizzes available for this course.</p>
                                     @endforelse
                                 </tbody>
                             </table>
