@@ -53,9 +53,9 @@ class StudentController extends Controller
         }
         else{
             $user_notification=new UserNotification();
-            $user_notifiaction->user_id=Auth::user()->id;
-            $user_notifiaction->notification_id=$notification->id;
-            $user_notifiaction->save();
+            $user_notification->user_id=Auth::user()->id;
+            $user_notification->notification_id=$notification->id;
+            $user_notification->save();
         }
 
 
