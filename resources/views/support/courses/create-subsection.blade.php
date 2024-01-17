@@ -10,7 +10,7 @@
             <h5>Create Sub-Section</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('lms.support-create-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('lms.support-save-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Include validation errors if any --}}
