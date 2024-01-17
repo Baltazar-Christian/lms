@@ -62,6 +62,12 @@ class StudentController extends Controller
         return view('student.show_notification', compact('notification'));
     }
 
+    public function all_notification( )
+    {
+        $notifications= Notification::latest()->get();
+        return view('student.show_notification', compact('notifications'));
+
+    }
     public function markAsSeen(Notification $notification)
     {
         Auth::user()->notifications()->attach($notification->id);

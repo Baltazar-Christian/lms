@@ -83,12 +83,25 @@
                                             ->first();
                                     @endphp
                                     @if ($read)
+                                    <li>
+                                        <a class="text-dark d-flex py-2"
+                                            href="{{ route('student-notifications.show', $notification->id) }}">
+                                            <div class="flex-shrink-0 me-2 ms-3">
+                                                <i class="fa fa-fw fa-check-circle text-success"></i>
+                                            </div>
+                                            <div class="flex-grow-1 pe-2">
+                                                <div class="text-success fw-semibold text-dark">{{ $notification->message }}
+                                                </div>
+                                                <span
+                                                    class="text-success fw-medium text-muted">{{ $notification->course->title }}</span>
+                                            </div>
+                                        </a>
                                     @else
                                         <li>
                                             <a class="text-dark d-flex py-2"
                                                 href="{{ route('student-notifications.show', $notification->id) }}">
                                                 <div class="flex-shrink-0 me-2 ms-3">
-                                                    <i class="fa fa-fw fa-check-circle text-success"></i>
+                                                    <i class="fa fa-fw fa-cbell text-warning"></i>
                                                 </div>
                                                 <div class="flex-grow-1 pe-2">
                                                     <div class="fw-semibold text-dark">{{ $notification->message }}
@@ -102,7 +115,12 @@
                                 @endforeach
 
 
+                                            <li>
+                                                <a href="{{ route('student-notifications.all') }}" class="text-dark">
+                                                    <span class="text-warning">  View All..</span>
 
+                                                </a>
+                                            </li>
 
                             </ul>
 
