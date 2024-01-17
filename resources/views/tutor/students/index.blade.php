@@ -49,7 +49,7 @@
                     <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-sm btn-dark">
                     <i class="fa fa-eye"></i>
                     </a>
-                    <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-sm btn-danger">
+                    <a href="{{ route('lms.tutor-block-student', $user->id) }}" class="btn btn-sm btn-warning">
                     <i class="fa fa-x"></i>
                     </a>
                     <form action="{{ route('lms.tutor-delete-student', $user->id) }}" method="POST" style="display: inline-block;">
