@@ -22,7 +22,9 @@
                     <div class="card-body">
                         <p class="card-text text-dark "><strong>Title:</strong> {{ $quiz->title }}</p>
                         <p class="card-text text-dark"><strong>Course:</strong> {{ $quiz->course->title }}</p>
-                        <!-- Add other quiz details as needed -->
+
+                        {!!  $quiz->description !!}
+
 
                     </div>
                 </div>

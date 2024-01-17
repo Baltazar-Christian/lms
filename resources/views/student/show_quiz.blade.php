@@ -22,6 +22,7 @@
                     </a>
                 </h5>
 
+                {!!  $quiz->description !!}
             </div>
             <div class="card-body">
                 @if ($result != null)

@@ -32,30 +32,42 @@
                     </div>
                     <div class="card-body ">
 
-                        @if ($content->url != null)
-                        <iframe width="100%" height="360" src="{{ $content->url }}" frameborder="0" allowfullscreen></iframe>
-
-                            <hr>
-                        @endif
                         @if ($content->type === 'video')
-                            <video width="100%" controls>
-                                <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
-                                    type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        @endif
+                        <video width="100%" height="360" controls>
+                            <source src="{{ asset('public/storage/course_contents/' . $content->file_path) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @endif
 
-                        {{-- Display content details --}}
-                        <p>
-                            {!! $content->description !!}
-                        </p>
+                    @if ($content->url != null)
+                    <iframe width="100%" height="360" src="{{ $content->url }}" frameborder="0" allowfullscreen></iframe>
 
-                        @if ($content->type != 'video')
+                    @endif
+                    @if ($content->type === 'image')
+                        <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
+                            alt="{{ $content->title }}" width="200px" height="200px">
+                    @endif
+                    <hr>
+                    {{-- Display content details --}}
+                    <p>
+                        {!! $content->description !!}
+                    </p>
+
+
+                    @if ($content->type != 'video' && $content->type != 'text' && $content->type != 'image')
+                        <div class="col-12">
+                            <hr>
                             {{-- Display other file types or embed PDF viewer --}}
-                            {{-- Adjust this part based on your actual requirements --}}
-                            <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
-                                class="btn btn-dark btn-sm float-end " target="_blank">View Attachment</a>
-                        @endif
+                            <a href="{{ asset('public/storage/course_contents/' . $content->file_path) }}" target="_blank"
+                                type="button" class="btn btn-sm btn-dark float-end mt-2 mb-3">
+                                <i class="fa fa-download"></i>
+                                View Attachment
+                            </a>
+                            <br>
+                        </div>
+                    @endif
+
+
                     </div>
                     @if (auth()->user()->completedContents->contains($content->id))
                         <div class="row p-2">
