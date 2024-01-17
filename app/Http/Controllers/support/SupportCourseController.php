@@ -368,7 +368,7 @@ class SupportCourseController extends Controller
         ]);
 
         // Redirect to the course content page
-        return redirect()->route('lms.support-show-course-content', ['courseId' => $courseId, 'contentId' => $subSection->id]);
+        return redirect()->route('lms.support-show-subsection', ['courseId' => $courseId, 'contentId' => $subSection->id]);
     }
 
     public function showSubsection($courseId, $subsectionId)
