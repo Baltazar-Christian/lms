@@ -19,7 +19,7 @@
             </h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('lms.tutor-create-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('lms.tutor-store-subsection', ['courseId' => $course->id, 'parentId' => $parentContent->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Include validation errors if any --}}
