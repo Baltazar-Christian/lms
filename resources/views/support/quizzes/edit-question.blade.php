@@ -17,7 +17,7 @@
 
                     <div class="form-group">
                         <label for="text" class="text-dark">Question Text</label>
-                        <input type="text" name="text" id="text" class="form-control" value="{{ $question->question ?? old('text') }}" required>
+                        <textarea name="text" id="description1" class="form-control" value="{{ $question->question ?? old('question') }}"  rows="4">{{ $question->question }}</textarea>
                     </div>
 
                     <br>

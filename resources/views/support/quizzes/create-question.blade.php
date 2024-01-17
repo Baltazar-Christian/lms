@@ -14,8 +14,8 @@
 
                     <div class="form-group">
                         <label for="text" class="text-dark">Question Text</label>
+                        <textarea name="text" id="description1" class="form-control" rows="4"></textarea>
 
-                        <input type="text" name="text" id="text" class="form-control" required>
                     </div>
 
                     <br>
