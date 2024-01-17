@@ -10,6 +10,7 @@ use App\Models\Enrollment;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\CourseContent;
+use App\Models\UserNotification;
 use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
@@ -43,6 +44,18 @@ class StudentController extends Controller
 
     public function show_notification(Notification $notification)
     {
+
+        $user_notifiaction=NotificationUser::where('user_id',Auth::user()->id)->where('notification_id',$notification->id)->first();
+
+        if($user_notifiaction!=NULL)
+        {
+            $user_notification=new UserNotification();
+            $user_notifiaction->user_id=Auth::user()->id;
+            $user_notifiaction->notification_id=$notification->id;
+            $user_notifiaction->save();
+        }
+
+
         return view('student.show_notification', compact('notification'));
     }
 

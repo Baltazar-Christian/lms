@@ -98,8 +98,9 @@ class User extends Authenticatable implements CanResetPasswordContract
 
     }
 
-    public function seenNotifications()
-    {
-        return $this->belongsToMany(Notifiícation::class, 'notification_user')->withPivot('seen')->withTimestamps();
+    public function notifications(){
+        return $this->belongsToMany(UserNotification::class, 'user_id');
+        // ->withPivot('is_completed');
     }
+
 }

@@ -49,7 +49,8 @@
                 <!-- Left Section -->
                 <div class="d-flex align-items-center">
                     <!-- Logo -->
-                    <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="{{ route('lms.student-dashboard') }}">
+                    <a class="fw-semibold fs-5 tracking-wider text-dual me-3"
+                        href="{{ route('lms.student-dashboard') }}">
                         <i class="fa fa-graduation-cap text-warning"></i>
                         UPPER
                     </a>
@@ -69,23 +70,35 @@
                                 <h5 class="dropdown-header text-uppercase">Notifications</h5>
                             </div>
                             <ul class="nav-items mb-0">
-                            @php
-                                $notifications = App\Models\Notification::latest()->limit(8)->get();
-                            @endphp
+                                @php
+                                    $notifications = App\Models\Notification::latest()
+                                        ->limit(8)
+                                        ->get();
+                                @endphp
 
-                            @foreach ( $notifications as $notification )
-                            <li>
-                                <a class="text-dark d-flex py-2" href="{{ route('student-notifications.show',$notification->id) }}">
-                                    <div class="flex-shrink-0 me-2 ms-3">
-                                        <i class="fa fa-fw fa-check-circle text-success"></i>
-                                    </div>
-                                    <div class="flex-grow-1 pe-2">
-                                        <div class="fw-semibold text-dark">{{ $notification->message }}</div>
-                                        <span class="fw-medium text-muted">{{ $notification->course->title }}</span>
-                                    </div>
-                                </a>
-                            </li>
-                            @endforeach
+                                @foreach ($notifications as $notification)
+                                    @php
+                                        $read = App\Models\UserNotification::where('user_id', Auth::user()->id)
+                                            ->where('notification_id', $notification->id)
+                                            ->first();
+                                    @endphp
+                                    @if ($read == null)
+                                        <li>
+                                            <a class="text-dark d-flex py-2"
+                                                href="{{ route('student-notifications.show', $notification->id) }}">
+                                                <div class="flex-shrink-0 me-2 ms-3">
+                                                    <i class="fa fa-fw fa-check-circle text-success"></i>
+                                                </div>
+                                                <div class="flex-grow-1 pe-2">
+                                                    <div class="fw-semibold text-dark">{{ $notification->message }}
+                                                    </div>
+                                                    <span
+                                                        class="fw-medium text-muted">{{ $notification->course->title }}</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
 
 
 
@@ -125,7 +138,7 @@
                         <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle" src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}"
+                            <img class="rounded-circle" src="{{ asset('public/storage/' . Auth::user()->avatar . '') }}"
                                 alt="Header Avatar" style="width: 21px;" />
                             <span class="d-none d-sm-inline-block ms-2">{{ Auth::user()->name }}</span>
                             <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1"></i>
@@ -134,7 +147,7 @@
                             aria-labelledby="page-header-user-dropdown">
                             <div class="p-3 text-center bg-body-light border-bottom rounded-top">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="{{ asset('public/storage/'.Auth::user()->avatar.'') }}" alt="">
+                                    src="{{ asset('public/storage/' . Auth::user()->avatar . '') }}" alt="">
                                 <p class="mt-2 mb-0 fw-medium">{{ Auth::user()->name }}</p>
                                 <p class="mb-0 text-muted fs-sm fw-medium"> Student </p>
                             </div>
@@ -155,7 +168,8 @@
                                     <span class="fs-sm fw-medium">Log Out</span>
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                                 {{-- </div> --}}
@@ -225,14 +239,16 @@
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('student.enrolledCourses',Auth::user()->id)}}">
+                                    <a class="nav-main-link"
+                                        href="{{ route('student.enrolledCourses', Auth::user()->id) }}">
                                         <i class="fa-solid fa-address-book"></i>
 
                                         <span class="nav-main-link-name"> &nbsp; Enrolled Courses</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="{{ route('student.completedCourses',Auth::user()->id) }}">
+                                    <a class="nav-main-link"
+                                        href="{{ route('student.completedCourses', Auth::user()->id) }}">
                                         <i class="nav-main-link-icon fa fa-bookmark"></i>
                                         <span class="nav-main-link-name">Completed Courses</span>
                                     </a>
@@ -263,7 +279,8 @@
                             href="https://1.envato.market/ydb" target="_blank">pixelcave</a> --}}
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold text-warning" href="{{ route('lms.student-dashboard') }}" target="_blank">UPPER </a>
+                        <a class="fw-semibold text-warning" href="{{ route('lms.student-dashboard') }}"
+                            target="_blank">UPPER </a>
                         &copy; <span data-toggle="year-copy"></span>
                     </div>
                 </div>
