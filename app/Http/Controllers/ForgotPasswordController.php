@@ -31,10 +31,10 @@ class ForgotPasswordController extends Controller
             // Send the password reset email
             Mail::to($user->email)->send(new PasswordResetMail($user, $resetToken));
 
-            return back()->with('message','Password reset email sent.');
+            return back()->with('success','Password reset email sent.');
         }
 
-        return back()->with('message', 'User not found.');
+        return back()->with('error', 'Password reset email not sent.');
     }
 
 

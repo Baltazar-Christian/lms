@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>LMS - Learn, Grow, Succeed</title>
+    <title>UPPER - Learn, Grow, Succeed</title>
 
     <meta name="description"
         content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
@@ -93,7 +93,17 @@
                                         <form action="{{ route('sendPasswordResetLink') }}" method="POST">
                                             @csrf
                                             <div class="row push">
+                                                @if (session('success'))
+                                                <div class="alert alert-success mt-3">
+                                                    {{ session('success') }}
+                                                </div>
+                                            @endif
 
+                                            @if (session('error'))
+                                            <div class="alert alert-danger mt-3">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
                                                 <div class="col-lg-12 col-xl-12">
                                                     @if (session('status'))
                                                         <div class="alert alert-success">
