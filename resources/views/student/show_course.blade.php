@@ -136,7 +136,7 @@
 
                                                         ">
                                                             @if (auth()->user()->completedContents->contains($subContent->id))
-                                                                Read Again
+                                                                Read
                                                             @else
                                                                 Read
                                                             @endif
