@@ -49,7 +49,7 @@
                                 <button class="nav-link" id="btabs-static2-settings-tab" data-bs-toggle="tab"
                                     data-bs-target="#btabs-static2-settings" role="tab"
                                     aria-controls="btabs-static2-settings" aria-selected="false">
-                                    <i class="si si-user text-warning"></i>
+                                    <i class="fa fa-users text-warning"></i>
                                     <span class="">Students</span>
                                 </button>
                             </li>
