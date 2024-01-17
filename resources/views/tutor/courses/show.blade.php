@@ -34,6 +34,7 @@
                 </div>
                 <div class="bg-light p-1">
                     <span><strong class="text-warning">Title:</strong> {{ $course->title }}</span> <br>
+                    <span><strong class="text-warning">Module:</strong> {{ $course->module->name }}</span> <br>
                     <span><strong class="text-warning">Price:</strong> Tsh {{ number_format($course->price, 2) }}</span><br>
                     <span><strong class="text-warning">Duration:</strong> {{ $course->duration_in_minutes }}
                         minutes</span><br>
