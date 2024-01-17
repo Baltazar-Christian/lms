@@ -104,12 +104,17 @@
                                                 {{ session('error') }}
                                             </div>
                                         @endif
-                                                <div class="col-lg-12 col-xl-12">
-                                                    @if (session('status'))
-                                                        <div class="alert alert-success">
-                                                            {{ session('status') }}
-                                                        </div>
-                                                    @endif
+                                                <div class="col-lg-6 col-xl-6">
+                                              
+                                                    <div class="mb-4">
+                                                        <label class="form-label" for="email">Name</label>
+                                                        <input type="text" class="form-control" id="text"
+                                                            name="text" required>
+                                                    </div>
+                                                 
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                              
 
                                                     <div class="mb-4">
                                                         <label class="form-label" for="email">Email Address</label>
@@ -118,7 +123,7 @@
                                                     </div>
                                                     <div class="mb-4">
                                                         <button type="submit" class="btn btn-dark float-end">
-                                                            Send Reset Link
+                                                            Reset Password 
                                                         </button>
                                                     </div>
                                                 </div>

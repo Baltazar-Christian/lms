@@ -19,19 +19,16 @@ class ForgotPasswordController extends Controller
 
     public function sendPasswordResetLink(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->where('name',$request->name)->first();
 
         if ($user) {
-            // Generate a unique reset token (you can use Str::random or any other method)
+            $data['user']=$user;
             $resetToken = Str::random(60);
 
-            // Save the token to the user's record in the database
+       
             $user->update(['reset_token' => $resetToken]);
-
-            // Send the password reset email
-            Mail::to($user->email)->send(new PasswordResetMail($user, $resetToken));
-
-            return back()->with('success','Password reset email sent.');
+            $data['token']=$resetToken;
+            return view('auth.passwords.reset',$user);
         }
 
         return back()->with('error', 'Password reset email not sent.');
