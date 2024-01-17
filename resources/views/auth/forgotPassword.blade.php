@@ -109,7 +109,7 @@
                                                     <div class="mb-4">
                                                         <label class="form-label" for="email">Name</label>
                                                         <input type="text" class="form-control" id="text"
-                                                            name="text" required>
+                                                            name="name" required>
                                                     </div>
                                                  
                                                 </div>
