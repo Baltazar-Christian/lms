@@ -68,7 +68,7 @@
                             </dd>
                           </dl>
                           <div>
-                            <i class="fa fa-2x fa-book text-white-50"></i>
+                            <i class="fa fa-2x fa-bell text-white-50"></i>
                           </div>
                       </div>
                     </a>
