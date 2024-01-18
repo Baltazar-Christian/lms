@@ -42,6 +42,9 @@
                     @if ($content->url != null)
                     <iframe width="100%" height="360px" src="{{ $content->url }}" frameborder="0" allowfullscreen></iframe>
 
+                    <a href="{{ $content->url }}" class="btn btn-sm btn-danger">
+                    <i class="fa fa-play text-light"></i> Watch Video
+                    </a>
                     @endif
                     @if ($content->type === 'image')
                         <img src="{{ asset('public/storage/course_contents/' . $content->file_path) }}"
