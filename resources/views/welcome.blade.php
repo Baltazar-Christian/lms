@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPPER - Learn, Grow, Succeed</title>
+    <meta name="google-site-verification" content="pEQJj7kGNOPxe_pYt8FJ0oPcBdr13DL7Itb_ZkeY7CI" />
+    <title>UPPER FINANCIAL CONSULTANCY - Learn, Grow, Succeed</title>
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 
     <!-- Page JS Plugins CSS -->

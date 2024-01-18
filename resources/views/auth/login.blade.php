@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>LMS - Learn, Grow, Succeed</title>
-
+    <title>UPPER - Learn, Grow, Succeed</title>
+    <meta name="google-site-verification" content="pEQJj7kGNOPxe_pYt8FJ0oPcBdr13DL7Itb_ZkeY7CI" />
     <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
