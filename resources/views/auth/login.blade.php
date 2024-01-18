@@ -169,7 +169,15 @@
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5SDSNT62EL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-5SDSNT62EL');
+</script>
     <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
