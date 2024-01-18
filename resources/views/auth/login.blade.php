@@ -35,6 +35,7 @@
   </head>
 
   <body class="bg-secondary">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -58,10 +59,17 @@
     </nav>
 
 
-    <div id="page-container">
+    <div id="page-container"
+
+    >
 
       <!-- Main Container -->
-      <main id="main-container">
+      <main
+      {{-- id="main-container" --}}
+      style="  background-image: url('{{ asset('assets/img/bg1.jpg') }}') !important;  background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;"
+      >
         <!-- Page Content -->
         <div class="hero-static d-flex align-items-center">
           <div class="content">

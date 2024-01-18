@@ -64,7 +64,12 @@
     <div id="page-container">
 
         <!-- Main Container -->
-        <main id="main-container">
+        <main
+        {{-- id="main-container" --}}
+        style="  background-image: url('{{ asset('assets/img/bg1.jpg') }}') !important;  background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;"
+        >
             <!-- Page Content -->
             <div class="hero-static d-flex align-items-center">
                 <div class="content">
