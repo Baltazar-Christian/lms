@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class SupportModuleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // Require authentication for all support routes
+        $this->middleware('role:support'); // Require support role for all support routes
+    }
+
     public function index()
     {
         $modules = Module::latest()->get();

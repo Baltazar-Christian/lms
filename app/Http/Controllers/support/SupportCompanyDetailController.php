@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Storage;
 
 class SupportCompanyDetailController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // Require authentication for all support routes
+        $this->middleware('role:support'); // Require support role for all support routes
+    }
+
+
     public function index()
     {
         $companyDetails = CompanyDetail::all();
