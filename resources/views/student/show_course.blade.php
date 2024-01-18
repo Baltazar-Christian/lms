@@ -89,7 +89,7 @@
                                         btn-warning @endif
                                         ">
                                                     @if (auth()->user()->completedContents->contains($content->id))
-                                                        Read Again
+                                                        Read
                                                     @else
                                                         Read
                                                     @endif
@@ -197,7 +197,7 @@
                                                 @if ($enrollment)
                                                     @if ($quiz->hasUserAttempted(auth()->user()))
                                                         <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
-                                                            class="btn btn-sm btn-success float-end ms-2">View Result</a>
+                                                            class="btn btn-sm btn-success float-end ms-2">Result</a>
                                                     @else
                                                         <a href="{{ route('lms.student-show-quiz', ['courseId' => $course->id, 'quizId' => $quiz->id]) }}"
                                                             class="btn btn-sm btn-warning float-end ms-2">Attempt</a>
