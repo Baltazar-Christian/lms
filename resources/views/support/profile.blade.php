@@ -105,7 +105,7 @@
                 @endif
 
                   <div class="mb-4 col-12">
-                    <label class="form-label" for="one-profile-edit-password-new">New Password</label>
+                    <label class="form-label" for="one-profile-edit-password-new">Current Password</label>
                     <div class="input-group">
 
                         <input type="password" class="form-control form-control-lg form-control-alt" id="old-password" name="one-profile-edit-password" placeholder="Password">
