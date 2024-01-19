@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('user_course_content', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('course_content_id')->constrained();
+            $table->foreignId('user_id');
+            $table->foreignId('course_content_id');
             $table->boolean('is_completed')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('course_content_id')->references('id')->on('course_contents')->onDelete('cascade');
+
+
         });
     }
 
