@@ -57,8 +57,8 @@
                                             <td>{{ $course->title }}</td>
                                             <td>
                                                 <span
-                                                    class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_complete ? 'bg-success-light text-success' : 'bg-danger-light text-danger' }} ">
-                                                    {{ $course->is_complete ? 'Completed' : 'Incomplete' }}</span>
+                                                    class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill   {{ $course->is_complete ? 'bg-danger-light text-danger' : 'bg-success-light text-success'  }} ">
+                                                    {{ $course->is_complete ? 'Incomplete' : 'Completed' }}</span>
                                             </td>
 
                                         </tr>
