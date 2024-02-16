@@ -1,4 +1,4 @@
-@extends('layouts.support')
+@extends('layouts.tutor')
 
 @section('content')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
