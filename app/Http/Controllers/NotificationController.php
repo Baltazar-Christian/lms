@@ -13,7 +13,7 @@ class NotificationController extends Controller
     // View all notifications
     public function index()
     {
-        $notifications = Notification::all();
+        $notifications = Notification::where('user_id',Auth::user()->id)->get();
 
         return view('tutor.notifications.index', compact('notifications'));
     }
