@@ -44,7 +44,7 @@
                                     <a href="{{ route('lms.tutor-show-student', $user->id) }}" class="btn btn-sm btn-dark">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('lms.tutor-activate-student', $user->id) }}"
+                                    {{-- <a href="{{ route('lms.tutor-activate-student', $user->id) }}"
                                         class="btn  btn-sm btn-success">
                                         <i class="fa fa-check"></i>
                                     </a>
@@ -55,7 +55,7 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"
                                             onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
 
                                 </td>
                             </tr>
